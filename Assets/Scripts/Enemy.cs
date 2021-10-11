@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         nvAgent = gameObject.GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
+        rigid = gameObject.GetComponent<Rigidbody>();
         Invoke("EnemyNavStart", 1);
     }
 
