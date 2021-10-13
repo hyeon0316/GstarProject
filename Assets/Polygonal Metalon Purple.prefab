@@ -130,50 +130,6 @@ Transform:
   m_Father: {fileID: 8450138392529587302}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8452019849060315989
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8452019849060315986}
-  - component: {fileID: 8452019849060315987}
-  m_Layer: 0
-  m_Name: AttackRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8452019849060315986
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452019849060315989}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.96}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8456353972450749242}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8452019849060315987
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452019849060315989}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8452301149499829474
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +922,7 @@ GameObject:
   - component: {fileID: 8452019850263486952}
   - component: {fileID: 8452019850263486950}
   - component: {fileID: 8452019850263486954}
-  - component: {fileID: 8452019850263486955}
+  - component: {fileID: 1740318272}
   m_Layer: 0
   m_Name: Polygonal Metalon Purple
   m_TagString: Untagged
@@ -1003,7 +959,6 @@ Transform:
   - {fileID: 8450285420909380202}
   - {fileID: 8449984819333042166}
   - {fileID: 8456409478760475214}
-  - {fileID: 8452019849060315986}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1053,8 +1008,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 2, z: 4}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &8452019850263486954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,11 +1022,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: {fileID: 8452019849060315987}
-  hpBarPrefab: {fileID: 1698367220936829653, guid: 344c18a8fc6049c42a742cec5fa1a974,
+  startingHealth: 100
+  startingMana: 0
+  hpBarPrefab: {fileID: 8623151006859436585, guid: 7cba76812ea025c4d8c36401807d207a,
     type: 3}
-  hpBarOffset: {x: 0, y: 2, z: 0}
---- !u!195 &8452019850263486955
+  hpBarOffset: {x: -0.5, y: 2.4, z: 0}
+  enemyHpBarCanvas: {fileID: 0}
+  enemyHpBarSlider: {fileID: 8623151006859436591, guid: 7cba76812ea025c4d8c36401807d207a,
+    type: 3}
+  whatIsTarget:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 20
+  attackDelay: 1
+  tr: {fileID: 8456353972450749242}
+--- !u!195 &1740318272
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
