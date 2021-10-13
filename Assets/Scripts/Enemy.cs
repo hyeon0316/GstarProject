@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject haBarPrefab;
+    public Vector3 hpBarOffset = new Vector3(-0.5f, 2.4f, 0);
+
+    public Canvas enemyHpBarCanvas;
+    public Slider enemyHpBarSlider;
+
     private Transform playerTr;
     private Transform enemyTr;
     private NavMeshAgent nvAgent;
@@ -17,7 +23,6 @@ public class Enemy : MonoBehaviour
     bool isEnemyNav;
     bool isAttack;
 
-    int enemyHp = 10;
 
     public BoxCollider attackRange;
 
@@ -37,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        
+        SetHpBar();
     }
     // Update is called once per frame
     void Update()
@@ -45,9 +50,18 @@ public class Enemy : MonoBehaviour
         if (isEnemyNav)
             nvAgent.destination = playerTr.position;
         Attacking();
-        FreezeVelocity();
+        //FreezeVelocity();
     }
 
+    void SetHpBar()
+    {
+        enemyHpBarCanvas = GameObject.Find("EnemyHpBarCanvas").GetComponent<Canvas>();
+        GameObject hpBar = Instantiate<GameObject>(haBarPrefab, enemyHpBarCanvas.transform);
+
+        var _hpBar = hpBar.GetComponent<EnemyHpBar>();
+        _hpBar.enemyTr = this.gameObject.transform;
+        _hpBar.offset = hpBarOffset;
+    }
     void EnemyNavStart()
     {
         isEnemyNav = true;
