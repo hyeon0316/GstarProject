@@ -44,6 +44,7 @@ public class LivingEntity : MonoBehaviour
     public virtual void Die()
     {
         GameObject.Destroy(gameObject);
+
         ////onDeath 이벤트에 등록된 메서드가 있다면 실행
         //if (onDeath != null)
         //{
