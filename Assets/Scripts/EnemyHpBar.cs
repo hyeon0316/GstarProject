@@ -25,20 +25,15 @@ public class EnemyHpBar : MonoBehaviour
     //LateUpdate는 update 이후 실행함, 적의 움직임은 Update에서 실행되니 움직임 이후에 HpBar를 출력함
     private void LateUpdate()
     {
-        var screenPos = Camera.main.WorldToScreenPoint(enemyTr.position + offset); //월드좌표(3D)를 스크린좌표(2D)로 변경, offset은 오브젝트 머리 위치
-        /*
-        if(screenPos.z < 0.0f)
+        if (enemyTr != null)
         {
-            screenPos *= -1.0f;
-            //x, y, (z) 메인카메라에서 XY평면까지의 거리
+            var screenPos = Camera.main.WorldToScreenPoint(enemyTr.position + offset); //월드좌표(3D)를 스크린좌표(2D)로 변경, offset은 오브젝트 머리 위치
+            
+            var localPos = Vector2.zero;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, uiCamera, out localPos); //스크린좌표에서 캔버스에서 사용할 수 있는 좌표로 변경?
+
+            rectHp.localPosition = localPos; //그 좌표를 localPos에 저장, 거기에 hpbar를 출력
         }
-        백뷰시점에서는 뒤돌 경우 HpBar가 보이는 문제가 있어서 위의 코드로 안보이게 했지만, 나는 쿼터뷰 시점이라서 필요없음
-        */
-
-        var localPos = Vector2.zero;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, uiCamera, out localPos); //스크린좌표에서 캔버스에서 사용할 수 있는 좌표로 변경?
-
-        rectHp.localPosition = localPos; //그 좌표를 localPos에 저장, 거기에 hpbar를 출력
     }
 
 }

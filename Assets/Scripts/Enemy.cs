@@ -78,7 +78,6 @@ public class Enemy : LivingEntity
     void Start()
     {
         SetHpBar();
-
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작
         StartCoroutine(UpdatePath());
         tr = GetComponent<Transform>();
@@ -104,8 +103,10 @@ public class Enemy : LivingEntity
         GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, enemyHpBarCanvas.transform);
 
         var _hpbar = hpBar.GetComponent<EnemyHpBar>();
+        
         _hpbar.enemyTr = this.gameObject.transform;
         _hpbar.offset = hpBarOffset;
+        enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력 감소하게 하기
     }
 
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
@@ -219,7 +220,7 @@ public class Enemy : LivingEntity
         */
 
         //피격 애니메이션 재생
-        //enemyAnimator.SetTrigger("Hit");
+        enemyAnimator.SetTrigger("Hit");
 
 
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
@@ -231,9 +232,7 @@ public class Enemy : LivingEntity
     //사망 처리
     public override void Die()
     {
-        //LivingEntity의 DIe()를 실행하여 기본 사망 처리 실행
-        base.Die();
-
+        enemyHpBarSlider.gameObject.SetActive(false);
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
         for (int i = 0; i < enemyColliders.Length; i++)
@@ -251,12 +250,14 @@ public class Enemy : LivingEntity
         /*//사망 효과음 재생
         enemyAudioPlayer.PlayOnShot(deathSound);
         */
+
+        //LivingEntity의 DIe()를 실행하여 기본 사망 처리 실행
+        base.Die();
     }
 
     //enemyHpBarSlider 활성화
     protected override void OnEnable()
     {
-
         //LivingEntity의 OnEnable() 실행(상태초기화)
         base.OnEnable();
 
