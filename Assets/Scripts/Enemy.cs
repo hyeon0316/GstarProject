@@ -62,7 +62,7 @@ public class Enemy : LivingEntity
         //enemyAudioPlayer = GetComponent<AudioSource>();
     }
 
-    //적 AI의 초기 스펙을 결정하는 셋업 메서드
+    //적 AI의 초기 스펙을 결정하는 셋업 메서드(아직 안씀, 기본값으로 설정 가능)
     public void Setup(float newHealth, float newDamage, float newSpeed)
     {
         //체력 설정
