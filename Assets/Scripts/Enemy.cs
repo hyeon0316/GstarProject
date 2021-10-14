@@ -106,7 +106,7 @@ public class Enemy : LivingEntity
         
         _hpbar.enemyTr = this.gameObject.transform;
         _hpbar.offset = hpBarOffset;
-        enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력 감소하게 하기
+        enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력감소시키기위해 getcomponent(게임 실행 시 연결이 안되었던 문제 해결)
     }
 
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
