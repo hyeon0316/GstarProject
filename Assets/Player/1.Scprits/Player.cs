@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : LivingEntity
 {
+    //인벤토리
+    [SerializeField]
+    private Inventory inventory;
+
     //public static Player inst;
     [SerializeField]
     private Transform chBody;
@@ -69,6 +73,15 @@ public class Player : LivingEntity
     void Start()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)//아이템 획득
+    {
+        if (other.gameObject.tag.Equals("Item"))
+        {
+            inventory.AcquireItem(other.transform.GetComponent<ItemPickUp>().item);
+            Destroy(other.gameObject);
+        }
     }
 
     void GetPos()

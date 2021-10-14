@@ -1,0 +1,143 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
+public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+{
+    public Item e_item; //획득한 아이템
+    public Image e_itemImage; //아이템의 이미지
+
+    private float doubleClickTime = 0.25f; //더블클릭 관련 변수들
+    private bool isOneClick = false;
+    private bool isDoubleClick = false;
+    private double c_Timer = 0;
+
+    [SerializeField]
+    private Inventory inventory;
+
+    private Slot slot;
+
+    public static bool inter_Change; //장비창에서 인벤토리 창으로 드래그 해서 넘겨줄 때 사용할 변수
+
+    static public bool interChange = false;
+
+    static public bool invenSlotClearOn = false;
+
+    
+
+    void Start()
+    {
+        
+    }
+    private void SetColor(float _alpha) //이미지 투명도 조절
+    {
+        Color color = e_itemImage.color;
+        color.a = _alpha;
+        e_itemImage.color = color;
+    }
+
+    public void AddEquipItem(Item _item) //정보창에 장비 장착
+    {
+        e_item = _item;
+        e_itemImage.sprite = e_item.itemImage;
+
+        SetColor(1);
+    }
+
+    public void ClearSlot()//정보창 슬롯 초기화
+    {
+        e_item = null;
+        e_itemImage.sprite = null;
+        SetColor(0);       
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right) //우클릭하여 장비해제
+        {
+            if (e_item != null)
+            {
+                inventory.AcquireItem(e_item);
+                ClearSlot();
+            }
+        }
+        else if (eventData.button == PointerEventData.InputButton.Left) //더블클릭
+        {
+            if (!isOneClick)
+            {
+                c_Timer = Time.time;
+                isOneClick = true;
+            }
+            else if (isOneClick && ((Time.time - c_Timer) > doubleClickTime))
+            {
+                isOneClick = false;
+            }
+            else if (isOneClick && ((Time.time - c_Timer) < doubleClickTime))
+            {
+                isOneClick = false;
+                isDoubleClick = true;
+            }
+
+            if (isDoubleClick)
+            {
+                if (e_item != null)
+                {
+                    inventory.AcquireItem(e_item);
+                    ClearSlot();
+                }
+                isDoubleClick = false;
+            }
+        }
+    }
+
+    
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if(e_item !=null)
+        {
+            DragSlot_Equip.instance.dragSlot_Equip = this;
+            DragSlot_Equip.instance.DragSetImage(e_itemImage);
+            DragSlot_Equip.instance.transform.position = eventData.position; //마우스 포지션
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (e_item != null)
+        {
+            DragSlot_Equip.instance.transform.position = eventData.position;
+            inter_Change = true;
+        }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {             
+        interChange = true;
+        DragSlot_Equip.instance.SetColor(0);   
+        
+        if(Slot.EquipClearOn)
+        {
+            ClearSlot();
+            Slot.EquipClearOn = false;
+        }
+        DragSlot_Equip.instance.dragSlot_Equip = null;
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (Slot.interChange_Equip)
+        {
+            if (DragSlot.instance.dragSlot != null)
+            {
+                if (DragSlot.instance.dragSlot.item.itemType == Item.ItemType.Equipment)
+                {
+                    //장착                  
+                    AddEquipItem(DragSlot.instance.dragSlot.item);
+                    invenSlotClearOn = true;
+                }
+            }
+            Slot.interChange_Equip = false;
+        }
+    }
+}
