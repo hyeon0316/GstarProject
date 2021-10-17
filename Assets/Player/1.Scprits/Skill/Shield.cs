@@ -15,5 +15,6 @@ public class Shield : MonoBehaviour
     void Update()
     {
         transform.Rotate(new Vector3(0, rotSpeed * Time.deltaTime, 0));
+        
     }
 }
