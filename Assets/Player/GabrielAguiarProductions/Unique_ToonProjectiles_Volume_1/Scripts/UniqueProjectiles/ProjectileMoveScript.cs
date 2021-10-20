@@ -149,6 +149,12 @@ public class ProjectileMoveScript : MonoBehaviour {
 			livingEntity1.OnDamage(20); //적에게 데미지
 			hit(co);
 		}
+		else if(co.gameObject.tag == "Boss")
+        {
+			Boss livingEntity2 = co.gameObject.GetComponent<Boss>();
+			livingEntity2.OnDamage(20);
+			hit(co);
+        }
         else if (!bounce&&co.gameObject.tag!="Player")
         {
 			hit(co);

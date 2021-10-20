@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Top
+  - Pants
+  - accessory
+  - Shoes
+  - weapon
+  - Head
+  - Item
+  - Boss
   layers:
   - Default
   - TransparentFX

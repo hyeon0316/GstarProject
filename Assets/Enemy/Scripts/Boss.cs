@@ -1,41 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AI; //AI, 네비게이션 시스템 관련 코드 가져오기
+using UnityEngine.AI;
 
-public class Enemy : LivingEntity
+public class Boss : LivingEntity
 {
-    //HpBarUi 추가 변수
-    public GameObject hpBarPrefab;
-    public Vector3 hpBarOffset = new Vector3(-0.5f, 2.4f, 0);
-
-    public Canvas enemyHpBarCanvas;
-    public Slider enemyHpBarSlider;
-
     public LayerMask whatIsTarget; //추적대상 레이어
 
     private LivingEntity targetEntity;//추적대상
     private NavMeshAgent pathFinder; //경로 계산 AI 에이전트
 
-    /*public ParticleSystem hitEffect; //피격 이펙트
-    public AudioClip deathSound;//사망 사운드
-    public AudioClip hitSound; //피격 사운드
-    */
-
-    private Animator enemyAnimator;
-    //private AudioSource enemyAudioPlayer; //오디오 소스 컴포넌트
+    private Animator bossAnimator;
 
     public float damage = 20f; //공격력
-    public float attackDelay = 1f; //공격 딜레이
+    public float attackDelay = 2f; //공격 딜레이
     private float lastAttackTime; //마지막 공격 시점
     private float dist; //추적대상과의 거리
 
     public Transform tr;
 
-    private float attackRange = 2.3f;
+    private float attackRange = 3f;
 
-    //추적 대상이 존재하는지 알려주는 프로퍼티
     private bool hasTarget
     {
         get
@@ -58,37 +43,22 @@ public class Enemy : LivingEntity
     {
         //게임 오브젝트에서 사용할 컴포넌트 가져오기
         pathFinder = GetComponent<NavMeshAgent>();
-        enemyAnimator = GetComponent<Animator>();
-        //enemyAudioPlayer = GetComponent<AudioSource>();
-    }
-
-    //적 AI의 초기 스펙을 결정하는 셋업 메서드(아직 안씀, 기본값으로 설정 가능)
-    public void Setup(float newHealth, float newDamage, float newSpeed)
-    {
-        //체력 설정
-        startingHealth = newHealth;
-        health = newHealth;
-        //공격력 설정
-        damage = newDamage;
-        //네비메쉬 에이전트의 이동 속도 설정
-        pathFinder.speed = newSpeed;
+        bossAnimator = GetComponent<Animator>();
     }
 
 
     void Start()
     {
-        SetHpBar();
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작
         StartCoroutine(UpdatePath());
         tr = GetComponent<Transform>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemyAnimator.SetBool("CanMove", canMove);
-        enemyAnimator.SetBool("CanAttack", canAttack);
+        bossAnimator.SetBool("CanMove", canMove);
+        bossAnimator.SetBool("CanAttack", canAttack);
 
         if (hasTarget)
         {
@@ -97,18 +67,7 @@ public class Enemy : LivingEntity
         }
     }
 
-    void SetHpBar()
-    {
-        enemyHpBarCanvas = GameObject.Find("EnemyHpBarCanvas").GetComponent<Canvas>();
-        GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, enemyHpBarCanvas.transform);
-
-        var _hpbar = hpBar.GetComponent<EnemyHpBar>();
-        
-        _hpbar.enemyTr = this.gameObject.transform;
-        _hpbar.offset = hpBarOffset;
-        enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력감소시키기위해 getcomponent(게임 실행 시 연결이 안되었던 문제 해결)
-    }
-
+ 
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
     private IEnumerator UpdatePath()
     {
@@ -146,7 +105,6 @@ public class Enemy : LivingEntity
                     }
                 }
             }
-
             //0.25초 주기로 처리 반복
             yield return new WaitForSeconds(0.25f);
         }
@@ -155,11 +113,9 @@ public class Enemy : LivingEntity
     //추적 대상과의 거리에 따라 공격 실행
     public virtual void Attack()
     {
-
         //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면
         if (!dead && dist < attackRange)
         {
-            
             pathFinder.isStopped = true;
 
             //공격 반경 안에 있으면 움직임을 멈춘다.
@@ -208,34 +164,14 @@ public class Enemy : LivingEntity
 
     //데미지를 입었을 때 실행할 처리(재정의)
     public override void OnDamage(float damage)
-    {
-        /*사망하지 않을 상태에서만 피격 효과 재생
-        if (!dead)
-        {
-            //공격 받은 지점과 방향으로 피격 효과 재생
-            hitEffect.transform.position = hitPoint;
-            hitEffect.transform.rotation = Quaternion.LookRotation(hitNormal);
-            hitEffect.Play();
-
-            //피격 효과음 재생
-            enemyAudioPlayer.PlayOnShot(hitSound);
-        }
-        */
-
-        //피격 애니메이션 재생
-        enemyAnimator.SetTrigger("Hit");
-
-
+    { 
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
-        base.OnDamage(damage); //base, 부모클래스에 접근하는 기능
-
-        enemyHpBarSlider.value = health;
+        base.OnDamage(damage); //base, 부모클래스에 접근하는 기능       
     }
 
     //사망 처리
     public override void Die()
-    {
-        enemyHpBarSlider.gameObject.SetActive(false);
+    {       
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
         for (int i = 0; i < enemyColliders.Length; i++)
@@ -247,21 +183,15 @@ public class Enemy : LivingEntity
         pathFinder.isStopped = true;
         pathFinder.enabled = false;
 
+
         canMove = false;
         canAttack = false;
 
-        //사망 애니메이션 재생       
-        enemyAnimator.ResetTrigger("Hit");
-        enemyAnimator.SetTrigger("doDie");
+        //사망 애니메이션 재생
+        bossAnimator.SetTrigger("doDie");
 
-        /*//사망 효과음 재생
-        enemyAudioPlayer.PlayOnShot(deathSound);
-        */
-
-        //LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
+        //LivingEntity의 DIe()를 실행하여 기본 사망 처리 실행
         base.Die();
-
-        Invoke("DestroyEnemy", 2f);
     }
 
     //enemyHpBarSlider 활성화
@@ -269,17 +199,5 @@ public class Enemy : LivingEntity
     {
         //LivingEntity의 OnEnable() 실행(상태초기화)
         base.OnEnable();
-
-        //체력 슬라이더 활성화
-        enemyHpBarSlider.gameObject.SetActive(true);
-        //체력 슬라이더의 최댓값을 기본 체력값으로 변경
-        enemyHpBarSlider.maxValue = startingHealth;
-        //체력 슬라이더의 값을 현재 체력값으로 변경
-        enemyHpBarSlider.value = health;
-    }
-
-    private void DestroyEnemy()
-    {
-        GameObject.Destroy(gameObject);
     }
 }
