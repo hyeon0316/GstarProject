@@ -38,8 +38,8 @@ public class Player : LivingEntity
     bool isSkillE;
     bool isSkillR;
     bool isSkillTP;
-
-    private bool gotM;
+    
+    bool isGotM;
 
     float skill1Time=10f;
     // Start is called before the first frame update
@@ -61,7 +61,7 @@ public class Player : LivingEntity
         time_W = 30f;
         time_E = 30f;
         time_R = 30f;
-        gotM = false;
+        isGotM = false;
         time_Q_1 = 2f;
         isSkillQ = true;
         isSkillW = true;
@@ -129,17 +129,29 @@ public class Player : LivingEntity
     }
     void SkillQ()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q)&&isSkillQ)
         {
-            gotM = true;
+            isSkillQ = false;
+            isGotM = true;
             skill_Q.SetActive(true);
             float qTime1;
             qTime1 = Time.time;
+            StartCoroutine(SkillQCount(time_Q));
         }
+    }
+    IEnumerator SkillQCount(float dealy)
+    {
+        yield return new WaitForSeconds(3f);
+        skill_Q.SetActive(false);
+        isGotM = false;
+        yield return new WaitForSeconds(dealy);
+
+        isSkillQ = true;
+
     }
     void Tp()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)&&isSkillTP)
         {
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
@@ -150,8 +162,16 @@ public class Player : LivingEntity
                 transform.position += dir.normalized * 2f;
                 isMove = false;
                 animator.SetBool("isMove", false);
+                StartCoroutine(SkillTPCount());
             }
         }
+    }
+    IEnumerator SkillTPCount()
+    {
+        isSkillTP = false;
+        yield return new WaitForSeconds(1f);
+        isSkillTP = true;
+
     }
     /*
     public void HPup(int a)
