@@ -38,10 +38,10 @@ public class Player : LivingEntity
     bool isSkillE;
     bool isSkillR;
     bool isSkillTP;
-    
+
     bool isGotM;
 
-    float skill1Time=10f;
+    float skill1Time = 10f;
     // Start is called before the first frame update
 
 
@@ -72,7 +72,7 @@ public class Player : LivingEntity
     }
     void Start()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)//아이템 획득
@@ -129,7 +129,7 @@ public class Player : LivingEntity
     }
     void SkillQ()
     {
-        if (Input.GetKeyDown(KeyCode.Q)&&isSkillQ)
+        if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
         {
             isSkillQ = false;
             isGotM = true;
@@ -151,7 +151,7 @@ public class Player : LivingEntity
     }
     void Tp()
     {
-        if (Input.GetKey(KeyCode.Space)&&isSkillTP)
+        if (Input.GetKey(KeyCode.Space) && isSkillTP)
         {
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
@@ -198,19 +198,19 @@ public class Player : LivingEntity
     private void Move()
     {
         attack = animator.GetBool("attack");
-        if (isMove&&!attack)
+        if (isMove && !attack)
         {
             var dir = destination - transform.position;
 
             dir.y = 0f;
 
             transform.position += dir.normalized * Time.deltaTime * 5f;
-           
+
             animator.transform.forward = dir;
             firePoint.transform.forward = dir;
         }
 
-        if (GetDistance(transform.position.x,transform.position.z,destination.x,destination.z)<0.1f)
+        if (GetDistance(transform.position.x, transform.position.z, destination.x, destination.z) < 0.1f)
         {
             isMove = false;
             animator.SetBool("isMove", false);
@@ -235,8 +235,13 @@ public class Player : LivingEntity
         isMove = true;
         animator.SetBool("isMove", true);
     }
-}
 
+    public override void Die()
+    {
+        Debug.Log("you Die");
+        base.Die();
+    }
+}
 
 /*
  * using System.Collections;

@@ -202,7 +202,7 @@ public class Enemy : LivingEntity
         attackTarget.OnDamage(damage);
 
         //최근 공격 시간 갱신
-        lastAttackTime = Time.time;
+        lastAttackTime = Time.time;      
     }
 
 

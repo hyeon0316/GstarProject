@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Boss : LivingEntity
 {
+    private Text bossHpText;
+    public GameObject bossHpBarPrefab;
+    public Canvas enemyHpBarCanvas;
+    public Slider bossHpBarSlider;
+
+    public Vector3 hpBarOffset = new Vector3(0, 10f, 0);
+
     public LayerMask whatIsTarget; //추적대상 레이어
 
     private LivingEntity targetEntity;//추적대상
@@ -49,11 +57,22 @@ public class Boss : LivingEntity
 
     void Start()
     {
+        SetHpBar();
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작
         StartCoroutine(UpdatePath());
         tr = GetComponent<Transform>();
     }
 
+    void SetHpBar()
+    {
+        enemyHpBarCanvas = GameObject.Find("EnemyHpBarCanvas").GetComponent<Canvas>();
+        GameObject bossHpBar = Instantiate<GameObject>(bossHpBarPrefab, enemyHpBarCanvas.transform);
+
+        var _hpbar = bossHpBar.GetComponent<BossHpBar>();
+        bossHpBarSlider = _hpbar.GetComponent<Slider>();
+        bossHpText = GameObject.Find("EnemyHpBarCanvas").transform.GetChild(0).transform.GetChild(2).GetComponent<Text>();
+        bossHpText.text = string.Format("{0}", health);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -64,7 +83,7 @@ public class Boss : LivingEntity
         {
             //추적 대상이 존재할 경우 거리 계산은 실시간으로 해야하니 Update()
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
-        }
+        }       
     }
 
  
@@ -158,7 +177,7 @@ public class Boss : LivingEntity
         attackTarget.OnDamage(damage);
 
         //최근 공격 시간 갱신
-        lastAttackTime = Time.time;
+        lastAttackTime = Time.time;     
     }
 
 
@@ -166,12 +185,16 @@ public class Boss : LivingEntity
     public override void OnDamage(float damage)
     { 
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
-        base.OnDamage(damage); //base, 부모클래스에 접근하는 기능       
+        base.OnDamage(damage); //base, 부모클래스에 접근하는 기능   
+
+        bossHpBarSlider.value = health;
+        bossHpText.text = string.Format("{0}", health);
     }
 
     //사망 처리
     public override void Die()
-    {       
+    {
+        bossHpBarSlider.gameObject.SetActive(false);
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
         for (int i = 0; i < enemyColliders.Length; i++)
@@ -194,10 +217,16 @@ public class Boss : LivingEntity
         base.Die();
     }
 
-    //enemyHpBarSlider 활성화
+    //bossHpBarSlider 활성화
     protected override void OnEnable()
     {
         //LivingEntity의 OnEnable() 실행(상태초기화)
         base.OnEnable();
+
+        bossHpBarSlider.gameObject.SetActive(true);
+        bossHpBarSlider.maxValue = startingHealth;
+        //체력 슬라이더의 값을 현재 체력값으로 변경
+        bossHpBarSlider.value = health;
+        
     }
 }
