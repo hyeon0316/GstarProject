@@ -150,6 +150,7 @@ public class Player : LivingEntity
             animator.transform.forward = dir;
             isMove = false;
             QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
+            QQ.transform.position = skillQFP.transform.position;
             QQ.transform.forward = dir;
             animator.SetBool("isMove", false);
         }
@@ -243,8 +244,12 @@ public class Player : LivingEntity
         isMove = true;
         animator.SetBool("isMove", true);
     }
+    public override void Die()
+    {
+        Debug.Log("you Die");
+        base.Die();
+    }
 
-  
 }
 
 /*
