@@ -60,7 +60,7 @@ public class Player : LivingEntity
         camera = Camera.main;
         attack = false;
 
-        time_Q = 30f;
+        time_Q = 5f;
         time_W = 30f;
         time_E = 30f;
         time_R = 30f;
@@ -135,7 +135,7 @@ public class Player : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
         {
-            isSkillW = false;
+            isSkillQ = false;
             StartCoroutine(SkillQCount(time_Q));
         }
     }
@@ -149,12 +149,19 @@ public class Player : LivingEntity
             dir.y = 0;
             animator.transform.forward = dir;
             isMove = false;
+            skillQFP.transform.forward = dir;
             QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
-            QQ.transform.position = skillQFP.transform.position;
-            QQ.transform.forward = dir;
+            QQ.transform.forward = skillQFP.transform.forward;
             animator.SetBool("isMove", false);
         }
-        yield return new WaitForSeconds(dealy);
+        else
+        {
+            QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(2.5f);
+        Destroy(QQ.gameObject);
+        yield return new WaitForSeconds(dealy-2.5f);
+
 
         isSkillQ = true;
 
