@@ -23959,6 +23959,7 @@ MonoBehaviour:
   attack: 0
   attackSpeed: 1.5
   firePoint: {fileID: 1978236891}
+  skillQFP: {fileID: 0}
   skill_Q: {fileID: 1281316894}
   skill_W: {fileID: 0}
   skill_E: {fileID: 0}
@@ -24443,6 +24444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: whatIsTarget1.m_Bits
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102727707068821079, guid: 01287946b7cb3db43b337ceed952bd4a,
+        type: 3}
+      propertyPath: m_Speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9102727707069121236, guid: 01287946b7cb3db43b337ceed952bd4a,
         type: 3}
