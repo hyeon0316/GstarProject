@@ -21,10 +21,13 @@ public class Player : LivingEntity
     public bool attack;
     public float attackSpeed;
     public GameObject firePoint;
+    public GameObject skillQFP;
+
     public GameObject skill_Q;
     public GameObject skill_W;
     public GameObject skill_E;
     public GameObject skill_R;
+    
 
     private float time_Q;
     private float time_W;
@@ -126,27 +129,53 @@ public class Player : LivingEntity
 
 
         SkillQ();
+        SkillW();
     }
     void SkillQ()
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
         {
-            isSkillQ = false;
-            isGotM = true;
-            skill_Q.SetActive(true);
-            float qTime1;
-            qTime1 = Time.time;
+            isSkillW = false;
             StartCoroutine(SkillQCount(time_Q));
         }
     }
     IEnumerator SkillQCount(float dealy)
     {
-        yield return new WaitForSeconds(3f);
-        skill_Q.SetActive(false);
-        isGotM = false;
+        RaycastHit hit;
+        GameObject QQ;
+        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+        {
+            var dir = hit.point - animator.transform.position;
+            dir.y = 0;
+            animator.transform.forward = dir;
+            isMove = false;
+            QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
+            QQ.transform.forward = dir;
+            animator.SetBool("isMove", false);
+        }
         yield return new WaitForSeconds(dealy);
 
         isSkillQ = true;
+
+    }
+    void SkillW()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && isSkillW)
+        {
+            isSkillW = false;
+            isGotM = true;
+            skill_W.SetActive(true);
+            StartCoroutine(SkillWCount(time_W));
+        }
+    }
+    IEnumerator SkillWCount(float dealy)
+    {
+        yield return new WaitForSeconds(3f);
+        skill_W.SetActive(false);
+        isGotM = false;
+        yield return new WaitForSeconds(dealy);
+
+        isSkillW = true;
 
     }
     void Tp()
@@ -173,28 +202,7 @@ public class Player : LivingEntity
         isSkillTP = true;
 
     }
-    /*
-    public void HPup(int a)
-    {
-        
-        rHp += a;
-        if (rHp > maxHp)
-        {
-            rHp = maxHp;
-        }
-    }
-    public void HPdown(int a)
-    {
-        if (!gotM)
-        {
-            rHp -= a;
-            if (rHp < 0)
-            {
-                rHp = 0;
-            }
-        }
-    }
-    */
+   
     private void Move()
     {
         attack = animator.GetBool("attack");
@@ -236,11 +244,7 @@ public class Player : LivingEntity
         animator.SetBool("isMove", true);
     }
 
-    public override void Die()
-    {
-        Debug.Log("you Die");
-        base.Die();
-    }
+  
 }
 
 /*
