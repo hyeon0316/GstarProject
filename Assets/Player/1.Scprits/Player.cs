@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : LivingEntity
 {
     //인벤토리
@@ -12,9 +12,11 @@ public class Player : LivingEntity
     [SerializeField]
     private Transform chBody;
 
+    public Slider playerHpBarSlider;
+    public Text playerHpText;
 
     private Camera camera;
-    public int maxHp;
+   
     public bool isMove;
     private Vector3 destination;
     public Animator animator;
@@ -54,8 +56,7 @@ public class Player : LivingEntity
         {
             inst = this;
         }
-        */
-        maxHp = 1000;
+        */      
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
         attack = false;
@@ -77,7 +78,26 @@ public class Player : LivingEntity
     {
 
     }
+    // Update is called once per frame
+    void Update()
+    {
+        GetPos();
+        Attack();
+        Move();
+        Tp();
 
+
+        SkillQ();
+        SkillW();
+        SetHpMp();
+    }
+
+    void SetHpMp()
+    {
+        playerHpBarSlider.maxValue = startingHealth;
+        playerHpBarSlider.value = health;
+        playerHpText.text = string.Format("{0}/{1}", health, startingHealth);
+    }
     private void OnTriggerEnter(Collider other)//아이템 획득
     {
         if (other.gameObject.tag.Equals("Item"))
@@ -119,18 +139,7 @@ public class Player : LivingEntity
             SpawnProjectilesScript.inst.SpawnVFX();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        GetPos();
-        Attack();
-        Move();
-        Tp();
-
-
-        SkillQ();
-        SkillW();
-    }
+   
     void SkillQ()
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
