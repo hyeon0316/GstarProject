@@ -187,11 +187,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             {
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
+
             }
             else
             {
                 DragSlot.instance.SetColor(0);
-                DragSlot.instance.dragSlot = null;
+                DragSlot.instance.dragSlot = null;               
             }
         }
         //정보창On(보류, DragSlot위치 기준으로 다 해야하기 때문에 어렵)
@@ -202,21 +203,22 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
                (DragSlot.instance.transform.position.y > 150
-                && DragSlot.instance.transform.position.y < 950
-                && DragSlot.instance.transform.position.x > 80
-                && DragSlot.instance.transform.position.x < 590)))
+                && DragSlot.instance.transform.position.y < 380
+                && DragSlot.instance.transform.position.x > 105
+                && DragSlot.instance.transform.position.x < 300)))
             {
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
+                
             }
             else if ((DragSlot.instance.transform.localPosition.x > invenBaseRect.xMin//정보창 or 인벤창 안에서 드롭 시
                 && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
                 && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                 && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
                 (DragSlot.instance.transform.position.y > 150
-                 && DragSlot.instance.transform.position.y < 950
-                 && DragSlot.instance.transform.position.x > 80
-                 && DragSlot.instance.transform.position.x < 590))
+                 && DragSlot.instance.transform.position.y < 380
+                 && DragSlot.instance.transform.position.x > 105
+                 && DragSlot.instance.transform.position.x < 300))
             {
                 DragSlot.instance.SetColor(0);
                 DragSlot.instance.dragSlot = null;
