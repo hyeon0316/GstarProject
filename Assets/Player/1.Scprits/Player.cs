@@ -29,7 +29,9 @@ public class Player : LivingEntity
     public GameObject skill_W;
     public GameObject skill_E;
     public GameObject skill_R;
-    
+
+    public float dP;
+    public float power;
 
     private float time_Q;
     private float time_W;
@@ -60,7 +62,7 @@ public class Player : LivingEntity
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
         attack = false;
-
+        dP = 0;
         time_Q = 5f;
         time_W = 30f;
         time_E = 5f;
@@ -296,8 +298,15 @@ public class Player : LivingEntity
     }
     public override void Die()
     {
+        //
         Debug.Log("you Die");
         base.Die();
+    }
+    public override void OnDamage(float damage)
+    {
+        //
+        damage -= dP;
+        base.OnDamage(damage);
     }
 
 }
