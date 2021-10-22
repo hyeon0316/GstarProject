@@ -121,6 +121,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 9c7b8b1d8ffeae54db942720c693123e, type: 2}
+--- !u!1 &1434979128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7509598948247897206, guid: 86cd7a4677a26d84096ebd5bda175140,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863751090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1434979130
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434979128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: dbd1831d037bfa8499e607fa786bbdf7, type: 3}
 --- !u!1001 &1863751090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,6 +542,7 @@ PrefabInstance:
     - {fileID: 7508901311953827425, guid: 86cd7a4677a26d84096ebd5bda175140, type: 3}
     - {fileID: 7508901311953827424, guid: 86cd7a4677a26d84096ebd5bda175140, type: 3}
     - {fileID: 7508901311953827427, guid: 86cd7a4677a26d84096ebd5bda175140, type: 3}
+    - {fileID: 7632304215157445508, guid: 86cd7a4677a26d84096ebd5bda175140, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 86cd7a4677a26d84096ebd5bda175140, type: 3}
 --- !u!1001 &1921419769
 PrefabInstance:
@@ -614,6 +635,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 19.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884861571171857361, guid: 1ac56260a99725847ae05439296f1617,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884861571171857361, guid: 1ac56260a99725847ae05439296f1617,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884861571171857361, guid: 1ac56260a99725847ae05439296f1617,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ac56260a99725847ae05439296f1617, type: 3}
