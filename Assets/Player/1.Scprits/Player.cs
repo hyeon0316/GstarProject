@@ -263,7 +263,7 @@ public class Player : LivingEntity
 
             dir.y = 0f;
 
-            transform.position += dir.normalized * Time.deltaTime * 5f;
+            transform.position += dir.normalized * Time.deltaTime * 10f;
 
             animator.transform.forward = dir;
             firePoint.transform.forward = dir;
