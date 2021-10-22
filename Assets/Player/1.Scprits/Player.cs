@@ -63,7 +63,7 @@ public class Player : LivingEntity
 
         time_Q = 5f;
         time_W = 30f;
-        time_E = 30f;
+        time_E = 5f;
         time_R = 30f;
         isGotM = false;
         time_Q_1 = 2f;
@@ -89,6 +89,7 @@ public class Player : LivingEntity
 
         SkillQ();
         SkillW();
+        SkillE();
         SetHpMp();
     }
 
@@ -193,6 +194,39 @@ public class Player : LivingEntity
         yield return new WaitForSeconds(dealy);
 
         isSkillW = true;
+
+    }
+    void SkillE()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isSkillE)
+        {
+            isSkillE = false;
+            StartCoroutine(SkillECount(time_E));
+        }
+    }
+    IEnumerator SkillECount(float dealy)
+    {
+        RaycastHit hit;
+        GameObject QQ;
+        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+        {
+            var dir = hit.point - animator.transform.position;
+            dir.y = 0;
+            animator.transform.forward = dir;
+            isMove = false;
+            animator.SetBool("isMove", false);
+            QQ = Instantiate(skill_E, hit.point, Quaternion.identity);
+        }
+        else
+        {
+            QQ = Instantiate(skill_E, transform.position, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(5f);
+        Destroy(QQ.gameObject);
+        yield return new WaitForSeconds(dealy - 2.5f);
+
+
+        isSkillE = true;
 
     }
     void Tp()
