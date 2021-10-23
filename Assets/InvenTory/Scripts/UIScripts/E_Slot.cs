@@ -21,17 +21,18 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
 
     private Slot slot;
 
-    public static bool inter_Change; //장비창에서 인벤토리 창으로 드래그 해서 넘겨줄 때 사용할 변수
-
     static public bool interChange = false;
 
     static public bool invenSlotClearOn = false;
 
-    
-
+   
     void Start()
     {
         
+    }
+    void Update()
+    {
+
     }
     private void SetColor(float _alpha) //이미지 투명도 조절
     {
@@ -45,7 +46,9 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
         e_item = _item;
         e_itemImage.sprite = e_item.itemImage;      
         SetColor(1);
-        thePlayer.EquipEffect(_item);
+        thePlayer.EquipEffect(e_item);
+
+
     }
 
     public void ClearSlot()//정보창 슬롯 초기화
@@ -53,8 +56,7 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
         thePlayer.TakeOffEffect(e_item);
         e_item = null;
         e_itemImage.sprite = null;
-        SetColor(0);
-        
+        SetColor(0);       
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -111,37 +113,43 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
         if (e_item != null)
         {
             DragSlot_Equip.instance.transform.position = eventData.position;
-            inter_Change = true;
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {             
         interChange = true;
-        DragSlot_Equip.instance.SetColor(0);   
-        
-        if(Slot.EquipClearOn)
-        {
-            ClearSlot();
-            Slot.EquipClearOn = false;
-        }
+        DragSlot_Equip.instance.SetColor(0);           
         DragSlot_Equip.instance.dragSlot_Equip = null;
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (Slot.interChange_Equip)
+        if (Slot.DragChange_Equip)
         {
             if (DragSlot.instance.dragSlot != null)
             {
                 if (DragSlot.instance.dragSlot.item.itemType == Item.ItemType.Equipment)
                 {
-                    //장착                  
-                    AddEquipItem(DragSlot.instance.dragSlot.item);
+                    //장착   
+                    Inter_ChangeSlot();
+
                     invenSlotClearOn = true;
                 }
             }
-            Slot.interChange_Equip = false;
+            Slot.DragChange_Equip = false;
         }
+    }
+
+    private void Inter_ChangeSlot() //인벤창에서 정보창으로 드래그
+    {
+        Item _tempItem = e_item;
+
+        AddEquipItem(DragSlot.instance.dragSlot.item);
+
+        if (_tempItem != null)
+            DragSlot.instance.dragSlot.AddItem(_tempItem);
+        else
+            DragSlot.instance.dragSlot.ClearSlot();
     }
 }
