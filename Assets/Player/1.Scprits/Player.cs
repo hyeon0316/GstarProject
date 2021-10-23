@@ -332,7 +332,7 @@ public class Player : LivingEntity
     {
         dP += _item.itemDp;
         power += _item.itemPower;
-    }
+	}
 
     public void TakeOffEffect(Item _item)
     {

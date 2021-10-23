@@ -22,12 +22,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private GameObject go_CountImage; //빈슬롯일땐 카운트배경이미지를 띄우지 않기 위함
     [SerializeField]
     private Information information;
+    [SerializeField]
+    private Player thePlayer;
 
     private Rect invenBaseRect; //Inventory_Base 이미지의 Rect 정보 
 
-    private Rect inforBaseRect; //Information_Base 이미지의 Rect 정보
 
     private InputNumber theInputNumber;
+    private E_Slot e_Slot;
 
     public static bool EquipClearOn = false;
 
@@ -37,9 +39,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     private void Start()
     {
+        e_Slot = FindObjectOfType<E_Slot>();
         theInputNumber = FindObjectOfType<InputNumber>();
-        invenBaseRect = transform.parent.parent.GetComponent<RectTransform>().rect;   
-        inforBaseRect = inforPage.GetComponent<RectTransform>().rect;
+        invenBaseRect = transform.parent.parent.GetComponent<RectTransform>().rect;          
     }
 
     private void SetColor(float _alpha) //이미지 투명도 조절
@@ -55,12 +57,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         itemImage.sprite = item.itemImage;
         
         
-        if (item.itemType != Item.ItemType.Equipment) //장비의 경우 개수표현X(단일 아이템)
+        if (item.itemType != Item.ItemType.Equipment) 
         {
             go_CountImage.SetActive(true);
             text_Count.text = itemCount.ToString();
         }
-        else
+        else    //장비의 경우 개수표현X(단일 아이템)
         {          
             text_Count.text = "0";
             go_CountImage.SetActive(false);
@@ -99,15 +101,35 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 {
                     //장착
                     information.EquipItem(item);
-                    ClearSlot();//장착 후 장비창에서 사라지게 함(장비창->정보창 이동)           
+                    ClearSlot();//장착 후 장비창에서 사라지게 함(장비창->정보창 이동)                    
+                    
                 }
                 else
                 {
                     //소모
-                    SetSlotCount(-1);
+                    if (item.itemType == Item.ItemType.Used)
+                    {
+                        if (item.itemName == "Potion_Hp")
+                        {
+                            if (thePlayer.startingHealth > thePlayer.health)
+                            {
+                                thePlayer.HealHp(100);
+                                SetSlotCount(-1);
+                            }
+                        }
+                        else if (item.itemName == "Potion_Mp")
+                        {
+                            if (thePlayer.startingMana > thePlayer.mana)
+                            {
+                                thePlayer.HealMp(100);
+                                SetSlotCount(-1);
+                            }
+                        }
+                    }
                 }
             }
         }
+
         else if (eventData.button == PointerEventData.InputButton.Left) //더블클릭
         {
             if (!isOneClick)
@@ -138,8 +160,25 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     }
                     else
                     {
-                        //소모
-                        SetSlotCount(-1);
+                        if (item.itemType == Item.ItemType.Used)
+                        {
+                            if (item.itemName == "Potion_Hp")
+                            {
+                                if (thePlayer.startingHealth > thePlayer.health)
+                                {
+                                    thePlayer.HealHp(100);
+                                    SetSlotCount(-1);
+                                }
+                            }
+                            else if (item.itemName == "Potion_Mp")
+                            {
+                                if (thePlayer.startingMana > thePlayer.mana)
+                                {
+                                    thePlayer.HealMp(100);
+                                    SetSlotCount(-1);
+                                }
+                            }
+                        }
                     }
                 }
                 isDoubleClick = false;

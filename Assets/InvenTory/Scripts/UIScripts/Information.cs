@@ -66,7 +66,6 @@ public class Information : MonoBehaviour
                     e_Slots[i].AddEquipItem(_item);
                     return;
                 }
-                
             }
         }
     }

@@ -16,6 +16,8 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
 
     [SerializeField]
     private Inventory inventory;
+    [SerializeField]
+    private Player thePlayer;
 
     private Slot slot;
 
@@ -41,16 +43,18 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
     public void AddEquipItem(Item _item) //정보창에 장비 장착
     {
         e_item = _item;
-        e_itemImage.sprite = e_item.itemImage;
-
+        e_itemImage.sprite = e_item.itemImage;      
         SetColor(1);
+        thePlayer.EquipEffect(_item);
     }
 
     public void ClearSlot()//정보창 슬롯 초기화
     {
+        thePlayer.TakeOffEffect(e_item);
         e_item = null;
         e_itemImage.sprite = null;
-        SetColor(0);       
+        SetColor(0);
+        
     }
     public void OnPointerClick(PointerEventData eventData)
     {

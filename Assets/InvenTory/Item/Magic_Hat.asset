@@ -17,4 +17,6 @@ MonoBehaviour:
   itemPrefab: {fileID: 8718610284355066291, guid: af56bf38aae22d441b2790738cd01ca3,
     type: 3}
   EquipType: Head
+  itemDp: 10
+  itemPower: 10
   itemType: 0
