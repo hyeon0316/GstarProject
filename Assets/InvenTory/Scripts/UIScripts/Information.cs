@@ -12,11 +12,15 @@ public class Information : MonoBehaviour
     private GameObject go_EslotParent; //슬롯의 부모객체
 
     private E_Slot[] e_Slots;
+    private Slot slot;
+    private Inventory theInventory;
 
     // Start is called before the first frame update
     void Start()
     {
+        theInventory = FindObjectOfType<Inventory>();
         e_Slots = go_EslotParent.GetComponentsInChildren<E_Slot>();
+        slot = FindObjectOfType<Slot>();
     }
 
     // Update is called once per frame
@@ -63,6 +67,17 @@ public class Information : MonoBehaviour
             {
                 if (e_Slots[i].CompareTag(_item.EquipType))
                 {
+                    e_Slots[i].AddEquipItem(_item);
+                    return;
+                }
+            }   
+            else if(e_Slots[i].e_item !=null)
+            {
+                
+                if (e_Slots[i].CompareTag(_item.EquipType))
+                {
+                    theInventory.AcquireItem(e_Slots[i].e_item);
+                    e_Slots[i].ClearSlot();
                     e_Slots[i].AddEquipItem(_item);
                     return;
                 }
