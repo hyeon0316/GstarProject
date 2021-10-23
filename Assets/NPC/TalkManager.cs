@@ -16,6 +16,10 @@ public class TalkManager : MonoBehaviour
         talkData.Add(1000, new string[] { "안녕", "이 곳에 처음 왔구나?" });
         talkData.Add(2000, new string[] { "안녕2", "안녕3" });
         talkData.Add(100, new string[] { "평범한 공." });
+
+        //Quest
+        talkData.Add(1000 + 10, new string[] { "어서와", "NPC2에게 가봐" });
+        talkData.Add(2000 + 11, new string[] { "잘왔네", "수고했어" });
     }
 
     public string GetTalk(int id,int talkIndex)
