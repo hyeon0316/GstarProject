@@ -30,6 +30,9 @@ public class Player : LivingEntity
     public GameObject skill_E;
     public GameObject skill_R;
 
+    private float startingDP = 0;
+    private float startingPower = 0;
+        
     public float dP;
     public float power;
 
@@ -62,7 +65,9 @@ public class Player : LivingEntity
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
         attack = false;
-        dP = 0;
+        dP = startingDP;
+        power = startingPower;
+        power = 0;
         time_Q = 5f;
         time_W = 30f;
         time_E = 5f;
@@ -309,6 +314,31 @@ public class Player : LivingEntity
         base.OnDamage(damage);
     }
 
+    public void HealHp(float plusHealth) //체력포션 사용
+    {
+        health += plusHealth;
+        if (health > startingHealth)
+            health = startingHealth;
+    }
+
+    public void HealMp(float plusMana)//마나포션 사용
+    {
+        mana += plusMana;
+        if (mana > startingMana)
+            mana = startingMana;
+    }
+
+    public void EquipEffect(Item _item)
+    {
+        dP += _item.itemDp;
+        power += _item.itemPower;
+    }   
+
+    public void TakeOffEffect(Item _item)
+    {
+        dP -= _item.itemDp;
+        power -= _item.itemPower;
+    }
 }
 
 /*

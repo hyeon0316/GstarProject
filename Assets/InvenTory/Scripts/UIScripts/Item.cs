@@ -18,6 +18,8 @@ public class Item : ScriptableObject //굳이 게임오브젝트에 붙일 필�
         Ingredient, //재료
     }
 
+    public float itemDp;
+    public float itemPower;
     public ItemType itemType; 
 
 
