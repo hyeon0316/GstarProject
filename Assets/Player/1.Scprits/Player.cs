@@ -16,7 +16,7 @@ public class Player : LivingEntity
     public Text playerHpText;
 
     private Camera camera;
-   
+
     public bool isMove;
     private Vector3 destination;
     public Animator animator;
@@ -32,7 +32,7 @@ public class Player : LivingEntity
 
     private float startingDP = 0;
     private float startingPower = 0;
-        
+
     public float dP;
     public float power;
 
@@ -61,7 +61,7 @@ public class Player : LivingEntity
         {
             inst = this;
         }
-        */      
+        */
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
         attack = false;
@@ -147,7 +147,7 @@ public class Player : LivingEntity
             SpawnProjectilesScript.inst.SpawnVFX();
         }
     }
-   
+
     void SkillQ()
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
@@ -177,7 +177,7 @@ public class Player : LivingEntity
         }
         yield return new WaitForSeconds(2.5f);
         Destroy(QQ.gameObject);
-        yield return new WaitForSeconds(dealy-2.5f);
+        yield return new WaitForSeconds(dealy - 2.5f);
 
 
         isSkillQ = true;
@@ -260,7 +260,7 @@ public class Player : LivingEntity
         isSkillTP = true;
 
     }
-   
+
     private void Move()
     {
         attack = animator.GetBool("attack");
@@ -332,7 +332,7 @@ public class Player : LivingEntity
     {
         dP += _item.itemDp;
         power += _item.itemPower;
-    }   
+	}
 
     public void TakeOffEffect(Item _item)
     {
