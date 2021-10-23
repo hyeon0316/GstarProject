@@ -16,7 +16,7 @@ public class Player : LivingEntity
     public Text playerHpText;
 
     private Camera camera;
-   
+
     public bool isMove;
     private Vector3 destination;
     public Animator animator;
@@ -29,6 +29,9 @@ public class Player : LivingEntity
     public GameObject skill_W;
     public GameObject skill_E;
     public GameObject skill_R;
+
+    private float startingDP = 0;
+    private float startingPower = 0;
 
     public float dP;
     public float power;
@@ -58,11 +61,13 @@ public class Player : LivingEntity
         {
             inst = this;
         }
-        */      
+        */
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
         attack = false;
-        dP = 0;
+        dP = startingDP;
+        power = startingPower;
+        power = 0;
         time_Q = 5f;
         time_W = 30f;
         time_E = 5f;
@@ -142,7 +147,7 @@ public class Player : LivingEntity
             SpawnProjectilesScript.inst.SpawnVFX();
         }
     }
-   
+
     void SkillQ()
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
@@ -172,7 +177,7 @@ public class Player : LivingEntity
         }
         yield return new WaitForSeconds(2.5f);
         Destroy(QQ.gameObject);
-        yield return new WaitForSeconds(dealy-2.5f);
+        yield return new WaitForSeconds(dealy - 2.5f);
 
 
         isSkillQ = true;
@@ -255,7 +260,7 @@ public class Player : LivingEntity
         isSkillTP = true;
 
     }
-   
+
     private void Move()
     {
         attack = animator.GetBool("attack");
@@ -309,6 +314,31 @@ public class Player : LivingEntity
         base.OnDamage(damage);
     }
 
+    public void HealHp(float plusHealth) //체력포션 사용
+    {
+        health += plusHealth;
+        if (health > startingHealth)
+            health = startingHealth;
+    }
+
+    public void HealMp(float plusMana)//마나포션 사용
+    {
+        mana += plusMana;
+        if (mana > startingMana)
+            mana = startingMana;
+    }
+
+    public void EquipEffect(Item _item)
+    {
+        dP += _item.itemDp;
+        power += _item.itemPower;
+    }
+
+    public void TakeOffEffect(Item _item)
+    {
+        dP -= _item.itemDp;
+        power -= _item.itemPower;
+    }
 }
 
 /*
