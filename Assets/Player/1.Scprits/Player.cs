@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Player : LivingEntity
 {
     //인벤토리
@@ -53,7 +54,9 @@ public class Player : LivingEntity
 
     float skill1Time = 10f;
     // Start is called before the first frame update
-
+    public LayerMask npcLayer;
+    public GameManager gameManager;
+    public bool isTalk;
 
     private void Awake()
     {
@@ -62,6 +65,7 @@ public class Player : LivingEntity
             inst = this;
         }
         */
+        isTalk = false;
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
         attack = false;
@@ -88,18 +92,43 @@ public class Player : LivingEntity
     // Update is called once per frame
     void Update()
     {
-        GetPos();
-        Attack();
-        Move();
-        Tp();
 
+        NpcS();
+        if (!gameManager.isAction)
+        {
+            GetPos();
+            Move();
+            Tp();
+            Attack();
 
-        SkillQ();
-        SkillW();
-        SkillE();
-        SetHpMp();
+            SkillQ();
+            SkillW();
+            SkillE();
+        }
+       // SetHpMp();
     }
+    void NpcS()
+    {
+        if (Input.GetMouseButtonUp(1))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, npcLayer))
+            {
+                if (hit.collider.tag == "NPC")
+                {
+                    if (hit.collider.gameObject.GetComponent<ObjData>().isNpc ==
+                        true && Vector3.Distance(transform.position,
+                        hit.collider.transform.position) < 10)
+                    {
+                        isMove = false;
+                        animator.SetBool("isMove", false);
+                        gameManager.Action(hit.collider.gameObject);
+                    }
+                }
 
+            }
+        }
+    }
     void SetHpMp()
     {
         playerHpBarSlider.maxValue = startingHealth;
@@ -117,15 +146,16 @@ public class Player : LivingEntity
 
     void GetPos()
     {
-        if (Input.GetMouseButton(1) && Time.time >= SpawnProjectilesScript.inst.timeToFire - 0.2f)
+        if (Input.GetMouseButton(1))
         {
-
+            
             RaycastHit hit;
-            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit,npcLayer))
             {
-                SetDestination(hit.point);
+                    SetDestination(hit.point);
             }
         }
+        
     }
     void Attack()
     {
@@ -238,7 +268,7 @@ public class Player : LivingEntity
     }
     void Tp()
     {
-        if (Input.GetKey(KeyCode.Space) && isSkillTP)
+        if (Input.GetKey(KeyCode.F) && isSkillTP)
         {
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))

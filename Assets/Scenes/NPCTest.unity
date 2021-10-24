@@ -570,6 +570,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerM
       objectReference: {fileID: 0}
+    - target: {fileID: 5884861570702442017, guid: 1ac56260a99725847ae05439296f1617,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 934257854}
+    - target: {fileID: 5884861570702442017, guid: 1ac56260a99725847ae05439296f1617,
+        type: 3}
+      propertyPath: npcLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884861570702442020, guid: 1ac56260a99725847ae05439296f1617,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.27
+      objectReference: {fileID: 0}
     - target: {fileID: 5884861570702442020, guid: 1ac56260a99725847ae05439296f1617,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -607,6 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkManager: {fileID: 173796191}
+  questManager: {fileID: 1427862250}
   talkPanel: {fileID: 1181828024}
   talkText: {fileID: 848535051}
   scanObject: {fileID: 0}
@@ -639,9 +655,9 @@ GameObject:
   - component: {fileID: 1066654396}
   - component: {fileID: 1066654395}
   - component: {fileID: 1066654394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NPC2
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -729,7 +745,7 @@ Transform:
   m_GameObject: {fileID: 1066654393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.85516, y: 4.2827578, z: -13.964186}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.7076, y: 2.7076, z: 2.7076}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -751,7 +767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1181828025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -823,9 +839,9 @@ GameObject:
   - component: {fileID: 1238600131}
   - component: {fileID: 1238600130}
   - component: {fileID: 1238600129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NPC3
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -918,6 +934,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1427862249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427862251}
+  - component: {fileID: 1427862250}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1427862250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427862249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad216bfa93515d042b7a7fa8febb90fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questId: 10
+  questActionIndex: 0
+--- !u!4 &1427862251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427862249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.880912, y: 4.242966, z: -14.001875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531448787
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,7 +1048,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NextText
+  m_Text: "\uB2E4\uC74C"
 --- !u!222 &1531448790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1009,9 +1070,9 @@ GameObject:
   - component: {fileID: 1946472995}
   - component: {fileID: 1946472994}
   - component: {fileID: 1946472993}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NPC1
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1098,8 +1159,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946472992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.27, y: 4.3227963, z: -14.042683}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 22.74, y: 4.3227963, z: -14.042683}
+  m_LocalScale: {x: 2.6319, y: 2.6319, z: 2.6319}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
