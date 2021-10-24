@@ -22,9 +22,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
     private Slot slot;
 
     static public bool interChange = false;
-
-    static public bool invenSlotClearOn = false;
-
    
     void Start()
     {
@@ -47,8 +44,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
         e_itemImage.sprite = e_item.itemImage;      
         SetColor(1);
         thePlayer.EquipEffect(e_item);
-
-
     }
 
     public void ClearSlot()//정보창 슬롯 초기화
@@ -134,7 +129,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
                     //장착   
                     Inter_ChangeSlot();
 
-                    invenSlotClearOn = true;
                 }
             }
             Slot.DragChange_Equip = false;

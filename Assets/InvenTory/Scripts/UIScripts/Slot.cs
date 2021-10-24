@@ -27,7 +27,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     private Rect invenBaseRect; //Inventory_Base 이미지의 Rect 정보 
 
-
     private InputNumber theInputNumber;
     private E_Slot e_Slot;
 
@@ -71,7 +70,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         SetColor(1);
     }
    
-  
     public void SetSlotCount(int _conut) //아이템 개수 조정
     {
         itemCount += _conut;
@@ -214,21 +212,33 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         //정보창 Off
         if (!inforPage.activeSelf)
         {
-            if (DragSlot.instance.transform.localPosition.x < invenBaseRect.xMin //인벤 창을 벗어나 드롭시 아이템 드롭
-               || DragSlot.instance.transform.localPosition.x > invenBaseRect.xMax
-               || DragSlot.instance.transform.localPosition.y < invenBaseRect.yMin
-               || DragSlot.instance.transform.localPosition.y > invenBaseRect.yMax)
+            if (!((DragSlot.instance.transform.localPosition.x > invenBaseRect.xMin
+                && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
+                && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
+                && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
+                     (DragSlot.instance.transform.position.y > 12 //아이템 사용창 범위
+                     && DragSlot.instance.transform.position.y < 54
+                     && DragSlot.instance.transform.position.x > 600
+                     && DragSlot.instance.transform.position.x < 710)))
             {
+                Debug.Log(DragSlot.instance.transform.position);
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
             }
-            else
+            else if ((DragSlot.instance.transform.localPosition.x > invenBaseRect.xMin 
+               && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
+               && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
+               && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
+                    (DragSlot.instance.transform.position.y > 12
+                    &&DragSlot.instance.transform.position.y < 54
+                    && DragSlot.instance.transform.position.x > 600
+                    && DragSlot.instance.transform.position.x < 710))
             {
                 DragSlot.instance.SetColor(0);
                 DragSlot.instance.dragSlot = null;               
             }
         }
-        //정보창On(보류, DragSlot위치 기준으로 다 해야하기 때문에 어렵)
+
         else if (inforPage.activeSelf)
         {
             if (!((DragSlot.instance.transform.localPosition.x > invenBaseRect.xMin //정보창 or 인벤창 밖에서 드롭 시
@@ -238,11 +248,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                (DragSlot.instance.transform.position.y > 110
                 && DragSlot.instance.transform.position.y < 380
                 && DragSlot.instance.transform.position.x > 105
-                && DragSlot.instance.transform.position.x < 300)))
+                && DragSlot.instance.transform.position.x < 300) ||
+                  (DragSlot.instance.transform.position.y > 12
+                    && DragSlot.instance.transform.position.y < 54
+                    && DragSlot.instance.transform.position.x > 600
+                    && DragSlot.instance.transform.position.x < 710)))
             {
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
             }
+
             else if ((DragSlot.instance.transform.localPosition.x > invenBaseRect.xMin//정보창 or 인벤창 안에서 드롭 시
                 && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
                 && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
@@ -250,7 +265,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 (DragSlot.instance.transform.position.y > 110
                  && DragSlot.instance.transform.position.y < 380
                  && DragSlot.instance.transform.position.x > 105
-                 && DragSlot.instance.transform.position.x < 300))
+                 && DragSlot.instance.transform.position.x < 300) ||
+                  (DragSlot.instance.transform.position.y > 12
+                    && DragSlot.instance.transform.position.y < 54
+                    && DragSlot.instance.transform.position.x > 600
+                    && DragSlot.instance.transform.position.x < 710))
             {
                 DragSlot.instance.SetColor(0);
                 DragSlot.instance.dragSlot = null;
@@ -271,7 +290,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 Inter_ChangeSlot();
                 E_Slot.interChange = false;
             }
-        }     
+        }
+
+        if (DragSlot_Used.instance.dragSlot_Used != null)
+        {
+
+        }
     }
 
     private void ChangeSlot()//a와 b의 자리를 바꿀 때,
