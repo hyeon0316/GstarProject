@@ -30,7 +30,35 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     void Update()
     {
-
+        CommendNumber();
+    }
+    private void CommendNumber()
+    {
+        for (int i = 0; i < transform.parent.GetComponent<UseSlotBase>().uSlots.Length; i++) //슬롯 자리 검사
+        {
+            if (transform.parent.GetComponent<UseSlotBase>().uSlots[i].item != null)
+            {
+                switch(i)
+                {
+                    case 0:
+                        if (Input.GetKeyDown(KeyCode.Alpha1))
+                        {
+                            if (item.itemType == Item.ItemType.Used)
+                            {
+                                if (item.itemName == "Potion_Hp")
+                                {
+                                    if (thePlayer.startingHealth > thePlayer.health)
+                                    {
+                                        thePlayer.HealHp(100);
+                                        SetSlotCount(-1);
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+        }
     }
     private void SetColor(float _alpha) //이미지 투명도 조절
     {

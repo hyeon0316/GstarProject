@@ -105,7 +105,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                             if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item.Equals(item))
                             {
                                 pNumber = i;
-                                Debug.Log(pNumber);
                                 break;
                             }
                         }
