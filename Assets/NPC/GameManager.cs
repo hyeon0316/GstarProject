@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public TalkManager talkManager;
     public QuestManager questManager;
     public GameObject talkPanel;
-    public Text talkText;
+    public TypeEffect talk;
     public GameObject scanObject;
     public bool isAction;
     public int talkIndex;
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         scanObject = null;
+        //Debug.Log(questManager.CheckQuest());
     }
     private void Update()
     {
@@ -36,8 +37,20 @@ public class GameManager : MonoBehaviour
 
     void Talk(int id, bool isNpc)
     {
-        int questTalkIndex = questManager.GetQuestTalkIndex(id);
-        string talkData = talkManager.GetTalk(id+questTalkIndex, talkIndex);
+        int questTalkIndex;
+        string talkData;
+
+        if (talk.isAnim)
+        {
+            talk.SetMsg("");
+            return;
+        }
+        else
+        {
+            questTalkIndex = questManager.GetQuestTalkIndex(id);
+            talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        }
+        
         if (talkData == null)
         {
             isAction = false;
@@ -48,11 +61,11 @@ public class GameManager : MonoBehaviour
         }
         if(isNpc)
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
         }
         else
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
         }
         talkIndex++;
         isAction = true;

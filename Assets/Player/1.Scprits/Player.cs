@@ -105,7 +105,7 @@ public class Player : LivingEntity
             SkillW();
             SkillE();
         }
-        SetHpMp();
+        //SetHpMp();
     }
     void NpcS()
     {
