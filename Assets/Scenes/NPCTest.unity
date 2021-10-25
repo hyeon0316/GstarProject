@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 848535053}
   - component: {fileID: 848535052}
   - component: {fileID: 848535051}
+  - component: {fileID: 848535054}
   m_Layer: 5
   m_Name: DialogueText
   m_TagString: Untagged
@@ -460,6 +461,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -94}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &848535054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848535050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295f57a3b49747b48af3247dc7b575f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharPerSeconds: 5
+  nextText: {fileID: 1531448787}
+  isAnim: 0
 --- !u!1 &1066654393
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,8 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0f4076f697ceb4f9185f3ce75055a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 100
-  isNpc: 0
+  id: 3000
+  isNpc: 1
 --- !u!135 &1238600130
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -746,8 +762,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238600128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.31, y: 4.2827578, z: -8.11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 18.31, y: 4.2827578, z: -3.91}
+  m_LocalScale: {x: 3.8005, y: 3.8005, z: 3.8005}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -769,7 +785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1531448788
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1097,6 +1113,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7686232084076250060, guid: 1ac56260a99725847ae05439296f1617,
+        type: 3}
+      propertyPath: talk
+      value: 
+      objectReference: {fileID: 848535054}
     - target: {fileID: 7686232084076250060, guid: 1ac56260a99725847ae05439296f1617,
         type: 3}
       propertyPath: talkText
