@@ -30,12 +30,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private InputNumber theInputNumber;
     private E_Slot e_Slot;
 
-    public static bool EquipClearOn = false;
-    public static bool DragChange_Equip = false;
-    public static bool InterChange_Equip = false;
-
+    public static bool pMemory = false;
+    public static int pNumber;
 
     public GameObject inforPage;
+
 
     private void Start()
     {
@@ -94,14 +93,30 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         if (eventData.button == PointerEventData.InputButton.Right) //우클릭하여 아이템 사용
         {
+            pMemory = true;
             if (item != null)
             {
                 if (item.itemType == Item.ItemType.Equipment)
                 {
+                    for(int i =0; i< transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
+                    {
+                        if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)
+                        {
+                            if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item.Equals(item))
+                            {
+                                pNumber = i;
+                                Debug.Log(pNumber);
+                                break;
+                            }
+                        }
+                    }
                     //장착
-                    information.EquipItem(item);
-                    ClearSlot();//장착 후 장비창에서 사라지게 함(장비창->정보창 이동)   
-                    
+                    information.EquipItem(item);                   
+                    if (Information.slotClear)
+                    {
+                        ClearSlot();  
+                        Information.slotClear = false;
+                    }
                 }
                 else
                 {
@@ -149,14 +164,29 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
             if(isDoubleClick)
             {
+                pMemory = true;
                 if (item != null)
                 {
                     if (item.itemType == Item.ItemType.Equipment)
                     {
+                        for (int i = 0; i < transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
+                        {
+                            if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)
+                            {
+                                if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item.Equals(item))
+                                {
+                                    pNumber = i;
+                                    break;
+                                }
+                            }
+                        }
                         //장착
                         information.EquipItem(item);
-                        ClearSlot();//장착 후 장비창에서 사라지게 함(장비창->정보창 이동)   
-                        
+                        if (Information.slotClear)
+                        {
+                            ClearSlot();
+                            Information.slotClear = false;
+                        }
                     }
                     else
                     {
@@ -207,8 +237,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
 
     public void OnEndDrag(PointerEventData eventData) //드래그가 끝날때 호출
-    {
-        DragChange_Equip = true;    
+    {   
         //정보창 Off
         if (!inforPage.activeSelf)
         {
@@ -283,18 +312,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         if (DragSlot.instance.dragSlot != null)//빈슬롯을 드래그해서 Null 참조를 발생하는 것을 방지    
             ChangeSlot();
 
-        if(E_Slot.interChange)//정보창에서 드래그한 정보를 받아옴
+
+        if (DragSlot_Equip.instance.dragSlot_Equip != null)
         {
-            if (DragSlot_Equip.instance.dragSlot_Equip != null)
-            {
-                Inter_ChangeSlot();
-                E_Slot.interChange = false;
-            }
+            Inter_ChangeSlot();
         }
 
         if (DragSlot_Used.instance.dragSlot_Used != null)
         {
-
+            Inter_Change_uSlot();
         }
     }
 
@@ -321,5 +347,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);
         else
             DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();       
+    }
+
+    private void Inter_Change_uSlot()//아이템 사용창에서 인벤창으로 드래그
+    {
+        Item _tempItem = item;
+        AddItem(DragSlot_Used.instance.dragSlot_Used.item);
+
+        if (_tempItem != null)
+            DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem);
+        else
+            DragSlot_Used.instance.dragSlot_Used.ClearSlot();
     }
 }

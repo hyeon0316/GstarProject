@@ -22,15 +22,16 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField]
     private Player thePlayer;
 
-    private Rect uSlotBaseRect;
-    private Use_Slot u_Slot;
-
     // Start is called before the first frame update
     void Start()
     {
-        uSlotBaseRect = transform.parent.GetComponent<RectTransform>().rect;
+
     }
 
+    void Update()
+    {
+
+    }
     private void SetColor(float _alpha) //이미지 투명도 조절
     {
         Color color = itemImage.color;
@@ -117,7 +118,7 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             DragSlot_Used.instance.dragSlot_Used.ClearSlot();//빈자리로 이동할 때
     }
 
-    private void Inter_ChangeSlot() //인벤창에서 정보창으로 드래그
+    private void Inter_ChangeSlot() //인벤창에서 아이템사용창으로 드래그
     {
         Item _tempItem = item;
 

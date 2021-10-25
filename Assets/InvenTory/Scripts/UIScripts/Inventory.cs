@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject go_SlotParent; //슬롯의 부모객체
 
-    private Slot[] slots; //슬롯들
+    public Slot[] slots; //슬롯들
 
 
     // Start is called before the first frame update
@@ -72,14 +72,22 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        
-        for (int i = 0; i < slots.Length; i++)
+        if (!Slot.pMemory)
         {
-            if (slots[i].item == null)//새로운 아이템일시 아이템 추가
+            for (int i = 0; i < slots.Length; i++)
             {
-                slots[i].AddItem(_item, _count);
-                return;
+                if (slots[i].item == null)//새로운 아이템일시 아이템 추가
+                {
+                    slots[i].AddItem(_item, _count);
+                    return;
+                }
             }
+        }
+        else if (Slot.pMemory)
+        {
+            slots[Slot.pNumber].AddItem(_item, _count);
+            Slot.pMemory = false;
+            return;
         }
     }
 

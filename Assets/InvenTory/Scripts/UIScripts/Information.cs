@@ -5,16 +5,16 @@ using UnityEngine;
 public class Information : MonoBehaviour
 {
     public static bool informationActivated = false;
-
+    public static bool slotClear = false;
     [SerializeField]
     private GameObject go_InformationBase;
     [SerializeField]
     private GameObject go_EslotParent; //슬롯의 부모객체
 
     private E_Slot[] e_Slots;
-    private Slot slot;
     private Inventory theInventory;
 
+    private Slot slot;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,25 +63,36 @@ public class Information : MonoBehaviour
     {
         for (int i = 0; i < e_Slots.Length; i++)
         {
-            if (e_Slots[i].e_item == null) //템창이 빈칸일때
+            if (e_Slots[i].CompareTag(_item.EquipType))
             {
-                if (e_Slots[i].CompareTag(_item.EquipType))
-                {
-                    e_Slots[i].AddEquipItem(_item);
-                    return;
-                }
-            }   
-            else if(e_Slots[i].e_item !=null)
-            {
-                
-                if (e_Slots[i].CompareTag(_item.EquipType))
-                {
-                    theInventory.AcquireItem(e_Slots[i].e_item);
-                    e_Slots[i].ClearSlot();
-                    e_Slots[i].AddEquipItem(_item);
-                    return;
-                }
+                Item _tempItem = e_Slots[i].e_item;
+                e_Slots[i].AddEquipItem(_item);
+
+                if (_tempItem != null)
+                    theInventory.AcquireItem(_tempItem);
+                else
+                    slotClear = true;
+
+                return;
             }
+            //if (e_Slots[i].e_item == null) //템창이 빈칸일때
+            //{
+            //    if (e_Slots[i].CompareTag(_item.EquipType))
+            //    {
+            //        e_Slots[i].AddEquipItem(_item);
+            //        return;
+            //    }
+            //}   
+            //else if(e_Slots[i].e_item !=null)
+            //{           
+            //    if (e_Slots[i].CompareTag(_item.EquipType))
+            //    {
+            //        theInventory.AcquireItem(e_Slots[i].e_item);
+            //        e_Slots[i].ClearSlot();
+            //        e_Slots[i].AddEquipItem(_item);
+            //        return;
+            //    }
+            //}
         }
     }
 

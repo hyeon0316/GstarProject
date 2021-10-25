@@ -21,7 +21,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
 
     private Slot slot;
 
-    static public bool interChange = false;
    
     void Start()
     {
@@ -113,25 +112,15 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
 
     public void OnEndDrag(PointerEventData eventData)
     {             
-        interChange = true;
         DragSlot_Equip.instance.SetColor(0);           
         DragSlot_Equip.instance.dragSlot_Equip = null;
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (Slot.DragChange_Equip)
+        if (DragSlot.instance.dragSlot.item.itemType == Item.ItemType.Equipment)
         {
-            if (DragSlot.instance.dragSlot != null)
-            {
-                if (DragSlot.instance.dragSlot.item.itemType == Item.ItemType.Equipment)
-                {
-                    //장착   
-                    Inter_ChangeSlot();
-
-                }
-            }
-            Slot.DragChange_Equip = false;
+            Inter_ChangeSlot();
         }
     }
 
