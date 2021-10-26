@@ -32,7 +32,7 @@ public class Player : LivingEntity
     public GameObject skill_R;
 
     private float startingDP = 0;
-    private float startingPower = 0;
+    private float startingPower = 20;
 
     public float dP;
     public float power;
@@ -71,7 +71,7 @@ public class Player : LivingEntity
         attack = false;
         dP = startingDP;
         power = startingPower;
-        power = 0;
+        
         time_Q = 5f;
         time_W = 30f;
         time_E = 5f;
@@ -105,7 +105,7 @@ public class Player : LivingEntity
             SkillW();
             SkillE();
         }
-        //SetHpMp();
+        SetHpMp();
     }
     void NpcS()
     {
