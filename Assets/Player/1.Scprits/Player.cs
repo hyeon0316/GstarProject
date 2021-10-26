@@ -10,18 +10,14 @@ public class Player : LivingEntity
     [SerializeField]
     private Inventory inventory;
 
-
+    
     [SerializeField]
     private Transform chBody;
 
     public Slider playerHpBarSlider;
-    public Slider playerMpBarSlider;
     public Text playerHpText;
-    public Text playerMpText;
 
     private Camera camera;
-
-    public static bool slotCountClear = false;
 
     public bool isMove;
     private Vector3 destination;
@@ -65,18 +61,18 @@ public class Player : LivingEntity
 
     private void Awake()
     {
-        if (inst == null) // 싱글톤
+        if (inst==null) // 싱글톤
         {
             inst = this;
         }
-
+        
         isTalk = false;
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
         attack = false;
         dP = startingDP;
         power = startingPower;
-
+        
         time_Q = 5f;
         time_W = 30f;
         time_E = 5f;
@@ -97,6 +93,7 @@ public class Player : LivingEntity
     // Update is called once per frame
     void Update()
     {
+
         NpcS();
         if (!gameManager.isAction)
         {
@@ -137,10 +134,7 @@ public class Player : LivingEntity
     {
         playerHpBarSlider.maxValue = startingHealth;
         playerHpBarSlider.value = health;
-        playerMpBarSlider.maxValue = startingMana;
-        playerMpBarSlider.value = mana;
         playerHpText.text = string.Format("{0}/{1}", health, startingHealth);
-        playerMpText.text = string.Format("{0}/{1}", mana, startingMana);
     }
     private void OnTriggerEnter(Collider other)//아이템 획득
     {
@@ -155,14 +149,14 @@ public class Player : LivingEntity
     {
         if (Input.GetMouseButton(1))
         {
-
+            
             RaycastHit hit;
-            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, npcLayer))
+            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit,npcLayer))
             {
-                SetDestination(hit.point);
+                    SetDestination(hit.point);
             }
         }
-
+        
     }
     void Attack()
     {
@@ -189,7 +183,6 @@ public class Player : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
         {
-            mana -= 100;
             isSkillQ = false;
             StartCoroutine(SkillQCount(time_Q));
         }
@@ -225,7 +218,6 @@ public class Player : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.W) && isSkillW)
         {
-            mana -= 100;
             isSkillW = false;
             isGotM = true;
             skill_W.SetActive(true);
@@ -246,7 +238,6 @@ public class Player : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.E) && isSkillE)
         {
-            mana -= 100;
             isSkillE = false;
             StartCoroutine(SkillECount(time_E));
         }
@@ -357,26 +348,16 @@ public class Player : LivingEntity
         }
     }
 
-    public void HealHp(Item _item) //체력포션 사용
+    public void HealHp(float plusHealth) //체력포션 사용
     {
-        if (startingHealth <= health)
-        {
-            return;
-        }
-        slotCountClear = true;
-        health += _item.itemHp;
+        health += plusHealth;
         if (health > startingHealth)
             health = startingHealth;
     }
 
-    public void HealMp(Item _item)//마나포션 사용
+    public void HealMp(float plusMana)//마나포션 사용
     {
-        if (startingMana <= mana)
-        {
-            return;
-        }
-        slotCountClear = true;
-        mana += _item.itemMp;
+        mana += plusMana;
         if (mana > startingMana)
             mana = startingMana;
     }
@@ -385,7 +366,7 @@ public class Player : LivingEntity
     {
         dP += _item.itemDp;
         power += _item.itemPower;
-    }
+	}
 
     public void TakeOffEffect(Item _item)
     {

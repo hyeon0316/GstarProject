@@ -17,8 +17,4 @@ MonoBehaviour:
   itemPrefab: {fileID: 6617306992415598682, guid: e82ef8ca68ce9674fbb989a429c02db4,
     type: 3}
   EquipType: 
-  itemHp: 0
-  itemMp: 100
-  itemDp: 0
-  itemPower: 0
   itemType: 1
