@@ -17,7 +17,8 @@ public class UseSlotBase : MonoBehaviour
     }
     void Update()
     {
-        CommendNumber();
+        if (InputNumber.activated == false)
+            CommendNumber();
     }
 
     private void CommendNumber()

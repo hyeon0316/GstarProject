@@ -16,8 +16,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
 
     [SerializeField]
     private Inventory inventory;
-    [SerializeField]
-    private Player thePlayer;
 
     private Slot slot;
 
@@ -42,12 +40,12 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
         e_item = _item;
         e_itemImage.sprite = e_item.itemImage;      
         SetColor(1);
-        thePlayer.EquipEffect(e_item);
+        Player.inst.EquipEffect(e_item);
     }
 
     public void ClearSlot()//정보창 슬롯 초기화
     {
-        thePlayer.TakeOffEffect(e_item);
+        Player.inst.TakeOffEffect(e_item);
         e_item = null;
         e_itemImage.sprite = null;
         SetColor(0);       

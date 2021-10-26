@@ -20,7 +20,6 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField]
     private GameObject go_CountImage;
     [SerializeField]
-    private Player thePlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +37,11 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             if (item.itemName == "Potion_Hp")
             {
-                thePlayer.HealHp(item);
+                Player.inst.HealHp(item);
             }
             else if (item.itemName == "Potion_Mp")
             {
-                thePlayer.HealMp(item);
+                Player.inst.HealMp(item);
             }
             if (Player.slotCountClear)
             {

@@ -19,8 +19,7 @@ public class InputNumber : MonoBehaviour
     [SerializeField]
     private GameObject go_Base;
 
-    [SerializeField]
-    private Player player;
+    
 
 
     void Update()
@@ -79,7 +78,7 @@ public class InputNumber : MonoBehaviour
         for (int i = 0; i < _num; i++)
         {
             Instantiate(DragSlot.instance.dragSlot.item.itemPrefab,
-                player.transform.position + player.transform.forward*2,
+                Player.inst.transform.position + Player.inst.transform.forward*2,
                 Quaternion.identity);
             DragSlot.instance.dragSlot.SetSlotCount(-1);
             yield return new WaitForSeconds(0.05f);

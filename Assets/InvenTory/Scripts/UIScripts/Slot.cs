@@ -22,8 +22,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private GameObject go_CountImage; //빈슬롯일땐 카운트배경이미지를 띄우지 않기 위함
     [SerializeField]
     private Information information;
-    [SerializeField]
-    private Player thePlayer;
 
     private Rect invenBaseRect; //Inventory_Base 이미지의 Rect 정보 
 
@@ -123,11 +121,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     {
                         if (item.itemName == "Potion_Hp")
                         {
-                            thePlayer.HealHp(item);
+                            Player.inst.HealHp(item);
                         }
                         else if (item.itemName == "Potion_Mp")
                         {
-                            thePlayer.HealMp(item);
+                            Player.inst.HealMp(item);
                         }
                         if (Player.slotCountClear)
                         {
@@ -189,11 +187,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                         {
                             if (item.itemName == "Potion_Hp")
                             {
-                                thePlayer.HealHp(item);                             
+                                Player.inst.HealHp(item);                             
                             }
                             else if (item.itemName == "Potion_Mp")
                             {
-                                thePlayer.HealMp(item);                              
+                                Player.inst.HealMp(item);                              
                             }
                             if (Player.slotCountClear)
                             {
