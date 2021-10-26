@@ -19,18 +19,7 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Text text_Count;
     [SerializeField]
     private GameObject go_CountImage;
-    [SerializeField]
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }   
     public void UseItem()
     {
         if (item.itemType == Item.ItemType.Used)

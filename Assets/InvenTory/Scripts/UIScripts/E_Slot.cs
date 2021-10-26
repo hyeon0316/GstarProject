@@ -16,9 +16,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
 
     [SerializeField]
     private Inventory inventory;
-
-    private Slot slot;
-
    
     void Start()
     {
@@ -118,7 +115,8 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
     {
         if (DragSlot.instance.dragSlot.item.itemType == Item.ItemType.Equipment)
         {
-            Inter_ChangeSlot();
+            if (this.gameObject.tag == DragSlot.instance.dragSlot.item.EquipType)
+                Inter_ChangeSlot();
         }
     }
 
@@ -126,7 +124,7 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
     {
         Item _tempItem = e_item;
 
-        
+
         AddEquipItem(DragSlot.instance.dragSlot.item);
 
         if (_tempItem != null)

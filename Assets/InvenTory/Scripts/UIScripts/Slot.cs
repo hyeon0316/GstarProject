@@ -173,6 +173,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                                 }
                             }
                         }
+
                         //장착
                         information.EquipItem(item);
                         if (Information.slotClear)
@@ -304,7 +305,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
         if (DragSlot_Equip.instance.dragSlot_Equip != null)
         {
-            Inter_ChangeSlot();
+            if(item.EquipType == DragSlot_Equip.instance.dragSlot_Equip.e_item.EquipType)
+                Inter_ChangeSlot();
         }
 
         if (DragSlot_Used.instance.dragSlot_Used != null)
@@ -340,7 +342,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         AddItem(DragSlot_Equip.instance.dragSlot_Equip.e_item);
 
         if (_tempItem != null)
+        {
             DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);
+        }
         else
             DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();       
     }
