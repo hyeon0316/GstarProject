@@ -31,12 +31,29 @@ public class QuestManager : MonoBehaviour
         if (id == questList[questId].npcId[questActionIndex])
             questActionIndex++;
 
+        ControlObject();
+
         if (questActionIndex == questList[questId].npcId.Length)
             NextQuest();
 
         return questList[questId].questName;
     }
+    public string CheckQuest()
+    {
+        //맨처음 퀘스트 알려주기
+        return questList[questId].questName;
+    }
+    void ControlObject()
+    {
+        switch (questId)
+        {
+            case 10:
+                break;
+            case 20:
+                break;
+        }
 
+    }
     void NextQuest()
     {
         questId += 10;
