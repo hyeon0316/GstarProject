@@ -14308,6 +14308,7 @@ GameObject:
   - component: {fileID: 64227522882963508}
   - component: {fileID: 23096625250188410}
   - component: {fileID: 114228184178150574}
+  - component: {fileID: 3923155195418162741}
   m_Layer: 0
   m_Name: Effect_30_Decal
   m_TagString: Untagged
@@ -14345,10 +14346,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718934852784736}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &23096625250188410
@@ -14405,3 +14406,15 @@ MonoBehaviour:
   m_inputMaterial: {fileID: 2100000, guid: 52a8ee8d188a1444797413b16a430e86, type: 2}
   m_timeToReduce: 5
   m_reduceFactor: 1
+--- !u!114 &3923155195418162741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718934852784736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00d3a624e244f4499fc5b5800ea4145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

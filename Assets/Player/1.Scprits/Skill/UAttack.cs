@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillQ : AttackState
+public class UAttack : AttackState
 {
-    // Start is called before the first frame update
-    
     float dmg;
-    float startingDmg = 30f;
+    float startingDmg = 0f;
     void Awake()
     {
         dmg = Player.inst.power + startingDmg;

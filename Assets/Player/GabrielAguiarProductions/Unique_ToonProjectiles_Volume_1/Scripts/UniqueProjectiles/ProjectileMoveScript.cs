@@ -142,20 +142,9 @@ public class ProjectileMoveScript : MonoBehaviour {
     }
     
     void OnCollisionEnter(Collision co) {
-		if(co.gameObject.tag == "Enemy")
-        {
-			
-			Enemy livingEntity1 = co.gameObject.GetComponent<Enemy>();
-			livingEntity1.OnDamage(20); //적에게 데미지
-			hit(co);
-		}
-		else if(co.gameObject.tag == "Boss")
-        {
-			Boss livingEntity2 = co.gameObject.GetComponent<Boss>();
-			livingEntity2.OnDamage(20);
-			hit(co);
-        }
-        else if (!bounce&&co.gameObject.tag!="Player")
+		
+		
+        if (!bounce&&co.gameObject.tag!="Player")
         {
 			hit(co);
         }
@@ -167,6 +156,7 @@ public class ProjectileMoveScript : MonoBehaviour {
             rb.AddForce (Vector3.Reflect((contact.point - startPos).normalized, contact.normal) * bounceForce, ForceMode.Impulse);
             Destroy ( this );
         }
+		
 	}
 
 	public IEnumerator DestroyParticle (float waitTime) {

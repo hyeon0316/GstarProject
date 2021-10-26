@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillE : MonoBehaviour
+public class SkillE : AttackState
 {
-    // Start is called before the first frame update
-    void Start()
+
+    float dmg;
+    float startingDmg = 5f;
+    void Awake()
     {
-        
+        dmg = Player.inst.power + startingDmg;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        TagCheck(other, dmg);
     }
 }

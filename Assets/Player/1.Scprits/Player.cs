@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Player : LivingEntity
 {
+    public static Player inst = null;
     //인벤토리
     [SerializeField]
     private Inventory inventory;
 
-    //public static Player inst;
+    
     [SerializeField]
     private Transform chBody;
 
@@ -60,11 +61,11 @@ public class Player : LivingEntity
 
     private void Awake()
     {
-        /*if (!inst) // 싱글톤
+        if (inst==null) // 싱글톤
         {
             inst = this;
         }
-        */
+        
         isTalk = false;
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
@@ -276,7 +277,7 @@ public class Player : LivingEntity
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0;
                 animator.transform.forward = dir;
-                transform.position += dir.normalized * 2f;
+                transform.position += dir.normalized * 6f;
                 isMove = false;
                 animator.SetBool("isMove", false);
                 StartCoroutine(SkillTPCount());
@@ -340,8 +341,11 @@ public class Player : LivingEntity
     public override void OnDamage(float damage)
     {
         //
-        damage -= dP;
-        base.OnDamage(damage);
+        if (!isGotM)
+        {
+            damage -= dP;
+            base.OnDamage(damage);
+        }
     }
 
     public void HealHp(float plusHealth) //체력포션 사용
