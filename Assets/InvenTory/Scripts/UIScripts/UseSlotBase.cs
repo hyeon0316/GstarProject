@@ -30,7 +30,6 @@ public class UseSlotBase : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    uSlot.UseItem();
                     Debug.Log(1);
                 }
             }
@@ -38,7 +37,7 @@ public class UseSlotBase : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    uSlot.UseItem();
+
                     Debug.Log(2);
                 }
             }
@@ -46,7 +45,6 @@ public class UseSlotBase : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    uSlot.UseItem();
                     Debug.Log(3);
                 }
             }

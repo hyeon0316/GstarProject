@@ -328,12 +328,19 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         Item _tempItem = item; //드래그가 끝날때 복사될 b(드래그가 끝나는 시점에서 해당 슬롯에 있었던 아이템정보를 복사함)
         int _tempItemCount = itemCount;
 
-        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);//b 자리에 a가 들감
+        if (item == null)
+            AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);//b 자리에 a가 들감
+        else if (DragSlot.instance.dragSlot.item.itemName == item.itemName)//인벤창에서 같은 아이템을 드래그로 합칠 때
+        {
+            if (DragSlot.instance.dragSlot.item.itemType == Item.ItemType.Used)
+                SetSlotCount(DragSlot.instance.dragSlot.itemCount);
+        }
 
-        if (_tempItem != null)//a자리에 b가 들어갈 때   
+        if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName != item.itemName)//a자리에 b가 들어갈 때   
             DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);//a와 b가 교환할 때       
-        else     
+        else       
             DragSlot.instance.dragSlot.ClearSlot();//빈자리로 이동할 때
+        
     }
 
     private void Inter_ChangeSlot() //정보창에서 인벤창으로 드래그
@@ -351,9 +358,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private void Inter_Change_uSlot()//아이템 사용창에서 인벤창으로 드래그
     {
         Item _tempItem = item;
-        AddItem(DragSlot_Used.instance.dragSlot_Used.item);
+        if (item == null)
+            AddItem(DragSlot_Used.instance.dragSlot_Used.item);
+        else if (DragSlot_Used.instance.dragSlot_Used.item.itemName == item.itemName)
+            SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
 
-        if (_tempItem != null)
+        if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName != item.itemName)
             DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem);
         else
             DragSlot_Used.instance.dragSlot_Used.ClearSlot();

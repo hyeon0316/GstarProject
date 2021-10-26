@@ -59,29 +59,7 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         if (itemCount <= 0)
             ClearSlot();
-    }
-    public void UseItem()
-    {
-        if (item.itemType == Item.ItemType.Used)
-        {
-            if (item.itemName == "Potion_Hp")
-            {
-                if (thePlayer.startingHealth > thePlayer.health)
-                {
-                    thePlayer.HealHp(100);
-                    SetSlotCount(-1);
-                }
-            }
-            else if (item.itemName == "Potion_Mp")
-            {
-                if (thePlayer.startingMana > thePlayer.mana)
-                {
-                    thePlayer.HealMp(100);
-                    SetSlotCount(-1);
-                }
-            }
-        }
-    }
+    }   
 
     public void ClearSlot()//슬롯 초기화
     {
@@ -147,9 +125,12 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         Item _tempItem = item;
         int _tempItemCount = itemCount;
 
-        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
+        if(item == null)
+            AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
+        else if (DragSlot.instance.dragSlot.item.itemName == item.itemName)
+            SetSlotCount(DragSlot.instance.dragSlot.itemCount);
 
-        if (_tempItem != null)
+        if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName != item.itemName)
             DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
         else
             DragSlot.instance.dragSlot.ClearSlot();
