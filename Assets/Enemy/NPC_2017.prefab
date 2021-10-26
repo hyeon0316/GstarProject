@@ -463,6 +463,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   startingMana: 0
+  bossHpBarPrefab: {fileID: 0}
+  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
+    type: 3}
+  bossHpBarSlider: {fileID: 0}
+  hpBarOffset: {x: 0, y: 10, z: 0}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
