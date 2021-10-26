@@ -38,19 +38,16 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             if (item.itemName == "Potion_Hp")
             {
-                if (thePlayer.startingHealth > thePlayer.health)
-                {
-                    thePlayer.HealHp(100);
-                    SetSlotCount(-1);
-                }
+                thePlayer.HealHp(item);
             }
             else if (item.itemName == "Potion_Mp")
             {
-                if (thePlayer.startingMana > thePlayer.mana)
-                {
-                    thePlayer.HealMp(100);
-                    SetSlotCount(-1);
-                }
+                thePlayer.HealMp(item);
+            }
+            if (Player.slotCountClear)
+            {
+                SetSlotCount(-1);
+                Player.slotCountClear = false;
             }
         }
     }
