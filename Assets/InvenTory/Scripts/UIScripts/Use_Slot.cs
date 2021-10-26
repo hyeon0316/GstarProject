@@ -32,7 +32,28 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         
     }   
-    
+    public void UseItem()
+    {
+        if (item.itemType == Item.ItemType.Used)
+        {
+            if (item.itemName == "Potion_Hp")
+            {
+                if (thePlayer.startingHealth > thePlayer.health)
+                {
+                    thePlayer.HealHp(100);
+                    SetSlotCount(-1);
+                }
+            }
+            else if (item.itemName == "Potion_Mp")
+            {
+                if (thePlayer.startingMana > thePlayer.mana)
+                {
+                    thePlayer.HealMp(100);
+                    SetSlotCount(-1);
+                }
+            }
+        }
+    }
 
     private void SetColor(float _alpha) //이미지 투명도 조절
     {
