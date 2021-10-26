@@ -146,6 +146,7 @@ public class Player : LivingEntity
     {
         if (other.gameObject.tag.Equals("Item"))
         {
+            Debug.Log("dd");
             inventory.AcquireItem(other.transform.GetComponent<ItemPickUp>().item);
             Destroy(other.gameObject);
         }
@@ -286,7 +287,7 @@ public class Player : LivingEntity
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0;
                 animator.transform.forward = dir;
-                transform.position += dir.normalized * 6f;
+                transform.position += dir.normalized * 5f;
                 isMove = false;
                 animator.SetBool("isMove", false);
                 StartCoroutine(SkillTPCount());
