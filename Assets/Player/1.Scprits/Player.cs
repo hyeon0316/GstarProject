@@ -122,7 +122,7 @@ public class Player : LivingEntity
                 {
                     if (hit.collider.gameObject.GetComponent<ObjData>().isNpc ==
                         true && Vector3.Distance(transform.position,
-                        hit.collider.transform.position) < 10)
+                        hit.collider.transform.position) < 5f)
                     {
                         isMove = false;
                         animator.SetBool("isMove", false);
