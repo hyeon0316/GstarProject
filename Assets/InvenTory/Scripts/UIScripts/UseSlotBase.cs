@@ -15,4 +15,39 @@ public class UseSlotBase : MonoBehaviour
     {
         uSlots = go_UseSlotParent.GetComponentsInChildren<Use_Slot>();
     }
+    void Update()
+    {
+        CommendNumber();
+    }
+
+    private void CommendNumber()
+    {
+        for (int i = 0; i < uSlots.Length; i++)
+        {
+            if (i == 0)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    uSlots[0].UseItem();
+                    Debug.Log(1);
+                }
+            }
+            else if (i == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    uSlots[1].UseItem();
+                    Debug.Log(2);
+                }
+            }
+            else if (i == 2)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    uSlots[2].UseItem();
+                    Debug.Log(3);
+                }
+            }
+        }
+    }
 }
