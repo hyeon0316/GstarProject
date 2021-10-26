@@ -237,12 +237,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
                 && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                 && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
-                     (DragSlot.instance.transform.position.y > 12 //아이템 사용창 범위
-                     && DragSlot.instance.transform.position.y < 54
-                     && DragSlot.instance.transform.position.x > 600
-                     && DragSlot.instance.transform.position.x < 710)))
-            {
-                Debug.Log(DragSlot.instance.transform.position);
+                     (DragSlot.instance.transform.position.y > 31 //아이템 사용창 범위
+                     && DragSlot.instance.transform.position.y < 130
+                     && DragSlot.instance.transform.position.x > 1390
+                     && DragSlot.instance.transform.position.x < 1635)))
+            {               
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
             }
@@ -250,10 +249,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
                && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
-                    (DragSlot.instance.transform.position.y > 12
-                    &&DragSlot.instance.transform.position.y < 54
-                    && DragSlot.instance.transform.position.x > 600
-                    && DragSlot.instance.transform.position.x < 710))
+                    (DragSlot.instance.transform.position.y > 31
+                    &&DragSlot.instance.transform.position.y < 130
+                    && DragSlot.instance.transform.position.x > 1390
+                    && DragSlot.instance.transform.position.x < 1638))
             {
                 DragSlot.instance.SetColor(0);
                 DragSlot.instance.dragSlot = null;               
@@ -266,14 +265,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
                && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
-               (DragSlot.instance.transform.position.y > 110
-                && DragSlot.instance.transform.position.y < 380
-                && DragSlot.instance.transform.position.x > 105
-                && DragSlot.instance.transform.position.x < 300) ||
-                  (DragSlot.instance.transform.position.y > 12
-                    && DragSlot.instance.transform.position.y < 54
-                    && DragSlot.instance.transform.position.x > 600
-                    && DragSlot.instance.transform.position.x < 710)))
+               (DragSlot.instance.transform.position.y > 241
+                && DragSlot.instance.transform.position.y < 864
+                && DragSlot.instance.transform.position.x > 254
+                && DragSlot.instance.transform.position.x < 700) ||
+                  (DragSlot.instance.transform.position.y > 31
+                    && DragSlot.instance.transform.position.y < 130
+                    && DragSlot.instance.transform.position.x > 1390
+                    && DragSlot.instance.transform.position.x < 1638)))
             {
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
@@ -283,14 +282,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
                 && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                 && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
-                (DragSlot.instance.transform.position.y > 110
-                 && DragSlot.instance.transform.position.y < 380
-                 && DragSlot.instance.transform.position.x > 105
-                 && DragSlot.instance.transform.position.x < 300) ||
-                  (DragSlot.instance.transform.position.y > 12
-                    && DragSlot.instance.transform.position.y < 54
-                    && DragSlot.instance.transform.position.x > 600
-                    && DragSlot.instance.transform.position.x < 710))
+                (DragSlot.instance.transform.position.y > 241
+                 && DragSlot.instance.transform.position.y < 864
+                 && DragSlot.instance.transform.position.x > 254
+                 && DragSlot.instance.transform.position.x < 700) ||
+                  (DragSlot.instance.transform.position.y > 31
+                    && DragSlot.instance.transform.position.y < 130
+                    && DragSlot.instance.transform.position.x > 1390
+                    && DragSlot.instance.transform.position.x < 1638))
             {
                 DragSlot.instance.SetColor(0);
                 DragSlot.instance.dragSlot = null;

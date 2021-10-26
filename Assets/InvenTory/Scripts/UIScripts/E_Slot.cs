@@ -128,6 +128,7 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
     {
         Item _tempItem = e_item;
 
+        
         AddEquipItem(DragSlot.instance.dragSlot.item);
 
         if (_tempItem != null)
