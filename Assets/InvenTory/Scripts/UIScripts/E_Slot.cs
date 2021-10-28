@@ -124,11 +124,14 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
     {
         Item _tempItem = e_item;
 
-
         AddEquipItem(DragSlot.instance.dragSlot.item);
 
         if (_tempItem != null)
+        {
             DragSlot.instance.dragSlot.AddItem(_tempItem);
+            Player.inst.TakeOffEffect(_tempItem);
+        }
+
         else
             DragSlot.instance.dragSlot.ClearSlot();
     }

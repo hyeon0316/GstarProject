@@ -69,7 +69,10 @@ public class Information : MonoBehaviour
                 e_Slots[i].AddEquipItem(_item);
 
                 if (_tempItem != null)
+                {
                     theInventory.AcquireItem(_tempItem);
+                    Player.inst.TakeOffEffect(_tempItem);
+                }
                 else
                     slotClear = true;
 

@@ -340,6 +340,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         Item _tempItem = item;
 
         AddItem(DragSlot_Equip.instance.dragSlot_Equip.e_item);
+        Player.inst.TakeOffEffect(DragSlot_Equip.instance.dragSlot_Equip.e_item);
 
         if (_tempItem != null)
         {

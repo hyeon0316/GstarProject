@@ -226,7 +226,6 @@ public class Boss : LivingEntity
         bossHpBarSlider.gameObject.SetActive(true);
         bossHpBarSlider.maxValue = startingHealth;
         //체력 슬라이더의 값을 현재 체력값으로 변경
-        bossHpBarSlider.value = health;
-        
+        bossHpBarSlider.value = health;        
     }
 }
