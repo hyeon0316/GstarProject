@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+
 public class Boss : LivingEntity
 {
     private Text bossHpText;
@@ -29,6 +30,8 @@ public class Boss : LivingEntity
 
     private float attackRange = 3f;
 
+    public float LookatSpeed = 1f; //0~1
+
     private bool hasTarget
     {
         get
@@ -52,8 +55,8 @@ public class Boss : LivingEntity
         //게임 오브젝트에서 사용할 컴포넌트 가져오기
         pathFinder = GetComponent<NavMeshAgent>();
         bossAnimator = GetComponent<Animator>();
-    }
 
+    }
 
     void Start()
     {
@@ -75,7 +78,7 @@ public class Boss : LivingEntity
     }
     // Update is called once per frame
     void Update()
-    {
+    {       
         bossAnimator.SetBool("CanMove", canMove);
         bossAnimator.SetBool("CanAttack", canAttack);
 
@@ -103,6 +106,7 @@ public class Boss : LivingEntity
                 pathFinder.isStopped = true;
                 canAttack = false;
                 canMove = false;
+                
 
                 //반지름 20f의 콜라이더로 whatIsTarget 레이어를 가진 콜라이더 검출하기
                 Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, whatIsTarget);
@@ -141,18 +145,22 @@ public class Boss : LivingEntity
             canMove = false;
 
             //추적 대상 바라보기
-            this.transform.LookAt(targetEntity.transform);
+            Vector3 dir = targetEntity.transform.position - this.transform.position;
 
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
+                Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
+                     
             //최근 공격 시점에서 attackDelay 이상 시간이 지나면 공격 가능
             if (lastAttackTime + attackDelay <= Time.time)
             {
                 canAttack = true;
+                 
             }
 
             //공격 반경 안에 있지만, 딜레이가 남아있을 경우
             else
             {
-                canAttack = false;
+                canAttack = false;            
             }
         }
 
@@ -161,6 +169,7 @@ public class Boss : LivingEntity
         {
             canMove = true;
             canAttack = false;
+            
             //계속 추적
             pathFinder.isStopped = false; //계속 이동
             pathFinder.SetDestination(targetEntity.transform.position);
@@ -206,13 +215,13 @@ public class Boss : LivingEntity
         pathFinder.isStopped = true;
         pathFinder.enabled = false;
 
-
         canMove = false;
         canAttack = false;
 
         //사망 애니메이션 재생
         bossAnimator.SetTrigger("doDie");
 
+ 
         //LivingEntity의 DIe()를 실행하여 기본 사망 처리 실행
         base.Die();
     }

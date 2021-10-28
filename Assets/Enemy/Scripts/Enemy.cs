@@ -35,6 +35,8 @@ public class Enemy : LivingEntity
 
     private float attackRange = 2.3f;
 
+    public float LookatSpeed = 1f; //0~1
+
     //추적 대상이 존재하는지 알려주는 프로퍼티
     private bool hasTarget
     {
@@ -166,7 +168,10 @@ public class Enemy : LivingEntity
             canMove = false;
 
             //추적 대상 바라보기
-            this.transform.LookAt(targetEntity.transform);
+            Vector3 dir = targetEntity.transform.position - this.transform.position;
+
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
+                Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
 
             //최근 공격 시점에서 attackDelay 이상 시간이 지나면 공격 가능
             if (lastAttackTime + attackDelay <= Time.time)

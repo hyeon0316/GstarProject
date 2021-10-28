@@ -79,6 +79,6 @@ public class SkillCool : MonoBehaviour
         image_fill.fillAmount = _value / time_cooltime;
         string txt = _value.ToString("0.0");
         text_CoolTime.text = txt;
-        Debug.Log(txt);
+        //Debug.Log(txt);
     }
 }
