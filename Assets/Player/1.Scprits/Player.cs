@@ -252,8 +252,7 @@ public class Player : LivingEntity
         }
     }
     IEnumerator SkillQCount(float dealy)
-    {
-        
+    {       
         RaycastHit hit;
         GameObject QQ;
         if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
