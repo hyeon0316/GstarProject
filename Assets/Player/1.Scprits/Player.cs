@@ -63,6 +63,21 @@ public class Player : LivingEntity
     public GameManager gameManager;
     public bool isTalk;
 
+    public Text textQ_CoolTime;
+    public Image imageQ_fill;
+
+    public Text textW_CoolTime;
+    public Image imageW_fill;
+
+    public Text textE_CoolTime;
+    public Image imageE_fill;
+
+    public Text textF_CoolTime;
+    public Image imageF_fill;
+
+    private float time_current;
+    private float time_start;
+
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -92,7 +107,7 @@ public class Player : LivingEntity
     }
     void Start()
     {
-
+        Init_UI(imageQ_fill);
     }
     // Update is called once per frame
     void Update()
@@ -110,6 +125,7 @@ public class Player : LivingEntity
             SkillE();
         }
         SetHpMp();
+        Check_CoolTime(imageQ_fill, textQ_CoolTime, time_Q);
     }
     void NpcS()
     {
@@ -133,6 +149,16 @@ public class Player : LivingEntity
             }
         }
     }
+
+    private void Init_UI(Image skillImg)
+    {
+        skillImg.gameObject.SetActive(false);
+        skillImg.type = Image.Type.Filled;
+        skillImg.fillMethod = Image.FillMethod.Radial360;
+        skillImg.fillOrigin = (int)Image.Origin360.Top;
+        skillImg.fillClockwise = false;
+    }
+
     void SetHpMp()
     {
         playerHpBarSlider.maxValue = startingHealth;
@@ -163,7 +189,6 @@ public class Player : LivingEntity
                 SetDestination(hit.point);
             }
         }
-
     }
     void Attack()
     {
@@ -186,17 +211,49 @@ public class Player : LivingEntity
         }
     }
 
+    private void Set_FillAmount(Image skillImg, Text coolText, float _value, float dealy) //스킬 재사용 시간 시각화
+    {
+        skillImg.fillAmount = _value / dealy;
+        string txt = _value.ToString("0.0");
+        coolText.text = txt;
+    }
+
+    private void Check_CoolTime(Image skillImg, Text coolText, float dealy) //스킬 재사용까지 남은 시간을 검사 및 표시
+    {
+        time_current = Time.time - time_start;
+        if(time_current < dealy)
+        {
+            Set_FillAmount(imageQ_fill, textQ_CoolTime, dealy - time_current, dealy);
+        }
+    }
+    private void End_CoolTime(Text coolText) //쿨타임이 끝나서 스킬 재사용이 가능해진 시점
+    {
+        Set_FillAmount(imageQ_fill,textQ_CoolTime, 0, time_Q);
+        coolText.gameObject.SetActive(false);
+    }
+
+    private void Reset_CoolTime(Image skillImg, Text coolText ,float dealy)//쿨타임 리셋
+    {
+        coolText.gameObject.SetActive(true);
+        time_current = dealy;
+        time_start = Time.time;
+        Set_FillAmount(skillImg, coolText, dealy, dealy);
+    }
+
     void SkillQ()
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
         {
+            imageQ_fill.gameObject.SetActive(true);
             mana -= 100;
             isSkillQ = false;
             StartCoroutine(SkillQCount(time_Q));
+            Reset_CoolTime(imageQ_fill,textQ_CoolTime, time_Q);
         }
     }
     IEnumerator SkillQCount(float dealy)
     {
+        
         RaycastHit hit;
         GameObject QQ;
         if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
@@ -218,9 +275,8 @@ public class Player : LivingEntity
         Destroy(QQ.gameObject);
         yield return new WaitForSeconds(dealy - 2.5f);
 
-
         isSkillQ = true;
-
+        End_CoolTime(textQ_CoolTime);
     }
     void SkillW()
     {
@@ -241,8 +297,8 @@ public class Player : LivingEntity
         yield return new WaitForSeconds(dealy);
 
         isSkillW = true;
-
     }
+
     void SkillE()
     {
         if (Input.GetKeyDown(KeyCode.E) && isSkillE)
@@ -273,9 +329,7 @@ public class Player : LivingEntity
         Destroy(QQ.gameObject);
         yield return new WaitForSeconds(dealy - 2.5f);
 
-
         isSkillE = true;
-
     }
     void Tp()
     {
@@ -299,7 +353,6 @@ public class Player : LivingEntity
         isSkillTP = false;
         yield return new WaitForSeconds(1f);
         isSkillTP = true;
-
     }
 
     private void Move()
