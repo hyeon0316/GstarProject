@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : LivingEntity
 {
@@ -360,6 +361,9 @@ public class Player : LivingEntity
     public override void Die()
     {
         //
+        SceneManager.LoadScene("Town");
+        health = 50; //수정해야함
+        animator.transform.position = new Vector3(-1.7f, 2f, 26);
         Debug.Log("you Die");
         base.Die();
     }
