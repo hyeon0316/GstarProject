@@ -14,6 +14,8 @@ TagManager:
   - NPC
   - Weapon
   - Accessory
+  - accessory
+  - weapon
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - 
   - Player
   - NPCLayer
-  - 
-  - 
+  - Map
+  - PlayerCube
   - 
   - 
   - 
