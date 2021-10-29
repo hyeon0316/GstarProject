@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Boss : LivingEntity
 {
+    public static Boss inst = null;
+
     private Text bossHpText;
     public GameObject bossHpBarPrefab;
     public Canvas enemyHpBarCanvas;
@@ -57,6 +59,11 @@ public class Boss : LivingEntity
 
     private void Awake()
     {
+        if (inst == null) // 싱글톤
+        {
+            inst = this;
+        }
+
         //게임 오브젝트에서 사용할 컴포넌트 가져오기
         pathFinder = GetComponent<NavMeshAgent>();
         bossAnimator = GetComponent<Animator>();
@@ -173,10 +180,10 @@ public class Boss : LivingEntity
         //공격 반경 밖에 있을 경우 추적하기
         else
         {
-            int ranAction = Random.Range(0, 15);
+            int ranAction = Random.Range(0, 15); //나중에 스위치문으로 돌리기
             if (ranAction == 3)
             {
-                StartCoroutine(FisrtSkill());
+                StartCoroutine(FisrtSkill());               
             }
             else
             {
@@ -190,7 +197,7 @@ public class Boss : LivingEntity
         }
     }
 
-    IEnumerator FisrtSkill() //1.25초
+    IEnumerator FisrtSkill() 
     {
         pathFinder.isStopped = true;
         canMove = false;
@@ -217,6 +224,8 @@ public class Boss : LivingEntity
     public void OnFirstSkillEvent() 
     {        
         GameObject firstSkill = Instantiate(skill_First, skill_FirstPos.transform.position, Quaternion.identity);
+        firstSkill.transform.forward = skill_FirstPos.transform.forward;
+        Destroy(firstSkill, 2f);
     }
 
     //데미지를 입었을 때 실행할 처리(재정의)
