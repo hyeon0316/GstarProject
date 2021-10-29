@@ -241,6 +241,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.18
       objectReference: {fileID: 0}
+    - target: {fileID: 9102727707068821074, guid: 01287946b7cb3db43b337ceed952bd4a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9102727707068821078, guid: 01287946b7cb3db43b337ceed952bd4a,
         type: 3}
       propertyPath: skill_First
