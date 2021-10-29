@@ -14,7 +14,7 @@ public class TalkManager : MonoBehaviour
     void GenerateData()
     {
         talkData.Add(100, new string[] { "들어가긴 너무 깊어보인다." });
-        talkData.Add(200, new string[] { "마른 나무를 구할수 있을거 같다." });
+        talkData.Add(200, new string[] { "마른 나무를 구할수 있을것 같다." });
         talkData.Add(300, new string[] { "여기로 내려가는건 좋은생각 같지 않다." });
 
 
