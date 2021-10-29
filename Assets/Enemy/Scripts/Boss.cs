@@ -28,9 +28,14 @@ public class Boss : LivingEntity
 
     public Transform tr;
 
-    private float attackRange = 3f;
+    public float attackRange = 5f; //근접공격 범위
+
+    public float skillRange = 20f; //첫번째 보스스킬 작동 범위
 
     public float LookatSpeed = 1f; //0~1
+
+    public GameObject skill_First;
+    public GameObject skill_FirstPos;
 
     private bool hasTarget
     {
@@ -98,6 +103,7 @@ public class Boss : LivingEntity
         {
             if (hasTarget)
             {
+                LookAt();
                 Attack();
             }
             else
@@ -107,9 +113,8 @@ public class Boss : LivingEntity
                 canAttack = false;
                 canMove = false;
                 
-
                 //반지름 20f의 콜라이더로 whatIsTarget 레이어를 가진 콜라이더 검출하기
-                Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, whatIsTarget);
+                Collider[] colliders = Physics.OverlapSphere(transform.position, 35f, whatIsTarget);
 
                 //모든 콜라이더를 순회하면서 살아 있는 LivingEntity 찾기
                 for (int i = 0; i < colliders.Length; i++)
@@ -133,48 +138,67 @@ public class Boss : LivingEntity
         }
     }
 
+    private void LookAt() //추적 대상 바라보기
+    {        
+        Vector3 dir = targetEntity.transform.position - this.transform.position;
+
+        this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
+            Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
+    }
+
     //추적 대상과의 거리에 따라 공격 실행
     public virtual void Attack()
     {
-        //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면
+        //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면(기본공격)
         if (!dead && dist < attackRange)
         {
             pathFinder.isStopped = true;
 
             //공격 반경 안에 있으면 움직임을 멈춘다.
             canMove = false;
-
-            //추적 대상 바라보기
-            Vector3 dir = targetEntity.transform.position - this.transform.position;
-
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
-                Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
-                     
+          
             //최근 공격 시점에서 attackDelay 이상 시간이 지나면 공격 가능
             if (lastAttackTime + attackDelay <= Time.time)
             {
                 canAttack = true;
-                 
             }
 
             //공격 반경 안에 있지만, 딜레이가 남아있을 경우
             else
             {
-                canAttack = false;            
+                canAttack = false;
             }
         }
-
+      
         //공격 반경 밖에 있을 경우 추적하기
         else
         {
-            canMove = true;
-            canAttack = false;
-            
-            //계속 추적
-            pathFinder.isStopped = false; //계속 이동
-            pathFinder.SetDestination(targetEntity.transform.position);
+            int ranAction = Random.Range(0, 15);
+            if (ranAction == 3)
+            {
+                StartCoroutine(FisrtSkill());
+            }
+            else
+            {
+                canMove = true;
+                canAttack = false;
+
+                //계속 추적
+                pathFinder.isStopped = false; //계속 이동
+                pathFinder.SetDestination(targetEntity.transform.position);
+            }
         }
     }
+
+    IEnumerator FisrtSkill() //1.25초
+    {
+        pathFinder.isStopped = true;
+        canMove = false;
+        canAttack = false;
+        bossAnimator.SetTrigger("FirstSkill");
+        yield return new WaitForSeconds(1.25f);
+    }
+    
 
     //유니티 애니메이션 이벤트로 휘두를 때 데미지 적용시키기
     public void OnDamageEvent()
@@ -189,6 +213,11 @@ public class Boss : LivingEntity
         lastAttackTime = Time.time;     
     }
 
+    //첫번째 스킬 모션 발동 할때 이벤트로 함수 실행
+    public void OnFirstSkillEvent() 
+    {        
+        GameObject firstSkill = Instantiate(skill_First, skill_FirstPos.transform.position, Quaternion.identity);
+    }
 
     //데미지를 입었을 때 실행할 처리(재정의)
     public override void OnDamage(float damage)
