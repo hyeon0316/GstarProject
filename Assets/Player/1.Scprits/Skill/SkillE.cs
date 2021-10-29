@@ -10,6 +10,7 @@ public class SkillE : AttackState
     void Awake()
     {
         dmg = Player.inst.power + startingDmg;
+        SetDmg(dmg);
     }
 
     private void OnTriggerEnter(Collider other)
