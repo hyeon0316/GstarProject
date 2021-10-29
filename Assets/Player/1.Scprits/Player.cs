@@ -87,7 +87,7 @@ public class Player : LivingEntity
 
         time_Q = 5f;
         time_W = 30f;
-        time_E = 5f;
+        time_E = 7.5f;
         time_R = 30f;
         isGotM = false;
         time_Q_1 = 2f;
