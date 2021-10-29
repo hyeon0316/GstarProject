@@ -17,14 +17,7 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
     [SerializeField]
     private Inventory inventory;
    
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
 
-    }
     private void SetColor(float _alpha) //이미지 투명도 조절
     {
         Color color = e_itemImage.color;

@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
-  m_Name: Magic_Hat
+  m_Name: Armor_Head(A)
   m_EditorClassIdentifier: 
-  itemName: Magic_Hat
-  itemImage: {fileID: 21300000, guid: 971797e97fbd25e42b9af987827c714c, type: 3}
-  itemPrefab: {fileID: 8718610284355066291, guid: af56bf38aae22d441b2790738cd01ca3,
+  itemName: Armor_Head(A)
+  itemImage: {fileID: 21300000, guid: 6437e216af269c54fb939d5b4e55ae32, type: 3}
+  itemPrefab: {fileID: 6453835630926840927, guid: cb2223436cd61484999d35af809f503d,
     type: 3}
   EquipType: Head
-  itemDp: 10
-  itemPower: 10
+  itemHp: 0
+  itemMp: 0
+  itemDp: 20
+  itemPower: 20
   itemType: 0

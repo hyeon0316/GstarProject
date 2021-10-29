@@ -7,13 +7,13 @@ TagManager:
   - Enemy
   - Top
   - Pants
-  - accessory
   - Shoes
-  - weapon
   - Head
   - Item
   - Boss
   - NPC
+  - Weapon
+  - Accessory
   layers:
   - Default
   - TransparentFX
