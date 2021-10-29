@@ -363,7 +363,7 @@ public class Player : LivingEntity
         //
         SceneManager.LoadScene("Town");
         health = 50; //수정해야함
-        animator.transform.position = new Vector3(-1.7f, 2f, 26);
+        this.transform.position = new Vector3(-1.7f, 12f, 26);
         Debug.Log("you Die");
         base.Die();
     }
