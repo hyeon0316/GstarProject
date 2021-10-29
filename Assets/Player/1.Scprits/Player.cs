@@ -19,7 +19,7 @@ public class Player : LivingEntity
     public Slider playerMpBarSlider;
     public Text playerHpText;
     public Text playerMpText;
-
+    public bool townS;
     private Camera camera;
 
     public static bool slotCountClear = false;
@@ -111,11 +111,16 @@ public class Player : LivingEntity
             GetPos();
             Move();
             Tp();
-            Attack();
+            if(!Inventory.inventoryActivated && !Information.informationActivated)
+                Attack();
 
-            SkillQ();
-            SkillW();
-            SkillE();
+            if (SceneManager.GetActiveScene().name != "Town")
+            {
+                SkillQ();
+                SkillW();
+                SkillE();
+                SkillR();
+            }
         }
         SetHpMp();
     }
@@ -292,7 +297,11 @@ public class Player : LivingEntity
         isSkillE = true;
         coolTimeE.GetComponent<CoolTime>().End_CoolTime();
     }
-    void Tp()
+    void SkillR()
+    {
+
+    }
+        void Tp()
     {
         if (Input.GetKey(KeyCode.F) && isSkillTP)
         {
@@ -363,7 +372,7 @@ public class Player : LivingEntity
         //
         SceneManager.LoadScene("Town");
         health = 50; //수정해야함
-        this.transform.position = new Vector3(-1.7f, 12f, 26);
+        this.transform.position = new Vector3(-1.7f, 2f, 26);
         Debug.Log("you Die");
         base.Die();
     }
