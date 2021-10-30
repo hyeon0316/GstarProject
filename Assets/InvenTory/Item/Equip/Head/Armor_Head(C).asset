@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
-  m_Name: Armor_Head(C) 1
+  m_Name: Armor_Head(C)
   m_EditorClassIdentifier: 
   itemName: Armor_Head(C)
   itemImage: {fileID: 21300000, guid: 6437e216af269c54fb939d5b4e55ae32, type: 3}
