@@ -103,7 +103,7 @@ public class Boss : LivingEntity
 
     void StopPathFinder(bool val)
     {
-        Debug.LogFormat("StopPathFinder : {0}", val);
+        //Debug.LogFormat("StopPathFinder : {0}", val);
         pathFinder.isStopped = val;
     }
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
