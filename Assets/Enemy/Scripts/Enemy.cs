@@ -56,6 +56,11 @@ public class Enemy : LivingEntity
     private bool canMove;
     private bool canAttack;
 
+    void SetNaviStop(bool val)
+    {
+        pathFinder.isStopped = val;
+    }
+
     private void Awake()
     {
         //게임 오브젝트에서 사용할 컴포넌트 가져오기
@@ -124,7 +129,7 @@ public class Enemy : LivingEntity
             else
             {
                 //추적 대상이 없을 경우, AI 이동 정지
-                pathFinder.isStopped = true;
+                SetNaviStop(true);
                 canAttack = false;
                 canMove = false;
 
@@ -161,8 +166,7 @@ public class Enemy : LivingEntity
         //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면
         if (!dead && dist < attackRange)
         {
-            
-            pathFinder.isStopped = true;
+            SetNaviStop(true);
 
             //공격 반경 안에 있으면 움직임을 멈춘다.
             canMove = false;
@@ -192,7 +196,7 @@ public class Enemy : LivingEntity
             canMove = true;
             canAttack = false;
             //계속 추적
-            pathFinder.isStopped = false; //계속 이동
+            SetNaviStop(false);//계속 이동
             pathFinder.SetDestination(targetEntity.transform.position);
         }
     }
@@ -249,7 +253,7 @@ public class Enemy : LivingEntity
         }
 
         //AI추적을 중지하고 네비메쉬 컴포넌트를 비활성화
-        pathFinder.isStopped = true;
+        SetNaviStop(true);
         pathFinder.enabled = false;
 
         canMove = false;
