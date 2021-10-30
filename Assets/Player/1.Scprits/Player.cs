@@ -21,7 +21,7 @@ public class Player : LivingEntity
     public Text playerMpText;
     public bool townS;
     private Camera camera;
-
+    
     public static bool slotCountClear = false;
 
     public bool isMove;
@@ -37,6 +37,8 @@ public class Player : LivingEntity
     public GameObject skill_E;
     public GameObject skill_R;
 
+
+    public GameObject skill_TP;
     private float startingDP = 0;
     private float startingPower = 20;
 
@@ -69,6 +71,8 @@ public class Player : LivingEntity
     public GameObject coolTimeR;
     public GameObject coolTimeF;
 
+    private GameObject tempSkill1;
+    private GameObject tempSkill2;
     private float time_current;
     private float time_start;
 
@@ -308,10 +312,12 @@ public class Player : LivingEntity
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
+                tempSkill1 = ObjectPoolManager.inst.GetObjectFromPool("TP", transform.position, Quaternion.Euler(-90,0,0));
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0;
                 animator.transform.forward = dir;
                 transform.position += dir.normalized * 5f;
+                tempSkill2 = ObjectPoolManager.inst.GetObjectFromPool("TP", transform.position, Quaternion.Euler(-90, 0, 0));
                 isMove = false;
                 animator.SetBool("isMove", false);
                 StartCoroutine(SkillTPCount());
@@ -325,6 +331,8 @@ public class Player : LivingEntity
         yield return new WaitForSeconds(1.5f);
         isSkillTP = true;
         coolTimeF.GetComponent<CoolTime>().End_CoolTime();
+        ObjectPoolManager.inst.ReturnObjectToPool("TP", tempSkill1);
+        ObjectPoolManager.inst.ReturnObjectToPool("TP", tempSkill2);
     }
 
     private void Move()
