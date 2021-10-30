@@ -101,11 +101,7 @@ public class Boss : LivingEntity
         }       
     }
 
-    void StopPathFinder(bool val)
-    {
-        Debug.LogFormat("StopPathFinder : {0}", val);
-        pathFinder.isStopped = val;
-    }
+ 
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
     private IEnumerator UpdatePath()
     {
@@ -120,7 +116,7 @@ public class Boss : LivingEntity
             else
             {
                 //추적 대상이 없을 경우, AI 이동 정지
-                StopPathFinder(true);
+                pathFinder.isStopped = true;
                 canAttack = false;
                 canMove = false;
                 
@@ -157,14 +153,13 @@ public class Boss : LivingEntity
             Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
     }
 
-    bool _IsInFirstSkill = false;
     //추적 대상과의 거리에 따라 공격 실행
     public virtual void Attack()
     {
         //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면(기본공격)
         if (!dead && dist < attackRange)
         {
-            StopPathFinder(true);
+            pathFinder.isStopped = true;
 
             //공격 반경 안에 있으면 움직임을 멈춘다.
             canMove = false;
@@ -187,7 +182,7 @@ public class Boss : LivingEntity
         {
             int ranAction = Random.Range(0, 15); //나중에 스위치문으로 돌리기
             if (ranAction == 3)
-            {         
+            {
                 StartCoroutine(FisrtSkill());               
             }
             else
@@ -196,8 +191,7 @@ public class Boss : LivingEntity
                 canAttack = false;
 
                 //계속 추적
-                if (!_IsInFirstSkill)
-                    StopPathFinder(false);
+                pathFinder.isStopped = false; //계속 이동
                 pathFinder.SetDestination(targetEntity.transform.position);
             }
         }
@@ -205,13 +199,11 @@ public class Boss : LivingEntity
 
     IEnumerator FisrtSkill() 
     {
-        _IsInFirstSkill = true;
-        StopPathFinder(true);
+        pathFinder.isStopped = true;
         canMove = false;
         canAttack = false;
         bossAnimator.SetTrigger("FirstSkill");
         yield return new WaitForSeconds(1.25f);
-        _IsInFirstSkill = false;
     }
     
 
@@ -258,7 +250,7 @@ public class Boss : LivingEntity
         }
 
         //AI추적을 중지하고 네비메쉬 컴포넌트를 비활성화
-        StopPathFinder(true);
+        pathFinder.isStopped = true;
         pathFinder.enabled = false;
 
         canMove = false;
