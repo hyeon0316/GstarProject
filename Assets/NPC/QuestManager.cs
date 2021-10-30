@@ -16,7 +16,7 @@ public class QuestManager : MonoBehaviour
     }
     void GenerateData()
     {
-        questList.Add(10, new QuestData("마을 사람들과 대화하기.", new int[] { 1000, 2000 }));
+        questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000,7000,7000 }));
 
         questList.Add(20, new QuestData("동전 찾아주기.", new int[] { 5000, 2000 }));
     }
@@ -48,6 +48,12 @@ public class QuestManager : MonoBehaviour
         switch (questId)
         {
             case 10:
+                if(questActionIndex==2)
+                {
+                    
+                    Debug.Log(questActionIndex);
+                    questActionIndex = 2;
+                }
                 break;
             case 20:
                 break;

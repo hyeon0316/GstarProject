@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory inst= null;
     public static bool inventoryActivated = false; //인벤창을 열땐 캐릭터의 기본공격 등 제한
 
     //필요 컴포넌트
@@ -14,9 +15,16 @@ public class Inventory : MonoBehaviour
 
     public Slot[] slots; //슬롯들
 
+    void Awake()
+    {
+        if (inst == null) // 싱글톤
+        {
+            inst = this;
+        }
+    }
 
-    // Start is called before the first frame update
-    void Start()
+        // Start is called before the first frame update
+        void Start()
     {
         slots = go_SlotParent.GetComponentsInChildren<Slot>(); //자식 객체들 제어
     }
@@ -90,7 +98,21 @@ public class Inventory : MonoBehaviour
             return;
         }
     }
-
+    public int GetItemCount(Item _item)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item != null)
+            {
+                if (slots[i].item.itemName == _item.itemName)//이미 아이템이 있을 시 개수만 증가
+                {
+                    return slots[i].itemCount;
+                }
+            }
+        }
+        return 0;
+        
+    }
     public void Exit()
     {
         inventoryActivated = false;

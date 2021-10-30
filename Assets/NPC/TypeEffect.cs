@@ -22,7 +22,7 @@ public class TypeEffect : MonoBehaviour
     {
         if (isAnim)
         {
-            msgText.text = targetMsg;
+            //msgText.text = targetMsg;
             CancelInvoke();
 
             EffectEnd();
