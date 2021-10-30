@@ -420,7 +420,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637904281301661609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
   m_LocalPosition: {x: 0, y: 1, z: 0}
+=======
+  m_LocalPosition: {x: -0.08, y: 0, z: 11.81}
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3000098776600952393}
@@ -37039,6 +37043,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
   m_GameObject: {fileID: 1637904283084824389}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e119af46b3685774ba334915c0a463b7, type: 3}
@@ -37052,6 +37057,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1637904283086346598
+=======
+  m_GameObject: {fileID: 5247191617437631064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2082794882050631618}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &998604420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570012122353158019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa086fac5f6596e4e84e44a7ea4d5847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 8522499584539815333}
+  image_fill: {fileID: 4531979090176250637}
+--- !u!1 &5570012122619399369
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37142,7 +37172,39 @@ Transform:
   m_Father: {fileID: 1637904282992968602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
 --- !u!1 &1637904283120608116
+=======
+--- !u!114 &5570012122835025307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570012122835025304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad216bfa93515d042b7a7fa8febb90fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questId: 10
+  questActionIndex: 0
+--- !u!114 &1429344132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570012123143209658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa086fac5f6596e4e84e44a7ea4d5847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 8754518966314505317}
+  image_fill: {fileID: 5570012123991635326}
+--- !u!1 &5570012123410967500
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41975,6 +42037,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
   m_GameObject: {fileID: 1637904283127550865}
   m_LocalRotation: {x: -0.000000015747547, y: 0.000000017916584, z: -0.17410812, w: 0.98472655}
   m_LocalPosition: {x: -0.029199008, y: 0, z: 0.000000076293944}
@@ -41985,6 +42048,43 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637904283132354370
+=======
+  m_GameObject: {fileID: 5570012123627775023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.85516, y: 1.1027577, z: -13.964186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3113223877510019413}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5570012123627775022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570012123627775023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af14cab4172bd8446ab1f2f6c6a46402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &832624326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570012123737036233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa086fac5f6596e4e84e44a7ea4d5847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 7880486398605691249}
+  image_fill: {fileID: 5690265388625641405}
+--- !u!1 &5570012123929188159
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42037,6 +42137,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
   m_GameObject: {fileID: 1637904283152298880}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 2, y: 0, z: 0}
@@ -42048,6 +42149,34 @@ Transform:
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &8276280128089473368
+=======
+  m_GameObject: {fileID: 5570012123929188159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1927144958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570012124006563551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa086fac5f6596e4e84e44a7ea4d5847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 7582565813030198242}
+  image_fill: {fileID: 4543231969550641340}
+--- !u!1001 &5570012122477012081
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -42078,6 +42207,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
     - target: {fileID: 265348274, guid: 86d44e8b37d580b40aa9de64a0c326d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -42126,6 +42256,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
     - target: {fileID: 1557174763, guid: 86d44e8b37d580b40aa9de64a0c326d7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -42134,6 +42266,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
     - target: {fileID: 1557863087, guid: 86d44e8b37d580b40aa9de64a0c326d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -42158,6 +42291,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
     - target: {fileID: 1569734313, guid: 86d44e8b37d580b40aa9de64a0c326d7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -42166,6 +42301,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
     - target: {fileID: 1749984972, guid: 86d44e8b37d580b40aa9de64a0c326d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -42194,121 +42330,219 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+=======
+    - target: {fileID: 96081885111595622, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 96081885111595622, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 96081885111595622, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 96081885111595622, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 96081885111595622, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 96081885111595622, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1514192384365433443, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1514192384365433443, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1514192384365433443, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1514192384365433443, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1514192384365433443, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1514192384365433443, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1694450333325204900, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1694450333325204900, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1694450333325204900, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1694450333325204900, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1694450333325204900, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1694450333325204900, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2459659362295341044, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2459659362295341044, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2459659362295341044, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2459659362295341044, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2459659362295341044, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2459659362295341044, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2785237106786875527, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
@@ -42373,61 +42607,106 @@ PrefabInstance:
     - target: {fileID: 3180266587782200907, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3180266587782200907, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3180266587782200907, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3180266587782200907, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3180266587782200907, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3180266587782200907, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3716429188856740493, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3716429188856740493, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3716429188856740493, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3716429188856740493, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3716429188856740493, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 3716429188856740493, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4135791556938224674, guid: 86d44e8b37d580b40aa9de64a0c326d7,
@@ -42459,245 +42738,437 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+=======
+      value: 35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4188999744831665725, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4188999744831665725, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4188999744831665725, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4188999744831665725, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4188999744831665725, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4188999744831665725, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4602903526039465341, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4602903526039465341, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4602903526039465341, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4602903526039465341, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4602903526039465341, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4602903526039465341, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4705345391520736238, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4705345391520736238, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4705345391520736238, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4705345391520736238, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4705345391520736238, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4705345391520736238, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4783003780123136233, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4783003780123136233, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4783003780123136233, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4783003780123136233, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4783003780123136233, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4783003780123136233, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4820291768634012883, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4820291768634012883, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4820291768634012883, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4820291768634012883, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4820291768634012883, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4820291768634012883, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5481184359431884932, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5481184359431884932, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5481184359431884932, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5481184359431884932, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5481184359431884932, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5481184359431884932, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5572533518480563390, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5572533518480563390, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5572533518480563390, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5572533518480563390, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5572533518480563390, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5572533518480563390, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5982630858733701589, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5982630858733701589, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5982630858733701589, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5982630858733701589, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5982630858733701589, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 5982630858733701589, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991040861799333389, guid: 86d44e8b37d580b40aa9de64a0c326d7,
@@ -42879,155 +43350,282 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+=======
+      value: -220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6164426569750533227, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6164426569750533227, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6164426569750533227, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6164426569750533227, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6164426569750533227, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6164426569750533227, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6384778517434495522, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6384778517434495522, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6384778517434495522, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6384778517434495522, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6384778517434495522, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6384778517434495522, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6394752453521172109, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6394752453521172109, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6394752453521172109, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6394752453521172109, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6394752453521172109, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6394752453521172109, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6404743195866216609, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6404743195866216609, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6404743195866216609, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6404743195866216609, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6404743195866216609, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6404743195866216609, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6591366720163615347, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6591366720163615347, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6591366720163615347, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6591366720163615347, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6591366720163615347, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6591366720163615347, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
+=======
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591366720333588313, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+        type: 3}
+      propertyPath: m_IsActive
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6591366721813610257, guid: 86d44e8b37d580b40aa9de64a0c326d7,
@@ -43143,181 +43741,322 @@ PrefabInstance:
     - target: {fileID: 6953236267762818186, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6953236267762818186, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6953236267762818186, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6953236267762818186, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6953236267762818186, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6953236267762818186, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6986938980326253815, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6986938980326253815, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6986938980326253815, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6986938980326253815, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6986938980326253815, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6986938980326253815, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7656867071719752941, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7656867071719752941, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7656867071719752941, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7656867071719752941, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7656867071719752941, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 220
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7656867071719752941, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8353661890699872471, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8353661890699872471, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8353661890699872471, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8353661890699872471, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8353661890699872471, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -120
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8353661890699872471, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8438019240016333259, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8438019240016333259, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8438019240016333259, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8438019240016333259, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8438019240016333259, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -35
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8438019240016333259, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: -135
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 9134868550489778329, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMax.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 9134868550489778329, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchorMin.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 1
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 9134868550489778329, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 9134868550489778329, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_SizeDelta.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 75
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 9134868550489778329, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
+=======
+      value: 50
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 9134868550489778329, guid: 86d44e8b37d580b40aa9de64a0c326d7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -43325,10 +44064,35 @@ PrefabInstance:
 --- !u!1 &8276280126997426400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1328263608, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+=======
+      value: -50
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 86d44e8b37d580b40aa9de64a0c326d7, type: 3}
+--- !u!1 &5570012123143209658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1749984971, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5570012122561517923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 87735570, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
     type: 3}
   m_PrefabInstance: {fileID: 8276280128089473368}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
 --- !u!114 &3000098777080505350 stripped
+=======
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1600349755421933871 stripped
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6591366720144958814, guid: 86d44e8b37d580b40aa9de64a0c326d7,
     type: 3}
@@ -43340,7 +44104,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3022ea7eab88484ab5021f1a11112d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
 --- !u!224 &3000098776600952393 stripped
+=======
+--- !u!114 &7880486398605691249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2310826149941095680, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5690265388625641405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 268890771328310220, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5570012123737036233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328263608, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5570012122647904448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 265348273, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8522499584539815333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4254398290867800532, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7582565813030198242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2627296148875067283, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1600349756035128160 stripped
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6591366721813610257, guid: 86d44e8b37d580b40aa9de64a0c326d7,
     type: 3}
@@ -43370,45 +44198,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
 --- !u!114 &8276280128172948554 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 87735570, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+=======
+--- !u!114 &4543231969550641340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8232692149290732749, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
     type: 3}
   m_PrefabInstance: {fileID: 8276280128089473368}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8276280129011686216 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 926439952, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+=======
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5570012122353158019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 967205874, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5570012121912029114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603130827, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
     type: 3}
   m_PrefabInstance: {fileID: 8276280128089473368}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
 --- !u!1 &8276280127414560659 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1749984971, guid: 86d44e8b37d580b40aa9de64a0c326d7,
-    type: 3}
-  m_PrefabInstance: {fileID: 8276280128089473368}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8276280127222897654 stripped
+=======
+--- !u!1 &5570012124006563551 stripped
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1557863086, guid: 86d44e8b37d580b40aa9de64a0c326d7,
     type: 3}
   m_PrefabInstance: {fileID: 8276280128089473368}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
+--- !u!1 &8276280127222897654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557863086, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+=======
+--- !u!114 &8754518966314505317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3761319458124345364, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
+    type: 3}
+  m_PrefabInstance: {fileID: 8276280128089473368}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Player/PlayerM 2.prefab
 --- !u!1 &8276280128783491754 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 967205874, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+=======
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5570012123991635326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1610567951, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5570012122477012081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4531979090176250637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8334045780048918396, guid: 86d44e8b37d580b40aa9de64a0c326d7,
+>>>>>>> parent of 2970e3f (ui그래픽 수정):Assets/Player/PlayerM 1.prefab
     type: 3}
   m_PrefabInstance: {fileID: 8276280128089473368}
   m_PrefabAsset: {fileID: 0}
@@ -43418,3 +44301,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8276280128089473368}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
