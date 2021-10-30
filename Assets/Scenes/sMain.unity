@@ -551,31 +551,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: coolTimeE
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: coolTimeF
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: coolTimeQ
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: coolTimeR
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: coolTimeW
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8276280127222274227, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: m_AnchorMax.x
