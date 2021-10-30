@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
   m_Name: New Item
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: "\uAC70\uBBF8\uC758 \uC804\uB9AC\uD488"
   itemImage: {fileID: 0}
   itemPrefab: {fileID: 0}
   EquipType: 
