@@ -21,7 +21,7 @@ public class Player : LivingEntity
     public Text playerMpText;
     public bool townS;
     private Camera camera;
-    public GameObject npcCam;
+    
     public static bool slotCountClear = false;
 
     public bool isMove;
@@ -141,24 +141,8 @@ public class Player : LivingEntity
                         true && Vector3.Distance(transform.position,
                         hit.collider.transform.position) < 5f)
                     {
-                        Vector3 npcVector = transform.position - hit.collider.gameObject.transform.position;
-                        npcVector.x = 0;
-                        npcVector.z = 0;
-                        npcVector.Normalize();
-                        Debug.Log(npcVector);
-                        hit.collider.gameObject.transform.LookAt(this.transform.position);
-                        Quaternion q = hit.collider.gameObject.transform.rotation;
-                        q.x = 0;
-                        q.z = 0;
-                        hit.collider.gameObject.transform.rotation = q;
                         isMove = false;
                         animator.SetBool("isMove", false);
-                        npcCam.SetActive(true);
-                        gameManager.Action(hit.collider.gameObject);
-                    }
-                    else if(Vector3.Distance(transform.position,
-                        hit.collider.transform.position) < 5f)
-                    {
                         gameManager.Action(hit.collider.gameObject);
                     }
                 }

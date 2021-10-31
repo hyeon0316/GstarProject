@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
         {
             isAction = false;
             talkIndex = 0;
-            Player.inst.npcCam.SetActive(false);
 
             Debug.Log(questManager.CheckQuest(id));
             return;
