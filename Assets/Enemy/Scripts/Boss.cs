@@ -39,6 +39,13 @@ public class Boss : LivingEntity
     public GameObject skill_First;
     public GameObject skill_FirstPos;
 
+    public GameObject skill_Second;
+
+    public GameObject skill_Trap;
+
+    private bool NextPageOn;
+    private bool _IsInFirstSkill = false; //스킬 모션 재생할때 이동 제한
+
     private bool hasTarget
     {
         get
@@ -56,6 +63,7 @@ public class Boss : LivingEntity
 
     private bool canMove;
     private bool canAttack;
+    private bool isStun = false;
 
     private void Awake()
     {
@@ -93,12 +101,18 @@ public class Boss : LivingEntity
     {       
         bossAnimator.SetBool("CanMove", canMove);
         bossAnimator.SetBool("CanAttack", canAttack);
+        bossAnimator.SetBool("Stun", isStun);
 
         if (hasTarget)
         {
             //추적 대상이 존재할 경우 거리 계산은 실시간으로 해야하니 Update()
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
-        }       
+        }   
+        
+        if(health <= 1500) //2페이즈 돌입(체력 조정)
+        {         
+            NextPageOn = true;
+        }
     }
 
     void StopPathFinder(bool val)
@@ -115,7 +129,7 @@ public class Boss : LivingEntity
             if (hasTarget)
             {
                 LookAt();
-                Attack();
+                Attack();             
             }
             else
             {
@@ -157,10 +171,11 @@ public class Boss : LivingEntity
             Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
     }
 
-    bool _IsInFirstSkill = false;
+    
     //추적 대상과의 거리에 따라 공격 실행
     public virtual void Attack()
     {
+
         //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면(기본공격)
         if (!dead && dist < attackRange)
         {
@@ -185,10 +200,15 @@ public class Boss : LivingEntity
         //공격 반경 밖에 있을 경우 추적하기
         else
         {
-            int ranAction = Random.Range(0, 15); //나중에 스위치문으로 돌리기
+            int ranAction = Random.Range(0, 20); //나중에 스위치문으로 돌리기
             if (ranAction == 3)
             {         
                 StartCoroutine(FisrtSkill());               
+            }
+            else if(ranAction == 10)
+            {
+                if(NextPageOn)
+                    StartCoroutine(SecondSkill());
             }
             else
             {
@@ -202,7 +222,8 @@ public class Boss : LivingEntity
             }
         }
     }
-
+    
+    
     IEnumerator FisrtSkill() 
     {
         _IsInFirstSkill = true;
@@ -214,6 +235,16 @@ public class Boss : LivingEntity
         _IsInFirstSkill = false;
     }
     
+    IEnumerator SecondSkill() //2페이지 돌입 시 첫번쨰 스킬과 같이 쓰임
+    {
+        _IsInFirstSkill = true;
+        StopPathFinder(true);
+        canMove = false;
+        canAttack = false;
+        bossAnimator.SetTrigger("SecondSkill");
+        yield return new WaitForSeconds(3.1f);
+        _IsInFirstSkill = false;
+    }
 
     //유니티 애니메이션 이벤트로 휘두를 때 데미지 적용시키기
     public void OnDamageEvent()
@@ -234,6 +265,13 @@ public class Boss : LivingEntity
         GameObject firstSkill = Instantiate(skill_First, skill_FirstPos.transform.position, Quaternion.identity);
         firstSkill.transform.forward = skill_FirstPos.transform.forward;
         Destroy(firstSkill, 2f);
+    }
+
+    //두번째 스킬 모션 발동 할때 이벤트로 함수 실행
+    public void OnSecondSkillEvent()
+    {
+        GameObject secondSkill = Instantiate(skill_Second, skill_FirstPos.transform.position, Quaternion.identity);
+        Destroy(secondSkill, 2f);
     }
 
     //데미지를 입었을 때 실행할 처리(재정의)
@@ -263,6 +301,7 @@ public class Boss : LivingEntity
 
         canMove = false;
         canAttack = false;
+        NextPageOn = false;
 
         //사망 애니메이션 재생
         bossAnimator.SetTrigger("doDie");
