@@ -18,6 +18,8 @@ public class Enemy : LivingEntity
     private LivingEntity targetEntity;//추적대상
     private NavMeshAgent pathFinder; //경로 계산 AI 에이전트
 
+    private bool isFreeze = false; //피격당했을때 잠깐 멈추기
+
     /*public ParticleSystem hitEffect; //피격 이펙트
     public AudioClip deathSound;//사망 사운드
     public AudioClip hitSound; //피격 사운드
@@ -33,7 +35,7 @@ public class Enemy : LivingEntity
 
     public Transform tr;
 
-    private float attackRange = 2.3f;
+    public float attackRange = 2.3f;
 
     public float LookatSpeed = 1f; //0~1
 
@@ -80,7 +82,6 @@ public class Enemy : LivingEntity
         //네비메쉬 에이전트의 이동 속도 설정
         pathFinder.speed = newSpeed;
     }
-
 
     void Start()
     {
@@ -196,7 +197,8 @@ public class Enemy : LivingEntity
             canMove = true;
             canAttack = false;
             //계속 추적
-            SetNaviStop(false);//계속 이동
+            if(!isFreeze)
+                SetNaviStop(false);//계속 이동
             pathFinder.SetDestination(targetEntity.transform.position);
         }
     }
@@ -229,16 +231,25 @@ public class Enemy : LivingEntity
             //피격 효과음 재생
             enemyAudioPlayer.PlayOnShot(hitSound);
         }
-        */
-
-        //피격 애니메이션 재생
-        enemyAnimator.SetTrigger("Hit");
-
+        */       
+       
+        StartCoroutine(HitStop());
 
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage); //base, 부모클래스에 접근하는 기능
 
         enemyHpBarSlider.value = health;
+    }
+
+    IEnumerator HitStop()
+    {
+        isFreeze = true;
+        SetNaviStop(true);
+        canMove = false;
+        canAttack = false;
+        enemyAnimator.SetTrigger("Hit");
+        yield return new WaitForSeconds(0.75f);
+        isFreeze = false; 
     }
 
     //사망 처리

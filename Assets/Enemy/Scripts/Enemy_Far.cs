@@ -37,7 +37,7 @@ public class Enemy_Far : LivingEntity
     private float lastAttackTime; //마지막 공격 시점
 
     public Transform tr;
-    private float attackRange = 10f;
+    private float attackRange = 15f;
 
     public float LookatSpeed = 1f; //0~1
 
@@ -60,6 +60,11 @@ public class Enemy_Far : LivingEntity
     private bool canMove;
     private bool canAttack;
 
+    void SetNaviStop(bool val)
+    {
+        pathFinder.isStopped = val;
+    }
+
     private void Awake()
     {
         //게임 오브젝트에서 사용할 컴포넌트 가져오기
@@ -70,6 +75,7 @@ public class Enemy_Far : LivingEntity
 
     void Start()
     {
+        SetHpBar();
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작
         StartCoroutine(UpdatePath());
         tr = GetComponent<Transform>();
@@ -89,6 +95,15 @@ public class Enemy_Far : LivingEntity
         {
             //추적 대상이 존재할 경우 거리 계산은 실시간으로 해야하니 Update()
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
+        }
+
+        if (!dead)
+        {
+            //추적 대상 바라보기
+            Vector3 dir = targetEntity.transform.position - this.transform.position;
+
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
+                Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
         }
     }
 
@@ -117,7 +132,7 @@ public class Enemy_Far : LivingEntity
             else
             {
                 //추적 대상이 없을 경우, AI 이동 정지
-                pathFinder.isStopped = true;
+                SetNaviStop(true);
                 canAttack = false;
                 canMove = false;
 
@@ -152,14 +167,11 @@ public class Enemy_Far : LivingEntity
         //자신이 사망X, 최근 공격 시점에서 attackDelay 이상 시간이 지났고, 플레이어와의 거리가 공격 사거리안에 있다면 공격 가능
         if (!dead && dist <= attackRange)
         {
+            SetNaviStop(true);
             //공격 반경 안에 있으면 움직임을 멈춘다.
             canMove = false;
 
-            //추적 대상 바라보기
-            Vector3 dir = targetEntity.transform.position - this.transform.position;
-
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
-                Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
+            
 
             //공격 딜레이가 지났다면 공격 애니 실행
             if (lastAttackTime + attackDelay <= Time.time)
@@ -181,15 +193,16 @@ public class Enemy_Far : LivingEntity
             //추적 대상이 존재 && 추적 대상이 공격 반경 밖에 있을 경우, 경로를 갱신하고 AI 이동을 계속 진행
             canMove = true;
             canAttack = false;
-            pathFinder.isStopped = false; //계속 이동
+            SetNaviStop(false); //계속 이동
             pathFinder.SetDestination(targetEntity.transform.position);
         }
     }
 
-    //유니티 애니메이션 이벤트로 지팡이를 앞으로 휘두를 떄 메서드 실행
+    //유니티 애니메이션 이벤트로 지팡이를 앞으로 휘두를 떄 메서드 실행(미사일 발사)
     public void ShamanFire()
     {
-        magicMissile = Instantiate(magicMissilePrefab, firePoint.transform.position, firePoint.transform.rotation); //Instatiate()로 매직 미사일 프리팹을 복제 생성한다.
+        magicMissile = Instantiate(magicMissilePrefab, firePoint.transform.position, firePoint.transform.rotation); 
+
     }  
 
     //데미지를 입었을 때 실행할 처리
@@ -223,7 +236,6 @@ public class Enemy_Far : LivingEntity
     {
         enemyHpBarSlider.gameObject.SetActive(false);
        
-
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
         for (int i = 0; i < enemyColliders.Length; i++)
@@ -232,11 +244,12 @@ public class Enemy_Far : LivingEntity
         }
 
         //AI추적을 중지하고 네비메쉬 컴포넌트를 비활성화
-        pathFinder.isStopped = true;
+        SetNaviStop(true);
         pathFinder.enabled = false;
 
         //사망 애니메이션 재생
-        enemyAnimator.SetTrigger("Die");
+        enemyAnimator.ResetTrigger("Hit");
+        enemyAnimator.SetTrigger("doDie");
         /*//사망 효과음 재생
         enemyAudioPlayer.PlayOnShot(deathSound);
         */
