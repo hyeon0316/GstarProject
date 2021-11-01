@@ -6,6 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     public float dmg;
     public float speed;
+    public GameObject explossionEffect;
     Vector3 dir;
     void Awake()
     {
@@ -21,10 +22,11 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
+            GameObject impactP = Instantiate(explossionEffect, transform.position, transform.rotation) as GameObject;
             Debug.Log("[Player] , 데미지 :" + dmg);
             OnDamageEvent1(other.gameObject);
             Destroy(gameObject);
+            Destroy(impactP, 2f);
         }
         
     }

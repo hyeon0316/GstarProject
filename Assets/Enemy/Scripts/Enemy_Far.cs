@@ -206,6 +206,8 @@ public class Enemy_Far : LivingEntity
         magicMissile.GetComponent<EnemyAttack>().dmg = damage;
         magicMissile.GetComponent<EnemyAttack>().speed = attackSpeed;
 
+        Destroy(magicMissile, 2f);
+
     }  
 
     //데미지를 입었을 때 실행할 처리

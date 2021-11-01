@@ -152,6 +152,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 961758633, guid: 72e1d7dff29a4ef4884297c015d1a973, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1637904281301661609, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: m_Name
@@ -262,6 +266,16 @@ PrefabInstance:
       propertyPath: playerMpBarSlider
       value: 
       objectReference: {fileID: 1931950960}
+    - target: {fileID: 1637904282935220880, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637904282935220880, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.49
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72e1d7dff29a4ef4884297c015d1a973, type: 3}
 --- !u!114 &814342393 stripped
@@ -453,7 +467,7 @@ PrefabInstance:
     - target: {fileID: 8452879453363789572, guid: ab6eebd3d9d3ab34190d2bac7feea5c5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8456353972450749242, guid: ab6eebd3d9d3ab34190d2bac7feea5c5,
         type: 3}
@@ -1657,7 +1671,7 @@ PrefabInstance:
     - target: {fileID: 3559852785570682731, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562640163971136029, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
         type: 3}
@@ -1853,21 +1867,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chr_Dungeon_GoblinShaman_01
       objectReference: {fileID: 0}
-    - target: {fileID: 2560826564152284586, guid: 338f34a4fd3a34f438b9515e05dfc977,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4898897232771412426, guid: 338f34a4fd3a34f438b9515e05dfc977,
         type: 3}
       propertyPath: enemyHpBarCanvas
       value: 
       objectReference: {fileID: 1481739003}
-    - target: {fileID: 5657847799984225059, guid: 338f34a4fd3a34f438b9515e05dfc977,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 338f34a4fd3a34f438b9515e05dfc977, type: 3}
 --- !u!1001 &6626722166725042257
@@ -1950,7 +1954,7 @@ PrefabInstance:
     - target: {fileID: 6013759099604825932, guid: a859393c593882740a67eda7c7b22d96,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2276255261130359559, guid: a859393c593882740a67eda7c7b22d96, type: 3}
