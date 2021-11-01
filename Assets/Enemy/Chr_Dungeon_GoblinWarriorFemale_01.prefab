@@ -6246,10 +6246,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   firePoint: {fileID: 6271985410899907675}
-  magicMissilePrefab: {fileID: 3637316944841205088, guid: 056172a3ef63de847922b1205033681a,
+  magicMissilePrefab: {fileID: 1326218988840458, guid: cc64a580633f7bc48ad844b2335c0555,
     type: 3}
-  magicMissile: {fileID: 0}
   damage: 30
+  attackSpeed: 30
   attackDelay: 2.5
   tr: {fileID: 3758097031214362755}
   LookatSpeed: 1

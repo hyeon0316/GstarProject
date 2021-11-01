@@ -38,6 +38,7 @@ public class SpawnManager : MonoBehaviour
 
                 int rand = Random.Range(1, points.Length);
 
+                
                 Instantiate(monsterPrefab, points[rand].position, points[rand].rotation);
             }
             else

@@ -70,6 +70,11 @@ public class Enemy : LivingEntity
         enemyAnimator = GetComponent<Animator>();
         //enemyAudioPlayer = GetComponent<AudioSource>();
     }
+    private void OnDisable()
+    {
+        
+    }
+ 
 
     //적 AI의 초기 스펙을 결정하는 셋업 메서드(아직 안씀, 기본값으로 설정 가능)
     public void Setup(float newHealth, float newDamage, float newSpeed)
@@ -287,7 +292,9 @@ public class Enemy : LivingEntity
     //enemyHpBarSlider 활성화
     protected override void OnEnable()
     {
+
         //LivingEntity의 OnEnable() 실행(상태초기화)
+
         base.OnEnable();
 
         //체력 슬라이더 활성화

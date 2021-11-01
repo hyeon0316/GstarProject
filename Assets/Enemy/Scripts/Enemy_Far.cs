@@ -26,13 +26,14 @@ public class Enemy_Far : LivingEntity
     //스태프
     public GameObject firePoint; //매직미사일이 발사될 위치
     public GameObject magicMissilePrefab; //사용할 매직미사일 할당
-    public GameObject magicMissile; //Instantiate()메서드로 생성하는 매직미사일을 담는 게임오브젝트
+    GameObject magicMissile; //Instantiate()메서드로 생성하는 매직미사일을 담는 게임오브젝트
 
 
     private Animator enemyAnimator;
     //private AudioSource enemyAudioPlayer; //오디오 소스 컴포넌트
 
     public float damage = 30f; //공격력
+    public float attackSpeed = 10f; //공격력
     public float attackDelay = 2.5f; //공격 딜레이
     private float lastAttackTime; //마지막 공격 시점
 
@@ -201,7 +202,9 @@ public class Enemy_Far : LivingEntity
     //유니티 애니메이션 이벤트로 지팡이를 앞으로 휘두를 떄 메서드 실행(미사일 발사)
     public void ShamanFire()
     {
-        magicMissile = Instantiate(magicMissilePrefab, firePoint.transform.position, firePoint.transform.rotation); 
+        magicMissile = Instantiate(magicMissilePrefab, firePoint.transform.position, firePoint.transform.rotation);
+        magicMissile.GetComponent<EnemyAttack>().dmg = damage;
+        magicMissile.GetComponent<EnemyAttack>().speed = attackSpeed;
 
     }  
 

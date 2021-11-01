@@ -28,6 +28,7 @@ public class AttackState : MonoBehaviour
     }
     public void OnDamageEvent(GameObject targetEntity)
     {
+        
         //공격 대상을 지정할 추적 대상의 LivingEntity 컴포넌트 가져오기
         LivingEntity attackTarget = targetEntity.GetComponent<LivingEntity>();
 

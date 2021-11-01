@@ -13,6 +13,26 @@ public class UAttack : AttackState
 
     private void OnTriggerEnter(Collider other)
     {
-        TagCheck(other, dmg);
+        if (other.tag == "Enemy")
+        {
+
+            Debug.Log("[Enemy] , 데미지 :" + dmg);
+            OnDamageEvent1(other.gameObject);
+        }
+        if (other.tag == "Boss")
+        {
+            Debug.Log("[BOss] , 데미지 :" + dmg);
+            OnDamageEvent1(other.gameObject);
+        }
+        Destroy(gameObject);
+    }
+    public void OnDamageEvent1(GameObject targetEntity)
+    {
+
+        //공격 대상을 지정할 추적 대상의 LivingEntity 컴포넌트 가져오기
+        LivingEntity attackTarget = targetEntity.GetComponent<LivingEntity>();
+
+        //공격 처리(플레이어에게)
+        attackTarget.OnDamage(dmg);
     }
 }

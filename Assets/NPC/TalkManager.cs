@@ -26,7 +26,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(4000, new string[] { "어이.","왼쪽으로는 안가는게 좋을거야" });
         talkData.Add(5000, new string[] { "너는 누구지?.", "2차 스킬은 배우고 오는게 좋을거야","스킬을 배우고 오자" });
         talkData.Add(6000, new string[] { "흠냐.. 흠냐..zZ","졸고 있는거 같다 조용히 가자"});
-        talkData.Add(7000, new string[] { "빨리 재료를 다시 모아야 할텐데", "졸고 있는거 같다 조용히 가자" });
+        talkData.Add(7000, new string[] { "빨리 재료를 다시 모아야 할텐데", });
         talkData.Add(8000, new string[] { "텔레포트가 어디가잘못된거지..?", "스승님한테 혼나겠다.." });
 
         //Quest
