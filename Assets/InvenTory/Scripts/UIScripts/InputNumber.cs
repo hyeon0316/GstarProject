@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InputNumber : MonoBehaviour
-{
-    
-
+{   
     public static bool activated = false;
 
     [SerializeField]
@@ -18,9 +16,7 @@ public class InputNumber : MonoBehaviour
 
     [SerializeField]
     private GameObject go_Base;
-
-    
-
+   
 
     void Update()
     {
@@ -74,11 +70,11 @@ public class InputNumber : MonoBehaviour
     }
 
     IEnumerator DropItemCorountine(int _num)
-    {
+    {           
         for (int i = 0; i < _num; i++)
         {
             Instantiate(DragSlot.instance.dragSlot.item.itemPrefab,
-                Player.inst.transform.position + Player.inst.transform.forward*2,
+                Player.inst.transform.position + Player.inst.transform.up * 2 + Player.inst.transform.forward * 2,
                 Quaternion.identity);
             DragSlot.instance.dragSlot.SetSlotCount(-1);
             yield return new WaitForSeconds(0.05f);
