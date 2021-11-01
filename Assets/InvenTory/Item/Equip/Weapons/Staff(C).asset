@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Staff(C)
   m_EditorClassIdentifier: 
   itemName: Staff(C)
-  itemImage: {fileID: 0}
-  itemPrefab: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: 164b604c690bab945ba390d057eb3229, type: 3}
+  itemPrefab: {fileID: 2447778425202613384, guid: 098aa3602a03c054ebeb78fb430fe104,
+    type: 3}
   EquipType: Weapon
   itemHp: 0
   itemMp: 0
-  itemDp: 0
-  itemPower: 0
+  itemDp: 10
+  itemPower: 10
   itemType: 0

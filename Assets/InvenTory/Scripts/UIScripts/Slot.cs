@@ -305,8 +305,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
         if (DragSlot_Equip.instance.dragSlot_Equip != null)
         {
-            if(item.EquipType == DragSlot_Equip.instance.dragSlot_Equip.e_item.EquipType)
-                Inter_ChangeSlot();
+            Inter_ChangeSlot();
         }
 
         if (DragSlot_Used.instance.dragSlot_Used != null)
@@ -339,12 +338,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         Item _tempItem = item;
 
-        AddItem(DragSlot_Equip.instance.dragSlot_Equip.e_item);
-        Player.inst.TakeOffEffect(DragSlot_Equip.instance.dragSlot_Equip.e_item);
+        AddItem(DragSlot_Equip.instance.dragSlot_Equip.e_item);       
 
-        if (_tempItem != null)
+        if (_tempItem != null && item.EquipType == DragSlot_Equip.instance.dragSlot_Equip.e_item.EquipType)
         {
             DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);
+            Player.inst.TakeOffEffect(DragSlot_Equip.instance.dragSlot_Equip.e_item);
         }
         else
             DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();       
