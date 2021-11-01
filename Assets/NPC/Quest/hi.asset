@@ -16,4 +16,10 @@ MonoBehaviour:
   title: 
   content: 
   completeDialog: 
-  collectObjectives: []
+  collectObjectives:
+  - item: {fileID: 0}
+    amount: 0
+  rewards:
+  - ItemReward: {fileID: 0}
+    ItemRewardCount: 0
+    EXPReward: 0

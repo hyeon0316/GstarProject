@@ -32021,7 +32021,6 @@ GameObject:
   - component: {fileID: 1637904282935220880}
   - component: {fileID: 1637904282935220877}
   - component: {fileID: 1637904282935220882}
-  - component: {fileID: 1637904282935220883}
   m_Layer: 8
   m_Name: PlayerC
   m_TagString: Player
@@ -32080,6 +32079,7 @@ MonoBehaviour:
   skill_W: {fileID: 1637904283046098604}
   skill_E: {fileID: 2173473307583004199, guid: 2e5f9bbbc7775ef4d93b8ce0e22726d7, type: 3}
   skill_R: {fileID: 0}
+  exp: 0
   skill_TP: {fileID: 1980742424991254146, guid: 48ab833fb5b509d4dad96f6dfb0e0f21,
     type: 3}
   dP: 0
@@ -32110,20 +32110,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &1637904282935220883
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637904282935220881}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.15
-  m_Height: 0.86
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &1637904282956225704
 GameObject:
   m_ObjectHideFlags: 0

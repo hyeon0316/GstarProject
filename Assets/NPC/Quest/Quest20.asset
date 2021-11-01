@@ -17,5 +17,6 @@ MonoBehaviour:
   content: 
   completeDialog: 
   collectObjectives:
-  - item: {fileID: 0}
-    amount: 0
+  - item: {fileID: 11400000, guid: 072aab0480a0d6246bd78d91540b3834, type: 2}
+    amount: 15
+  rewards: []
