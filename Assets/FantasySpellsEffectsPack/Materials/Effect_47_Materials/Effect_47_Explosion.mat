@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Effect_47_Explosion
   m_Shader: {fileID: 4800000, guid: eee4f23a9611584428cd8df8a4792f02, type: 3}
   m_ShaderKeywords: IS_TEXTUREBLEND
@@ -94,4 +95,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1.3627813, g: 0.7279412, b: 3.0000002, a: 1}
+    - _TintColor: {r: 3.0000005, g: 0.47120425, b: 0.25130895, a: 1}

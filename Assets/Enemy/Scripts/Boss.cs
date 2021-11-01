@@ -45,6 +45,12 @@ public class Boss : LivingEntity
 
     private bool NextPageOn;
     private bool _IsInFirstSkill = false; //스킬 모션 재생할때 이동 제한
+    private bool _StunOn = true;
+    private bool AllStop;
+    private bool TrapOnTime;
+
+    public GameObject StunEffect;
+    private float followTrap = 1;
 
     private bool hasTarget
     {
@@ -63,7 +69,7 @@ public class Boss : LivingEntity
 
     private bool canMove;
     private bool canAttack;
-    private bool isStun = false;
+    private bool canStun;
 
     private void Awake()
     {
@@ -98,22 +104,35 @@ public class Boss : LivingEntity
     }
     // Update is called once per frame
     void Update()
-    {       
+    {
         bossAnimator.SetBool("CanMove", canMove);
         bossAnimator.SetBool("CanAttack", canAttack);
-        bossAnimator.SetBool("Stun", isStun);
+        bossAnimator.SetBool("Stun", canStun);
 
         if (hasTarget)
         {
             //추적 대상이 존재할 경우 거리 계산은 실시간으로 해야하니 Update()
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
-        }   
-        
-        if(health <= 1500) //2페이즈 돌입(체력 조정)
-        {         
+        }
+
+        if (health <= 1500) //2페이즈 돌입(체력 조정)
+        {
             NextPageOn = true;
+            if (_StunOn)
+                StartCoroutine(StunOn());
+        }
+        if (TrapOnTime)
+        {
+            if (!skill_Trap.activeSelf)//터지기 전에는 계속 플레이어 추적
+            {
+                followTrap = 0.8f;
+                skill_Trap.transform.position = Vector3.Lerp(skill_Trap.transform.position, Player.inst.transform.position, Time.deltaTime * followTrap);
+            }
+            else if (skill_Trap.activeSelf) //트랩이 발동될 때는 제자리에서 발동
+                followTrap = 0;
         }
     }
+
 
     void StopPathFinder(bool val)
     {
@@ -128,8 +147,11 @@ public class Boss : LivingEntity
         {
             if (hasTarget)
             {
-                LookAt();
-                Attack();             
+                if (!AllStop) //스턴일때는 행동제한
+                {
+                    LookAt();
+                    Attack();
+                }
             }
             else
             {
@@ -137,7 +159,6 @@ public class Boss : LivingEntity
                 StopPathFinder(true);
                 canAttack = false;
                 canMove = false;
-                
                 //반지름 20f의 콜라이더로 whatIsTarget 레이어를 가진 콜라이더 검출하기
                 Collider[] colliders = Physics.OverlapSphere(transform.position, 35f, whatIsTarget);
 
@@ -164,18 +185,17 @@ public class Boss : LivingEntity
     }
 
     private void LookAt() //추적 대상 바라보기
-    {        
+    {
         Vector3 dir = targetEntity.transform.position - this.transform.position;
 
         this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
             Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
     }
 
-    
+
     //추적 대상과의 거리에 따라 공격 실행
     public virtual void Attack()
     {
-
         //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면(기본공격)
         if (!dead && dist < attackRange)
         {
@@ -183,7 +203,6 @@ public class Boss : LivingEntity
 
             //공격 반경 안에 있으면 움직임을 멈춘다.
             canMove = false;
-          
             //최근 공격 시점에서 attackDelay 이상 시간이 지나면 공격 가능
             if (lastAttackTime + attackDelay <= Time.time)
             {
@@ -196,19 +215,24 @@ public class Boss : LivingEntity
                 canAttack = false;
             }
         }
-      
+
         //공격 반경 밖에 있을 경우 추적하기
         else
         {
-            int ranAction = Random.Range(0, 20); //나중에 스위치문으로 돌리기
+            int ranAction = Random.Range(0, 30); //나중에 스위치문으로 돌리기
             if (ranAction == 3)
-            {         
-                StartCoroutine(FisrtSkill());               
-            }
-            else if(ranAction == 10)
             {
-                if(NextPageOn)
+                StartCoroutine(FisrtSkill());
+            }
+            else if (ranAction == 10)
+            {
+                if (NextPageOn)
                     StartCoroutine(SecondSkill());
+            }
+            else if (ranAction == 15)
+            {
+                if (NextPageOn)
+                    StartCoroutine(TrapOn());
             }
             else
             {
@@ -222,9 +246,46 @@ public class Boss : LivingEntity
             }
         }
     }
-    
-    
-    IEnumerator FisrtSkill() 
+
+    IEnumerator TrapOn()
+    {
+        TrapOnTime = true;
+        skill_Trap.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(false);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(false);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(false);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(false);
+        yield return new WaitForSeconds(1.2f);
+        skill_Trap.SetActive(true);
+        TrapOnTime = false;        
+    }
+
+    IEnumerator StunOn()
+    {
+        StunEffect.SetActive(true);
+        AllStop = true;
+        StopPathFinder(true);
+        canMove = false;
+        canAttack = false;
+        canStun = true;
+        yield return new WaitForSeconds(5f);
+        StunEffect.SetActive(false);
+        canStun = false;
+        _StunOn = false;
+        AllStop = false;
+    }
+
+    IEnumerator FisrtSkill() //1페이지 첫 번째 스킬
     {
         _IsInFirstSkill = true;
         StopPathFinder(true);
@@ -235,7 +296,7 @@ public class Boss : LivingEntity
         _IsInFirstSkill = false;
     }
     
-    IEnumerator SecondSkill() //2페이지 돌입 시 첫번쨰 스킬과 같이 쓰임
+    IEnumerator SecondSkill() //2페이지 돌입 시 첫 번째 스킬과 같이 쓰임
     {
         _IsInFirstSkill = true;
         StopPathFinder(true);
