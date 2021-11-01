@@ -24,6 +24,7 @@ public class Player : LivingEntity
     public GameObject npcCam;
     public static bool slotCountClear = false;
 
+
     public bool isMove;
     private Vector3 destination;
     public Animator animator;
@@ -37,6 +38,7 @@ public class Player : LivingEntity
     public GameObject skill_E;
     public GameObject skill_R;
 
+    public float exp = 0;
 
     public GameObject skill_TP;
     private float startingDP = 0;
@@ -115,7 +117,7 @@ public class Player : LivingEntity
             GetPos();
             Move();
             Tp();
-            if(!Inventory.inventoryActivated && !Information.informationActivated)
+            if (!Inventory.inventoryActivated && !Information.informationActivated)
                 Attack();
 
             if (SceneManager.GetActiveScene().name != "Town")
@@ -156,7 +158,7 @@ public class Player : LivingEntity
                         npcCam.SetActive(true);
                         gameManager.Action(hit.collider.gameObject);
                     }
-                    else if(Vector3.Distance(transform.position,
+                    else if (Vector3.Distance(transform.position,
                         hit.collider.transform.position) < 5f)
                     {
                         gameManager.Action(hit.collider.gameObject);
@@ -321,14 +323,14 @@ public class Player : LivingEntity
     {
 
     }
-        void Tp()
+    void Tp()
     {
         if (Input.GetKey(KeyCode.F) && isSkillTP)
         {
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
-                tempSkill1 = ObjectPoolManager.inst.GetObjectFromPool("TP", transform.position, Quaternion.Euler(-90,0,0));
+                tempSkill1 = ObjectPoolManager.inst.GetObjectFromPool("TP", transform.position, Quaternion.Euler(-90, 0, 0));
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0;
                 animator.transform.forward = dir;
@@ -394,7 +396,8 @@ public class Player : LivingEntity
     public override void Die()
     {
         //
-        Boss.inst.TrapTarget.SetActive(false);//만약 2페이즈 돌입 후 죽었을때에도 해골표시 꺼주기
+        Boss.inst.TrapTarget.SetActive(false);
+
         SceneManager.LoadScene("Town");
         health = 50; //수정해야함
         this.transform.position = new Vector3(-1.7f, 2f, 26);
@@ -440,7 +443,10 @@ public class Player : LivingEntity
         dP += _item.itemDp;
         power += _item.itemPower;
     }
-
+    public void ExpPlus(float exp2)
+    {
+        exp += exp2;
+    }
     public void TakeOffEffect(Item _item)
     {
         dP -= _item.itemDp;
