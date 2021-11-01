@@ -42,6 +42,7 @@ public class Boss : LivingEntity
     public GameObject skill_Second;
 
     public GameObject skill_Trap;
+    public GameObject skill_TrapPrefab;
 
     private bool NextPageOn;
     private bool _IsInFirstSkill = false; //스킬 모션 재생할때 이동 제한
@@ -51,6 +52,9 @@ public class Boss : LivingEntity
 
     public GameObject StunEffect;
     private float followTrap = 1;
+
+    public GameObject TrapTarget; //2페이지 이후 플레이어 머리 위에 해골표시
+    private float timeTemp;
 
     private bool hasTarget
     {
@@ -125,11 +129,21 @@ public class Boss : LivingEntity
         {
             if (!skill_Trap.activeSelf)//터지기 전에는 계속 플레이어 추적
             {
-                followTrap = 0.8f;
+                followTrap = 1f;
                 skill_Trap.transform.position = Vector3.Lerp(skill_Trap.transform.position, Player.inst.transform.position, Time.deltaTime * followTrap);
             }
             else if (skill_Trap.activeSelf) //트랩이 발동될 때는 제자리에서 발동
                 followTrap = 0;
+        }
+
+        if(TrapTarget.activeSelf)
+        {
+            if (timeTemp < 3)
+                timeTemp += Time.deltaTime * 2;
+            else
+                timeTemp = 3f;
+            
+            TrapTarget.transform.localScale = new Vector3(timeTemp * 1, timeTemp * 1, timeTemp * 1);
         }
     }
 
@@ -283,6 +297,7 @@ public class Boss : LivingEntity
         canStun = false;
         _StunOn = false;
         AllStop = false;
+        TrapTarget.SetActive(true);//기절시간이 끝난 뒤 플레이어에게 해골표시
     }
 
     IEnumerator FisrtSkill() //1페이지 첫 번째 스킬
@@ -349,6 +364,7 @@ public class Boss : LivingEntity
     public override void Die()
     {
         bossHpBarSlider.gameObject.SetActive(false);
+        TrapTarget.SetActive(false);
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
         for (int i = 0; i < enemyColliders.Length; i++)

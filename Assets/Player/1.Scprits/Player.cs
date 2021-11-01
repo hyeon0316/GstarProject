@@ -394,6 +394,7 @@ public class Player : LivingEntity
     public override void Die()
     {
         //
+        Boss.inst.TrapTarget.SetActive(false);//만약 2페이즈 돌입 후 죽었을때에도 해골표시 꺼주기
         SceneManager.LoadScene("Town");
         health = 50; //수정해야함
         this.transform.position = new Vector3(-1.7f, 2f, 26);

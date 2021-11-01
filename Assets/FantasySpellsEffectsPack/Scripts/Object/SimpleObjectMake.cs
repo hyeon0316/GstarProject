@@ -22,6 +22,7 @@ public class SimpleObjectMake : _ObjectMakeBase {
                     m_script.m_movePos = m_movePos;
                 }
             }
+            Destroy(m_obj, 1.2f);
         }
     }
     void Start(){
