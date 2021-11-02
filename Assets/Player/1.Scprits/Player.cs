@@ -77,7 +77,9 @@ public class Player : LivingEntity
     private GameObject tempSkill2;
     private float time_current;
     private float time_start;
-
+    RaycastHit hit1;
+    private int layerMask;
+    float tpDis;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -103,6 +105,7 @@ public class Player : LivingEntity
         isSkillE = true;
         isSkillR = true;
         isSkillTP = true;
+        tpDis = 5f;
 
     }
     void Start()
@@ -111,6 +114,7 @@ public class Player : LivingEntity
     // Update is called once per frame
     void Update()
     {
+       
         NpcS();
         if (!gameManager.isAction)
         {
@@ -350,7 +354,7 @@ public class Player : LivingEntity
         isSkillR = true;
         coolTimeR.GetComponent<CoolTime>().End_CoolTime();
     }
-        void Tp()
+    void Tp()
     {
         if (Input.GetKey(KeyCode.F) && isSkillTP)
         {
@@ -361,7 +365,15 @@ public class Player : LivingEntity
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0;
                 animator.transform.forward = dir;
-                transform.position += dir.normalized * 5f;
+                layerMask = 1 << 10;
+                if (Physics.Raycast(animator.transform.position, animator.transform.forward, out hit1, tpDis, layerMask))
+                {
+                    transform.position += dir.normalized * hit1.distance;
+                }
+                else
+                {
+                    transform.position += dir.normalized * tpDis;
+                }
                 tempSkill2 = ObjectPoolManager.inst.GetObjectFromPool("TP", transform.position, Quaternion.Euler(-90, 0, 0));
                 isMove = false;
                 animator.SetBool("isMove", false);
