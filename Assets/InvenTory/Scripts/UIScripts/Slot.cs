@@ -359,8 +359,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
 
         if (_tempItem != null && item.EquipType == DragSlot_Equip.instance.dragSlot_Equip.e_item.EquipType)
         {
-            DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);
             Player.inst.TakeOffEffect(DragSlot_Equip.instance.dragSlot_Equip.e_item);
+            DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);        
         }
         else
             DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();       

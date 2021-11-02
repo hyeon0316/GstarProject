@@ -485,6 +485,10 @@ public class Player : LivingEntity
     {
         dP += _item.itemDp;
         power += _item.itemPower;
+        startingHealth += _item.startingHp;
+        health += _item.startingHp;
+        startingMana += _item.startingMp;
+        mana += _item.startingMp;
     }
     public void ExpPlus(float exp2)
     {
@@ -494,6 +498,10 @@ public class Player : LivingEntity
     {
         dP -= _item.itemDp;
         power -= _item.itemPower;
+        startingHealth -= _item.startingHp;
+        health -= _item.startingHp;
+        startingMana -= _item.startingMp;
+        mana -= _item.startingMp;
     }
 }
 

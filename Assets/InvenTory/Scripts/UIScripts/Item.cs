@@ -24,8 +24,10 @@ public class Item : ScriptableObject //굳이 게임오브젝트에 붙일 필�
         Ingredient, //재료
     }
 
-    public float itemHp;
-    public float itemMp;
+    public float itemHp;//포션회복량
+    public float itemMp;//포션회복량
+    public float startingHp;//총 체력량
+    public float startingMp;//총 마나량
     public float itemDp;
     public float itemPower;
     public ItemType itemType;

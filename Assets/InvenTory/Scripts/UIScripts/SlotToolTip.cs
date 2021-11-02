@@ -31,7 +31,8 @@ public class SlotToolTip : MonoBehaviour
         txt_ItemDesc.text = _item.itemDesc;
         itemImage.sprite = _item.itemImage;
         txt_ItemRank.text = _item.itemRank;
-        txt_ItemType.text = _item.itemTypeName;      
+        txt_ItemType.text = _item.itemTypeName;
+        txt_ItemIntro.text = _item.itemIntro;
     }
 
     public void HideToolTip()

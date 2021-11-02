@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
   m_Name: Potion_Mp(A)
   m_EditorClassIdentifier: 
+  itemDesc: 
+  itemIntro: 
+  itemRank: 
   itemName: Potion_Mp(A)
   itemImage: {fileID: 21300000, guid: dc1f1665c1c85914b94e70b273a42455, type: 3}
   itemPrefab: {fileID: 6617306992415598682, guid: e82ef8ca68ce9674fbb989a429c02db4,
     type: 3}
   EquipType: 
+  itemTypeName: "\uC18C\uBAA8\uD488"
   itemHp: 0
-  itemMp: 100
+  itemMp: 500
+  startingHp: 0
+  startingMp: 0
   itemDp: 0
   itemPower: 0
   itemType: 1
