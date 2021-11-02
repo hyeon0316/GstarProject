@@ -2594,6 +2594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go_InventoryBase: {fileID: 4152851698261327130}
   go_SlotParent: {fileID: 4152851698238444071}
+  theToolTipDatabase: {fileID: 7659780064834795415}
   slots: []
 --- !u!1 &4152851698350362071
 GameObject:
