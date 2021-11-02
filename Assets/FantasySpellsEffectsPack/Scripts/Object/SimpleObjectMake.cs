@@ -5,7 +5,7 @@ using UnityEngine;
 public class SimpleObjectMake : _ObjectMakeBase {
 
     public Vector3 m_randomRotationValue;
-
+    public float destroySpeed = 1.2f;
     private void OnEnable()
     {
         for (int i = 0; i < m_makeObjs.Length; i++)
@@ -22,7 +22,7 @@ public class SimpleObjectMake : _ObjectMakeBase {
                     m_script.m_movePos = m_movePos;
                 }
             }
-            Destroy(m_obj, 1.2f);
+            Destroy(m_obj, destroySpeed);
         }
     }
     void Start(){

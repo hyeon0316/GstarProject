@@ -50,7 +50,6 @@ public class QuestManager : MonoBehaviour
             case 10:
                 if(questActionIndex==2)
                 {
-                    
                     Debug.Log(questActionIndex);
                     questActionIndex = 2;
                 }

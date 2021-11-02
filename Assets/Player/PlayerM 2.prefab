@@ -32035,7 +32035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637904282935220881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 36}
+  m_LocalPosition: {x: 0, y: 0, z: -17.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1637904282306624831}
@@ -32077,7 +32077,7 @@ MonoBehaviour:
   skill_Q: {fileID: 3391311313930984692, guid: f69ada73da56bd64c9e43056cf64a88c, type: 3}
   skill_W: {fileID: 1637904283046098604}
   skill_E: {fileID: 2173473307583004199, guid: 2e5f9bbbc7775ef4d93b8ce0e22726d7, type: 3}
-  skill_R: {fileID: 0}
+  skill_R: {fileID: 4845780548672048810, guid: cbd590c5bfa3be74ea506269674152c6, type: 3}
   exp: 0
   skill_TP: {fileID: 1980742424991254146, guid: 48ab833fb5b509d4dad96f6dfb0e0f21,
     type: 3}

@@ -180,7 +180,6 @@ public class Player : LivingEntity
         playerHpText.text = string.Format("{0}/{1}", health, startingHealth);
         playerMpText.text = string.Format("{0}/{1}", mana, startingMana);
     }
-
     private void OnTriggerEnter(Collider other)//아이템 획득
     {
         if (other.gameObject.tag.Equals("Item"))
@@ -222,8 +221,6 @@ public class Player : LivingEntity
             SpawnProjectilesScript.inst.SpawnVFX();
         }
     }
-
-
     void SkillQ()
     {
 
@@ -321,9 +318,39 @@ public class Player : LivingEntity
     }
     void SkillR()
     {
-
+        if (Input.GetKeyDown(KeyCode.R) && isSkillR)
+        {
+            mana -= 100;
+            isSkillR = false;
+            StartCoroutine(SkillRCount(time_R));
+            coolTimeR.GetComponent<CoolTime>().Reset_CoolTime(time_R);
+        }
     }
-    void Tp()
+    IEnumerator SkillRCount(float dealy)
+    {
+        RaycastHit hit;
+        GameObject QQ;
+        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+        {
+            var dir = hit.point - animator.transform.position;
+            dir.y = 0;
+            animator.transform.forward = dir;
+            isMove = false;
+            animator.SetBool("isMove", false);
+            QQ = Instantiate(skill_R, hit.point, Quaternion.identity);
+        }
+        else
+        {
+            QQ = Instantiate(skill_R, transform.position, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(5f);
+        Destroy(QQ.gameObject);
+        yield return new WaitForSeconds(dealy - 2.5f);
+
+        isSkillR = true;
+        coolTimeR.GetComponent<CoolTime>().End_CoolTime();
+    }
+        void Tp()
     {
         if (Input.GetKey(KeyCode.F) && isSkillTP)
         {
@@ -420,6 +447,7 @@ public class Player : LivingEntity
         {
             return;
         }
+
         slotCountClear = true;
         health += _item.itemHp;
         if (health > startingHealth)
@@ -432,6 +460,7 @@ public class Player : LivingEntity
         {
             return;
         }
+
         slotCountClear = true;
         mana += _item.itemMp;
         if (mana > startingMana)
