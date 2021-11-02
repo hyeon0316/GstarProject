@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
-{  
+public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+{
 
     public Item item; //획득한 아이템
     public int itemCount; //획득한 아이템의 개수
@@ -41,7 +41,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
     {
         e_Slot = FindObjectOfType<E_Slot>();
         theInputNumber = FindObjectOfType<InputNumber>();
-        invenBaseRect = transform.parent.parent.GetComponent<RectTransform>().rect;          
+        invenBaseRect = transform.parent.parent.GetComponent<RectTransform>().rect;
     }
 
     private void SetColor(float _alpha) //이미지 투명도 조절
@@ -55,21 +55,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
         item = _item;
         itemCount = _count;
         itemImage.sprite = item.itemImage;
-        
-        
-        if (item.itemType != Item.ItemType.Equipment) 
+
+
+        if (item.itemType != Item.ItemType.Equipment)
         {
             go_CountImage.SetActive(true);
             text_Count.text = itemCount.ToString();
         }
         else    //장비의 경우 개수표현X(단일 아이템)
-        {          
+        {
             text_Count.text = "0";
             go_CountImage.SetActive(false);
         }
         SetColor(1);
     }
-   
+
     public void SetSlotCount(int _conut) //아이템 개수 조정
     {
         itemCount += _conut;
@@ -85,7 +85,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
         itemCount = 0;
         itemImage.sprite = null;
         SetColor(0);
-    
+
         text_Count.text = "0";
         go_CountImage.SetActive(false);
     }
@@ -99,7 +99,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
             {
                 if (item.itemType == Item.ItemType.Equipment)
                 {
-                    for(int i =0; i< transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
+                    for (int i = 0; i < transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
                     {
                         if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)
                         {
@@ -111,10 +111,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
                         }
                     }
                     //장착
-                    information.EquipItem(item);                   
+                    information.EquipItem(item);
                     if (Information.slotClear)
                     {
-                        ClearSlot();  
+                        ClearSlot();
                         Information.slotClear = false;
                     }
                 }
@@ -122,12 +122,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
                 {
                     if (item.itemType == Item.ItemType.Used)
                     {
-                        if (item.itemName == "체력포션(대)" || item.itemName == "체력포션(중)" || item.itemName == "체력포션(소)" 
-                            || item.itemName == "파워엘릭서" || item.itemName =="엘릭서")
+                        if (item.itemName == "체력포션(대)" || item.itemName == "체력포션(중)" || item.itemName == "체력포션(소)"
+                            || item.itemName == "파워엘릭서" || item.itemName == "엘릭서")
                         {
                             Player.inst.HealHp(item);
                         }
-                        else if (item.itemName == "마나포션(대)"|| item.itemName == "마나포션(중)" || item.itemName == "마나포션(소)")
+                        else if (item.itemName == "마나포션(대)" || item.itemName == "마나포션(중)" || item.itemName == "마나포션(소)")
                         {
                             Player.inst.HealMp(item);
                         }
@@ -149,7 +149,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
                 c_Timer = Time.time;
                 isOneClick = true;
             }
-            else if(isOneClick && ((Time.time - c_Timer) > doubleClickTime))
+            else if (isOneClick && ((Time.time - c_Timer) > doubleClickTime))
             {
                 isOneClick = false;
             }
@@ -160,7 +160,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
                 isDoubleClick = true;
             }
 
-            if(isDoubleClick)
+            if (isDoubleClick)
             {
                 pMemory = true;
                 if (item != null)
@@ -193,11 +193,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
                         {
                             if (item.itemName == "Potion_Hp")
                             {
-                                Player.inst.HealHp(item);                             
+                                Player.inst.HealHp(item);
                             }
                             else if (item.itemName == "Potion_Mp")
                             {
-                                Player.inst.HealMp(item);                              
+                                Player.inst.HealMp(item);
                             }
                             if (Player.slotCountClear)
                             {
@@ -233,7 +233,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
 
 
     public void OnEndDrag(PointerEventData eventData) //드래그가 끝날때 호출
-    {   
+    {
         //정보창 Off
         if (!inforPage.activeSelf)
         {
@@ -245,21 +245,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
                      && DragSlot.instance.transform.position.y < 130
                      && DragSlot.instance.transform.position.x > 1390
                      && DragSlot.instance.transform.position.x < 1635)))
-            {               
+            {
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
             }
-            else if ((DragSlot.instance.transform.localPosition.x > invenBaseRect.xMin 
+            else if ((DragSlot.instance.transform.localPosition.x > invenBaseRect.xMin
                && DragSlot.instance.transform.localPosition.x < invenBaseRect.xMax
                && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
                     (DragSlot.instance.transform.position.y > 31
-                    &&DragSlot.instance.transform.position.y < 130
+                    && DragSlot.instance.transform.position.y < 130
                     && DragSlot.instance.transform.position.x > 1390
                     && DragSlot.instance.transform.position.x < 1638))
             {
                 DragSlot.instance.SetColor(0);
-                DragSlot.instance.dragSlot = null;               
+                DragSlot.instance.dragSlot = null;
             }
         }
 
@@ -340,7 +340,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
         else if (DragSlot.instance.dragSlot.item.itemName == item.itemName)//인벤창에서 같은 아이템을 드래그로 합칠 때
         {
             if (DragSlot.instance.dragSlot.item.itemType == Item.ItemType.Used)
-                SetSlotCount(DragSlot.instance.dragSlot.itemCount);           
+                SetSlotCount(DragSlot.instance.dragSlot.itemCount);
         }
 
         if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName != item.itemName)//a자리에 b가 들어갈 때   
@@ -350,44 +350,46 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
         }
         else
             DragSlot.instance.dragSlot.ClearSlot();//빈자리로 이동할 때
-        
+
     }
 
     private void Inter_ChangeSlot() //정보창에서 인벤창으로 드래그
     {
         Item _tempItem = item;
-
-        AddItem(DragSlot_Equip.instance.dragSlot_Equip.e_item);       
+        AddItem(DragSlot_Equip.instance.dragSlot_Equip.e_item);
 
         if (_tempItem != null && item.EquipType == DragSlot_Equip.instance.dragSlot_Equip.e_item.EquipType)
         {
             Player.inst.TakeOffEffect(DragSlot_Equip.instance.dragSlot_Equip.e_item);
-            DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);        
+            DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);
         }
         else
-            DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();       
+            DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();
     }
 
-    private void Inter_Change_uSlot()//아이템 사용창에서 인벤창으로 드래그
+    private void Inter_Change_uSlot()
+    //아이템 사용창에서 인벤창으로 드래그(아이템 사용창에는 이미 소모품 상태임)
     {
         Item _tempItem = item;
         int _tempItemCount = itemCount;
 
         AddItem(DragSlot_Used.instance.dragSlot_Used.item, DragSlot_Used.instance.dragSlot_Used.itemCount);
 
-        if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == item.itemName)
+        if(_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == item.itemName)
         {
             SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
             DragSlot_Used.instance.dragSlot_Used.ClearSlot();
         }
 
-        else if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName != item.itemName)
+        if(_tempItem != null)
         {
             DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem, _tempItemCount);
         }
-        else
-            DragSlot_Used.instance.dragSlot_Used.ClearSlot();
+        else       
+            DragSlot_Used.instance.dragSlot_Used.ClearSlot();       
+
     }
+}
 
    
-}
+

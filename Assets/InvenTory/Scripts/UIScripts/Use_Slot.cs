@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Use_Slot : MonoBehaviour, IBeginDragHandler,IPointerEnterHandler,IPointerExitHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     public Item item;
     public int itemCount; //획득한 아이템의 개수
@@ -114,17 +114,6 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler,IPointerEnterHandler,IP
         {
             Inter_ChangeSlot();
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (item != null)
-            theToolTipDatabase.ShowToolTip(item, transform.position);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        theToolTipDatabase.HideToolTip();
     }
 
     private void ChangeSlot()//a와 b의 자리를 바꿀 때,
