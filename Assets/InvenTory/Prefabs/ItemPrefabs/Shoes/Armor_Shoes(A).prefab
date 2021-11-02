@@ -14472,9 +14472,10 @@ GameObject:
   - component: {fileID: 7756270165139439738}
   - component: {fileID: 7771644893312973766}
   - component: {fileID: 3062143230228054370}
+  - component: {fileID: 6236279572899091675}
   m_Layer: 0
   m_Name: Armor_Shoes(A)
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14486,7 +14487,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7573453371663206624}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
@@ -14497,7 +14498,7 @@ Transform:
   - {fileID: 7569828071649007942}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!198 &7756270165139439738
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -19286,6 +19287,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 97eb0aed863f4b24dacbbfa2fb31b761, type: 2}
+--- !u!65 &6236279572899091675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573453371663206624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7573549018064132230
 GameObject:
   m_ObjectHideFlags: 0

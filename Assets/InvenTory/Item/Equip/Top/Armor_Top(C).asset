@@ -16,8 +16,8 @@ MonoBehaviour:
   itemIntro: 
   itemRank: "\uD558\uAE09"
   itemName: Armor_Top(C)
-  itemImage: {fileID: 21300000, guid: 971797e97fbd25e42b9af987827c714c, type: 3}
-  itemPrefab: {fileID: 8718610284355066291, guid: af56bf38aae22d441b2790738cd01ca3,
+  itemImage: {fileID: 21300000, guid: d160eedf286a61144a40741001a0e507, type: 3}
+  itemPrefab: {fileID: 6651087765191711834, guid: 459e32e837eff1c468f8f4c2b776f41a,
     type: 3}
   EquipType: Top
   itemTypeName: "\uC0C1\uC758"

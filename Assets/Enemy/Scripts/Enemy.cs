@@ -76,18 +76,6 @@ public class Enemy : LivingEntity
     }
  
 
-    //적 AI의 초기 스펙을 결정하는 셋업 메서드(아직 안씀, 기본값으로 설정 가능)
-    public void Setup(float newHealth, float newDamage, float newSpeed)
-    {
-        //체력 설정
-        startingHealth = newHealth;
-        health = newHealth;
-        //공격력 설정
-        damage = newDamage;
-        //네비메쉬 에이전트의 이동 속도 설정
-        pathFinder.speed = newSpeed;
-    }
-
     void Start()
     {
         SetHpBar();
@@ -113,12 +101,12 @@ public class Enemy : LivingEntity
     void SetHpBar()
     {
         enemyHpBarCanvas = GameObject.Find("EnemyHpBarCanvas").GetComponent<Canvas>();
-        GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, enemyHpBarCanvas.transform);
-
+        GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
         var _hpbar = hpBar.GetComponent<EnemyHpBar>();
         
         _hpbar.enemyTr = this.gameObject.transform;
         _hpbar.offset = hpBarOffset;
+        
         enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력감소시키기위해 getcomponent(게임 실행 시 연결이 안되었던 문제 해결)
     }
 

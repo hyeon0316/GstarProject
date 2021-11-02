@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDesc: 
   itemIntro: 
-  itemRank: 
-  itemName: Potion_Mp(C)
-  itemImage: {fileID: 21300000, guid: dc1f1665c1c85914b94e70b273a42455, type: 3}
-  itemPrefab: {fileID: 6617306992415598682, guid: e82ef8ca68ce9674fbb989a429c02db4,
+  itemRank: "\uD558\uAE09"
+  itemName: "\uB9C8\uB098\uD3EC\uC158(\uC18C)"
+  itemImage: {fileID: 21300000, guid: 45348408bc471104c96e9d9e89abb42c, type: 3}
+  itemPrefab: {fileID: 3573808960079582906, guid: ee94d9cdcc7365a4a8799ddf2ce3b890,
     type: 3}
   EquipType: 
   itemTypeName: "\uC18C\uBAA8\uD488"

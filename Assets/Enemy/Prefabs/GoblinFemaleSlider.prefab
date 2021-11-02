@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8623151006859436591}
   - component: {fileID: 1677714018294082443}
   m_Layer: 5
-  m_Name: EnemyHpBarSlider 4
+  m_Name: GoblinFemaleSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

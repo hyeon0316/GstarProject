@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDesc: 
   itemIntro: 
-  itemRank: "\uACE0\uAE09"
+  itemRank: "\uC0C1\uAE09"
   itemName: Armor_Shoes(A)
-  itemImage: {fileID: 21300000, guid: 2dcad7efb5022894e9d883d9432be9d9, type: 3}
-  itemPrefab: {fileID: 3122820099512035652, guid: bce0afcf3c925d041b3cc4030f135391,
+  itemImage: {fileID: 21300000, guid: 02255b335eeaf9d49adaf1291a1a6208, type: 3}
+  itemPrefab: {fileID: 7573453371663206624, guid: 8ef8afaabab4e9b4ab1e37472bcb2c50,
     type: 3}
   EquipType: Shoes
   itemTypeName: "\uC2E0\uBC1C"
