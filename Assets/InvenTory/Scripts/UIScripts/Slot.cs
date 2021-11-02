@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {  
 
     public Item item; //획득한 아이템
@@ -22,6 +22,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     private GameObject go_CountImage; //빈슬롯일땐 카운트배경이미지를 띄우지 않기 위함
     [SerializeField]
     private Information information;
+
+    [SerializeField]
+    private ToolTipDataBase theToolTipDatabase;
 
     private Rect invenBaseRect; //Inventory_Base 이미지의 Rect 정보 
 
@@ -314,6 +317,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (item != null)
+            theToolTipDatabase.ShowToolTip(item, transform.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        theToolTipDatabase.HideToolTip();
+    }
+
     private void ChangeSlot()//a와 b의 자리를 바꿀 때,
     {
         Item _tempItem = item; //드래그가 끝날때 복사될 b(드래그가 끝나는 시점에서 해당 슬롯에 있었던 아이템정보를 복사함)
@@ -345,8 +359,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
         if (_tempItem != null && item.EquipType == DragSlot_Equip.instance.dragSlot_Equip.e_item.EquipType)
         {
-            DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);
             Player.inst.TakeOffEffect(DragSlot_Equip.instance.dragSlot_Equip.e_item);
+            DragSlot_Equip.instance.dragSlot_Equip.AddEquipItem(_tempItem);        
         }
         else
             DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();       
@@ -365,4 +379,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         else
             DragSlot_Used.instance.dragSlot_Used.ClearSlot();
     }
+
+   
 }

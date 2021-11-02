@@ -34,7 +34,6 @@ public class Quest : ScriptableObject
             return true;
         }
     }
-
     //public Rewards rewards;
 }
 

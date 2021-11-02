@@ -77,7 +77,9 @@ public class Player : LivingEntity
     private GameObject tempSkill2;
     private float time_current;
     private float time_start;
-
+    RaycastHit hit1;
+    private int layerMask;
+    float tpDis;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -103,6 +105,7 @@ public class Player : LivingEntity
         isSkillE = true;
         isSkillR = true;
         isSkillTP = true;
+        tpDis = 5f;
 
     }
     void Start()
@@ -111,6 +114,7 @@ public class Player : LivingEntity
     // Update is called once per frame
     void Update()
     {
+       
         NpcS();
         if (!gameManager.isAction)
         {
@@ -180,7 +184,6 @@ public class Player : LivingEntity
         playerHpText.text = string.Format("{0}/{1}", health, startingHealth);
         playerMpText.text = string.Format("{0}/{1}", mana, startingMana);
     }
-
     private void OnTriggerEnter(Collider other)//아이템 획득
     {
         if (other.gameObject.tag.Equals("Item"))
@@ -222,8 +225,6 @@ public class Player : LivingEntity
             SpawnProjectilesScript.inst.SpawnVFX();
         }
     }
-
-
     void SkillQ()
     {
 
@@ -321,7 +322,37 @@ public class Player : LivingEntity
     }
     void SkillR()
     {
+        if (Input.GetKeyDown(KeyCode.R) && isSkillR)
+        {
+            mana -= 100;
+            isSkillR = false;
+            StartCoroutine(SkillRCount(time_R));
+            coolTimeR.GetComponent<CoolTime>().Reset_CoolTime(time_R);
+        }
+    }
+    IEnumerator SkillRCount(float dealy)
+    {
+        RaycastHit hit;
+        GameObject QQ;
+        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+        {
+            var dir = hit.point - animator.transform.position;
+            dir.y = 0;
+            animator.transform.forward = dir;
+            isMove = false;
+            animator.SetBool("isMove", false);
+            QQ = Instantiate(skill_R, hit.point, Quaternion.identity);
+        }
+        else
+        {
+            QQ = Instantiate(skill_R, transform.position, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(5f);
+        Destroy(QQ.gameObject);
+        yield return new WaitForSeconds(dealy - 2.5f);
 
+        isSkillR = true;
+        coolTimeR.GetComponent<CoolTime>().End_CoolTime();
     }
     void Tp()
     {
@@ -334,7 +365,17 @@ public class Player : LivingEntity
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0;
                 animator.transform.forward = dir;
-                transform.position += dir.normalized * 5f;
+                layerMask = 1 << 10;
+                Vector3 anipo = animator.transform.position;
+                anipo.y += 1f; 
+                if (Physics.Raycast(anipo, animator.transform.forward, out hit1, tpDis, layerMask))
+                {
+                    transform.position += dir.normalized * hit1.distance;
+                }
+                else
+                {
+                    transform.position += dir.normalized * tpDis;
+                }
                 tempSkill2 = ObjectPoolManager.inst.GetObjectFromPool("TP", transform.position, Quaternion.Euler(-90, 0, 0));
                 isMove = false;
                 animator.SetBool("isMove", false);
@@ -420,6 +461,7 @@ public class Player : LivingEntity
         {
             return;
         }
+
         slotCountClear = true;
         health += _item.itemHp;
         if (health > startingHealth)
@@ -432,6 +474,7 @@ public class Player : LivingEntity
         {
             return;
         }
+
         slotCountClear = true;
         mana += _item.itemMp;
         if (mana > startingMana)
@@ -442,6 +485,10 @@ public class Player : LivingEntity
     {
         dP += _item.itemDp;
         power += _item.itemPower;
+        startingHealth += _item.startingHp;
+        health += _item.startingHp;
+        startingMana += _item.startingMp;
+        mana += _item.startingMp;
     }
     public void ExpPlus(float exp2)
     {
@@ -451,6 +498,10 @@ public class Player : LivingEntity
     {
         dP -= _item.itemDp;
         power -= _item.itemPower;
+        startingHealth -= _item.startingHp;
+        health -= _item.startingHp;
+        startingMana -= _item.startingMp;
+        mana -= _item.startingMp;
     }
 }
 

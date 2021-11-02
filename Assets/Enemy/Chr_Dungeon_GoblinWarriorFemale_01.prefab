@@ -6239,7 +6239,8 @@ MonoBehaviour:
   hpBarPrefab: {fileID: 8623151006859436585, guid: d3f286776562b6d49baf473f147afc32,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
-  enemyHpBarCanvas: {fileID: 0}
+  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
+    type: 3}
   enemyHpBarSlider: {fileID: 8623151006859436591, guid: d3f286776562b6d49baf473f147afc32,
     type: 3}
   whatIsTarget:

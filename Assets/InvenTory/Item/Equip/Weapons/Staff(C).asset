@@ -12,13 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
   m_Name: Staff(C)
   m_EditorClassIdentifier: 
-  itemName: Staff(C)
-  itemImage: {fileID: 21300000, guid: 164b604c690bab945ba390d057eb3229, type: 3}
-  itemPrefab: {fileID: 2447778425202613384, guid: 098aa3602a03c054ebeb78fb430fe104,
+  itemDesc: "\uCCB4\uB825 +500\n\uB9C8\uB098 +100\n\uD30C\uC6CC +10\n\uBC29\uC5B4\uB825
+    +10"
+  itemIntro: "-\uC2DC\uC791\uC740 \uBBF8\uC57D\uD558\uC600\uC73C\uB098\n  \uB05D\uC740
+    \uCC3D\uB300\uD558\uB9AC\uB77C-"
+  itemRank: "\uD558\uAE09"
+  itemName: "\uCD08\uC2EC\uC790\uC758 \uD5C8\uB984\uD55C \uC9C0\uD321\uC774"
+  itemImage: {fileID: 21300000, guid: c602c7a22fd18ce40a743fe8865737fe, type: 3}
+  itemPrefab: {fileID: 6393890762031774100, guid: 0da7fc88a91f1944a9618acff9ec5e83,
     type: 3}
   EquipType: Weapon
+  itemTypeName: "\uBB34\uAE30"
   itemHp: 0
   itemMp: 0
+  startingHp: 500
+  startingMp: 100
   itemDp: 10
   itemPower: 10
   itemType: 0
