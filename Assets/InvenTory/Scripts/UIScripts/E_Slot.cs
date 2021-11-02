@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class E_Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     public Item e_item; //획득한 아이템
     public Image e_itemImage; //아이템의 이미지
@@ -16,7 +16,9 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
 
     [SerializeField]
     private Inventory inventory;
-   
+
+    [SerializeField]
+    private ToolTipDataBase theToolTipDatabase;
 
     private void SetColor(float _alpha) //이미지 투명도 조절
     {
@@ -113,6 +115,17 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (e_item != null)
+            theToolTipDatabase.ShowToolTip(e_item, transform.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        theToolTipDatabase.HideToolTip();
+    }
+
     private void Inter_ChangeSlot() //인벤창에서 정보창으로 드래그
     {
         Item _tempItem = e_item;
@@ -128,4 +141,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, ID
         else
             DragSlot.instance.dragSlot.ClearSlot();
     }
+
+    
 }
