@@ -134,12 +134,18 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         Item _tempItem = item;
         int _tempItemCount = itemCount;
 
-        if(item == null)
-            AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
-        else if (DragSlot.instance.dragSlot.item.itemName == item.itemName)
-            SetSlotCount(DragSlot.instance.dragSlot.itemCount);
+        
+        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
+        if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName == _tempItem.itemName)
+        {
+            if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName == item.itemName)
+            {
+                SetSlotCount(DragSlot.instance.dragSlot.itemCount);
+                DragSlot.instance.dragSlot.ClearSlot();
+            }
+        }
 
-        if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName != item.itemName)
+        else if (_tempItem != null)
             DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
         else
             DragSlot.instance.dragSlot.ClearSlot();

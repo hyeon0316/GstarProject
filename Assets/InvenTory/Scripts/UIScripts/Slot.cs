@@ -314,7 +314,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         }
 
         if (DragSlot_Used.instance.dragSlot_Used != null)
-        {
+        {                  
             Inter_Change_uSlot();
         }
     }
@@ -373,15 +373,19 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         Item _tempItem = item;
         int _tempItemCount = itemCount;
 
+
         AddItem(DragSlot_Used.instance.dragSlot_Used.item, DragSlot_Used.instance.dragSlot_Used.itemCount);
 
-        if(_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == item.itemName)
+        if(_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == _tempItem.itemName)
         {
-            SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
-            DragSlot_Used.instance.dragSlot_Used.ClearSlot();
+            if (DragSlot_Used.instance.dragSlot_Used.item.itemType == Item.ItemType.Used)
+            {
+                SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
+                DragSlot_Used.instance.dragSlot_Used.ClearSlot();              
+            }
         }
 
-        if(_tempItem != null)
+        else if(_tempItem != null)
         {
             DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem, _tempItemCount);
         }
