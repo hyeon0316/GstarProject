@@ -39,7 +39,6 @@ public class SpawnManager : MonoBehaviour
                 
                 for (int i = 0; i < 4; i++)
                 {
-
                     float rand1 = Random.Range(points[i].position.x - 4, points[i].position.x + 4);
                     float rand2 = Random.Range(points[i].position.z - 4, points[i].position.z + 4);
                     Instantiate(monsterPrefab, new Vector3(rand1,points[i].position.y,rand2), points[i].rotation);

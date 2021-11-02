@@ -100,7 +100,7 @@ public class Enemy_Far : LivingEntity
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
         }
 
-        if (!dead)
+        if (!dead && hasTarget)
         {
             //추적 대상 바라보기
             Vector3 dir = targetEntity.transform.position - this.transform.position;
@@ -289,7 +289,7 @@ public class Enemy_Far : LivingEntity
         {
             float k = Random.Range(0, 100);
             if (_dropP[i] > k)
-                newItem[i] = Instantiate(_item[i], transform.position, Quaternion.identity);
+                newItem[i] = Instantiate(_item[i], transform.position + transform.up * 2, Quaternion.identity);
         }
         GameObject.Destroy(gameObject);
     }

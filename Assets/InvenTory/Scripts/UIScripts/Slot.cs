@@ -371,13 +371,20 @@ public class Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPo
     private void Inter_Change_uSlot()//아이템 사용창에서 인벤창으로 드래그
     {
         Item _tempItem = item;
-        if (item == null)
-            AddItem(DragSlot_Used.instance.dragSlot_Used.item);
-        else if (DragSlot_Used.instance.dragSlot_Used.item.itemName == item.itemName)
-            SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
+        int _tempItemCount = itemCount;
 
-        if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName != item.itemName)
-            DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem);
+        AddItem(DragSlot_Used.instance.dragSlot_Used.item, DragSlot_Used.instance.dragSlot_Used.itemCount);
+
+        if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == item.itemName)
+        {
+            SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
+            DragSlot_Used.instance.dragSlot_Used.ClearSlot();
+        }
+
+        else if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName != item.itemName)
+        {
+            DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem, _tempItemCount);
+        }
         else
             DragSlot_Used.instance.dragSlot_Used.ClearSlot();
     }

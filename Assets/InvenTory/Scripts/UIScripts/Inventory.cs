@@ -13,6 +13,9 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject go_SlotParent; //슬롯의 부모객체
 
+    [SerializeField]
+    private ToolTipDataBase theToolTipDatabase;
+
     public Slot[] slots; //슬롯들
 
     void Awake()
@@ -38,6 +41,7 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 inventoryActivated = false;
+
             }
         }
     }
@@ -62,6 +66,7 @@ public class Inventory : MonoBehaviour
     private void CloseInventory()
     {
         go_InventoryBase.SetActive(false);
+        theToolTipDatabase.HideToolTip();
     }
 
     public void AcquireItem(Item _item, int _count = 1) //기본값 1개

@@ -305,7 +305,7 @@ public class Enemy : LivingEntity
         {
             float k = Random.Range(0, 100);
             if(_dropP[i]>k)
-                newItem[i] = Instantiate(_item[i], transform.position, Quaternion.identity);
+                newItem[i] = Instantiate(_item[i], transform.position+transform.up*2, Quaternion.identity);
         }
         GameObject.Destroy(gameObject);
     }
