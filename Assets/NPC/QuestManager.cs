@@ -7,7 +7,7 @@ public class QuestManager : MonoBehaviour
     public int questId;
     public int questActionIndex;
     Dictionary<int, QuestData> questList;
-    public Quest[] quset;
+    public Quest[] quest;
     void Awake()
     {
         questList = new Dictionary<int, QuestData>();
@@ -31,6 +31,7 @@ public class QuestManager : MonoBehaviour
         if (id == questList[questId].npcId[questActionIndex])
             questActionIndex++;
 
+        Debug.Log(questActionIndex);
         ControlObject();
 
         if (questActionIndex == questList[questId].npcId.Length)
@@ -51,8 +52,14 @@ public class QuestManager : MonoBehaviour
                 if(questActionIndex==2)
                 {
                     
+                    Player.inst.questIng = quest[0];
+                    Player.inst.questIng.state = QuestState.Progressing;
                     Debug.Log(questActionIndex);
-                    questActionIndex = 3;
+                    questActionIndex = 8;
+                }
+                if(questActionIndex == 9)
+                {
+                    questActionIndex = 8;
                 }
                 break;
             case 20:

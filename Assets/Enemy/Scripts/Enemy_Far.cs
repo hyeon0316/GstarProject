@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Enemy_Far : LivingEntity
 {
+    public GameObject[] _item;
+    public float[] _dropP;
     public GameObject hpBarPrefab;
     public Vector3 hpBarOffset = new Vector3(-0.5f, 2.4f, 0);
 
@@ -281,6 +283,14 @@ public class Enemy_Far : LivingEntity
 
     private void DestroyEnemy()
     {
+        GameObject[] newItem;
+        newItem = new GameObject[_item.Length];
+        for (int i = 0; i < _item.Length; i++)
+        {
+            float k = Random.Range(0, 100);
+            if (_dropP[i] > k)
+                newItem[i] = Instantiate(_item[i], transform.position, Quaternion.identity);
+        }
         GameObject.Destroy(gameObject);
     }
 }

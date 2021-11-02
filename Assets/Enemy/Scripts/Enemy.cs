@@ -6,6 +6,9 @@ using UnityEngine.AI; //AI, 네비게이션 시스템 관련 코드 가져오기
 
 public class Enemy : LivingEntity
 {
+
+    public GameObject[] _item;
+    public float[] _dropP;
     //HpBarUi 추가 변수
     public GameObject hpBarPrefab;
     public Vector3 hpBarOffset = new Vector3(-0.5f, 2.4f, 0);
@@ -275,6 +278,7 @@ public class Enemy : LivingEntity
         base.Die();
 
         Invoke("DestroyEnemy", 2f);
+        
     }
 
     //enemyHpBarSlider 활성화
@@ -295,6 +299,14 @@ public class Enemy : LivingEntity
 
     private void DestroyEnemy()
     {
+        GameObject[] newItem;
+        newItem = new GameObject[_item.Length];
+        for (int i=0;i<_item.Length;i++)
+        {
+            float k = Random.Range(0, 100);
+            if(_dropP[i]>k)
+                newItem[i] = Instantiate(_item[i], transform.position, Quaternion.identity);
+        }
         GameObject.Destroy(gameObject);
     }
 }

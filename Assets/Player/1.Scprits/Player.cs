@@ -80,6 +80,7 @@ public class Player : LivingEntity
     RaycastHit hit1;
     private int layerMask;
     float tpDis;
+    public Quest questIng;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -455,13 +456,27 @@ public class Player : LivingEntity
         }
     }
 
+    public void CheckPotion(Item _item)
+    {
+        if (_item.itemName == "파워엘릭서")
+        {
+            health = startingHealth;
+            mana = startingMana;
+        }
+        if (_item.itemName == "엘릭서")
+        {
+            health += (startingHealth / 2);
+            mana += (startingMana / 2);
+        }
+    }
     public void HealHp(Item _item) //체력포션 사용
     {
+        
         if (startingHealth <= health)
         {
             return;
         }
-
+        CheckPotion(_item);
         slotCountClear = true;
         health += _item.itemHp;
         if (health > startingHealth)
@@ -474,7 +489,7 @@ public class Player : LivingEntity
         {
             return;
         }
-
+        CheckPotion(_item);
         slotCountClear = true;
         mana += _item.itemMp;
         if (mana > startingMana)

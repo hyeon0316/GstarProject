@@ -30,14 +30,15 @@ public class TalkManager : MonoBehaviour
         talkData.Add(8000, new string[] { "텔레포트가 어디가잘못된거지..?", "스승님한테 혼나겠다.." });
 
         //Quest
-        talkData.Add(8000 + 10, new string[] { "어...? 너가 거기서 왜나와", "우리가 타야하는 텔레포트였다고!","?????","후.. 일단 스승님한테 가봐" });
-        talkData.Add(7000 + 11, new string[] { "일단.. 자네도 원래 있던곳으로 돌아가야 하지 않나",
+        talkData.Add(8000 + 10+0, new string[] { "어...? 너가 거기서 왜나와", "우리가 타야하는 텔레포트였다고!","?????","후.. 일단 스승님한테 가봐" });
+        talkData.Add(7000 + 10+1, new string[] { "일단.. 자네도 원래 있던곳으로 돌아가야 하지 않나",
             "우리는 지금 바뻐서 재료를 다시 모을수가 없어","자네가 대신 해줘야 할거같은데",
             "마력을 조금 나눠주지. 지금은 기본공격 밖에 할수없을거야.",
             "재료를 모아와주면 다른 스킬을 만들어줄게.", "광산에가서 거미의 전리품을 10개 모아줘" });
-        talkData.Add(7000 + 13, new string[] { "아직 다 못구한건가? ", "서둘러줘" });
-        talkData.Add(7000 + 14, new string[] { "고생했네", "스킬을 몇개더 주겠네" });
-        talkData.Add(7000 + 15, new string[] { "잘왔네2", "수고했어3" });
+        
+        talkData.Add(7000 + 14+5, new string[] { "고생했네", "스킬을 몇개더 주겠네" });
+        talkData.Add(7000 + 10+5, new string[] { "잘왔네2", "수고했어3" });
+        talkData.Add(7000 + 10+8, new string[] { "아직 다 못구한건가? ", "서둘러줘" });
     }
 
     public string GetTalk(int id,int talkIndex)
