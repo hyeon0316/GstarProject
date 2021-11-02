@@ -7,11 +7,11 @@ public class QuestManager : MonoBehaviour
     public int questId;
     public int questActionIndex;
     Dictionary<int, QuestData> questList;
+    public Quest[] quset;
     void Awake()
     {
         questList = new Dictionary<int, QuestData>();
         GenerateData();
-
 
     }
     void GenerateData()
@@ -50,8 +50,9 @@ public class QuestManager : MonoBehaviour
             case 10:
                 if(questActionIndex==2)
                 {
+                    
                     Debug.Log(questActionIndex);
-                    questActionIndex = 2;
+                    questActionIndex = 3;
                 }
                 break;
             case 20:
