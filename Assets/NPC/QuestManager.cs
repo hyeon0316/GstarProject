@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    public static QuestManager inst = null;
     public int questId;
     public int questActionIndex;
     Dictionary<int, QuestData> questList;
     public Quest[] quest;
+    
     void Awake()
     {
+        if (inst == null) // 싱글톤
+        {
+            inst = this;
+        }
         questList = new Dictionary<int, QuestData>();
         GenerateData();
 
     }
     void GenerateData()
     {
-        questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000,7000,7000 }));
+        questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000, 7000 , 7000 , 7000 }));
 
         questList.Add(20, new QuestData("동전 찾아주기.", new int[] { 5000, 2000 }));
     }
@@ -28,14 +34,16 @@ public class QuestManager : MonoBehaviour
 
     public string CheckQuest(int id)
     {
+        Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
         if (id == questList[questId].npcId[questActionIndex])
             questActionIndex++;
 
-        Debug.Log(questActionIndex);
+        Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
         ControlObject();
 
         if (questActionIndex == questList[questId].npcId.Length)
             NextQuest();
+        Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
 
         return questList[questId].questName;
     }
@@ -49,17 +57,23 @@ public class QuestManager : MonoBehaviour
         switch (questId)
         {
             case 10:
-                if(questActionIndex==2)
+                if (questActionIndex == 2)
                 {
-                    
+
                     Player.inst.questIng = quest[0];
                     Player.inst.questIng.state = QuestState.Progressing;
                     Debug.Log(questActionIndex);
-                    questActionIndex = 8;
                 }
-                if(questActionIndex == 9)
+                if (questActionIndex == 3)
                 {
-                    questActionIndex = 8;
+                    questActionIndex = 2;
+                }
+                if (questActionIndex == 5)
+                {
+                   foreach(var qu in Player.inst.questIng.rewards)
+                    {
+                        qu.Reward();
+                    }
                 }
                 break;
             case 20:

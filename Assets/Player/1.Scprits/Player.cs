@@ -80,7 +80,7 @@ public class Player : LivingEntity
     RaycastHit hit1;
     private int layerMask;
     float tpDis;
-    public Quest questIng;
+    public Quest questIng = null;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -152,7 +152,6 @@ public class Player : LivingEntity
                         npcVector.x = 0;
                         npcVector.z = 0;
                         npcVector.Normalize();
-                        Debug.Log(npcVector);
                         hit.collider.gameObject.transform.LookAt(this.transform.position);
                         Quaternion q = hit.collider.gameObject.transform.rotation;
                         q.x = 0;
@@ -161,6 +160,7 @@ public class Player : LivingEntity
                         isMove = false;
                         animator.SetBool("isMove", false);
                         npcCam.SetActive(true);
+                        
                         gameManager.Action(hit.collider.gameObject);
                     }
                     else if (Vector3.Distance(transform.position,
@@ -173,8 +173,6 @@ public class Player : LivingEntity
             }
         }
     }
-
-
 
     void SetHpMp()
     {
@@ -189,8 +187,14 @@ public class Player : LivingEntity
     {
         if (other.gameObject.tag.Equals("Item"))
         {
-            Debug.Log("dd");
             inventory.AcquireItem(other.transform.GetComponent<ItemPickUp>().item);
+            if (questIng != null)
+            {
+                foreach (var obj in questIng.collectObjectives)
+                    obj.UpdateItemCount();
+                if (questIng.IsCompleteObjectives)
+                    QuestManager.inst.questActionIndex = 3;
+            }
             Destroy(other.gameObject);
         }
     }
@@ -505,10 +509,7 @@ public class Player : LivingEntity
         startingMana += _item.startingMp;
         mana += _item.startingMp;
     }
-    public void ExpPlus(float exp2)
-    {
-        exp += exp2;
-    }
+   
     public void TakeOffEffect(Item _item)
     {
         dP -= _item.itemDp;
@@ -518,77 +519,11 @@ public class Player : LivingEntity
         startingMana -= _item.startingMp;
         mana -= _item.startingMp;
     }
-}
 
-/*
- * using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Player : MonoBehaviour
-{
-    [SerializeField]
-    private Transform chBody;
-    [SerializeField]
-    private Transform cameraArm;
-
-
-    Rigidbody myRigid;
-
-    Vector3 playerPosition;
-    float hAxis, vAxis;
-
-    static float moveSpeed = 10f;
-
-    void Start()
+    public void ExpPlus(float exp2)
     {
-        myRigid = chBody.GetComponent<Rigidbody>();
-        //Rigidbody객체를 만들고 거기에 큐브 오브젝트에 달려있는 
-        //Rigidbody컴포넌트를 넣음
-
-    }
-
-    void Update()
-    {
-        Movement();
-        LookAround();
-        //cameraArm.transform.position = new Vector3(chBody.transform.position.x, chBody.transform.position.y+6, chBody.transform.position.z-6);
-
-    }
-
-    private void LookAround()
-    {
-        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        Vector3 camAngle = cameraArm.rotation.eulerAngles;
-        float x = camAngle.x - mouseDelta.y;
-
-        if (x < 180f)
-        {
-            x = Mathf.Clamp(x, -1f, 70f);
-        }
-        else
-        {
-            x = Mathf.Clamp(x, 335f, 361f);
-        }
-
-        cameraArm.rotation = Quaternion.Euler(x, camAngle.y + mouseDelta.x, camAngle.z);
-    }
-    public void Movement()
-    {
-
-        hAxis = Input.GetAxisRaw("Horizontal");
-        vAxis = Input.GetAxisRaw("Vertical");
-        Vector2 moveInput = new Vector2(hAxis, vAxis);
-        if (moveInput.magnitude != 0)
-        {
-            Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
-            Vector3 lookRight = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
-            Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
-
-            chBody.forward = moveDir;
-            transform.position += moveDir * Time.deltaTime * moveSpeed;
-        }
+        exp += exp2;
+        Debug.Log(exp);
     }
 }
 
- * */

@@ -28,7 +28,7 @@ public class TypeEffect : MonoBehaviour
             EffectEnd();
         }
         else
-        {
+        { 
             targetMsg = msg;
             EffectStart();
         }
@@ -41,7 +41,6 @@ public class TypeEffect : MonoBehaviour
         index = 0;
         nextText.SetActive(false);
         interval = 1 / CharPerSeconds;
-        Debug.Log(interval);
         Invoke("Effecting", 0.1f);
     }
     void Effecting()
@@ -58,7 +57,7 @@ public class TypeEffect : MonoBehaviour
     }
     void EffectEnd()
     {
-        msgText.text += targetMsg;
+        msgText.text = targetMsg;
         isAnim = false;
         nextText.SetActive(true);
     }

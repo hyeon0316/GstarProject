@@ -82,7 +82,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686237378}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &1637904281060329252
 GameObject:
   m_ObjectHideFlags: 0
@@ -12090,6 +12090,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questId: 10
   questActionIndex: 0
+  quest:
+  - {fileID: 11400000, guid: 49ed3b52bcba8ff4bbd2eefd8c4f1ebc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1637904282129914932
 GameObject:
   m_ObjectHideFlags: 0
@@ -32093,6 +32099,7 @@ MonoBehaviour:
   coolTimeE: {fileID: 0}
   coolTimeR: {fileID: 0}
   coolTimeF: {fileID: 0}
+  questIng: {fileID: 0}
 --- !u!54 &1637904282935220882
 Rigidbody:
   m_ObjectHideFlags: 0

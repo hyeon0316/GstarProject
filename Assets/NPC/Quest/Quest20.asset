@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e55f7fefea36b64d8ec590fb8309311, type: 3}
   m_Name: Quest20
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   title: 
   content: tx
   completeDialog: tx
@@ -22,7 +22,7 @@ MonoBehaviour:
   rewards:
   - ItemReward: {fileID: 11400000, guid: 202090d96a6deff41837ff515d8586b0, type: 2}
     ItemRewardCount: 1
-    EXPReward: 0
+    EXPReward: 100
   - ItemReward: {fileID: 11400000, guid: 1ccc4cf8fa3821148a07b0b1aba086b2, type: 2}
     ItemRewardCount: 1
-    EXPReward: 0
+    EXPReward: 200
