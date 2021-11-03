@@ -24,7 +24,9 @@ public class QuestManager : MonoBehaviour
     {
         questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000, 7000 , 7000 , 7000 }));
 
-        questList.Add(20, new QuestData("동전 찾아주기.", new int[] { 5000, 2000 }));
+        questList.Add(20, new QuestData("반지 찾아주기.", new int[] { 7000, 7000, 7000, 7000, 7000 }));
+
+        questList.Add(30, new QuestData("던전일 돕기.", new int[] { 7000,4000,4000,4000,4000 }));
     }
 
     public int GetQuestTalkIndex(int id)
@@ -62,7 +64,6 @@ public class QuestManager : MonoBehaviour
 
                     Player.inst.questIng = quest[0];
                     Player.inst.questIng.state = QuestState.Progressing;
-                    Debug.Log(questActionIndex);
                 }
                 if (questActionIndex == 3)
                 {
@@ -76,7 +77,25 @@ public class QuestManager : MonoBehaviour
                     }
                 }
                 break;
+
             case 20:
+                if (questActionIndex == 1)
+                {
+
+                    Player.inst.questIng = quest[1];
+                    Player.inst.questIng.state = QuestState.Progressing;
+                }
+                if (questActionIndex == 3)
+                {
+                    questActionIndex = 2;
+                }
+                if (questActionIndex == 5)
+                {
+                    foreach (var qu in Player.inst.questIng.rewards)
+                    {
+                        qu.Reward();
+                    }
+                }
                 break;
         }
 

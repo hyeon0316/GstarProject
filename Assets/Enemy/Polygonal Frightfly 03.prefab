@@ -259,6 +259,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   startingMana: 0
+  _item:
+  - {fileID: 9176625609703804342, guid: 99c490665906ab941bc7b883c5b5abeb, type: 3}
+  _dropP:
+  - 50
   hpBarPrefab: {fileID: 8623151006859436585, guid: 98ed97a909658324fa4cb2b91b68fa93,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
