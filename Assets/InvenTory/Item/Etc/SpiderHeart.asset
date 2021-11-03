@@ -17,7 +17,8 @@ MonoBehaviour:
   itemRank: 
   itemName: "\uAC70\uBBF8\uC758 \uC2EC\uC7A5"
   itemImage: {fileID: 21300000, guid: c8977b1ade051034dbfed01d0465020e, type: 3}
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 9176625609703804342, guid: fa84c9eb984a4174bbd4d45b528cccae,
+    type: 3}
   EquipType: 
   itemTypeName: "\uC7AC\uB8CC"
   itemHp: 0
