@@ -627,6 +627,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3faa820d6545ec245b3a8020b8a11993, type: 3}
+--- !u!114 &345791694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1884886668867120505, guid: 3faa820d6545ec245b3a8020b8a11993,
+    type: 3}
+  m_PrefabInstance: {fileID: 345791693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &345791695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 860399258013869237, guid: 3faa820d6545ec245b3a8020b8a11993,
+    type: 3}
+  m_PrefabInstance: {fileID: 345791693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &429492496 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7122681962473881683, guid: 3faa820d6545ec245b3a8020b8a11993,
@@ -2109,6 +2133,16 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1288676131}
+    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: coolCaution
+      value: 
+      objectReference: {fileID: 345791694}
+    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: manaCaution
+      value: 
+      objectReference: {fileID: 345791695}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: playerHpText
