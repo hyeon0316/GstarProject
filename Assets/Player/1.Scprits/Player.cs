@@ -81,6 +81,9 @@ public class Player : LivingEntity
     private int layerMask;
     float tpDis;
     public Quest questIng = null;
+
+    public GameObject TrapTarget; //2페이지 이후 플레이어 머리 위에 해골표시
+
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -442,7 +445,7 @@ public class Player : LivingEntity
     public override void Die()
     {
         //
-        Boss.inst.TrapTarget.SetActive(false);
+        TrapTarget.SetActive(false);
 
         SceneManager.LoadScene("Town");
         health = 50; //수정해야함

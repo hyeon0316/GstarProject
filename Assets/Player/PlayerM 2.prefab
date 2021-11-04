@@ -32041,7 +32041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637904282935220881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -17.03}
+  m_LocalPosition: {x: 3, y: -4, z: 39.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1637904282306624831}
@@ -32100,6 +32100,7 @@ MonoBehaviour:
   coolTimeR: {fileID: 0}
   coolTimeF: {fileID: 0}
   questIng: {fileID: 0}
+  TrapTarget: {fileID: 8621715674388689942}
 --- !u!54 &1637904282935220882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -42251,6 +42252,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd94a3d788e448b44950c34c19ad609c, type: 3}
+--- !u!1 &8621715674388689942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8621715674388363398, guid: fd94a3d788e448b44950c34c19ad609c,
+    type: 3}
+  m_PrefabInstance: {fileID: 986256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8625044859804726944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8625044859804662320, guid: fd94a3d788e448b44950c34c19ad609c,
