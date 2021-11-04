@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 8452019850263486950}
   - component: {fileID: 8452019850263486954}
   - component: {fileID: 1740318272}
+  - component: {fileID: 7278082603354769055}
   m_Layer: 0
   m_Name: Polygonal Metalon Purple
   m_TagString: Enemy
@@ -1005,7 +1006,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8452879453363789572}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4, y: 3.6213162, z: 4}
@@ -1064,6 +1065,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &7278082603354769055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452879453363789572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8452887693619456426
 GameObject:
   m_ObjectHideFlags: 0

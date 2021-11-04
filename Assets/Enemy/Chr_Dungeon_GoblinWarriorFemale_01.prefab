@@ -6120,6 +6120,7 @@ GameObject:
   - component: {fileID: 606258282702039181}
   - component: {fileID: 6422827613018895638}
   - component: {fileID: 7358387516798015328}
+  - component: {fileID: 8189434246226635973}
   m_Layer: 0
   m_Name: Chr_Dungeon_GoblinWarriorFemale_01
   m_TagString: Enemy
@@ -6236,6 +6237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   startingMana: 0
+  _item: []
+  _dropP: []
   hpBarPrefab: {fileID: 8623151006859436585, guid: d3f286776562b6d49baf473f147afc32,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
@@ -6278,7 +6281,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3760262726705290143}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.432386, y: 2.8746154, z: 1.263349}
@@ -6305,6 +6308,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &8189434246226635973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760262726705290143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3760281660678279339
 GameObject:
   m_ObjectHideFlags: 0

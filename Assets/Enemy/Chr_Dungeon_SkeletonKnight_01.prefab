@@ -2318,6 +2318,7 @@ GameObject:
   - component: {fileID: 6013257395143363805}
   - component: {fileID: 6321291528330549476}
   - component: {fileID: 2276255261130359559}
+  - component: {fileID: 5905776324312264004}
   m_Layer: 0
   m_Name: Chr_Dungeon_SkeletonKnight_01
   m_TagString: Enemy
@@ -2443,7 +2444,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6013759099604825932}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5971718, y: 2.4801803, z: 1.5363808}
@@ -2484,6 +2485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   startingMana: 0
+  _item: []
+  _dropP: []
   hpBarPrefab: {fileID: 8623151006859436585, guid: efdd3219839322b4aaf5a5c7caabf958,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
@@ -2499,6 +2502,19 @@ MonoBehaviour:
   tr: {fileID: 6008650094195120698}
   attackRange: 2.3
   LookatSpeed: 1
+--- !u!65 &5905776324312264004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013759099604825932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6013760442594615140
 GameObject:
   m_ObjectHideFlags: 0

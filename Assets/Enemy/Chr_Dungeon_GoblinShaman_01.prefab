@@ -2791,6 +2791,7 @@ GameObject:
   - component: {fileID: 2292083196420990648}
   - component: {fileID: 5657847799984225059}
   - component: {fileID: 8194580181112674645}
+  - component: {fileID: 8815800103351330224}
   m_Layer: 0
   m_Name: Chr_Dungeon_GoblinShaman_01
   m_TagString: Enemy
@@ -2907,6 +2908,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   startingMana: 0
+  _item: []
+  _dropP: []
   hpBarPrefab: {fileID: 8623151006859436585, guid: 7cba76812ea025c4d8c36401807d207a,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
@@ -2949,7 +2952,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2560826564152284586}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.432386, y: 2.8746154, z: 1.263349}
@@ -2976,6 +2979,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &8815800103351330224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560826564152284586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.53, y: 1.62, z: 0.53}
+  m_Center: {x: 0, y: 0.87, z: 0}
 --- !u!1 &2560847280544571038
 GameObject:
   m_ObjectHideFlags: 0

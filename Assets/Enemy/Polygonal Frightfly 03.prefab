@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 650496917873845037}
   - component: {fileID: 450590945916038516}
   - component: {fileID: 1601102573383369}
+  - component: {fileID: 5984702678911858265}
   m_Layer: 0
   m_Name: Polygonal Frightfly 03
   m_TagString: Enemy
@@ -240,10 +241,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157471279317487773}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.72, z: 1.1437035}
+  m_Size: {x: 1.44, y: 1.72, z: 1.03}
   m_Center: {x: 0, y: 1.05, z: 0.0718517}
 --- !u!114 &450590945916038516
 MonoBehaviour:
@@ -303,6 +304,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &5984702678911858265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157471279317487773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1.7, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1157501940103585583
 GameObject:
   m_ObjectHideFlags: 0
