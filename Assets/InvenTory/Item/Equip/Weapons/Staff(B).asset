@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDesc: "\uCCB4\uB825 +700\n\uB9C8\uB098 +300\n\uD30C\uC6CC +20\n\uBC29\uC5B4\uB825
     +20"
-  itemIntro: "-\uC548\uC815\uC801\uC778 \uB9C8\uB825\uAD00\uB9AC\uAC00 \uAC00\uB2A5\uD558\uB2E4-"
+  itemIntro: "-\uC2DC\uC791\uACFC \uB05D\uC744 \uC774\uC5B4\uC8FC\uB294 \uAC83\uC774
+    \uBC14\uB85C \uC911\uAC04\uC774\uB2E4-"
   itemRank: "\uC911\uAE09"
   itemName: "\uC219\uB828\uC790\uC758 \uC815\uC81C\uB41C \uC9C0\uD321\uC774"
   itemImage: {fileID: 21300000, guid: 23e3487bd159e544bbce0a44b6faadc4, type: 3}

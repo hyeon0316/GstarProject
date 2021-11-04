@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
   m_Name: Potion_Hp(A)
   m_EditorClassIdentifier: 
-  itemDesc: 
+  itemDesc: "\uCCB4\uB825\uC744 1000 \uD68C\uBCF5\uD55C\uB2E4"
   itemIntro: 
   itemRank: "\uC0C1\uAE09"
   itemName: "\uCCB4\uB825\uD3EC\uC158(\uB300)"

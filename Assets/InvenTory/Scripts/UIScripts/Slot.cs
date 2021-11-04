@@ -242,10 +242,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
                 && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                 && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
                      (DragSlot.instance.transform.position.y > 31 //아이템 사용창 범위
-                     && DragSlot.instance.transform.position.y < 130
+                     && DragSlot.instance.transform.position.y < 138
                      && DragSlot.instance.transform.position.x > 1390
-                     && DragSlot.instance.transform.position.x < 1635)))
+                     && DragSlot.instance.transform.position.x < 1830)))
             {
+                Debug.Log(DragSlot.instance.transform.position);
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
             }
@@ -254,9 +255,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
                && DragSlot.instance.transform.localPosition.y > invenBaseRect.yMin
                && DragSlot.instance.transform.localPosition.y < invenBaseRect.yMax) ||
                     (DragSlot.instance.transform.position.y > 31
-                    && DragSlot.instance.transform.position.y < 130
+                    && DragSlot.instance.transform.position.y < 138
                     && DragSlot.instance.transform.position.x > 1390
-                    && DragSlot.instance.transform.position.x < 1638))
+                    && DragSlot.instance.transform.position.x < 1830))
             {
                 DragSlot.instance.SetColor(0);
                 DragSlot.instance.dragSlot = null;
@@ -274,9 +275,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
                 && DragSlot.instance.transform.position.x > 254
                 && DragSlot.instance.transform.position.x < 700) ||
                   (DragSlot.instance.transform.position.y > 31
-                    && DragSlot.instance.transform.position.y < 130
+                    && DragSlot.instance.transform.position.y < 138
                     && DragSlot.instance.transform.position.x > 1390
-                    && DragSlot.instance.transform.position.x < 1638)))
+                    && DragSlot.instance.transform.position.x < 1830)))
             {
                 if (DragSlot.instance.dragSlot != null)
                     theInputNumber.Call();
@@ -291,9 +292,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
                  && DragSlot.instance.transform.position.x > 254
                  && DragSlot.instance.transform.position.x < 700) ||
                   (DragSlot.instance.transform.position.y > 31
-                    && DragSlot.instance.transform.position.y < 130
+                    && DragSlot.instance.transform.position.y < 138
                     && DragSlot.instance.transform.position.x > 1390
-                    && DragSlot.instance.transform.position.x < 1638))
+                    && DragSlot.instance.transform.position.x < 1830))
             {
                 DragSlot.instance.SetColor(0);
                 DragSlot.instance.dragSlot = null;
