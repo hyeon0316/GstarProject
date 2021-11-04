@@ -61,6 +61,7 @@ public class QuestManager : MonoBehaviour
             case 10:
                 if (questActionIndex == 2)
                 {
+                    
 
                     Player.inst.questIng = quest[0];
                     Player.inst.questIng.state = QuestState.Progressing;

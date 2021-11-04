@@ -121,10 +121,10 @@ public class Player : LivingEntity
         time_R = 30f;
         isGotM = false;
         time_Q_1 = 2f;
-        isSkillQ = false;
-        isSkillW = false;
-        isSkillE = false;
-        isSkillR = false;
+        isSkillQ = true;
+        isSkillW = true;
+        isSkillE = true;
+        isSkillR = true;
         isSkillTP = true;
         tpDis = 5f;
         level = 1;
@@ -132,11 +132,6 @@ public class Player : LivingEntity
         wMana = 50;
         eMana = 50;
         rMana = 100;
-        coolTimeQ.transform.GetChild(0).gameObject.SetActive(true);
-        coolTimeW.transform.GetChild(0).gameObject.SetActive(true);
-        coolTimeE.transform.GetChild(0).gameObject.SetActive(true);
-        coolTimeR.transform.GetChild(0).gameObject.SetActive(true);
-
     }
     void Start()
     {
@@ -249,7 +244,15 @@ public class Player : LivingEntity
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, npcLayer))
             {
-                SetDestination(hit.point);
+                int a = 1<<5;
+                if (hit.collider.gameObject.layer == a)
+                {
+                    Debug.Log("dd");
+                }
+                else
+                {
+                    SetDestination(hit.point);
+                }
             }
         }
     }
@@ -323,6 +326,7 @@ public class Player : LivingEntity
             QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
             QQ.transform.forward = skillQFP.transform.forward;
             animator.SetBool("isMove", false);
+            animator.SetTrigger("SkillQ");
         }
         else
         {

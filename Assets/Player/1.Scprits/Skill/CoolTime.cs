@@ -52,6 +52,7 @@ public class CoolTime : MonoBehaviour
         Set_FillAmount(0);
         isEnded = true;
         text_CoolTime.gameObject.SetActive(false);
+        image_fill.gameObject.SetActive(false);
     }
 
 
