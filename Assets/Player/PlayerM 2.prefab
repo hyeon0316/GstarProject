@@ -32042,7 +32042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637904282935220881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 2.34, z: -6.14}
+  m_LocalPosition: {x: 3, y: -0.1, z: -6.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1637904282306624831}
@@ -32076,6 +32076,7 @@ MonoBehaviour:
   townS: 0
   npcCam: {fileID: 686237378}
   isMove: 0
+  isSkill: 0
   animator: {fileID: 1637904282306624828}
   attack: 0
   attackSpeed: 1.5
@@ -32089,6 +32090,11 @@ MonoBehaviour:
     type: 3}
   dP: 0
   power: 0
+  isSkillQ: 0
+  isSkillW: 0
+  isSkillE: 0
+  isSkillR: 0
+  isSkillTP: 0
   npcLayer:
     serializedVersion: 2
     m_Bits: 512
