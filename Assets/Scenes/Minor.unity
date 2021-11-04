@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Minor 1
-  spwanVector: {x: -2, y: -22, z: 15}
+  spwanVector: {x: 0.32, y: -19, z: 19.57}
 --- !u!65 &74152514
 BoxCollider:
   m_ObjectHideFlags: 0
