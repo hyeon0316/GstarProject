@@ -26,6 +26,7 @@ public class Player : LivingEntity
 
 
     public bool isMove;
+    public bool isSkill;
     private Vector3 destination;
     public Animator animator;
     public bool attack;
@@ -99,7 +100,7 @@ public class Player : LivingEntity
     public Slider exSlider; //경험치 슬라이더
     public Text exText;//경험치 표시
 
-
+    
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -117,7 +118,7 @@ public class Player : LivingEntity
 
         time_Q = 5f;
         time_W = 30f;
-        time_E = 7.5f;
+        time_E = 12f;
         time_R = 30f;
         isGotM = false;
         time_Q_1 = 2f;
@@ -128,10 +129,11 @@ public class Player : LivingEntity
         isSkillTP = true;
         tpDis = 5f;
         level = 1;
-        qMana = 50;
-        wMana = 50;
-        eMana = 50;
-        rMana = 100;
+        qMana = 0;
+        wMana = 0;
+        eMana = 0;
+        rMana = 0;
+        isSkill = false;
     }
     void Start()
     {
@@ -236,23 +238,33 @@ public class Player : LivingEntity
             Destroy(other.gameObject);
         }
     }
+    
+    bool RectCheck(Vector3 _vector,float x1,float y1,float x2,float y2)
+    {
+        if(_vector.x>x1&&_vector.y<y1&&_vector.x<x2&&_vector.y>y2)
+            return true;
+        return false;
+    }
+    
     void GetPos()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1)&& !isSkill)
         {
-
-            RaycastHit hit;
-            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, npcLayer))
+            if (Inventory.inventoryActivated && RectCheck(Input.mousePosition, 1230, 821, 1645, 251))
             {
-                int a = 1<<5;
-                if (hit.collider.gameObject.layer == a)
-                {
-                    Debug.Log("dd");
-                }
-                else
-                {
+                Debug.Log("inventory" + Input.mousePosition);
+                return;
+            }
+            if (Information.informationActivated && RectCheck(Input.mousePosition, 215, 823, 629, 250))
+            {
+                Debug.Log("Information" + Input.mousePosition);
+                return;
+            }
+                
+            RaycastHit hit;
+            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+            {
                     SetDestination(hit.point);
-                }
             }
         }
     }
@@ -321,20 +333,24 @@ public class Player : LivingEntity
             var dir = hit.point - animator.transform.position;
             dir.y = 0;
             animator.transform.forward = dir;
-            isMove = false;
             skillQFP.transform.forward = dir;
-            QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
-            QQ.transform.forward = skillQFP.transform.forward;
-            animator.SetBool("isMove", false);
-            animator.SetTrigger("SkillQ");
         }
         else
         {
             QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
         }
+        animator.SetTrigger("SkillQ");
+        isMove = false;
+        animator.SetBool("isMove", false);
+        isSkill = true;
+        yield return new WaitForSeconds(2f);
+        isSkill = false;
+        
+        QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
+        QQ.transform.forward = skillQFP.transform.forward;
         yield return new WaitForSeconds(2.5f);
         Destroy(QQ.gameObject);
-        yield return new WaitForSeconds(dealy - 2.5f);
+        yield return new WaitForSeconds(dealy - 4.5f);
 
         isSkillQ = true;
         coolTimeQ.GetComponent<CoolTime>().End_CoolTime();
@@ -418,17 +434,20 @@ public class Player : LivingEntity
             var dir = hit.point - animator.transform.position;
             dir.y = 0;
             animator.transform.forward = dir;
-            isMove = false;
-            animator.SetBool("isMove", false);
-            QQ = Instantiate(skill_E, hit.point, Quaternion.identity);
         }
-        else
-        {
-            QQ = Instantiate(skill_E, transform.position, Quaternion.identity);
-        }
-        yield return new WaitForSeconds(5f);
+        isMove = false;
+        animator.SetBool("isMove", false);
+        animator.SetTrigger("SkillE");
+        isSkill = true;
+        yield return new WaitForSeconds(3f);
+        
+        QQ = Instantiate(skill_E, hit.point, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        isSkill = false;
+
+        yield return new WaitForSeconds(3f);
         Destroy(QQ.gameObject);
-        yield return new WaitForSeconds(dealy - 2.5f);
+        yield return new WaitForSeconds(dealy - 9f);
 
         isSkillE = true;
         coolTimeE.GetComponent<CoolTime>().End_CoolTime();

@@ -726,7 +726,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1637904282111270782}
+      objectReference: {fileID: 0}
     - target: {fileID: 4152851696729007454, guid: 3faa820d6545ec245b3a8020b8a11993,
         type: 3}
       propertyPath: m_Name
@@ -1525,6 +1525,11 @@ PrefabInstance:
       propertyPath: skillBG
       value: 
       objectReference: {fileID: 51441168}
+    - target: {fileID: 1637904282880860805, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: exText
@@ -1607,9 +1612,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72e1d7dff29a4ef4884297c015d1a973, type: 3}
---- !u!20 &1637904282111270782 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1637904282978552870, guid: 72e1d7dff29a4ef4884297c015d1a973,
-    type: 3}
-  m_PrefabInstance: {fileID: 1637904282111270781}
-  m_PrefabAsset: {fileID: 0}
