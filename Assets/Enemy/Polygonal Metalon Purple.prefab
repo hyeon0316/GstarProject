@@ -1031,8 +1031,7 @@ MonoBehaviour:
   hpBarPrefab: {fileID: 8623151006859436585, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
-  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
-    type: 3}
+  enemyHpBarCanvas: {fileID: 0}
   enemyHpBarSlider: {fileID: 8623151006859436591, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   whatIsTarget:
@@ -1041,7 +1040,7 @@ MonoBehaviour:
   damage: 20
   attackDelay: 1
   tr: {fileID: 8456353972450749242}
-  attackRange: 2.3
+  attackRange: 3.5
   LookatSpeed: 1
 --- !u!195 &1740318272
 NavMeshAgent:

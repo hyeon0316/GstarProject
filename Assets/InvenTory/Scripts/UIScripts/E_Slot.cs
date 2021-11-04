@@ -137,7 +137,6 @@ public class E_Slot : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,I
             DragSlot.instance.dragSlot.AddItem(_tempItem);
             Player.inst.TakeOffEffect(_tempItem);
         }
-
         else
             DragSlot.instance.dragSlot.ClearSlot();
     }

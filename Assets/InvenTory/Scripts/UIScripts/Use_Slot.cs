@@ -27,14 +27,16 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (item.itemType == Item.ItemType.Used)
         {
-            if (item.itemName == "Potion_Hp")
+            if (item.itemName == "체력포션(대)" || item.itemName == "체력포션(중)" || item.itemName == "체력포션(소)"
+                || item.itemName == "파워엘릭서" || item.itemName == "엘릭서")
             {
                 Player.inst.HealHp(item);
             }
-            else if (item.itemName == "Potion_Mp")
+            else if (item.itemName == "마나포션(대)" || item.itemName == "마나포션(중)" || item.itemName == "마나포션(소)")
             {
                 Player.inst.HealMp(item);
             }
+
             if (Player.slotCountClear)
             {
                 SetSlotCount(-1);
