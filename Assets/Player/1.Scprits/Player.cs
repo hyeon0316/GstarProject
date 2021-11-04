@@ -185,6 +185,12 @@ public class Player : LivingEntity
         playerMpBarSlider.value = mana;
         playerHpText.text = string.Format("{0}/{1}", health, startingHealth);
         playerMpText.text = string.Format("{0}/{1}", mana, startingMana);
+
+        if (health < 0)
+            health = 0;
+        else if (mana < 0)      
+            mana = 0;
+        
     }
     private void OnTriggerEnter(Collider other)//아이템 획득
     {
@@ -236,7 +242,7 @@ public class Player : LivingEntity
     void SkillQ()
     {
 
-        if (Input.GetKeyDown(KeyCode.Q) && isSkillQ)
+        if (Input.GetKeyDown(KeyCode.Q) && isSkillQ && mana >=100)
         {
 
             mana -= 100;
@@ -273,7 +279,7 @@ public class Player : LivingEntity
     }
     void SkillW()
     {
-        if (Input.GetKeyDown(KeyCode.W) && isSkillW)
+        if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= 100)
         {
             mana -= 100;
             isSkillW = false;
@@ -296,7 +302,7 @@ public class Player : LivingEntity
 
     void SkillE()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isSkillE)
+        if (Input.GetKeyDown(KeyCode.E) && isSkillE && mana >= 100)
         {
             mana -= 100;
             isSkillE = false;
@@ -330,7 +336,7 @@ public class Player : LivingEntity
     }
     void SkillR()
     {
-        if (Input.GetKeyDown(KeyCode.R) && isSkillR)
+        if (Input.GetKeyDown(KeyCode.R) && isSkillR && mana >= 100)
         {
             mana -= 100;
             isSkillR = false;
