@@ -202,18 +202,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 345791693}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &269746963 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6644566701057771288, guid: 3faa820d6545ec245b3a8020b8a11993,
-    type: 3}
-  m_PrefabInstance: {fileID: 345791693}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &283290027 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7122681962313595313, guid: 3faa820d6545ec245b3a8020b8a11993,
@@ -1032,6 +1020,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6644566701057771290, guid: 3faa820d6545ec245b3a8020b8a11993,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelText
+      objectReference: {fileID: 0}
     - target: {fileID: 6644566701104887041, guid: 3faa820d6545ec245b3a8020b8a11993,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1241,6 +1234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122681962775734097, guid: 3faa820d6545ec245b3a8020b8a11993,
+        type: 3}
+      propertyPath: m_Text
+      value: 1000/1000
       objectReference: {fileID: 0}
     - target: {fileID: 7186603796320470117, guid: 3faa820d6545ec245b3a8020b8a11993,
         type: 3}
@@ -1412,6 +1410,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 345791693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &769007753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7122681962775734097, guid: 3faa820d6545ec245b3a8020b8a11993,
+    type: 3}
+  m_PrefabInstance: {fileID: 345791693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &912380914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7122681962143011208, guid: 3faa820d6545ec245b3a8020b8a11993,
@@ -2873,7 +2883,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerMpText
       value: 
-      objectReference: {fileID: 269746963}
+      objectReference: {fileID: 769007753}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: playerHpBarSlider

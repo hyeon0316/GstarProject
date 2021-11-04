@@ -7968,7 +7968,7 @@ GameObject:
   - component: {fileID: 6644566701057771289}
   - component: {fileID: 6644566701057771288}
   m_Layer: 5
-  m_Name: MpText
+  m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10636,7 +10636,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 500/500
+  m_Text: 1000/1000
 --- !u!1 &7122681962943447196
 GameObject:
   m_ObjectHideFlags: 0
