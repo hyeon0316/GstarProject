@@ -6,7 +6,9 @@ using UnityEngine.EventSystems;
 
 public class CoolTime : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    
+    [SerializeField]
+    private SkillToolTipDatabase theSkillToolTipDatabase;
+
     public Text text_CoolTime;
     public Image image_fill;
     private float time_cooltime;
@@ -76,12 +78,12 @@ public class CoolTime : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        theSkillToolTipDatabase.ShowToolTip(transform.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        theSkillToolTipDatabase.HideToolTip();
     }
 }
 

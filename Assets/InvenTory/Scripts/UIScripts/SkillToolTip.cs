@@ -22,7 +22,7 @@ public class SkillToolTip : MonoBehaviour
     {
         go_Base.SetActive(true);
         _pos += new Vector3(go_Base.GetComponent<RectTransform>().rect.width * 0.5f,
-                            -go_Base.GetComponent<RectTransform>().rect.height * 0.5f,
+                            +go_Base.GetComponent<RectTransform>().rect.height * 0.5f,
                             0);
         go_Base.transform.position = _pos;            
     }
