@@ -497,10 +497,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 961758633, guid: 72e1d7dff29a4ef4884297c015d1a973, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1637904281301661609, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: m_Name
@@ -613,11 +609,6 @@ PrefabInstance:
       objectReference: {fileID: 1411465271}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
-      propertyPath: startingMana
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
       propertyPath: playerHpBarSlider
       value: 
       objectReference: {fileID: 897504526}
@@ -626,16 +617,6 @@ PrefabInstance:
       propertyPath: playerMpBarSlider
       value: 
       objectReference: {fileID: 1931950960}
-    - target: {fileID: 1637904282935220880, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637904282935220880, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72e1d7dff29a4ef4884297c015d1a973, type: 3}
 --- !u!114 &814342393 stripped
