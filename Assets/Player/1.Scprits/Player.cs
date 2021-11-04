@@ -343,7 +343,7 @@ public class Player : LivingEntity
         isMove = false;
         animator.SetBool("isMove", false);
         isSkill = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         isSkill = false;
         
         QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
@@ -439,7 +439,7 @@ public class Player : LivingEntity
         animator.SetBool("isMove", false);
         animator.SetTrigger("SkillE");
         isSkill = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         
         QQ = Instantiate(skill_E, hit.point, Quaternion.identity);
         yield return new WaitForSeconds(1f);
