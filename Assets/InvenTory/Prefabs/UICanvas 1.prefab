@@ -7895,7 +7895,7 @@ GameObject:
   - component: {fileID: 6644566700943728187}
   - component: {fileID: 6644566700943728186}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7960,7 +7960,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LV. 10
+  m_Text: LV. 1
 --- !u!1 &6644566700976322478
 GameObject:
   m_ObjectHideFlags: 0
@@ -8126,7 +8126,7 @@ GameObject:
   - component: {fileID: 6644566701057771289}
   - component: {fileID: 6644566701057771288}
   m_Layer: 5
-  m_Name: LevelText
+  m_Name: ExText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

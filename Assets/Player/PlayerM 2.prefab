@@ -32084,7 +32084,6 @@ MonoBehaviour:
   skill_W: {fileID: 1637904283046098604}
   skill_E: {fileID: 2173473307583004199, guid: 2e5f9bbbc7775ef4d93b8ce0e22726d7, type: 3}
   skill_R: {fileID: 4845780548672048810, guid: cbd590c5bfa3be74ea506269674152c6, type: 3}
-  exp: 0
   skill_TP: {fileID: 1980742424991254146, guid: 48ab833fb5b509d4dad96f6dfb0e0f21,
     type: 3}
   dP: 0
@@ -32103,6 +32102,11 @@ MonoBehaviour:
   TrapTarget: {fileID: 8621715674388689942}
   manaCaution: {fileID: 0}
   coolCaution: {fileID: 0}
+  levelText: {fileID: 0}
+  exp: 0
+  startingEx: 0
+  exSlider: {fileID: 0}
+  exText: {fileID: 0}
 --- !u!54 &1637904282935220882
 Rigidbody:
   m_ObjectHideFlags: 0

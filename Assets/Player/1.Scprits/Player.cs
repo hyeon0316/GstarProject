@@ -38,7 +38,7 @@ public class Player : LivingEntity
     public GameObject skill_E;
     public GameObject skill_R;
 
-    public float exp = 0;
+   
 
     public GameObject skill_TP;
     private float startingDP = 0;
@@ -88,6 +88,14 @@ public class Player : LivingEntity
     public Text coolCaution;
     private bool cautionTime;
 
+    public Text levelText;
+    int level;
+    public float exp = 0;
+    public float startingEx;
+    public Slider exSlider; //경험치 슬라이더
+    public Text exText;//경험치 표시
+    
+
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -101,6 +109,7 @@ public class Player : LivingEntity
         attack = false;
         dP = startingDP;
         power = startingPower;
+        exp = startingEx;
 
         time_Q = 5f;
         time_W = 30f;
@@ -114,6 +123,7 @@ public class Player : LivingEntity
         isSkillR = true;
         isSkillTP = true;
         tpDis = 5f;
+        level = 1;
 
     }
     void Start()
@@ -141,6 +151,7 @@ public class Player : LivingEntity
             }
         }
         SetHpMp();
+        SetLevel();
     }
     void NpcS()
     {
@@ -181,6 +192,13 @@ public class Player : LivingEntity
         }
     }
 
+    void SetLevel()
+    {
+        levelText.text = string.Format("LV. {0}", level);
+        exText.text = string.Format("{0}/{1}", exp, startingEx);
+        exSlider.maxValue = startingEx;
+        exSlider.value = exp;
+    }
     void SetHpMp()
     {
         playerHpBarSlider.maxValue = startingHealth;
