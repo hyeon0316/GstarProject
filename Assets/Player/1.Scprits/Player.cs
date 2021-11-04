@@ -259,8 +259,17 @@ public class Player : LivingEntity
             isSkillQ = false;
             StartCoroutine(SkillQCount(time_Q));
             coolTimeQ.GetComponent<CoolTime>().Reset_CoolTime(time_Q);
+        }  
+        else if(Input.GetKeyDown(KeyCode.Q) && !isSkillQ)
+        {
+            if (!cautionTime)
+            {
+                StartCoroutine(Caution(coolCaution));
+                cautionTime = true;
+                return;
+            }
         }
-        else if(Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             if (mana < 100 && !cautionTime)
             {
@@ -299,18 +308,22 @@ public class Player : LivingEntity
     void SkillW()
     {
         if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= 100)
-        {
-            if (mana < 100)
-            {
-                StartCoroutine(Caution(manaCaution));
-                return;
-            }
+        {          
             mana -= 100;
             isSkillW = false;
             isGotM = true;
             skill_W.SetActive(true);
             StartCoroutine(SkillWCount(time_W));
             coolTimeW.GetComponent<CoolTime>().Reset_CoolTime(time_W);
+        }
+        else if (Input.GetKeyDown(KeyCode.W) && !isSkillW)
+        {
+            if (!cautionTime)
+            {
+                StartCoroutine(Caution(coolCaution));
+                cautionTime = true;
+                return;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
@@ -338,15 +351,19 @@ public class Player : LivingEntity
        
         if (Input.GetKeyDown(KeyCode.E) && isSkillE && mana >= 100)
         {
-            if (mana < 100)
-            {
-                StartCoroutine(Caution(manaCaution));
-                return;
-            }
             mana -= 100;
             isSkillE = false;
             StartCoroutine(SkillECount(time_E));
             coolTimeE.GetComponent<CoolTime>().Reset_CoolTime(time_E);
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && !isSkillE)
+        {
+            if (!cautionTime)
+            {
+                StartCoroutine(Caution(coolCaution));
+                cautionTime = true;
+                return;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
@@ -385,16 +402,20 @@ public class Player : LivingEntity
     void SkillR()
     {      
         if (Input.GetKeyDown(KeyCode.R) && isSkillR && mana >= 100)
-        {
-            if (mana < 100)
-            {
-                StartCoroutine(Caution(manaCaution));
-                return;
-            }
+        {            
             mana -= 100;
             isSkillR = false;
             StartCoroutine(SkillRCount(time_R));
             coolTimeR.GetComponent<CoolTime>().Reset_CoolTime(time_R);
+        }
+        else if (Input.GetKeyDown(KeyCode.R) && !isSkillR)
+        {
+            if (!cautionTime)
+            {
+                StartCoroutine(Caution(coolCaution));
+                cautionTime = true;
+                return;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
