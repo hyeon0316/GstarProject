@@ -554,12 +554,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72e1d7dff29a4ef4884297c015d1a973, type: 3}
---- !u!20 &717863883 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1637904282978552870, guid: 72e1d7dff29a4ef4884297c015d1a973,
-    type: 3}
-  m_PrefabInstance: {fileID: 717863882}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &814342393 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4152851698282184477, guid: 3faa820d6545ec245b3a8020b8a11993,
@@ -966,11 +960,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 717863883}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152851696729007443, guid: 3faa820d6545ec245b3a8020b8a11993,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4152851696729007454, guid: 3faa820d6545ec245b3a8020b8a11993,
         type: 3}
       propertyPath: m_Name
       value: UICanvas 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152851697417105403, guid: 3faa820d6545ec245b3a8020b8a11993,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4510724605577873271, guid: 3faa820d6545ec245b3a8020b8a11993,
         type: 3}

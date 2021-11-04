@@ -696,7 +696,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1401562395}
+      objectReference: {fileID: 0}
     - target: {fileID: 4152851696729007454, guid: 3faa820d6545ec245b3a8020b8a11993,
         type: 3}
       propertyPath: m_Name
@@ -2540,12 +2540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3022ea7eab88484ab5021f1a11112d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!20 &1401562395 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1637904282978552870, guid: 72e1d7dff29a4ef4884297c015d1a973,
-    type: 3}
-  m_PrefabInstance: {fileID: 1955456852}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1573753609
 GameObject:
   m_ObjectHideFlags: 0
