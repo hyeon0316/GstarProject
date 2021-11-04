@@ -38,7 +38,11 @@ public class Player : LivingEntity
     public GameObject skill_E;
     public GameObject skill_R;
 
-   
+    float qMana;
+    float wMana;
+    float eMana;
+    float rMana;
+
 
     public GameObject skill_TP;
     private float startingDP = 0;
@@ -54,11 +58,11 @@ public class Player : LivingEntity
 
     private float time_Q_1;
 
-    bool isSkillQ;
-    bool isSkillW;
-    bool isSkillE;
-    bool isSkillR;
-    bool isSkillTP;
+    public bool isSkillQ;
+    public bool isSkillW;
+    public bool isSkillE;
+    public bool isSkillR;
+    public bool isSkillTP;
 
     bool isGotM;
 
@@ -94,7 +98,7 @@ public class Player : LivingEntity
     public float startingEx;
     public Slider exSlider; //경험치 슬라이더
     public Text exText;//경험치 표시
-    
+
 
     private void Awake()
     {
@@ -117,13 +121,21 @@ public class Player : LivingEntity
         time_R = 30f;
         isGotM = false;
         time_Q_1 = 2f;
-        isSkillQ = true;
-        isSkillW = true;
-        isSkillE = true;
-        isSkillR = true;
+        isSkillQ = false;
+        isSkillW = false;
+        isSkillE = false;
+        isSkillR = false;
         isSkillTP = true;
         tpDis = 5f;
         level = 1;
+        qMana = 50;
+        wMana = 50;
+        eMana = 50;
+        rMana = 100;
+        coolTimeQ.transform.GetChild(0).gameObject.SetActive(true);
+        coolTimeW.transform.GetChild(0).gameObject.SetActive(true);
+        coolTimeE.transform.GetChild(0).gameObject.SetActive(true);
+        coolTimeR.transform.GetChild(0).gameObject.SetActive(true);
 
     }
     void Start()
@@ -150,8 +162,8 @@ public class Player : LivingEntity
                     SkillR();               
             }
         }
-        SetHpMp();
-        SetLevel();
+       SetHpMp();
+        //SetLevel();
     }
     void NpcS()
     {
@@ -271,9 +283,9 @@ public class Player : LivingEntity
 
     void SkillQ()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && isSkillQ && mana >=100)
-        {              
-            mana -= 100;
+        if (Input.GetKeyDown(KeyCode.Q) && isSkillQ && mana >= qMana)
+        {
+            mana -= qMana;
             isSkillQ = false;
             StartCoroutine(SkillQCount(time_Q));
             coolTimeQ.GetComponent<CoolTime>().Reset_CoolTime(time_Q);
@@ -289,7 +301,7 @@ public class Player : LivingEntity
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (mana < 100 && !cautionTime)
+            if (mana < qMana && !cautionTime)
             {
                 StartCoroutine(Caution(manaCaution));
                 cautionTime = true;
@@ -325,9 +337,9 @@ public class Player : LivingEntity
     }
     void SkillW()
     {
-        if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= 100)
+        if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= wMana)
         {          
-            mana -= 100;
+            mana -= wMana;
             isSkillW = false;
             isGotM = true;
             skill_W.SetActive(true);
@@ -345,7 +357,7 @@ public class Player : LivingEntity
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            if (mana < 100 && !cautionTime)
+            if (mana < wMana && !cautionTime)
             {
                 StartCoroutine(Caution(manaCaution));
                 cautionTime = true;
@@ -367,9 +379,9 @@ public class Player : LivingEntity
     void SkillE()
     {
        
-        if (Input.GetKeyDown(KeyCode.E) && isSkillE && mana >= 100)
+        if (Input.GetKeyDown(KeyCode.E) && isSkillE && mana >= eMana)
         {
-            mana -= 100;
+            mana -= eMana;
             isSkillE = false;
             StartCoroutine(SkillECount(time_E));
             coolTimeE.GetComponent<CoolTime>().Reset_CoolTime(time_E);
@@ -385,7 +397,7 @@ public class Player : LivingEntity
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            if (mana < 100 && !cautionTime)
+            if (mana < eMana && !cautionTime)
             {
                 StartCoroutine(Caution(manaCaution));
                 cautionTime = true;
@@ -419,9 +431,9 @@ public class Player : LivingEntity
     }
     void SkillR()
     {      
-        if (Input.GetKeyDown(KeyCode.R) && isSkillR && mana >= 100)
+        if (Input.GetKeyDown(KeyCode.R) && isSkillR && mana >= rMana)
         {            
-            mana -= 100;
+            mana -= rMana;
             isSkillR = false;
             StartCoroutine(SkillRCount(time_R));
             coolTimeR.GetComponent<CoolTime>().Reset_CoolTime(time_R);
@@ -437,7 +449,7 @@ public class Player : LivingEntity
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            if (mana < 100 && !cautionTime)
+            if (mana < rMana && !cautionTime)
             {
                 StartCoroutine(Caution(manaCaution));
                 cautionTime = true;
@@ -633,6 +645,7 @@ public class Player : LivingEntity
     public void ExpPlus(float exp2)
     {
         exp += exp2;
+        SetLevel();
         Debug.Log(exp);
     }
 }

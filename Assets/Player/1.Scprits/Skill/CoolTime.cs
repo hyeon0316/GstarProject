@@ -28,7 +28,6 @@ public class CoolTime : MonoBehaviour
 
     private void Init_UI()
     {
-        image_fill.gameObject.SetActive(false);
         image_fill.type = Image.Type.Filled;
         image_fill.fillMethod = Image.FillMethod.Radial360;
         image_fill.fillOrigin = (int)Image.Origin360.Top;

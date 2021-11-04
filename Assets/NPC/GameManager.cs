@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public TalkManager talkManager;
     public QuestManager questManager;
     public GameObject talkPanel;
+    public GameObject skillBG;
     public TypeEffect talk;
     public GameObject scanObject;
     public bool isAction;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         ObjData objData = scanObject.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc);
         talkPanel.SetActive(isAction);
+        skillBG.SetActive(false);
     }
 
     void Talk(int id, bool isNpc)
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
             Player.inst.npcCam.SetActive(false);
-
+            skillBG.SetActive(true);
             Debug.Log("Talkdata == null  id:"+id+","+questManager.CheckQuest(id));
             return;
         }

@@ -20,9 +20,21 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 7fe1ac4c180f58a4aa3b0ee610bd8101, type: 2}
     amount: 5
   rewards:
-  - ItemReward: {fileID: 11400000, guid: 202090d96a6deff41837ff515d8586b0, type: 2}
+  - ItemReward: {fileID: 11400000, guid: cf69ab62d5622c64087c47fced294f49, type: 2}
     ItemRewardCount: 1
     EXPReward: 100
-  - ItemReward: {fileID: 11400000, guid: 1ccc4cf8fa3821148a07b0b1aba086b2, type: 2}
+  - ItemReward: {fileID: 11400000, guid: 06f4760d66770f34fa707dbe14018805, type: 2}
     ItemRewardCount: 1
-    EXPReward: 200
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: f76c7a8ed386c47488face5e2f072492, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 769a5136ed1d7a54aa66da2316d2c21a, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 072aab0480a0d6246bd78d91540b3834, type: 2}
+    ItemRewardCount: 30
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 1ccc4cf8fa3821148a07b0b1aba086b2, type: 2}
+    ItemRewardCount: 30
+    EXPReward: 0

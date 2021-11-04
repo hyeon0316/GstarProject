@@ -5606,6 +5606,7 @@ MonoBehaviour:
   talkManager: {fileID: 1637904281843697046}
   questManager: {fileID: 1637904282115937788}
   talkPanel: {fileID: 1637904281329247277}
+  skillBG: {fileID: 0}
   talk: {fileID: 1637904282351168633}
   scanObject: {fileID: 0}
   isAction: 0
@@ -32104,7 +32105,7 @@ MonoBehaviour:
   coolCaution: {fileID: 0}
   levelText: {fileID: 0}
   exp: 0
-  startingEx: 0
+  startingEx: 10
   exSlider: {fileID: 0}
   exText: {fileID: 0}
 --- !u!54 &1637904282935220882

@@ -74,7 +74,12 @@ public class QuestManager : MonoBehaviour
                    foreach(var qu in Player.inst.questIng.rewards)
                     {
                         qu.Reward();
+
                     }
+                    Player.inst.isSkillQ = true;
+                    Player.inst.isSkillW = true;
+                    Player.inst.coolTimeQ.transform.GetChild(0).gameObject.SetActive(false);
+                    Player.inst.coolTimeW.transform.GetChild(0).gameObject.SetActive(false);
                 }
                 break;
 
@@ -94,6 +99,10 @@ public class QuestManager : MonoBehaviour
                     foreach (var qu in Player.inst.questIng.rewards)
                     {
                         qu.Reward();
+                        Player.inst.isSkillE = true;
+                        Player.inst.isSkillR = true;
+                        Player.inst.coolTimeE.transform.GetChild(0).gameObject.SetActive(false);
+                        Player.inst.coolTimeR.transform.GetChild(0).gameObject.SetActive(false);
                     }
                 }
                 break;
