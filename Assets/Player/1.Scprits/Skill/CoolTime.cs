@@ -1,10 +1,10 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class CoolTime : MonoBehaviour
+public class CoolTime : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     
     public Text text_CoolTime;
@@ -72,6 +72,16 @@ public class CoolTime : MonoBehaviour
         string txt = _value.ToString("0.0");
         text_CoolTime.text = txt;
         //Debug.Log(txt);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
     }
 }
 
