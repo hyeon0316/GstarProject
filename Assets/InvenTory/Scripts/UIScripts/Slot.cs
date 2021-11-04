@@ -316,6 +316,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 
         if (DragSlot_Used.instance.dragSlot_Used != null)
         {                  
+            if(item.itemType == Item.ItemType.Equipment || item.itemType == Item.ItemType.Ingredient)
+            {
+                return;
+            }
             Inter_Change_uSlot();
         }
     }
