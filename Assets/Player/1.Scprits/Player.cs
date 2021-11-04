@@ -84,6 +84,10 @@ public class Player : LivingEntity
 
     public GameObject TrapTarget; //2페이지 이후 플레이어 머리 위에 해골표시
 
+    public Text manaCaution;
+    public Text coolCaution;
+    private bool cautionTime;
+
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -129,11 +133,11 @@ public class Player : LivingEntity
                 Attack();
 
             if (SceneManager.GetActiveScene().name != "Town")
-            {
-                SkillQ();
-                SkillW();
-                SkillE();
-                SkillR();
+            {               
+                    SkillQ();
+                    SkillW();
+                    SkillE();
+                    SkillR();               
             }
         }
         SetHpMp();
@@ -239,16 +243,31 @@ public class Player : LivingEntity
             SpawnProjectilesScript.inst.SpawnVFX();
         }
     }
+    IEnumerator Caution(Text caution)//마나부족 혹은 스킬 재사용 경고
+    {
+        caution.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        caution.gameObject.SetActive(false);
+        cautionTime = false;
+    }
+
     void SkillQ()
     {
-
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ && mana >=100)
-        {
-
+        {              
             mana -= 100;
             isSkillQ = false;
             StartCoroutine(SkillQCount(time_Q));
             coolTimeQ.GetComponent<CoolTime>().Reset_CoolTime(time_Q);
+        }
+        else if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if (mana < 100 && !cautionTime)
+            {
+                StartCoroutine(Caution(manaCaution));
+                cautionTime = true;
+                return;
+            }
         }
     }
     IEnumerator SkillQCount(float dealy)
@@ -281,12 +300,26 @@ public class Player : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= 100)
         {
+            if (mana < 100)
+            {
+                StartCoroutine(Caution(manaCaution));
+                return;
+            }
             mana -= 100;
             isSkillW = false;
             isGotM = true;
             skill_W.SetActive(true);
             StartCoroutine(SkillWCount(time_W));
             coolTimeW.GetComponent<CoolTime>().Reset_CoolTime(time_W);
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (mana < 100 && !cautionTime)
+            {
+                StartCoroutine(Caution(manaCaution));
+                cautionTime = true;
+                return;
+            }
         }
     }
     IEnumerator SkillWCount(float dealy)
@@ -302,12 +335,27 @@ public class Player : LivingEntity
 
     void SkillE()
     {
+       
         if (Input.GetKeyDown(KeyCode.E) && isSkillE && mana >= 100)
         {
+            if (mana < 100)
+            {
+                StartCoroutine(Caution(manaCaution));
+                return;
+            }
             mana -= 100;
             isSkillE = false;
             StartCoroutine(SkillECount(time_E));
             coolTimeE.GetComponent<CoolTime>().Reset_CoolTime(time_E);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (mana < 100 && !cautionTime)
+            {
+                StartCoroutine(Caution(manaCaution));
+                cautionTime = true;
+                return;
+            }
         }
     }
     IEnumerator SkillECount(float dealy)
@@ -335,13 +383,27 @@ public class Player : LivingEntity
         coolTimeE.GetComponent<CoolTime>().End_CoolTime();
     }
     void SkillR()
-    {
+    {      
         if (Input.GetKeyDown(KeyCode.R) && isSkillR && mana >= 100)
         {
+            if (mana < 100)
+            {
+                StartCoroutine(Caution(manaCaution));
+                return;
+            }
             mana -= 100;
             isSkillR = false;
             StartCoroutine(SkillRCount(time_R));
             coolTimeR.GetComponent<CoolTime>().Reset_CoolTime(time_R);
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (mana < 100 && !cautionTime)
+            {
+                StartCoroutine(Caution(manaCaution));
+                cautionTime = true;
+                return;
+            }
         }
     }
     IEnumerator SkillRCount(float dealy)
