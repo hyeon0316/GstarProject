@@ -9,7 +9,7 @@ public class QuestManager : MonoBehaviour
     public int questActionIndex;
     Dictionary<int, QuestData> questList;
     public Quest[] quest;
-    
+    bool firstQuset;
     void Awake()
     {
         if (inst == null) // 싱글톤
@@ -18,6 +18,7 @@ public class QuestManager : MonoBehaviour
         }
         questList = new Dictionary<int, QuestData>();
         GenerateData();
+        firstQuset = true;
 
     }
     void GenerateData()
@@ -61,13 +62,20 @@ public class QuestManager : MonoBehaviour
             case 10:
                 if (questActionIndex == 2)
                 {
-                    
-
-                    Player.inst.questIng = quest[0];
+                    Player.inst.questIng = quest[1];
                     Player.inst.questIng.state = QuestState.Progressing;
+                    foreach (var qu in quest[0].rewards)
+                    {
+                        qu.Reward();
+                    }
                 }
                 if (questActionIndex == 3)
                 {
+                    if(firstQuset)
+                    {
+                       
+                        firstQuset = false;
+                    }
                     questActionIndex = 2;
                 }
                 if (questActionIndex == 5)
@@ -75,7 +83,6 @@ public class QuestManager : MonoBehaviour
                    foreach(var qu in Player.inst.questIng.rewards)
                     {
                         qu.Reward();
-
                     }
                     Player.inst.isSkillQ = true;
                     Player.inst.isSkillW = true;
@@ -87,8 +94,8 @@ public class QuestManager : MonoBehaviour
             case 20:
                 if (questActionIndex == 1)
                 {
-
-                    Player.inst.questIng = quest[1];
+                    
+                    Player.inst.questIng = quest[2];
                     Player.inst.questIng.state = QuestState.Progressing;
                 }
                 if (questActionIndex == 3)
