@@ -6500,6 +6500,7 @@ GameObject:
   - component: {fileID: 3558240128228207866}
   - component: {fileID: 3867382693687982275}
   - component: {fileID: 1778103061}
+  - component: {fileID: 2573696003584120258}
   m_Layer: 0
   m_Name: Chr_Dungeon_GoblinMale_01
   m_TagString: Enemy
@@ -6625,8 +6626,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559852785570682731}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.5971718, y: 2.4801803, z: 1.5363808}
   m_Center: {x: 0.07564592, y: 1.2167192, z: -0.06088531}
@@ -6666,6 +6667,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   startingMana: 0
+  _item: []
+  _dropP: []
   hpBarPrefab: {fileID: 8623151006859436585, guid: e1c4d27e258e4964889102faff09ba78,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
@@ -6679,8 +6682,21 @@ MonoBehaviour:
   damage: 20
   attackDelay: 1
   tr: {fileID: 3562640163971136029}
-  attackRange: 2.3
+  attackRange: 3
   LookatSpeed: 1
+--- !u!65 &2573696003584120258
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559852785570682731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.55, y: 1.74, z: 0.7}
+  m_Center: {x: 0, y: 0.88, z: 0}
 --- !u!1 &3559866366654280979
 GameObject:
   m_ObjectHideFlags: 0

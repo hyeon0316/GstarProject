@@ -343,7 +343,7 @@ public class Player : LivingEntity
         isMove = false;
         animator.SetBool("isMove", false);
         isSkill = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.2f);
         isSkill = false;
         
         QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
