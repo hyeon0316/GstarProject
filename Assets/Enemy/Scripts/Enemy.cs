@@ -6,9 +6,9 @@ using UnityEngine.AI; //AI, 네비게이션 시스템 관련 코드 가져오기
 
 public class Enemy : LivingEntity
 {
+    public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
     public GameObject damageText;
     public Transform damageTextPos;
-    public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
 
     public GameObject[] _item;
     public float[] _dropP;
@@ -75,12 +75,9 @@ public class Enemy : LivingEntity
         pathFinder = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
         //enemyAudioPlayer = GetComponent<AudioSource>();
+        pathFinder.enabled = false;
+        pathFinder.enabled = true;
     }
-    private void OnDisable()
-    {
-        
-    }
- 
 
     void Start()
     {
@@ -88,7 +85,7 @@ public class Enemy : LivingEntity
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작
         StartCoroutine(UpdatePath());
         tr = GetComponent<Transform>();
-
+        
     }
 
     // Update is called once per frame
@@ -219,6 +216,7 @@ public class Enemy : LivingEntity
     //데미지를 입었을 때 실행할 처리(재정의)
     public override void OnDamage(float damage)
     {
+        StartCoroutine(HitStop());
         /*사망하지 않을 상태에서만 피격 효과 재생
         if (!dead)
         {
@@ -231,18 +229,18 @@ public class Enemy : LivingEntity
             enemyAudioPlayer.PlayOnShot(hitSound);
         }
         */
-        GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
+        GameObject hubText = Instantiate(damageText, transform.position ,Quaternion.identity, enemyHpBarCanvas.transform);
         var _hubText = hubText.GetComponent<DamageText>();
-
+        
         _hubText.enemyTr = this.gameObject.transform;
         _hubText.offset = DamageOffset;
-
         _hubText.damage = damage;
-                      
+        
+                    
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage); //base, 부모클래스에 접근하는 기능
 
-        StartCoroutine(HitStop());
+        
 
         enemyHpBarSlider.value = health;
     }
@@ -270,7 +268,7 @@ public class Enemy : LivingEntity
         }
 
         //AI추적을 중지하고 네비메쉬 컴포넌트를 비활성화
-        SetNaviStop(true);
+        SetNaviStop(true);      
         pathFinder.enabled = false;
 
         canMove = false;
