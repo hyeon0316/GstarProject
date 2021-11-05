@@ -6,6 +6,9 @@ using UnityEngine.AI; //AI, 네비게이션 시스템 관련 코드 가져오기
 
 public class Enemy : LivingEntity
 {
+    public GameObject damageText;
+    public Transform damageTextPos;
+    public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
 
     public GameObject[] _item;
     public float[] _dropP;
@@ -100,7 +103,7 @@ public class Enemy : LivingEntity
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
         }
     }
-
+   
     void SetHpBar()
     {
         enemyHpBarCanvas = GameObject.Find("EnemyHpBarCanvas").GetComponent<Canvas>();
@@ -112,7 +115,7 @@ public class Enemy : LivingEntity
         
         enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력감소시키기위해 getcomponent(게임 실행 시 연결이 안되었던 문제 해결)
     }
-
+   
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
     private IEnumerator UpdatePath()
     {
@@ -227,12 +230,19 @@ public class Enemy : LivingEntity
             //피격 효과음 재생
             enemyAudioPlayer.PlayOnShot(hitSound);
         }
-        */       
-       
-        StartCoroutine(HitStop());
+        */
+        GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
+        var _hubText = hubText.GetComponent<DamageText>();
 
+        _hubText.enemyTr = this.gameObject.transform;
+        _hubText.offset = DamageOffset;
+
+        _hubText.damage = damage;
+                      
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage); //base, 부모클래스에 접근하는 기능
+
+        StartCoroutine(HitStop());
 
         enemyHpBarSlider.value = health;
     }
