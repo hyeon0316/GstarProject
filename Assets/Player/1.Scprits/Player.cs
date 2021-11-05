@@ -100,7 +100,8 @@ public class Player : LivingEntity
     public Slider exSlider; //경험치 슬라이더
     public Text exText;//경험치 표시
 
-    
+    public Text questTitleText;
+    public Text questProText;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -138,6 +139,7 @@ public class Player : LivingEntity
     }
     void Start()
     {
+        QuestManager.inst.CheckQuest();
     }
     // Update is called once per frame
     void Update()
@@ -229,8 +231,15 @@ public class Player : LivingEntity
             inventory.AcquireItem(other.transform.GetComponent<ItemPickUp>().item);
             if (questIng != null)
             {
+                questProText.text = "";
+                string questText;
+                questText = "";
                 foreach (var obj in questIng.collectObjectives)
+                {
                     obj.UpdateItemCount();
+                    questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
+                }
+                questProText.text = questText;
                 if (questIng.IsCompleteObjectives)
                     QuestManager.inst.questActionIndex = questIng.qusetComplte;
             }
