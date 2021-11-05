@@ -8,7 +8,6 @@ public class Enemy : LivingEntity
 {
     public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
     public GameObject damageText;
-    public Transform damageTextPos;
 
     public GameObject[] _item;
     public float[] _dropP;

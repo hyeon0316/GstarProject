@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Minor 1
-  spwanVector: {x: 0.32, y: -19, z: 19.57}
+  spwanVector: {x: -7.5, y: -19, z: 19.57}
 --- !u!65 &74152514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1058,6 +1058,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7278082603354769055, guid: ab6eebd3d9d3ab34190d2bac7feea5c5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452019850263486950, guid: ab6eebd3d9d3ab34190d2bac7feea5c5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8452879453363789572, guid: ab6eebd3d9d3ab34190d2bac7feea5c5,
         type: 3}
       propertyPath: m_Name

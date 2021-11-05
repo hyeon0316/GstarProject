@@ -260,6 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   startingMana: 0
+  DamageOffset: {x: -0.5, y: 5, z: 0}
+  damageText: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
+    type: 3}
   _item:
   - {fileID: 9176625609703804342, guid: 99c490665906ab941bc7b883c5b5abeb, type: 3}
   _dropP:

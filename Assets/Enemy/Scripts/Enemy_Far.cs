@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Enemy_Far : LivingEntity
 {
+    public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
+    public GameObject damageText;
+
     public GameObject[] _item;
     public float[] _dropP;
     public GameObject hpBarPrefab;
@@ -228,9 +231,16 @@ public class Enemy_Far : LivingEntity
         }
         */
 
+
         //피격 애니메이션 재생
         enemyAnimator.SetTrigger("Hit");
 
+        GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
+        var _hubText = hubText.GetComponent<DamageText>();
+
+        _hubText.enemyTr = this.gameObject.transform;
+        _hubText.offset = DamageOffset;
+        _hubText.damage = damage;
 
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage);
