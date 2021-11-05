@@ -58,8 +58,8 @@ public class CoolTime : MonoBehaviour
 
     public void Reset_CoolTime(float time1)
     {
-        time_cooltime = time1;
         image_fill.gameObject.SetActive(true);
+        time_cooltime = time1;
         text_CoolTime.gameObject.SetActive(true);
         time_current = time_cooltime;
         time_start = Time.time;
@@ -71,7 +71,6 @@ public class CoolTime : MonoBehaviour
         image_fill.fillAmount = _value / time_cooltime;
         string txt = _value.ToString("0.0");
         text_CoolTime.text = txt;
-        //Debug.Log(txt);
     }
 
    

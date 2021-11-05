@@ -73,14 +73,13 @@ public class QuestManager : MonoBehaviour
                 {
                     if(firstQuset)
                     {
-                       
                         firstQuset = false;
                     }
                     questActionIndex = 2;
                 }
                 if (questActionIndex == 5)
                 {
-                   foreach(var qu in Player.inst.questIng.rewards)
+                    foreach (var qu in Player.inst.questIng.rewards)
                     {
                         qu.Reward();
                     }
@@ -88,6 +87,7 @@ public class QuestManager : MonoBehaviour
                     Player.inst.isSkillW = true;
                     Player.inst.coolTimeQ.transform.GetChild(0).gameObject.SetActive(false);
                     Player.inst.coolTimeW.transform.GetChild(0).gameObject.SetActive(false);
+                    Player.inst.questIng = null;
                 }
                 break;
 
@@ -112,7 +112,11 @@ public class QuestManager : MonoBehaviour
                         Player.inst.coolTimeE.transform.GetChild(0).gameObject.SetActive(false);
                         Player.inst.coolTimeR.transform.GetChild(0).gameObject.SetActive(false);
                     }
+                    Player.inst.questIng = null;
                 }
+                break;
+            case 30:
+                
                 break;
         }
 

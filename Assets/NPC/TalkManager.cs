@@ -34,11 +34,11 @@ public class TalkManager : MonoBehaviour
         talkData.Add(8000 + 10 + 0, new string[] { "어...? 너가 거기서 왜나와", "우리가 타야하는 텔레포트였다고!", "?????", "후.. 일단 스승님한테 가봐" });
         talkData.Add(7000 + 10 + 1, new string[] { "일단.. 자네도 원래 있던곳으로 돌아가야 하지 않나",
             "우리는 지금 바뻐서 재료를 다시 모을수가 없네","자네가 대신 해줘야 할거같은데",
-            "마력과 아이템을 조금 나눠주지. 지금은 기본공격 밖에 할수없을거네.",
+            "마력과 아이템을 조금 나눠주겠네.", "지금은 기본공격 밖에 할수없을거네.",
             "재료를 모아와주면 다른 스킬들을 주겠네.", "광산에가서 동굴거미의 심장을 5개 가져와 주시게" });
         talkData.Add(7000 + 10 + 2, new string[] { "아직 다 못구했나? " });
         talkData.Add(7000 + 10 + 3, new string[] { "고생했네", "금방 스킬을 만들어 주겠네", "다시한번 말을 걸어주시게" });
-        talkData.Add(7000 + 10 + 4, new string[] { "스킬과 아이템 그리고 경험치 조금 이네" });
+        talkData.Add(7000 + 10 + 4, new string[] { "스킬과 경험치 조금 이네" });
 
 
 
@@ -47,7 +47,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(7000 + 20 + 1, new string[] { "다구했나??" });
         talkData.Add(7000 + 20 + 2, new string[] { "아직 반지는 못구했나보군" });
         talkData.Add(7000 + 20 + 3, new string[] { "고생했네", "금방 스킬을 만들어 주겠네", "다시한번 말을 걸어주시게" });
-        talkData.Add(7000 + 20 + 4, new string[] { "스킬과 아이템 그리고 경험치 조금 이네" });
+        talkData.Add(7000 + 20 + 4, new string[] { "스킬을 다만들었네 ! 포션도 조금 주겠네 조심하게" });
 
 
 

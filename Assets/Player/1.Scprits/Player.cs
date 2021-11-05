@@ -9,7 +9,7 @@ public class Player : LivingEntity
     public static Player inst = null;
     //인벤토리
     [SerializeField]
-    private Inventory inventory;
+    public Inventory inventory;
 
 
     [SerializeField]
@@ -150,7 +150,6 @@ public class Player : LivingEntity
             Move();
             Tp();
             Attack();
-
             if (SceneManager.GetActiveScene().name != "Town")
             {               
                     SkillQ();
