@@ -316,14 +316,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
             Inter_ChangeSlot();
         }
 
-        if ((DragSlot_Used.instance.dragSlot_Used != null &&
-            DragSlot_Used.instance.dragSlot_Used.item.itemType == Item.ItemType.Used) || item == null)
+        if (DragSlot_Used.instance.dragSlot_Used != null)
         {
             Inter_Change_uSlot();
-        }
-        else if(item !=null && item.itemType == Item.ItemType.Equipment)
-        {
-            return;
         }
     }
 
@@ -364,7 +359,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     private void Inter_ChangeSlot() //정보창에서 인벤창으로 드래그
     {
         Item _tempItem = item;
-      
+
         AddItem(DragSlot_Equip.instance.dragSlot_Equip.e_item);
 
         if (_tempItem != null && item.EquipType == DragSlot_Equip.instance.dragSlot_Equip.e_item.EquipType)
@@ -379,28 +374,30 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     private void Inter_Change_uSlot()
     //아이템 사용창에서 인벤창으로 드래그(아이템 사용창에는 이미 소모품 상태임)
     {
-
-        Item _tempItem = item;
-        int _tempItemCount = itemCount;
-   
-        AddItem(DragSlot_Used.instance.dragSlot_Used.item, DragSlot_Used.instance.dragSlot_Used.itemCount);
-
-        if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == _tempItem.itemName)
+        if (item ==null || item.itemType == Item.ItemType.Used)//item 이 null인지 먼저 검사해야함
         {
-            if (DragSlot_Used.instance.dragSlot_Used.item.itemType == Item.ItemType.Used)
+            Item _tempItem = item;
+            int _tempItemCount = itemCount;
+
+            AddItem(DragSlot_Used.instance.dragSlot_Used.item, DragSlot_Used.instance.dragSlot_Used.itemCount);
+
+            if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == _tempItem.itemName)
             {
-                SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
+                if (DragSlot_Used.instance.dragSlot_Used.item.itemType == Item.ItemType.Used)
+                {
+                    SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
+                    DragSlot_Used.instance.dragSlot_Used.ClearSlot();
+                }
+            }
+
+            else if (_tempItem != null)//아이템이 있는 슬롯에 드래그 했을때(a,b 교환)
+            {
+                DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem, _tempItemCount);
+            }
+            else if (_tempItem == null)//빈슬롯에 드래그 했을때
+            {
                 DragSlot_Used.instance.dragSlot_Used.ClearSlot();
             }
-        }
-
-        else if (_tempItem != null)
-        {
-            DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem, _tempItemCount);
-        }
-        else if (_tempItem == null)
-        {
-            DragSlot_Used.instance.dragSlot_Used.ClearSlot();
         }
     }
 }
