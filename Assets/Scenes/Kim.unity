@@ -1060,75 +1060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1227236737
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3760262726705290143, guid: 4402490902b6c9c488787dac87d7b70a,
-        type: 3}
-      propertyPath: m_Name
-      value: Chr_Dungeon_GoblinWarriorFemale_01 (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4402490902b6c9c488787dac87d7b70a, type: 3}
 --- !u!1 &1326426266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7122681962614898418, guid: 3faa820d6545ec245b3a8020b8a11993,
@@ -2868,7 +2799,7 @@ PrefabInstance:
     - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.33
+      value: 3.68
       objectReference: {fileID: 0}
     - target: {fileID: 3758097031214362755, guid: 4402490902b6c9c488787dac87d7b70a,
         type: 3}
@@ -2918,13 +2849,18 @@ PrefabInstance:
     - target: {fileID: 3760262726705290143, guid: 4402490902b6c9c488787dac87d7b70a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6078346724219076607, guid: 4402490902b6c9c488787dac87d7b70a,
         type: 3}
       propertyPath: enemyHpBarCanvas
       value: 
       objectReference: {fileID: 1481739003}
+    - target: {fileID: 8189434246226635973, guid: 4402490902b6c9c488787dac87d7b70a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4402490902b6c9c488787dac87d7b70a, type: 3}
 --- !u!1001 &3558240128794511016
@@ -2943,6 +2879,26 @@ PrefabInstance:
       propertyPath: enemyHpBarCanvas
       value: 
       objectReference: {fileID: 1481739003}
+    - target: {fileID: 2573696003584120258, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2573696003584120258, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558240128228207866, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558240128228207866, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3559852785570682731, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
         type: 3}
       propertyPath: m_Name
@@ -2961,7 +2917,7 @@ PrefabInstance:
     - target: {fileID: 3562640163971136029, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.74
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 3562640163971136029, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
         type: 3}
