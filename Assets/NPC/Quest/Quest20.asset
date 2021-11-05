@@ -16,10 +16,11 @@ MonoBehaviour:
   title: 
   content: 
   completeDialog: 
+  qusetComplte: 3
   collectObjectives:
   - item: {fileID: 11400000, guid: 15f95b38daa784b4790f115e3a946dc3, type: 2}
     amount: 1
   rewards:
   - ItemReward: {fileID: 0}
     ItemRewardCount: 0
-    EXPReward: 0
+    EXPReward: 300

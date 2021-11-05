@@ -9,6 +9,7 @@ public class QuestManager : MonoBehaviour
     public int questActionIndex;
     Dictionary<int, QuestData> questList;
     public Quest[] quest;
+    public GameObject[] gameObjects;
     bool firstQuset;
     void Awake()
     {
@@ -19,15 +20,18 @@ public class QuestManager : MonoBehaviour
         questList = new Dictionary<int, QuestData>();
         GenerateData();
         firstQuset = true;
-
     }
     void GenerateData()
     {
-        questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000, 7000 , 7000 , 7000 }));
+        questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000, 7000, 7000, 7000 }));
 
         questList.Add(20, new QuestData("반지 찾아주기.", new int[] { 7000, 7000, 7000, 7000, 7000 }));
 
-        questList.Add(30, new QuestData("던전일 돕기.", new int[] { 7000,4000,4000,4000,4000 }));
+        questList.Add(30, new QuestData("기사 단장한테 말걸기.", new int[] { 7000, 9000 }));
+
+        questList.Add(40, new QuestData("리치정보 얻기", new int[] { 4000, 4000, 4000, 4000 }));
+
+        questList.Add(50, new QuestData("보물방 열쇠얻기", new int[] { 4000, 4000, 4000, 4000 }));
     }
 
     public int GetQuestTalkIndex(int id)
@@ -71,7 +75,7 @@ public class QuestManager : MonoBehaviour
                 }
                 if (questActionIndex == 3)
                 {
-                    if(firstQuset)
+                    if (firstQuset)
                     {
                         firstQuset = false;
                     }
@@ -94,7 +98,7 @@ public class QuestManager : MonoBehaviour
             case 20:
                 if (questActionIndex == 1)
                 {
-                    
+
                     Player.inst.questIng = quest[2];
                     Player.inst.questIng.state = QuestState.Progressing;
                 }
@@ -107,16 +111,40 @@ public class QuestManager : MonoBehaviour
                     foreach (var qu in Player.inst.questIng.rewards)
                     {
                         qu.Reward();
-                        Player.inst.isSkillE = true;
-                        Player.inst.isSkillR = true;
-                        Player.inst.coolTimeE.transform.GetChild(0).gameObject.SetActive(false);
-                        Player.inst.coolTimeR.transform.GetChild(0).gameObject.SetActive(false);
                     }
+
+                    Player.inst.isSkillE = true;
+                    Player.inst.isSkillR = true;
+                    Player.inst.coolTimeE.transform.GetChild(0).gameObject.SetActive(false);
+                    Player.inst.coolTimeR.transform.GetChild(0).gameObject.SetActive(false);
                     Player.inst.questIng = null;
                 }
                 break;
             case 30:
-                
+                if (questActionIndex == 2)
+                {
+                    foreach (var qu in quest[3].rewards)
+                    {
+                        qu.Reward();
+                    }
+                }
+                break;
+            case 40:
+                if (questActionIndex == 1)
+                {
+                    Player.inst.questIng = quest[4];
+                }
+                if (questActionIndex == 2)
+                {
+                    questActionIndex = 1;
+                }
+                if (questActionIndex == 4)
+                {
+                    foreach (var qu in Player.inst.questIng.rewards)
+                    {
+                        qu.Reward();
+                    }
+                }
                 break;
         }
 

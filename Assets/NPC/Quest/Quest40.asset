@@ -16,5 +16,8 @@ MonoBehaviour:
   title: 
   content: 
   completeDialog: 
-  collectObjectives: []
+  qusetComplte: 2
+  collectObjectives:
+  - item: {fileID: 0}
+    amount: 0
   rewards: []

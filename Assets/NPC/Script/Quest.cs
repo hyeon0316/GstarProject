@@ -18,10 +18,10 @@ public class Quest : ScriptableObject
 
     [TextArea(2, 6)]
     public string content, completeDialog;
-
+    public int qusetComplte;
     public CollectObjective[] collectObjectives;
     public Rewards[] rewards;
-
+    
     public bool IsCompleteObjectives
     {
         get

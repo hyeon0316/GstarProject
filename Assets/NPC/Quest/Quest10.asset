@@ -16,6 +16,7 @@ MonoBehaviour:
   title: 
   content: tx
   completeDialog: tx
+  qusetComplte: 3
   collectObjectives:
   - item: {fileID: 11400000, guid: 7fe1ac4c180f58a4aa3b0ee610bd8101, type: 2}
     amount: 5
