@@ -124,8 +124,15 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         int _tempItemCount = itemCount;
 
         AddItem(DragSlot_Used.instance.dragSlot_Used.item, DragSlot_Used.instance.dragSlot_Used.itemCount);//b 자리에 a가 들감
-
-        if (_tempItem != null)//a자리에 b가 들어갈 때   
+        if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == _tempItem.itemName)
+        {
+            if (DragSlot_Used.instance.dragSlot_Used.item.itemType == Item.ItemType.Used)
+            {
+                SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
+                DragSlot_Used.instance.dragSlot_Used.ClearSlot();
+            }
+        }
+        else if (_tempItem != null)//a자리에 b가 들어갈 때   
             DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem, _tempItemCount);//a와 b가 교환할 때       
         else
             DragSlot_Used.instance.dragSlot_Used.ClearSlot();//빈자리로 이동할 때
