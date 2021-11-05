@@ -232,7 +232,7 @@ public class Player : LivingEntity
                 foreach (var obj in questIng.collectObjectives)
                     obj.UpdateItemCount();
                 if (questIng.IsCompleteObjectives)
-                    QuestManager.inst.questActionIndex = 3;
+                    QuestManager.inst.questActionIndex = questIng.qusetComplte;
             }
             Destroy(other.gameObject);
         }
