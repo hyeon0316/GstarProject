@@ -134,6 +134,7 @@ public class Player : LivingEntity
         eMana = 0;
         rMana = 0;
         isSkill = false;
+        
     }
     void Start()
     {
@@ -143,13 +144,12 @@ public class Player : LivingEntity
     {
        
         NpcS();
-        if (!gameManager.isAction)
+        if (!gameManager.isAction&&!isSkill)
         {
             GetPos();
             Move();
             Tp();
-            if (!Inventory.inventoryActivated && !Information.informationActivated)
-                Attack();
+            Attack();
 
             if (SceneManager.GetActiveScene().name != "Town")
             {               
@@ -248,7 +248,7 @@ public class Player : LivingEntity
     
     void GetPos()
     {
-        if (Input.GetMouseButton(1)&& !isSkill)
+        if (Input.GetMouseButton(1))
         {
             if (Inventory.inventoryActivated && RectCheck(Input.mousePosition, 1230, 821, 1645, 251))
             {
@@ -272,6 +272,17 @@ public class Player : LivingEntity
     {
         if ((Input.GetKey(KeyCode.A) || Input.GetMouseButton(0)) && Time.time >= SpawnProjectilesScript.inst.timeToFire)
         {
+            if (Inventory.inventoryActivated && RectCheck(Input.mousePosition, 1230, 821, 1645, 251))
+            {
+                Debug.Log("inventory" + Input.mousePosition);
+                return;
+            }
+            if (Information.informationActivated && RectCheck(Input.mousePosition, 215, 823, 629, 250))
+            {
+                Debug.Log("Information" + Input.mousePosition);
+                return;
+            }
+
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {

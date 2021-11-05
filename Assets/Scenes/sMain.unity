@@ -1535,6 +1535,47 @@ PrefabInstance:
       propertyPath: skillBG
       value: 
       objectReference: {fileID: 51441168}
+    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: quest.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: quest.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f50cd9fac35f0842a06a3bb3d179442,
+        type: 2}
+    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: quest.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 49ed3b52bcba8ff4bbd2eefd8c4f1ebc,
+        type: 2}
+    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: quest.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: a9de672691481e349810909e98d2a5e7,
+        type: 2}
+    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: quest.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 41fd21be2b08d1d4a984a7e2be7c71e0,
+        type: 2}
+    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: quest.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6357ee95f73ac664089ea8b347ba487f,
+        type: 2}
+    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: quest.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: b42ed654f9b7b6241a067d27ec38da6d,
+        type: 2}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: exText

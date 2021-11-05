@@ -17,4 +17,22 @@ MonoBehaviour:
   content: 
   completeDialog: 
   collectObjectives: []
-  rewards: []
+  rewards:
+  - ItemReward: {fileID: 11400000, guid: 811ead9ae41460c40b036b4a602964ab, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 0a0809c42c40e4f4aa31284fcdfd9f82, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 9c87de2114cd6c04e93103e77a10d968, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 3fa0dbd4e8252cf4ab956a5b921be95f, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: f76c7a8ed386c47488face5e2f072492, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 47c3027c123128c4383c67e761dd91b1, type: 2}
+    ItemRewardCount: 1
+    EXPReward: 0
