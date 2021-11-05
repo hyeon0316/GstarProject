@@ -6499,8 +6499,8 @@ GameObject:
   - component: {fileID: 3558240128228207864}
   - component: {fileID: 3558240128228207866}
   - component: {fileID: 3867382693687982275}
-  - component: {fileID: 1778103061}
   - component: {fileID: 2573696003584120258}
+  - component: {fileID: 1778103061}
   m_Layer: 0
   m_Name: Chr_Dungeon_GoblinMale_01
   m_TagString: Enemy
@@ -6653,39 +6653,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1778103061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3559852785570682731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  startingMana: 0
-  _item:
-  - {fileID: 0}
-  _dropP:
-  - 100
-  hpBarPrefab: {fileID: 8623151006859436585, guid: e1c4d27e258e4964889102faff09ba78,
-    type: 3}
-  hpBarOffset: {x: -0.5, y: 2.4, z: 0}
-  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
-    type: 3}
-  enemyHpBarSlider: {fileID: 8623151006859436591, guid: e1c4d27e258e4964889102faff09ba78,
-    type: 3}
-  whatIsTarget:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 20
-  attackDelay: 1
-  tr: {fileID: 3562640163971136029}
-  attackRange: 3
-  LookatSpeed: 1
 --- !u!65 &2573696003584120258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6699,6 +6666,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.55, y: 1.74, z: 0.7}
   m_Center: {x: 0, y: 0.88, z: 0}
+--- !u!114 &1778103061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559852785570682731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 150
+  startingMana: 0
+  _item: []
+  _dropP: []
+  hpBarPrefab: {fileID: 8623151006859436585, guid: e1c4d27e258e4964889102faff09ba78,
+    type: 3}
+  hpBarOffset: {x: -0.5, y: 2.4, z: 0}
+  enemyHpBarCanvas: {fileID: 0}
+  enemyHpBarSlider: {fileID: 8623151006859436591, guid: e1c4d27e258e4964889102faff09ba78,
+    type: 3}
+  whatIsTarget:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 20
+  attackDelay: 1
+  tr: {fileID: 3562640163971136029}
+  attackRange: 2.3
+  LookatSpeed: 1
 --- !u!1 &3559866366654280979
 GameObject:
   m_ObjectHideFlags: 0
