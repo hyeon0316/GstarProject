@@ -51,13 +51,24 @@ public class QuestManager : MonoBehaviour
         if (questActionIndex == questList[questId].npcId.Length)
             NextQuest();
         Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
-
+        Player.inst.questTitleText.text = questList[questId].questName;
         return questList[questId].questName;
     }
     public string CheckQuest()
     {
-        //맨처음 퀘스트 알려주기
+        Player.inst.questTitleText.text = questList[questId].questName;
         return questList[questId].questName;
+    }
+    public void InitPanl()
+    {
+        string questText;
+        questText = "";
+        foreach (var obj in Player.inst.questIng.collectObjectives)
+        {
+            obj.UpdateItemCount();
+            questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n\n";
+        }
+        Player.inst.questProText.text = questText;
     }
     void ControlObject()
     {
@@ -67,7 +78,7 @@ public class QuestManager : MonoBehaviour
                 if (questActionIndex == 2)
                 {
                     Player.inst.questIng = quest[1];
-                    Player.inst.questIng.state = QuestState.Progressing;
+                    InitPanl();
                     foreach (var qu in quest[0].rewards)
                     {
                         qu.Reward();
@@ -100,6 +111,7 @@ public class QuestManager : MonoBehaviour
                 {
 
                     Player.inst.questIng = quest[2];
+                    InitPanl();
                     Player.inst.questIng.state = QuestState.Progressing;
                 }
                 if (questActionIndex == 3)
@@ -133,6 +145,7 @@ public class QuestManager : MonoBehaviour
                 if (questActionIndex == 1)
                 {
                     Player.inst.questIng = quest[4];
+                    InitPanl();
                 }
                 if (questActionIndex == 2)
                 {

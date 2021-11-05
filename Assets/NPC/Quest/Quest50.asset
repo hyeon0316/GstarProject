@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   title: 
-  content: 
+  content: "\uBCF4\uBB3C\uBC29 \uC5F4\uC1E0\uAD6C\uD558\uAE30"
   completeDialog: 
-  collectObjectives: []
+  qusetComplte: 1
+  collectObjectives:
+  - item: {fileID: 0}
+    amount: 0
+  - item: {fileID: 0}
+    amount: 0
   rewards: []

@@ -10,11 +10,11 @@ public class SceneMa : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
             other.transform.position = spwanVector;
             Player.inst.isMove = false;
             Player.inst.animator.SetBool("isMove", false);
             LoadingSceneManager.LoadScene(sceneName);
+            
             //SceneManager.LoadScene(sceneName);
         }
     }
