@@ -102,13 +102,14 @@ public class Player : LivingEntity
 
     public Text questTitleText;
     public Text questProText;
+    public Rigidbody rigidbody;
     private void Awake()
     {
         if (inst == null) // 싱글톤
         {
             inst = this;
         }
-
+        rigidbody = GetComponent<Rigidbody>();
         isTalk = false;
         animator = GetComponentInChildren<Animator>();
         camera = Camera.main;
@@ -144,7 +145,6 @@ public class Player : LivingEntity
     // Update is called once per frame
     void Update()
     {
-       
         NpcS();
         if (!gameManager.isAction&&!isSkill)
         {

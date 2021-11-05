@@ -13,6 +13,7 @@ public class SceneMa : MonoBehaviour
             other.transform.position = spwanVector;
             Player.inst.isMove = false;
             Player.inst.animator.SetBool("isMove", false);
+            Player.inst.rigidbody.useGravity = false;
             LoadingSceneManager.LoadScene(sceneName);
             
             //SceneManager.LoadScene(sceneName);

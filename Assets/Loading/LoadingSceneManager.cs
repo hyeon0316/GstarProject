@@ -44,7 +44,9 @@ public class LoadingSceneManager : MonoBehaviour
                 loadingBar.fillAmount = Mathf.Lerp(loadingBar.fillAmount, 1f, timer);
                 if(loadingBar.fillAmount == 1.0f)
                 {
-
+                    Player.inst.rigidbody.useGravity = true;
+                    Player.inst.isMove = false;
+                    Player.inst.animator.SetBool("isMove", false);
                     op.allowSceneActivation = true;
                     
                     yield break;
