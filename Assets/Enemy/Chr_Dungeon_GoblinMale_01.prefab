@@ -6658,7 +6658,7 @@ BoxCollider:
   m_GameObject: {fileID: 3559852785570682731}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5971718, y: 2.4801803, z: 1.5363808}
   m_Center: {x: 0.07564592, y: 1.2167192, z: -0.06088531}
@@ -6711,15 +6711,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 150
   startingMana: 0
+  nameOffset: {x: -0.3, y: 3.3, z: 0}
+  nameText: {fileID: 8597663803167320284, guid: fdd1da26a3e2889408821f80fa52ac0b,
+    type: 3}
+  nameObject: {fileID: 7520521355036155184, guid: fdd1da26a3e2889408821f80fa52ac0b,
+    type: 3}
+  DamageOffset: {x: -0.5, y: 5, z: 0}
   damageText: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
     type: 3}
-  damageTextPos: {fileID: 321744080}
   _item: []
   _dropP: []
   hpBarPrefab: {fileID: 8623151006859436585, guid: e1c4d27e258e4964889102faff09ba78,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
   enemyHpBarCanvas: {fileID: 0}
+  nameCanvas: {fileID: 0}
   enemyHpBarSlider: {fileID: 8623151006859436591, guid: e1c4d27e258e4964889102faff09ba78,
     type: 3}
   whatIsTarget:

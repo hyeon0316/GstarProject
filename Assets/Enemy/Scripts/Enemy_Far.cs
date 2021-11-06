@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class Enemy_Far : LivingEntity
 {
+    public Vector3 nameOffset = new Vector3(0f, 5f, 0);
+    public GameObject nameText;
+    public TextMeshProUGUI nameObject;
+
     public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
     public GameObject damageText;
 
@@ -15,6 +20,7 @@ public class Enemy_Far : LivingEntity
     public Vector3 hpBarOffset = new Vector3(-0.5f, 2.4f, 0);
 
     public Canvas enemyHpBarCanvas;
+    public Canvas nameCanvas;
     public Slider enemyHpBarSlider;
 
     public LayerMask whatIsTarget; //추적대상 레이어
@@ -82,6 +88,7 @@ public class Enemy_Far : LivingEntity
     void Start()
     {
         SetHpBar();
+        SetName();
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작
         StartCoroutine(UpdatePath());
         tr = GetComponent<Transform>();
@@ -125,6 +132,17 @@ public class Enemy_Far : LivingEntity
         enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력감소시키기위해 getcomponent(게임 실행 시 연결이 안되었던 문제 해결)
     }
 
+    void SetName()
+    {
+        nameCanvas = GameObject.Find("NameCanvas").GetComponent<Canvas>();
+        GameObject namePrefab = Instantiate<GameObject>(nameText, transform.position, Quaternion.identity, nameCanvas.transform);
+        var _namePrefab = namePrefab.GetComponent<EnemyHpBar>();
+
+        _namePrefab.enemyTr = this.gameObject.transform;
+        _namePrefab.offset = nameOffset;
+
+        nameObject = _namePrefab.GetComponent<TextMeshProUGUI>();
+    }
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신, 대상이 있으면 공격한다.
     private IEnumerator UpdatePath()
     {
@@ -252,7 +270,7 @@ public class Enemy_Far : LivingEntity
     public override void Die()
     {
         enemyHpBarSlider.gameObject.SetActive(false);
-       
+        nameObject.gameObject.SetActive(false);
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
         for (int i = 0; i < enemyColliders.Length; i++)
@@ -285,6 +303,7 @@ public class Enemy_Far : LivingEntity
 
         //체력 슬라이더 활성화
         enemyHpBarSlider.gameObject.SetActive(true);
+        nameObject.gameObject.SetActive(true);
         //체력 슬라이더의 최댓값을 기본 체력값으로 변경
         enemyHpBarSlider.maxValue = startingHealth;
         //체력 슬라이더의 값을 현재 체력값으로 변경

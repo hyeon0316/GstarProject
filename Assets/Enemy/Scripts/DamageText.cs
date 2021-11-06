@@ -41,16 +41,15 @@ public class DamageText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (enemyTr != null)
         {
             var screenPos = Camera.main.WorldToScreenPoint(enemyTr.position + offset);
             var localPos = Vector2.zero;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, uiCamera, out localPos); //
-            rectDamage.localPosition = localPos;
+            rectDamage.localPosition = localPos; 
         }
 
-        transform.Translate(new Vector3(0, moveSpeed * Time.deltaTime, 0)); // 텍스트 위치
+        //transform.Translate(new Vector2(0, moveSpeed * Time.deltaTime)); // 텍스트 위치
 
         alpha.a = Mathf.Lerp(alpha.a, 0, Time.deltaTime * alphaSpeed); // 텍스트 알파값
         text.color = alpha;

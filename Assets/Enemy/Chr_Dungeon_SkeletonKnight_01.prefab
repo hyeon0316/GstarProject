@@ -2317,8 +2317,8 @@ GameObject:
   - component: {fileID: 6013257395143363807}
   - component: {fileID: 6013257395143363805}
   - component: {fileID: 6321291528330549476}
-  - component: {fileID: 2276255261130359559}
   - component: {fileID: 5905776324312264004}
+  - component: {fileID: 613600857420568350}
   m_Layer: 0
   m_Name: Chr_Dungeon_SkeletonKnight_01
   m_TagString: Enemy
@@ -2471,40 +2471,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2276255261130359559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6013759099604825932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  startingMana: 0
-  DamageOffset: {x: -0.5, y: 5, z: 0}
-  damageText: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
-    type: 3}
-  _item: []
-  _dropP: []
-  hpBarPrefab: {fileID: 8623151006859436585, guid: efdd3219839322b4aaf5a5c7caabf958,
-    type: 3}
-  hpBarOffset: {x: -0.5, y: 2.4, z: 0}
-  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
-    type: 3}
-  enemyHpBarSlider: {fileID: 8623151006859436591, guid: efdd3219839322b4aaf5a5c7caabf958,
-    type: 3}
-  whatIsTarget:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 20
-  attackDelay: 1
-  tr: {fileID: 6008650094195120698}
-  attackRange: 2.3
-  LookatSpeed: 1
 --- !u!65 &5905776324312264004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2518,6 +2484,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2, z: 0.5}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &613600857420568350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013759099604825932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 300
+  startingMana: 0
+  nameOffset: {x: -0.3, y: 3.5, z: 0}
+  nameText: {fileID: 8597663803167320284, guid: 286a72d9495ab9d4984f9eb2d270990f,
+    type: 3}
+  nameObject: {fileID: 7520521355036155184, guid: 286a72d9495ab9d4984f9eb2d270990f,
+    type: 3}
+  DamageOffset: {x: -0.5, y: 5, z: 0}
+  damageText: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
+    type: 3}
+  _item: []
+  _dropP: []
+  hpBarPrefab: {fileID: 8623151006859436585, guid: 1e2b44de74c407141a485cdbca5d78a0,
+    type: 3}
+  hpBarOffset: {x: -0.5, y: 2.4, z: 0}
+  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
+    type: 3}
+  nameCanvas: {fileID: 3722500032732411186, guid: 230d5b7badc3f414189b119ea8a4b2b6,
+    type: 3}
+  enemyHpBarSlider: {fileID: 8623151006859436591, guid: 1e2b44de74c407141a485cdbca5d78a0,
+    type: 3}
+  whatIsTarget:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 20
+  attackDelay: 1
+  tr: {fileID: 6008650094195120698}
+  attackRange: 2.3
+  LookatSpeed: 1
 --- !u!1 &6013760442594615140
 GameObject:
   m_ObjectHideFlags: 0

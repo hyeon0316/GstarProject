@@ -1025,6 +1025,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 200
   startingMana: 0
+  nameOffset: {x: -0.3, y: 3.3, z: 0}
+  nameText: {fileID: 8597663803167320284, guid: 8b97fd7d7d36ca94c99cbc7b67ba5018,
+    type: 3}
+  nameObject: {fileID: 7520521355036155184, guid: 8b97fd7d7d36ca94c99cbc7b67ba5018,
+    type: 3}
   DamageOffset: {x: -0.5, y: 5, z: 0}
   damageText: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
     type: 3}
@@ -1035,8 +1040,8 @@ MonoBehaviour:
   hpBarPrefab: {fileID: 8623151006859436585, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
-  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
-    type: 3}
+  enemyHpBarCanvas: {fileID: 0}
+  nameCanvas: {fileID: 0}
   enemyHpBarSlider: {fileID: 8623151006859436591, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   whatIsTarget:
