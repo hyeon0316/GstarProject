@@ -103,6 +103,8 @@ public class Player : LivingEntity
     public Text questTitleText;
     public Text questProText;
     public Rigidbody rigidbody;
+
+    public GameObject mousePoint;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -136,7 +138,7 @@ public class Player : LivingEntity
         eMana = 0;
         rMana = 0;
         isSkill = false;
-        
+        mousePoint.SetActive(false);
     }
     void Start()
     {
@@ -272,6 +274,8 @@ public class Player : LivingEntity
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
+                mousePoint.SetActive(true);
+                mousePoint.transform.position = hit.point;
                     SetDestination(hit.point);
             }
         }
@@ -343,6 +347,7 @@ public class Player : LivingEntity
             }
         }
     }
+
     IEnumerator SkillQCount(float dealy)
     {
         RaycastHit hit;
@@ -374,6 +379,7 @@ public class Player : LivingEntity
         isSkillQ = true;
         coolTimeQ.GetComponent<CoolTime>().End_CoolTime();
     }
+
     void SkillW()
     {
         if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= wMana)
@@ -404,6 +410,7 @@ public class Player : LivingEntity
             }
         }
     }
+
     IEnumerator SkillWCount(float dealy)
     {
         yield return new WaitForSeconds(3f);
@@ -582,6 +589,7 @@ public class Player : LivingEntity
         {
             isMove = false;
             animator.SetBool("isMove", false);
+            mousePoint.SetActive(false);
         }
     }
     float GetDistance(float x1, float y1, float x2, float y2)
@@ -602,6 +610,7 @@ public class Player : LivingEntity
         destination = dest;
         isMove = true;
         animator.SetBool("isMove", true);
+        
     }
     public override void Die()
     {
