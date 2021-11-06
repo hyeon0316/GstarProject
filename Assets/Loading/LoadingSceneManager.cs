@@ -3,18 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 public class LoadingSceneManager : MonoBehaviour
 {
     public static string nextScene;
     [SerializeField]
     private Image loadingBar;
 
+    [SerializeField]
+    private Image[] randBackGround;
+    [SerializeField]
+    private Text[] randToolTip;
+
+    [SerializeField]
+    private Text loadingValueText;
+
+    private float loadingValue = 0;
+
+    private float delay;
+
     private void Start()
     {
         StartCoroutine(LoadScene());
+
+        int randBack = Random.Range(0, 3);
+        int randTip = Random.Range(0, 3);
+        randBackGround[randBack].gameObject.SetActive(true);
+        randToolTip[randTip].gameObject.SetActive(true);
     }
 
+    private void Update()
+    {
+        if (loadingValue >= 100)
+            loadingValue = 100;
+        loadingValueText.text = string.Format("{0:P1}", loadingValue);
+    }
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
@@ -30,17 +52,20 @@ public class LoadingSceneManager : MonoBehaviour
         while(!op.isDone)
         {
             yield return null;
-            timer += Time.deltaTime;
-            if(op.progress <0.9f)
+            delay = 10;
+            timer += Time.deltaTime / delay;
+            loadingValue = loadingBar.fillAmount;
+            if (op.progress <0.9f)
             {
                 loadingBar.fillAmount = Mathf.Lerp(loadingBar.fillAmount, op.progress, timer);
-                if(loadingBar.fillAmount >= op.progress)
+                if (loadingBar.fillAmount >= op.progress)
                 {
                     timer = 0f;
                 }
             }
             else
             {
+                delay = 1;
                 loadingBar.fillAmount = Mathf.Lerp(loadingBar.fillAmount, 1f, timer);
                 if(loadingBar.fillAmount == 1.0f)
                 {
