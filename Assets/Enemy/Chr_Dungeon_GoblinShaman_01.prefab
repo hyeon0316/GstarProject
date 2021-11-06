@@ -2916,8 +2916,12 @@ MonoBehaviour:
   DamageOffset: {x: -0.5, y: 5, z: 0}
   damageText: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
     type: 3}
-  _item: []
-  _dropP: []
+  _item:
+  - {fileID: 9176625609703804342, guid: 386be1c78c4a7a849a4ab958def5472d, type: 3}
+  - {fileID: 9176625609703804342, guid: 07f474e060acabb4a8706e191a3ef676, type: 3}
+  _dropP:
+  - 70
+  - 2
   hpBarPrefab: {fileID: 8623151006859436585, guid: 7cba76812ea025c4d8c36401807d207a,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}

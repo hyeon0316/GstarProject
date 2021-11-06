@@ -15,7 +15,7 @@ MonoBehaviour:
   itemDesc: 
   itemIntro: "\uC54C \uC218 \uC5C6\uB294 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C4\uB2E4..."
   itemRank: 
-  itemName: 
+  itemName: "\uB9C8\uB825 \uC81C\uC5B4 \uBAA9\uAC78\uC774"
   itemImage: {fileID: 21300000, guid: 6ae77f9a991f8a34593c9b277ae362dc, type: 3}
   itemPrefab: {fileID: 9176625609703804342, guid: 8b9f05dd3c4fb8746975666f38728775,
     type: 3}

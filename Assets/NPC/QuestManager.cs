@@ -9,7 +9,7 @@ public class QuestManager : MonoBehaviour
     public int questActionIndex;
     Dictionary<int, QuestData> questList;
     public Quest[] quest;
-    public GameObject[] gameObjects;
+    public GameObject[] questObjects;
     bool firstQuset;
     void Awake()
     {
@@ -32,6 +32,8 @@ public class QuestManager : MonoBehaviour
         questList.Add(40, new QuestData("리치정보 얻기", new int[] { 4000, 4000, 4000, 4000 }));
 
         questList.Add(50, new QuestData("보물방 열쇠얻기", new int[] { 4000, 4000, 4000, 4000 }));
+
+        questList.Add(60, new QuestData("보스방 열쇠얻기", new int[] { 4000}));
     }
 
     public int GetQuestTalkIndex(int id)
@@ -66,7 +68,7 @@ public class QuestManager : MonoBehaviour
         foreach (var obj in Player.inst.questIng.collectObjectives)
         {
             obj.UpdateItemCount();
-            questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n\n";
+            questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
         }
         Player.inst.questProText.text = questText;
     }
@@ -147,6 +149,24 @@ public class QuestManager : MonoBehaviour
                 if (questActionIndex == 1)
                 {
                     Player.inst.questIng = quest[4];
+                    InitPanl();
+                }
+                if (questActionIndex == 2)
+                {
+                    questActionIndex = 1;
+                }
+                if (questActionIndex == 4)
+                {
+                    foreach (var qu in Player.inst.questIng.rewards)
+                    {
+                        qu.Reward();
+                    }
+                }
+                break;
+            case 50:
+                if (questActionIndex == 1)
+                {
+                    Player.inst.questIng = quest[5];
                     InitPanl();
                 }
                 if (questActionIndex == 2)

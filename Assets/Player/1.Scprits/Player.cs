@@ -270,7 +270,7 @@ public class Player : LivingEntity
                 Debug.Log("Information" + Input.mousePosition);
                 return;
             }
-                
+            Debug.Log("userSlot" + Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
