@@ -1663,50 +1663,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1637904281329247277, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1637904281353913986, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: skillBG
       value: 
       objectReference: {fileID: 51441168}
-    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: quest.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: quest.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 521f13c433be50a45a0426a4bdbd52d8,
-        type: 2}
-    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: quest.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: 521f13c433be50a45a0426a4bdbd52d8,
-        type: 2}
-    - target: {fileID: 1637904282115937788, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: quest.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: 521f13c433be50a45a0426a4bdbd52d8,
-        type: 2}
-    - target: {fileID: 1637904282351168635, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 958ecf04b9762d94f810cda256a72a9f,
-        type: 3}
-    - target: {fileID: 1637904282501008397, guid: 72e1d7dff29a4ef4884297c015d1a973,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: exText

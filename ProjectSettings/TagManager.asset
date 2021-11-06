@@ -16,6 +16,7 @@ TagManager:
   - Accessory
   - accessory
   - weapon
+  - Chest
   layers:
   - Default
   - TransparentFX

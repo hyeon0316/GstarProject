@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
     public Quest[] quest;
     public GameObject[] questObjects;
     bool firstQuset;
+    
     void Awake()
     {
         if (inst == null) // 싱글톤

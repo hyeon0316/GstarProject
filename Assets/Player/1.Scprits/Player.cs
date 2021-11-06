@@ -105,6 +105,10 @@ public class Player : LivingEntity
     public Rigidbody rigidbody;
 
     public GameObject mousePoint;
+    public bool chest400;
+    public bool chest500;
+    public bool chest600;
+    public bool chest700;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -139,6 +143,12 @@ public class Player : LivingEntity
         rMana = 0;
         isSkill = false;
         mousePoint.SetActive(false);
+
+        chest400 = false;
+        chest500 = false;
+        chest600 = false;
+        chest700 = false;
+
     }
     void Start()
     {
@@ -169,11 +179,14 @@ public class Player : LivingEntity
     {
         if (Input.GetMouseButtonUp(1))
         {
+
+            
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, npcLayer))
             {
                 if (hit.collider.tag == "NPC")
                 {
+                    mousePoint.SetActive(false);
                     if (hit.collider.gameObject.GetComponent<ObjData>().isNpc ==
                         true && Vector3.Distance(transform.position,
                         hit.collider.transform.position) < 5f)
@@ -187,6 +200,7 @@ public class Player : LivingEntity
                         q.x = 0;
                         q.z = 0;
                         hit.collider.gameObject.transform.rotation = q;
+                        mousePoint.SetActive(false);
                         isMove = false;
                         animator.SetBool("isMove", false);
                         npcCam.SetActive(true);
@@ -194,9 +208,45 @@ public class Player : LivingEntity
                         gameManager.Action(hit.collider.gameObject);
                     }
                     else if (Vector3.Distance(transform.position,
-                        hit.collider.transform.position) < 5f)
+                        hit.collider.transform.position) < 7f)
                     {
+                        isMove = false;
+                        animator.SetBool("isMove", false);
+                        mousePoint.SetActive(false);
                         gameManager.Action(hit.collider.gameObject);
+                    }
+                }
+                else if(hit.collider.tag == "Chest" && Vector3.Distance(transform.position,
+                        hit.collider.transform.position) < 7f)
+                {
+                    isMove = false;
+                    animator.SetBool("isMove", false);
+                    mousePoint.SetActive(false);
+                    gameManager.Action(hit.collider.gameObject);
+                    int check1 = hit.collider.gameObject.GetComponent<ObjData>().id;
+                    ObjData hitObjData = hit.collider.gameObject.GetComponent<ObjData>();
+                    if (check1 == 400 && !chest400)
+                    {
+                        inventory.AcquireItem(hitObjData._item[0]);
+                        chest400 = true;
+                    }
+                    if (check1 == 500 && !chest500)
+                    {
+                        inventory.AcquireItem(hitObjData._item[0]);
+                        inventory.AcquireItem(hitObjData._item[1]);
+                        chest500 = true;
+                    }
+                    if (check1 == 600 && !chest600)
+                    {
+                        inventory.AcquireItem(hitObjData._item[0]);
+                        inventory.AcquireItem(hitObjData._item[1]);
+                        chest600 = true;
+                    }
+                    if (check1 == 700 && !chest700)
+                    {
+                        inventory.AcquireItem(hitObjData._item[0]);
+                        inventory.AcquireItem(hitObjData._item[1]);
+                        chest700 = true;
                     }
                 }
 

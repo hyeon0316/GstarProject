@@ -16,7 +16,11 @@ public class TalkManager : MonoBehaviour
         talkData.Add(100, new string[] { "들어가긴 너무 깊어보인다." });
         talkData.Add(200, new string[] { "마른 나무를 구할수 있을것 같다." });
         talkData.Add(300, new string[] { "여기로 내려가는건 좋은생각 같지 않다." });
-
+        talkData.Add(400, new string[] { "\"마력 제어 목걸이\"를 얻었다" });
+        talkData.Add(500, new string[] { "\"대마법사의 모자\"를 얻었다\n\"대마법사의 하의\"를 얻었다" });
+        talkData.Add(600, new string[] { "\"대마법사의 지팡이\"를 얻었다\n\"대마법사의 책\"을 얻었다" });
+        talkData.Add(700, new string[] { "\"대마법사의 로브\"를 얻었다\n\"대마법사의 부츠\"를 얻었다" });
+        talkData.Add(800, new string[] { "빈 상자다." });
 
 
 
@@ -70,7 +74,9 @@ public class TalkManager : MonoBehaviour
 
         
         talkData.Add(4000 + 60 + 0, new string[] { "보물방은 던전1에서 앞으로 쭉가면 나올거야 ","보물방을 잘찾아보면 \"마력제어목걸이\"와 대마법사의 방어구와 무기가있으니까 구해서가는게 좋을거야","\"마력제어목걸이\"를 가져오면 보스방을 열어줄게" });
-
+        talkData.Add(4000 + 60 + 1, new string[] { "\"마력제어 목걸이\"는 아직이야?" });
+        talkData.Add(4000 + 60 + 2, new string[] { "\"마력제어 목걸이\"구했구나! 잠시후에 말을 걸어줘 금방 보스방을 열어줄게" });
+        talkData.Add(4000 + 60 + 3, new string[] { "보스방이 열렸어!","조심해 리치는 강력해" });
 
 
     }
