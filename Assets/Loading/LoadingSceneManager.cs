@@ -67,14 +67,23 @@ public class LoadingSceneManager : MonoBehaviour
             {
                 delay = 1;
                 loadingBar.fillAmount = Mathf.Lerp(loadingBar.fillAmount, 1f, timer);
-                if(loadingBar.fillAmount == 1.0f)
+                if (loadingBar.fillAmount == 1.0f)
                 {
-                    Player.inst.rigidbody.useGravity = true;
-                    Player.inst.isMove = false;
-                    Player.inst.animator.SetBool("isMove", false);
-                    op.allowSceneActivation = true;
-                    
-                    yield break;
+                    if (GameObject.Find("PlayerM 2") != null)
+                    {
+                        Player.inst.rigidbody.useGravity = true;
+                        Player.inst.isMove = false;
+                        Player.inst.animator.SetBool("isMove", false);
+
+                        op.allowSceneActivation = true;
+                        yield break;
+                    }
+                    else if (GameObject.Find("PlayerM 2") == null)
+                    {
+                        op.allowSceneActivation = true;
+                        yield break;
+                    }
+
                 }
             }
         }
