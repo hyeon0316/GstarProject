@@ -593,7 +593,7 @@ public class Player : LivingEntity
                 animator.transform.forward = dir;
                 layerMask = 1 << 10;
                 Vector3 anipo = animator.transform.position;
-                anipo.y += 1f; 
+                anipo.y += 1f;
                 if (Physics.Raycast(anipo, animator.transform.forward, out hit1, tpDis, layerMask))
                 {
                     transform.position += dir.normalized * hit1.distance;
