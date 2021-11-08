@@ -68,13 +68,6 @@ public class LoadingSceneManager : MonoBehaviour
                     Player.inst.isMove = false;
                     Player.inst.animator.SetBool("isMove", false);
 
-                    op.allowSceneActivation = true;
-                    yield break;
-                }
-                else if (GameObject.Find("PlayerM 2") == null)
-                {
-                    op.allowSceneActivation = true;
-                    yield break;
                 }
             }
             else

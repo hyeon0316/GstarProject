@@ -24,7 +24,6 @@ public class UAttack : AttackState
             Debug.Log("[BOss] , 데미지 :" + dmg);
             OnDamageEvent1(other.gameObject);
         }
-        Destroy(gameObject);
     }
     public void OnDamageEvent1(GameObject targetEntity)
     {
