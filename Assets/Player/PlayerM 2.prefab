@@ -12688,8 +12688,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6357ee95f73ac664089ea8b347ba487f, type: 2}
   - {fileID: 11400000, guid: b42ed654f9b7b6241a067d27ec38da6d, type: 2}
   - {fileID: 11400000, guid: 521f13c433be50a45a0426a4bdbd52d8, type: 2}
-  - {fileID: 11400000, guid: 521f13c433be50a45a0426a4bdbd52d8, type: 2}
-  - {fileID: 11400000, guid: 521f13c433be50a45a0426a4bdbd52d8, type: 2}
+  - {fileID: 11400000, guid: bc6986498652b464fa55b17f4ec43f49, type: 2}
+  - {fileID: 11400000, guid: 3934b00fe8b6bbe4b838b7a03a7836d2, type: 2}
   questObjects: []
 --- !u!1 &1637904282129914932
 GameObject:

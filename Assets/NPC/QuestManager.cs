@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager inst = null;
@@ -11,7 +12,6 @@ public class QuestManager : MonoBehaviour
     public Quest[] quest;
     public GameObject[] questObjects;
     bool firstQuset;
-    
     void Awake()
     {
         if (inst == null) // 싱글톤
@@ -219,6 +219,22 @@ public class QuestManager : MonoBehaviour
                         qu.Reward();
                     }
                     NpcManager.inst.roomBoss = true;
+                    Player.inst.questIng = quest[8];
+                    InitPanl();
+                }
+                break;
+            case 70:
+                if (questActionIndex == 1)
+                {
+                    foreach (var qu in quest[7].rewards)
+                    {
+                        qu.Reward();
+                    }
+                    questActionIndex = 0; 
+                }
+                if (questActionIndex == 4)
+                {
+                    SceneManager.LoadScene("Outro");
                 }
                 break;
         }
