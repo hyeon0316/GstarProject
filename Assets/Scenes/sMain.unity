@@ -1668,6 +1668,11 @@ PrefabInstance:
       propertyPath: skillBG
       value: 
       objectReference: {fileID: 51441168}
+    - target: {fileID: 1637904282501008397, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
       propertyPath: exText

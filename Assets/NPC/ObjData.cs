@@ -7,4 +7,5 @@ public class ObjData : MonoBehaviour
     public int id;
     public bool isNpc;
     public Item[] _item;
+    public GameObject questQ;
 }

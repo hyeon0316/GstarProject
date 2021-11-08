@@ -57,6 +57,7 @@ public class QuestManager : MonoBehaviour
         Player.inst.questTitleText.text = questList[questId].questName;
         return questList[questId].questName;
     }
+
     public string CheckQuest()
     {
         Player.inst.questTitleText.text = questList[questId].questName;
