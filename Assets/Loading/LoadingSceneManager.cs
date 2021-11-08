@@ -62,6 +62,20 @@ public class LoadingSceneManager : MonoBehaviour
                 {
                     timer = 0f;
                 }
+                if (GameObject.Find("PlayerM 2") != null)
+                {
+                    Player.inst.rigidbody.useGravity = true;
+                    Player.inst.isMove = false;
+                    Player.inst.animator.SetBool("isMove", false);
+
+                    op.allowSceneActivation = true;
+                    yield break;
+                }
+                else if (GameObject.Find("PlayerM 2") == null)
+                {
+                    op.allowSceneActivation = true;
+                    yield break;
+                }
             }
             else
             {
@@ -74,7 +88,7 @@ public class LoadingSceneManager : MonoBehaviour
                         Player.inst.rigidbody.useGravity = true;
                         Player.inst.isMove = false;
                         Player.inst.animator.SetBool("isMove", false);
-
+                        Player.inst.isSkill = false;
                         op.allowSceneActivation = true;
                         yield break;
                     }
