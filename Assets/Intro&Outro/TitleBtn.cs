@@ -12,9 +12,13 @@ public class TitleBtn : MonoBehaviour
     public void GameStart()
     {
         StartCoroutine(StartFade());
-        SceneManager.LoadScene("Intro");
+        Invoke("StartSceneLoad", 3f);
     }
    
+    void StartSceneLoad()
+    {
+        SceneManager.LoadScene("Intro");
+    }
     public void ExitGame()
     {
         Application.Quit();
@@ -22,9 +26,16 @@ public class TitleBtn : MonoBehaviour
 
     IEnumerator StartFade()
     {
-        yield return null;
-        Color color = startFade.color;
-        color.a = 0;
-    }
+        startFade.gameObject.SetActive(true);
 
+        Color color = startFade.color;
+
+        for(int i=0; i<100; i++)
+        {
+            color.a = color.a + 0.01f;
+            startFade.color = color;
+
+            yield return new WaitForSeconds(0.01f);
+        }      
+    }
 }
