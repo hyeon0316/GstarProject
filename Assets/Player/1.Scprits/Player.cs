@@ -346,6 +346,7 @@ public class Player : LivingEntity
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
+                mousePoint.SetActive(false);
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0f;
                 animator.transform.forward = dir;
