@@ -179,8 +179,6 @@ public class Player : LivingEntity
     {
         if (Input.GetMouseButtonUp(1))
         {
-
-            
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, npcLayer))
             {
@@ -208,7 +206,7 @@ public class Player : LivingEntity
                         gameManager.Action(hit.collider.gameObject);
                     }
                     else if (Vector3.Distance(transform.position,
-                        hit.collider.transform.position) < 7f)
+                        hit.collider.transform.position) < 5f)
                     {
                         isMove = false;
                         animator.SetBool("isMove", false);
@@ -320,7 +318,7 @@ public class Player : LivingEntity
                 Debug.Log("Information" + Input.mousePosition);
                 return;
             }
-            Debug.Log("userSlot" + Input.mousePosition);
+           // Debug.Log("userSlot" + Input.mousePosition); //좌표값 체크
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {

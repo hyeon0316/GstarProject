@@ -79,7 +79,13 @@ public class QuestManager : MonoBehaviour
         switch (questId)
         {
             case 10:
-                if (questActionIndex == 2)
+                if (questActionIndex == 1)
+                {
+                    NpcManager.inst.witchNpc = false;
+                    NpcManager.inst.wizardNpc = true;
+                    NpcManager.inst.NpcCheck();
+                }
+                    if (questActionIndex == 2)
                 {
                     Player.inst.questIng = quest[1];
                     InitPanl();
@@ -139,12 +145,22 @@ public class QuestManager : MonoBehaviour
                 }
                 break;
             case 30:
+                if (questActionIndex == 1)
+                {
+                    NpcManager.inst.wizardNpc = false;
+                    NpcManager.inst.knightNpc = true;
+                    NpcManager.inst.NpcCheck();
+                }
                 if (questActionIndex == 2)
                 {
                     foreach (var qu in quest[3].rewards)
                     {
                         qu.Reward();
                     }
+                    NpcManager.inst.knightNpc = false;
+                    NpcManager.inst.ghostNpc = true;
+                    NpcManager.inst.townRoom = true;
+                    NpcManager.inst.PotalCheck();
                 }
                 break;
             case 40:
@@ -181,6 +197,26 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+                    NpcManager.inst.dunTea = true;
+                }
+                break;
+            case 60:
+                if (questActionIndex == 1)
+                {
+                    Player.inst.questIng = quest[6];
+                    InitPanl();
+                }
+                if (questActionIndex == 2)
+                {
+                    questActionIndex = 1;
+                }
+                if (questActionIndex == 4)
+                {
+                    foreach (var qu in Player.inst.questIng.rewards)
+                    {
+                        qu.Reward();
+                    }
+                    NpcManager.inst.roomBoss = true;
                 }
                 break;
         }

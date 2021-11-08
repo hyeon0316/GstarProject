@@ -361,6 +361,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1488e3c69f9fd2c4d9adc12185c327ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wizardNpc: 0
+  ghostNpc: 0
+  knightNpc: 0
+  witchNpc: 0
+  townRoom: 0
+  dunTea: 0
+  roomBoss: 0
 --- !u!1 &1773361838
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 5c6f1e40df8d6994bbfc4f4117a55fc3
   - enabled: 1
+    path: Assets/Scenes/Treasure.unity
+    guid: fde297b63d79ef44bbedf704b9e359f3
+  - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 565de0bc505dc444885c6904acfcb3b4
   - enabled: 1

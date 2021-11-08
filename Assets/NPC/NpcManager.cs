@@ -22,11 +22,12 @@ public class NpcManager : MonoBehaviour
         witchNpc = false;
         ghostNpc = false;
         knightNpc = false;
-        witchNpc = false;
+        witchNpc = true ;
         townRoom = false;
         dunTea = false;
         roomBoss = false;
     }
+    
     // Update is called once per frame
     public void NpcCheck()
     {
@@ -65,6 +66,12 @@ public class NpcManager : MonoBehaviour
             h.transform.GetChild(0).gameObject.SetActive(dunTea);
             h.transform.GetChild(1).gameObject.SetActive(dunTea);
         }
-        
+        if (sceneName == "Room")
+        {
+            h = GameObject.Find("RoomBoss");
+            h.transform.GetChild(0).gameObject.SetActive(roomBoss);
+            h.transform.GetChild(1).gameObject.SetActive(roomBoss);
+        }
+
     }
 }
