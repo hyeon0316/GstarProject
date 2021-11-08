@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class TownLoading : MonoBehaviour
 {
+    public string sceneName;
+
     private void OnEnable()
     {
-        SceneManager.LoadScene("Intro2");
+        SceneManager.LoadScene(sceneName);
     }
 }
