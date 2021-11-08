@@ -36,7 +36,7 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(60, new QuestData("보스방 열쇠얻기", new int[] { 4000, 4000,4000,4000 }));
 
-        questList.Add(70, new QuestData("리치를 잡고 집에!", new int[] { 4000, 4000, 4000, 4000 }));
+        questList.Add(70, new QuestData("리치를 잡고 집에!", new int[] { 4000, 4000, 7000, 7000 }));
     }
 
     public int GetQuestTalkIndex(int id)
