@@ -44,4 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro2.unity
     guid: 7c8366a0ff726e845bd1bcf65b1de99e
+  - enabled: 1
+    path: Assets/Scenes/Outro.unity
+    guid: 5214a0642c406ea43b2d5d74647b0cc3
+  - enabled: 1
+    path: Assets/Scenes/Outro2.unity
+    guid: 01b62212dfc4c6c47ad783410aab4d54
   m_configObjects: {}
