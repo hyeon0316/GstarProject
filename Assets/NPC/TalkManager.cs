@@ -26,7 +26,7 @@ public class TalkManager : MonoBehaviour
 
         talkData.Add(1000, new string[] { "안녕", "이 곳에 처음 왔구나?" });
         talkData.Add(2000, new string[] { "안녕2", "안녕3" });
-        talkData.Add(3000, new string[] { "평범한 공." });
+        talkData.Add(3000, new string[] { "하위" });
         talkData.Add(4000, new string[] { "어이.", "왼쪽으로는 안가는게 좋을거야" });
         talkData.Add(5000, new string[] { "너는 누구지?.", "스킬은 배우고 오는게 좋을거야"});
         talkData.Add(6000, new string[] { "흠냐.. 흠냐..zZ", "졸고 있는거 같다 조용히 가자" });
@@ -78,6 +78,10 @@ public class TalkManager : MonoBehaviour
         talkData.Add(4000 + 60 + 2, new string[] { "\"마력제어 목걸이\"구했구나! 잠시후에 말을 걸어줘 금방 보스방을 열어줄게" });
         talkData.Add(4000 + 60 + 3, new string[] { "보스방을 열렸어","조심해 리치는 강력해","보스를 잡고 나한테 다시와" });
 
+        talkData.Add(4000 + 70 + 0, new string[] { "물약이 부족하면 나한테 말해줘!" });
+        talkData.Add(4000 + 70 + 1, new string[] { "드디어 리치를 잡았구나!","고생했어 이제 마을촌장한테 돌아가봐" });
+        talkData.Add(7000 + 70 + 2, new string[] { "좋아 모든 재료를 다모았네 잠시만 기달려주게" });
+        talkData.Add(7000 + 70 + 3, new string[] { "수고했네 소피아양" });
 
     }
 

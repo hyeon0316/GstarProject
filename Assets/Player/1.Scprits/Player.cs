@@ -346,6 +346,7 @@ public class Player : LivingEntity
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
+                mousePoint.SetActive(false);
                 var dir = hit.point - animator.transform.position;
                 dir.y = 0f;
                 animator.transform.forward = dir;
@@ -669,7 +670,6 @@ public class Player : LivingEntity
         health = 50; //수정해야함
         this.transform.position = new Vector3(-1.7f, 2f, 26);
         Debug.Log("you Die");
-        base.Die();
     }
     public override void OnDamage(float damage)
     {
