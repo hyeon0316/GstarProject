@@ -161,15 +161,21 @@ public class Player : LivingEntity
         if (!gameManager.isAction&&!isSkill)
         {
             GetPos();
-            Move();
-            Tp();
-            Attack();
-            if (SceneManager.GetActiveScene().name != "Town")
-            {               
+            if (!SystemBase.gamePaused)
+            {
+                Move();
+                Tp();
+                Attack();
+
+                if (SceneManager.GetActiveScene().name != "Town")
+                {
+
                     SkillQ();
                     SkillW();
                     SkillE();
-                    SkillR();               
+                    SkillR();
+
+                }
             }
         }
        SetHpMp();
