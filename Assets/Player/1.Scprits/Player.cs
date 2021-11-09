@@ -109,6 +109,8 @@ public class Player : LivingEntity
     public bool chest500;
     public bool chest600;
     public bool chest700;
+
+    public GameObject h;
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -196,7 +198,9 @@ public class Player : LivingEntity
                         true && Vector3.Distance(transform.position,
                         hit.collider.transform.position) < 5f)
                     {
-                        if(hit.collider.gameObject.GetComponent<NpcMove>())
+                        h = GameObject.Find("NameCanvas");
+                        h.SetActive(false);
+                        if (hit.collider.gameObject.GetComponent<NpcMove>())
                             hit.collider.gameObject.GetComponent<NpcMove>().state = 0;
                         Vector3 npcVector = transform.position - hit.collider.gameObject.transform.position;
                         npcVector.x = 0;

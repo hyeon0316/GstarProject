@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
             talkIndex = 0;
             Player.inst.npcCam.SetActive(false);
             skillBG.SetActive(true);
+            Player.inst.h.SetActive(true);
             Debug.Log("Talkdata == null  id:"+id+","+questManager.CheckQuest(id));
             return;
         }
