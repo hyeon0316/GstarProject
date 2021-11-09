@@ -95,6 +95,10 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+                    /*
+                        NpcManager.inst.wizardNpc = false;
+                        NpcManager.inst.NpcCheck();
+                    */
                 }
                 if (questActionIndex == 3)
                 {
@@ -234,13 +238,14 @@ public class QuestManager : MonoBehaviour
                 }
                 if (questActionIndex == 4)
                 {
+                    LoadingSceneManager.LoadScene("Outro");
                     GameObject player;
                     GameObject uiCanvas;
                     player = GameObject.Find("PlayerM 2");
                     uiCanvas = GameObject.Find("UICanvas 1");
                     Destroy(player);
                     Destroy(uiCanvas);
-                    LoadingSceneManager.LoadScene("Outro");
+                    
 
                 }
                 break;

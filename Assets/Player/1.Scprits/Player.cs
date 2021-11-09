@@ -300,7 +300,9 @@ public class Player : LivingEntity
                 }
                 questProText.text = questText;
                 if (questIng.IsCompleteObjectives)
+                {
                     QuestManager.inst.questActionIndex = questIng.qusetComplte;
+                }
             }
             Destroy(other.gameObject);
         }
@@ -381,6 +383,7 @@ public class Player : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.Q) && isSkillQ && mana >= qMana)
         {
+            mousePoint.SetActive(false);
             mana -= qMana;
             isSkillQ = false;
             StartCoroutine(SkillQCount(time_Q));
@@ -441,7 +444,8 @@ public class Player : LivingEntity
     void SkillW()
     {
         if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= wMana)
-        {          
+        {
+            mousePoint.SetActive(true);
             mana -= wMana;
             isSkillW = false;
             isGotM = true;
@@ -485,6 +489,7 @@ public class Player : LivingEntity
        
         if (Input.GetKeyDown(KeyCode.E) && isSkillE && mana >= eMana)
         {
+            mousePoint.SetActive(false);
             mana -= eMana;
             isSkillE = false;
             StartCoroutine(SkillECount(time_E));
@@ -539,7 +544,8 @@ public class Player : LivingEntity
     void SkillR()
     {      
         if (Input.GetKeyDown(KeyCode.R) && isSkillR && mana >= rMana)
-        {            
+        {
+            mousePoint.SetActive(false);
             mana -= rMana;
             isSkillR = false;
             StartCoroutine(SkillRCount(time_R));

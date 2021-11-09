@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 9088686585196590483}
   - component: {fileID: 9003190923372239053}
   - component: {fileID: 9004073797925555763}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 9097248087853808527}
   - component: {fileID: 9003106710095933159}
   - component: {fileID: 9004243260643703435}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PowerIconRandomv2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9668,7 +9668,7 @@ GameObject:
   - component: {fileID: 9088298589820559553}
   - component: {fileID: 9003540776659771911}
   - component: {fileID: 9004011065291347329}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
