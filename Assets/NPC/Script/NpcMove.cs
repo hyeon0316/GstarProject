@@ -16,6 +16,7 @@ public class NpcMove : MonoBehaviour
 	public float zVar;
 	public float speed;
 	public int state;
+	Animator animator;
 	// Use this for initialization
 
 	void Start()
@@ -27,6 +28,7 @@ public class NpcMove : MonoBehaviour
 		targetPos.x = Random.Range(maxPos.x, minPos.x);
 		targetPos.z = Random.Range(maxPos.z, minPos.z);
 		targetPos.y = 0;
+		animator = GetComponentInChildren<Animator>();
 		StartCoroutine(SetState());
 	}
 
@@ -38,6 +40,7 @@ public class NpcMove : MonoBehaviour
 	{
 		if (state == 1&&!Player.inst.gameManager.isAction) //움직임
 		{
+			animator.SetBool("isMove", true);
 			Vector3 dir;
 			dir = targetPos - transform.position;
 			dir.y = 0;
@@ -46,6 +49,7 @@ public class NpcMove : MonoBehaviour
 			transform.position += dir.normalized * Time.deltaTime * speed;
 			if (Vector3.Distance(transform.position, targetPos) < 2f)
 			{
+				animator.SetBool("isMove", false);
 				Debug.Log(Vector3.Distance(transform.position, targetPos));
 				state = 0;
 			}
@@ -60,12 +64,10 @@ public class NpcMove : MonoBehaviour
 	{
 		float a = Random.Range(10, 7);
 		yield return new WaitForSeconds(a);
-		state = Random.Range(0, 2);
 		state = 1;
 		Debug.Log(state);
 		if (state == 1)
 		{
-			
 			targetPos.x = Random.Range(maxPos.x, minPos.x);
 			targetPos.z = Random.Range(maxPos.z, minPos.z);
 			targetPos.y = this.transform.position.y;

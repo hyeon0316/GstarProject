@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] uiList;
     public AudioClip[] skList;
     public AudioClip[] etcList;
+    public AudioClip[] bossList;
     public AudioSource bgSound;
     private void Awake()
     {

@@ -262,23 +262,15 @@ public class Boss : LivingEntity
     IEnumerator TrapOn()
     {
         TrapOnTime = true;
-        skill_Trap.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(false);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(false);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(false);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(false);
-        yield return new WaitForSeconds(1.2f);
-        skill_Trap.SetActive(true);
+        for(int i =0; i<8;i++)
+        {
+            SoundManager.inst.SFXPlay("EKrEKr",SoundManager.inst.bossList[2]);
+            skill_Trap.SetActive(true);
+            yield return new WaitForSeconds(1.2f);
+            skill_Trap.SetActive(false);
+        }
+        
+        
         TrapOnTime = false;        
     }
 
@@ -325,10 +317,10 @@ public class Boss : LivingEntity
     {
         //공격 대상을 지정할 추적 대상의 LivingEntity 컴포넌트 가져오기
         LivingEntity attackTarget = targetEntity.GetComponent<LivingEntity>();
-
+        
         //공격 처리(플레이어에게)
         attackTarget.OnDamage(damage);
-
+        SoundManager.inst.SFXPlay("attack", SoundManager.inst.bossList[0]);
         //최근 공격 시간 갱신
         lastAttackTime = Time.time;     
     }

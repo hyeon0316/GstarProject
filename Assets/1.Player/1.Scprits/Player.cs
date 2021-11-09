@@ -111,6 +111,7 @@ public class Player : LivingEntity
     public bool chest700;
 
     public GameObject h;
+    public GameObject healing;
 
     public GameObject levelUpEffect;
     int subExp;//받은 경험치 값이 정해진 경험치 통 값 보다 넘어갈때 그 넘어간 값을 다음 레벨때 더해줌
@@ -134,10 +135,10 @@ public class Player : LivingEntity
         time_R = 25f;
         isGotM = false;
         time_Q_1 = 2f;
-        isSkillQ = true;
-        isSkillW = true;
-        isSkillE = true;
-        isSkillR = true;
+        isSkillQ = false;
+        isSkillW = false;
+        isSkillE = false;
+        isSkillR = false;
         isSkillTP = true;
         tpDis = 5f;
         level = 1;
@@ -185,8 +186,21 @@ public class Player : LivingEntity
                 }
             }
         }
-        SetHpMp();      
+        SetHpMp();
+        Help();
 
+    }
+    void Help()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TrapTarget.SetActive(false);
+            rigidbody.useGravity = false;
+            isSkill = true;
+            animator.SetBool("isMove", false);
+            this.transform.position = new Vector3(-1.7f, 2f, 26);
+            LoadingSceneManager.LoadScene("Town");
+        }
     }
     void NpcS()
     {
@@ -716,14 +730,13 @@ public class Player : LivingEntity
     {
         //
         TrapTarget.SetActive(false);
-
-        LoadingSceneManager.LoadScene("Town");
-        health = 50; //수정해야함
         rigidbody.useGravity = false;
         isSkill = true;
         animator.SetBool("isMove", false);
-        this.transform.position = new Vector3(-1.7f, 2f, 26);
-        Debug.Log("you Die");
+        this.transform.position = new Vector3(-1.7f, 1f, 26);
+        LoadingSceneManager.LoadScene("Town");
+        health = 50; //수정해야함
+       
     }
     public override void OnDamage(float damage)
     {
@@ -761,7 +774,10 @@ public class Player : LivingEntity
         }
         CheckPotion(_item);
         slotCountClear = true;
+
+        SoundManager.inst.SFXPlay("potionDrink", SoundManager.inst.uiList[2]);
         health += _item.itemHp;
+        Healing();
         if (health > startingHealth)
             health = startingHealth;
     }
@@ -774,11 +790,23 @@ public class Player : LivingEntity
         }
         CheckPotion(_item);
         slotCountClear = true;
+        SoundManager.inst.SFXPlay("potionDrink", SoundManager.inst.uiList[2]);
         mana += _item.itemMp;
+        Healing();
         if (mana > startingMana)
             mana = startingMana;
     }
+    public void Healing()
+    {
+        healing.SetActive(true);
+        StartCoroutine("Healob");
 
+    }
+    IEnumerator Healob()
+    {
+        yield return new WaitForSeconds(2f);
+        healing.SetActive(false);
+    }
     public void EquipEffect(Item _item)
     {
         dP += _item.itemDp;
