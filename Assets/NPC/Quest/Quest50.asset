@@ -30,4 +30,7 @@ MonoBehaviour:
     amount: 1
   - item: {fileID: 11400000, guid: 41745e2e395b240419e741ad8045d197, type: 2}
     amount: 1
-  rewards: []
+  rewards:
+  - ItemReward: {fileID: 0}
+    ItemRewardCount: 0
+    EXPReward: 200

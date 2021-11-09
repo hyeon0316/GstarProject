@@ -95,8 +95,8 @@ public class Player : LivingEntity
 
     public Text levelText;
     int level;
-    public float exp;
-    public float startingEx;
+    public int exp;
+    public int startingEx;
     public Slider exSlider; //경험치 슬라이더
     public Text exText;//경험치 표시
 
@@ -274,7 +274,7 @@ public class Player : LivingEntity
         levelUpEffect.SetActive(true);
         ++level;
         startingEx += 100;
-        exp = 0;
+        exp = subExp;
         startingHealth += 100;
         startingMana += 50;
         power += 10;
@@ -286,11 +286,8 @@ public class Player : LivingEntity
     {
         if (startingEx <= exp) //경험치를 다채울때 레벨업(사운드)
         {
+            subExp = exp - startingEx;
             StartCoroutine(levelUp());
-        }
-        else if (level ==10)
-        {
-            exp = startingEx;
         }
         levelText.text = string.Format("LV. {0}", level);
         exText.text = string.Format("{0}/{1}", exp, startingEx);
@@ -792,14 +789,11 @@ public class Player : LivingEntity
         mana -= _item.startingMp;
     }
 
-    public void ExpPlus(float exp2)
+    public void ExpPlus(int exp2)
     {
-        if(exp2 >= startingEx)
+        if(level >=10)
         {
-            subExp = exp2 - startingEx;
-        }
-        else if(level >=10)
-        {
+            exp = startingEx;
             return;
         }
         exp += exp2;

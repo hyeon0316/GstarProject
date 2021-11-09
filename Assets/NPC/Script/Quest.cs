@@ -61,7 +61,7 @@ public class Rewards
 {
     public Item ItemReward;
     public int ItemRewardCount=1;
-    public float EXPReward=0;
+    public int EXPReward=0;
 
     public void Reward()
     {

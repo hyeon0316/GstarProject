@@ -20,4 +20,7 @@ MonoBehaviour:
   collectObjectives:
   - item: {fileID: 11400000, guid: fcb099c51ec880241be4f1752283d47c, type: 2}
     amount: 1
-  rewards: []
+  rewards:
+  - ItemReward: {fileID: 0}
+    ItemRewardCount: 0
+    EXPReward: 400

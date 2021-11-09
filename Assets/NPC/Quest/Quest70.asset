@@ -21,4 +21,4 @@ MonoBehaviour:
   rewards:
   - ItemReward: {fileID: 11400000, guid: 73317fa941e6f9547a4d84709a46ea57, type: 2}
     ItemRewardCount: 30
-    EXPReward: 0
+    EXPReward: 500

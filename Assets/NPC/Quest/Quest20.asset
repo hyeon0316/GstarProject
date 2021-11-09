@@ -23,4 +23,4 @@ MonoBehaviour:
   rewards:
   - ItemReward: {fileID: 0}
     ItemRewardCount: 0
-    EXPReward: 300
+    EXPReward: 100
