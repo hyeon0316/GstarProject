@@ -9,11 +9,18 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     public static SoundManager inst = null;
     public AudioClip[] bgList;
+    public AudioClip[] uiList;
+    public AudioClip[] skList;
+    public AudioClip[] etcList;
     public AudioSource bgSound;
     private void Awake()
     {
         if (inst == null)
             inst = this;
+        else
+        {
+            Destroy(this.gameObject);
+        }
         SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(this);
     }
@@ -31,25 +38,24 @@ public class SoundManager : MonoBehaviour
                 Debug.Log(bgList[i].name);
             }
         }
-        
     }
     public void BgSoundPlay(AudioClip clip)
     {
         bgSound.clip = clip;
         bgSound.loop = true;
-        bgSound.volume = 0.1f;
+        bgSound.volume = 2f;
         bgSound.Play();
     }
     public void SFXPlay(string sfxName,AudioClip clip)
     {
+
+        Debug.Log(clip.name);
         GameObject go = new GameObject(sfxName + "Sound");
         AudioSource audioSource = go.AddComponent<AudioSource>();
         audioSource.clip = clip;
+        audioSource.volume = 1f;
         audioSource.Play();
-
         Destroy(go, clip.length);
-    
-    
     }
     // Update is called once per frame
     void Update()

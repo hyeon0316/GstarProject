@@ -17,6 +17,7 @@ TagManager:
   - accessory
   - weapon
   - Chest
+  - Plane
   layers:
   - Default
   - TransparentFX

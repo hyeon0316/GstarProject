@@ -61,6 +61,7 @@ public class Information : MonoBehaviour
 
     public void EquipItem(Item _item)
     {
+        SoundManager.inst.SFXPlay("EquipItem", SoundManager.inst.uiList[0]);
         for (int i = 0; i < e_Slots.Length; i++)
         {
             if (e_Slots[i].CompareTag(_item.EquipType))

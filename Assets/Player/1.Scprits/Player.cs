@@ -278,6 +278,8 @@ public class Player : LivingEntity
         startingHealth += 100;
         startingMana += 50;
         power += 10;
+        health = startingHealth;
+        mana = startingMana;
         dP += 5;
         yield return new WaitForSeconds(1.5f);
         levelUpEffect.SetActive(false);
@@ -327,6 +329,8 @@ public class Player : LivingEntity
                 questProText.text = questText;
                 if (questIng.IsCompleteObjectives)
                 {
+                    if(QuestManager.inst.questActionIndex != questIng.qusetComplte)
+                        SoundManager.inst.SFXPlay("QuestFi", SoundManager.inst.etcList[0]);
                     QuestManager.inst.questActionIndex = questIng.qusetComplte;
                 }
             }
@@ -455,6 +459,7 @@ public class Player : LivingEntity
         animator.SetBool("isMove", false);
         isSkill = true;
         yield return new WaitForSeconds(0.8f);
+        SoundManager.inst.SFXPlay("Q", SoundManager.inst.skList[0]);
         isSkill = false;
         
         QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
@@ -652,6 +657,8 @@ public class Player : LivingEntity
     }
     IEnumerator SkillTPCount()
     {
+
+        SoundManager.inst.SFXPlay("TP", SoundManager.inst.skList[4]);
         isSkillTP = false;
         yield return new WaitForSeconds(1.5f);
         isSkillTP = true;
@@ -798,7 +805,6 @@ public class Player : LivingEntity
         }
         exp += exp2;
         SetLevel();
-        Debug.Log(exp);
     }
 }
 

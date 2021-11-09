@@ -7,6 +7,7 @@ using TMPro;
 
 public class Enemy : LivingEntity
 {
+    public AudioClip attackSound;
     public Vector3 nameOffset = new Vector3(0f, 5f, 0);
     public GameObject nameText;
     public TextMeshProUGUI nameObject;
@@ -228,7 +229,9 @@ public class Enemy : LivingEntity
         attackTarget.OnDamage(damage);
 
         //최근 공격 시간 갱신
-        lastAttackTime = Time.time;      
+        lastAttackTime = Time.time;
+
+        SoundManager.inst.SFXPlay("SpiderAttack", attackSound);
     }
 
 
