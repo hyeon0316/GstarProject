@@ -819,6 +819,11 @@ PrefabInstance:
       objectReference: {fileID: 843287843}
     - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
         type: 3}
+      propertyPath: startingMana
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637904282935220877, guid: 72e1d7dff29a4ef4884297c015d1a973,
+        type: 3}
       propertyPath: playerHpBarSlider
       value: 
       objectReference: {fileID: 1095554842}

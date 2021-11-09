@@ -34,8 +34,7 @@ public class TitleBtn : MonoBehaviour
         {
             color.a = color.a + 0.01f;
             startFade.color = color;
-
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }      
     }
 }

@@ -10,10 +10,14 @@ public class SystemBase : MonoBehaviour
     [SerializeField]
     private GameObject go_SystemBase;
 
+    private GameObject player;
+    private GameObject uiCanvas;
+
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        player = GameObject.Find("PlayerM 2");
+        uiCanvas = GameObject.Find("UICanvas 1");
     }
 
     // Update is called once per frame
@@ -56,6 +60,10 @@ public class SystemBase : MonoBehaviour
 
     public void GoScene()//전체적인 유아이가 같이 따라감(수정)
     {
+        Destroy(player);
+        Destroy(uiCanvas);
+        Time.timeScale = 1;
+        systemActivated = false;
         SceneManager.LoadScene("Title");
     }
 

@@ -47,7 +47,7 @@ public class Player : LivingEntity
 
     public GameObject skill_TP;
     private float startingDP = 0;
-    private float startingPower = 20;
+    private float startingPower = 0;
 
     public float dP;
     public float power;
@@ -683,6 +683,10 @@ public class Player : LivingEntity
         if (!isGotM)
         {
             damage -= dP;
+            if(dP >damage)
+            {
+
+            }
             base.OnDamage(damage);
         }
     }
