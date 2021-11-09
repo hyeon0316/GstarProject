@@ -6,7 +6,7 @@ public class SkillE : AttackState
 {
 
     float dmg;
-    float startingDmg = 5f;
+    float startingDmg = 40f;
     void Awake()
     {
         dmg = Player.inst.power + startingDmg;

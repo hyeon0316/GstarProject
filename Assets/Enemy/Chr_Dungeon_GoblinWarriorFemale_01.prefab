@@ -6235,7 +6235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f9bdd77f47a7043bf3193113200d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 150
   startingMana: 0
   nameOffset: {x: -0.3, y: 3.3, z: 0}
   nameText: {fileID: 8597663803167320284, guid: 414355eaee078dd44953bb485cee334a,
@@ -6265,7 +6265,7 @@ MonoBehaviour:
   firePoint: {fileID: 6271985410899907675}
   magicMissilePrefab: {fileID: 1587250918974726, guid: 82024ccc09b84d64392c765e099ea753,
     type: 3}
-  damage: 30
+  damage: 150
   attackSpeed: 30
   attackDelay: 2.5
   tr: {fileID: 3758097031214362755}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkillR : AttackState
 {
     float dmg;
-    float startingDmg = 100f;
+    float startingDmg = 200f;
     void Awake()
     {
         dmg = Player.inst.power + startingDmg;

@@ -124,10 +124,10 @@ public class Player : LivingEntity
         power = startingPower;
         exp = startingEx;
 
-        time_Q = 5f;
-        time_W = 30f;
-        time_E = 12f;
-        time_R = 30f;
+        time_Q = 3f;
+        time_W = 10f;
+        time_E = 9f;
+        time_R = 25f;
         isGotM = false;
         time_Q_1 = 2f;
         isSkillQ = true;
@@ -137,10 +137,10 @@ public class Player : LivingEntity
         isSkillTP = true;
         tpDis = 5f;
         level = 1;
-        qMana = 0;
-        wMana = 0;
-        eMana = 0;
-        rMana = 0;
+        qMana = 50;
+        wMana = 100;
+        eMana = 150;
+        rMana = 400;
         isSkill = false;
         mousePoint.SetActive(false);
 

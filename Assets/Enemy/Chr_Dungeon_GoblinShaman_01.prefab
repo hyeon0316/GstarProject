@@ -2906,7 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f9bdd77f47a7043bf3193113200d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 150
   startingMana: 0
   nameOffset: {x: -0.3, y: 3.3, z: 0}
   nameText: {fileID: 8597663803167320284, guid: ead8c669768c2de4a8804a5182830de0,
@@ -2925,7 +2925,8 @@ MonoBehaviour:
   hpBarPrefab: {fileID: 8623151006859436585, guid: 7cba76812ea025c4d8c36401807d207a,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
-  enemyHpBarCanvas: {fileID: 0}
+  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
+    type: 3}
   nameCanvas: {fileID: 3722500032732411186, guid: 230d5b7badc3f414189b119ea8a4b2b6,
     type: 3}
   enemyHpBarSlider: {fileID: 8623151006859436591, guid: 7cba76812ea025c4d8c36401807d207a,
@@ -2936,7 +2937,7 @@ MonoBehaviour:
   firePoint: {fileID: 4660188465455454830}
   magicMissilePrefab: {fileID: 1587250918974726, guid: eb9005a2b1809434e929c6d0bd93bbfb,
     type: 3}
-  damage: 30
+  damage: 150
   attackSpeed: 20
   attackDelay: 2.5
   tr: {fileID: 2558519995864465078}

@@ -287,7 +287,7 @@ MonoBehaviour:
   firePoint: {fileID: 5725526957518976300}
   magicMissilePrefab: {fileID: 1587250918974726, guid: e9e9458c34ca3044d87b5f69ebf36957,
     type: 3}
-  damage: 30
+  damage: 100
   attackSpeed: 10
   attackDelay: 2.5
   tr: {fileID: 1154468173717233341}

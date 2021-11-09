@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 200
+  startingHealth: 150
   startingMana: 0
   nameOffset: {x: -0.3, y: 3.3, z: 0}
   nameText: {fileID: 8597663803167320284, guid: 8b97fd7d7d36ca94c99cbc7b67ba5018,
@@ -1040,14 +1040,16 @@ MonoBehaviour:
   hpBarPrefab: {fileID: 8623151006859436585, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
-  enemyHpBarCanvas: {fileID: 0}
-  nameCanvas: {fileID: 0}
+  enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
+    type: 3}
+  nameCanvas: {fileID: 3722500032732411186, guid: 230d5b7badc3f414189b119ea8a4b2b6,
+    type: 3}
   enemyHpBarSlider: {fileID: 8623151006859436591, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  damage: 20
+  damage: 150
   attackDelay: 1
   tr: {fileID: 8456353972450749242}
   attackRange: 3.5

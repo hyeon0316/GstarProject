@@ -6709,7 +6709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 150
+  startingHealth: 200
   startingMana: 0
   nameOffset: {x: -0.3, y: 3.3, z: 0}
   nameText: {fileID: 8597663803167320284, guid: fdd1da26a3e2889408821f80fa52ac0b,
@@ -6735,7 +6735,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  damage: 20
+  damage: 200
   attackDelay: 1
   tr: {fileID: 3562640163971136029}
   attackRange: 2.3

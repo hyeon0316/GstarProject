@@ -2496,7 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 300
+  startingHealth: 250
   startingMana: 0
   nameOffset: {x: -0.3, y: 3.5, z: 0}
   nameText: {fileID: 8597663803167320284, guid: 286a72d9495ab9d4984f9eb2d270990f,
@@ -2524,7 +2524,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  damage: 20
+  damage: 250
   attackDelay: 1
   tr: {fileID: 6008650094195120698}
   attackRange: 2.3

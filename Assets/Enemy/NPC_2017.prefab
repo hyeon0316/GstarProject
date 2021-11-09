@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76946d1301edfd44497c25279f6912e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 2000
+  startingHealth: 8000
   startingMana: 0
   bossHpBarPrefab: {fileID: 4391371703535655198, guid: 5c7f74070c3173d458f934e001ddcf75,
     type: 3}
@@ -503,6 +503,7 @@ MonoBehaviour:
   skill_Second: {fileID: 1072314212367666, guid: 724831bd71ff89246a5d1be7d5e688e6,
     type: 3}
   skill_Trap: {fileID: 1318874244620254, guid: 75ef4ea6ee40bb54b851e83ecfd41f78, type: 3}
+  skill_TrapPrefab: {fileID: 0}
   StunEffect: {fileID: 4123845999517955461}
 --- !u!65 &6916098903791417671
 BoxCollider:

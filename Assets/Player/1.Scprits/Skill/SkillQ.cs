@@ -7,7 +7,7 @@ public class SkillQ : AttackState
     // Start is called before the first frame update
     
     float dmg;
-    float startingDmg = 30f;
+    float startingDmg = 100f;
     void Awake()
     {
         dmg = Player.inst.power + startingDmg;
