@@ -195,10 +195,11 @@ public class Player : LivingEntity
         if (Input.GetKeyDown(KeyCode.H))
         {
             TrapTarget.SetActive(false);
-            rigidbody.useGravity = false;
+            isMove = false;
             isSkill = true;
+            rigidbody.useGravity = false;
             animator.SetBool("isMove", false);
-            this.transform.position = new Vector3(-1.7f, 2f, 26);
+            transform.position = new Vector3(-1.7f, 2f, 26);
             LoadingSceneManager.LoadScene("Town");
         }
     }

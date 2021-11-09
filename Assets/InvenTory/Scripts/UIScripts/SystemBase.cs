@@ -11,12 +11,14 @@ public class SystemBase : MonoBehaviour
     private GameObject go_SystemBase;
 
     private GameObject player;
+    private GameObject soundMG;
     private GameObject uiCanvas;
 
     // Start is called before the first frame update
     private void Awake()
     {
         player = GameObject.Find("PlayerM 2");
+        soundMG = GameObject.Find("SoundManager");
         uiCanvas = GameObject.Find("UICanvas 1");
     }
 
@@ -62,6 +64,7 @@ public class SystemBase : MonoBehaviour
     {
         Destroy(player);
         Destroy(uiCanvas);
+        Destroy(soundMG);
         Time.timeScale = 1;
         systemActivated = false;
         SceneManager.LoadScene("Title");

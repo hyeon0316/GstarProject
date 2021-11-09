@@ -64,7 +64,7 @@ public class LoadingSceneManager : MonoBehaviour
                 }
                 if (GameObject.Find("PlayerM 2") != null)
                 {
-                    Player.inst.rigidbody.useGravity = true;
+                    Player.inst.rigidbody.useGravity = false;
                     Player.inst.isMove = false;
                     Player.inst.animator.SetBool("isMove", false);
 

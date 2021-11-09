@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Town
-  spwanVector: {x: -47, y: 2, z: 17}
+  spwanVector: {x: -47, y: 0.1, z: 17}
 --- !u!65 &381494381
 BoxCollider:
   m_ObjectHideFlags: 0
