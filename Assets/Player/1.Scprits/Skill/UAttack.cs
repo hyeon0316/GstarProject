@@ -5,7 +5,7 @@ using UnityEngine;
 public class UAttack : AttackState
 {
     float dmg;
-    float startingDmg = 0f;
+    float startingDmg = 20f;
     void Awake()
     {
         dmg = Player.inst.power + startingDmg;
