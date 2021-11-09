@@ -204,7 +204,7 @@ public class Player : LivingEntity
     }
     void NpcS()
     {
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) )
         {
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, npcLayer))
@@ -217,8 +217,11 @@ public class Player : LivingEntity
                         true && Vector3.Distance(transform.position,
                         hit.collider.transform.position) < 5f)
                     {
-                        h = GameObject.Find("NameCanvas");
-                        h.SetActive(false);
+                        if (GameObject.Find("NameCanvas"))
+                        {
+                            h = GameObject.Find("NameCanvas");
+                            h.SetActive(false);
+                        }
                         if (hit.collider.gameObject.GetComponent<NpcMove>())
                             hit.collider.gameObject.GetComponent<NpcMove>().state = 0;
                         Vector3 npcVector = transform.position - hit.collider.gameObject.transform.position;
