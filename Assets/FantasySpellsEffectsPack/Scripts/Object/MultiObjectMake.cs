@@ -26,6 +26,7 @@ public class MultiObjectMake : _ObjectMakeBase {
 
                 for(int i = 0; i < m_makeObjs.Length; i++)
                 { 
+
                     GameObject m_obj = Instantiate(m_makeObjs[i], m_pos, m_rot);
                     m_obj.transform.parent = this.transform;
 

@@ -218,6 +218,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     {
         if (item != null)
         {
+            SoundManager.inst.SFXPlay("Drag", SoundManager.inst.uiList[1]);
             DragSlot.instance.dragSlot = this;
             DragSlot.instance.DragSetImage(itemImage);
             DragSlot.instance.transform.position = eventData.position; //마우스 포지션

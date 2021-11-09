@@ -15,6 +15,8 @@ public class SkillE : AttackState
 
     private void OnTriggerEnter(Collider other)
     {
+
+        SoundManager.inst.SFXPlay("SkillE", SoundManager.inst.skList[2]);
         TagCheck(other, dmg);
     }
 }

@@ -477,6 +477,7 @@ public class Player : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.W) && isSkillW && mana >= wMana)
         {
+
             mousePoint.SetActive(true);
             mana -= wMana;
             isSkillW = false;
@@ -507,6 +508,7 @@ public class Player : LivingEntity
 
     IEnumerator SkillWCount(float dealy)
     {
+        SoundManager.inst.SFXPlay("WSkill",SoundManager.inst.skList[1]);
         yield return new WaitForSeconds(3f);
         skill_W.SetActive(false);
         isGotM = false;
