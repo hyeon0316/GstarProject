@@ -263,6 +263,20 @@ public class Player : LivingEntity
                     {
                         inventory.AcquireItem(hitObjData._item[0]);
                         chest400 = true;
+                        questProText.text = "";
+                        string questText;
+                        questText = "";
+                        foreach (var obj in questIng.collectObjectives)
+                        {
+                            obj.UpdateItemCount();
+                            questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
+                        }
+                        if (questIng.IsCompleteObjectives)
+                        {
+                            if (QuestManager.inst.questActionIndex != questIng.qusetComplte)
+                                SoundManager.inst.SFXPlay("QuestFi", SoundManager.inst.etcList[0]);
+                            QuestManager.inst.questActionIndex = questIng.qusetComplte;
+                        }
                     }
                     if (check1 == 500 && !chest500)
                     {
@@ -282,6 +296,7 @@ public class Player : LivingEntity
                         inventory.AcquireItem(hitObjData._item[1]);
                         chest700 = true;
                     }
+                   
                 }
 
             }

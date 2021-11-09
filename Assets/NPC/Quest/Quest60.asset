@@ -16,7 +16,7 @@ MonoBehaviour:
   title: 
   content: "\uBCF4\uC2A4 \uC5F4\uC1E0\uAD6C\uD558\uAE30"
   completeDialog: 
-  qusetComplte: 0
+  qusetComplte: 3
   collectObjectives:
   - item: {fileID: 11400000, guid: fcb099c51ec880241be4f1752283d47c, type: 2}
     amount: 1

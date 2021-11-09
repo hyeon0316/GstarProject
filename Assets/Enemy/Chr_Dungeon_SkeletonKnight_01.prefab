@@ -2496,7 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 250
+  startingHealth: 500
   startingMana: 0
   attackSound: {fileID: 8300000, guid: 0db446bfef9e3e44e96592a32329ce69, type: 3}
   beAttackSound: {fileID: 8300000, guid: f48b0aad881bc574cb5bc1c38c353282, type: 3}

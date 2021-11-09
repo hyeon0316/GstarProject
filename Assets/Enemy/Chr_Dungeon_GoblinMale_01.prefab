@@ -6709,7 +6709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 200
+  startingHealth: 400
   startingMana: 0
   attackSound: {fileID: 8300000, guid: a7f1b6dd59d94494e81bd03051b7bcfb, type: 3}
   beAttackSound: {fileID: 8300000, guid: 15819e2c4f603f24f9f14062c435a8cb, type: 3}

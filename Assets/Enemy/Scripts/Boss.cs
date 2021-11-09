@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class Boss : LivingEntity
 {
+    
     public static Boss inst = null;
-
+   
     private Text bossHpText;
     public GameObject bossHpBarPrefab;
     public Canvas enemyHpBarCanvas;
@@ -54,6 +55,7 @@ public class Boss : LivingEntity
     private float followTrap = 1;    
     private float timeTemp;
 
+    public GameObject _item;
     private bool hasTarget
     {
         get
@@ -357,6 +359,7 @@ public class Boss : LivingEntity
         Player.inst.TrapTarget.SetActive(false);
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
+        GameObject hi = Instantiate(_item, transform.position + transform.up * 2, Quaternion.identity);
         for (int i = 0; i < enemyColliders.Length; i++)
         {
             enemyColliders[i].enabled = false;

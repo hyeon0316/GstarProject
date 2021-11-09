@@ -74,6 +74,7 @@ public class QuestManager : MonoBehaviour
             obj.UpdateItemCount();
             questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
         }
+
         Player.inst.questProText.text = questText;
     }
     void ControlObject()
@@ -166,6 +167,7 @@ public class QuestManager : MonoBehaviour
                     NpcManager.inst.knightNpc = false;
                     NpcManager.inst.ghostNpc = true;
                     NpcManager.inst.townRoom = true;
+                    NpcManager.inst.NpcCheck();
                     NpcManager.inst.PotalCheck();
                 }
                 break;
@@ -224,6 +226,7 @@ public class QuestManager : MonoBehaviour
                     }
                     NpcManager.inst.roomBoss = true;
                     Player.inst.questIng = quest[8];
+                    NpcManager.inst.PotalCheck();
                     InitPanl();
                 }
                 break;
@@ -236,16 +239,27 @@ public class QuestManager : MonoBehaviour
                     }
                     questActionIndex = 0;
                 }
+                if(questActionIndex == 2)
+                {
+                    NpcManager.inst.ghostNpc = false;
+                    NpcManager.inst.wizardNpc = true;
+                    NpcManager.inst.NpcCheck();
+                }
                 if (questActionIndex == 4)
                 {
                     LoadingSceneManager.LoadScene("Outro");
                     GameObject player;
                     GameObject uiCanvas;
+                    GameObject soundMG;
+                    soundMG = GameObject.Find("SoundManager");
                     player = GameObject.Find("PlayerM 2");
                     uiCanvas = GameObject.Find("UICanvas 1");
                     Destroy(player);
                     Destroy(uiCanvas);
-                    
+                    Destroy(soundMG);
+
+
+
 
                 }
                 break;
