@@ -190,11 +190,14 @@ public class Player : LivingEntity
             {
                 if (hit.collider.tag == "NPC")
                 {
+                    
                     mousePoint.SetActive(false);
                     if (hit.collider.gameObject.GetComponent<ObjData>().isNpc ==
                         true && Vector3.Distance(transform.position,
                         hit.collider.transform.position) < 5f)
                     {
+                        if(hit.collider.gameObject.GetComponent<NpcMove>())
+                            hit.collider.gameObject.GetComponent<NpcMove>().state = 0;
                         Vector3 npcVector = transform.position - hit.collider.gameObject.transform.position;
                         npcVector.x = 0;
                         npcVector.z = 0;
@@ -422,7 +425,7 @@ public class Player : LivingEntity
         isMove = false;
         animator.SetBool("isMove", false);
         isSkill = true;
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.8f);
         isSkill = false;
         
         QQ = Instantiate(skill_Q, skillQFP.transform.position, Quaternion.identity);
@@ -672,8 +675,11 @@ public class Player : LivingEntity
         //
         TrapTarget.SetActive(false);
 
-        SceneManager.LoadScene("Town");
+        LoadingSceneManager.LoadScene("Town");
         health = 50; //수정해야함
+        rigidbody.useGravity = false;
+        isSkill = true;
+        animator.SetBool("isMove", false);
         this.transform.position = new Vector3(-1.7f, 2f, 26);
         Debug.Log("you Die");
     }

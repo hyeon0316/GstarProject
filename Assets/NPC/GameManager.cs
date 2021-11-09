@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)&& scanObject!=null && isAction)
+        if((Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButtonDown(0)) && scanObject!=null && isAction)
         {
             ObjData objData = scanObject.GetComponent<ObjData>();
             Talk(objData.id, objData.isNpc);

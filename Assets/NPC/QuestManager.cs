@@ -34,7 +34,7 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(50, new QuestData("보물방 열쇠얻기", new int[] { 4000, 4000, 4000, 4000 }));
 
-        questList.Add(60, new QuestData("보스방 열쇠얻기", new int[] { 4000, 4000,4000,4000 }));
+        questList.Add(60, new QuestData("보스방 열쇠얻기", new int[] { 4000, 4000, 4000, 4000 }));
 
         questList.Add(70, new QuestData("리치를 잡고 집에!", new int[] { 4000, 4000, 7000, 7000 }));
     }
@@ -87,7 +87,7 @@ public class QuestManager : MonoBehaviour
                     NpcManager.inst.wizardNpc = true;
                     NpcManager.inst.NpcCheck();
                 }
-                    if (questActionIndex == 2)
+                if (questActionIndex == 2)
                 {
                     Player.inst.questIng = quest[1];
                     InitPanl();
@@ -230,16 +230,24 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
-                    questActionIndex = 0; 
+                    questActionIndex = 0;
                 }
                 if (questActionIndex == 4)
                 {
-                    SceneManager.LoadScene("Outro");
+                    GameObject player;
+                    GameObject uiCanvas;
+                    player = GameObject.Find("PlayerM 2");
+                    uiCanvas = GameObject.Find("UICanvas 1");
+                    Destroy(player);
+                    Destroy(uiCanvas);
+                    LoadingSceneManager.LoadScene("Outro");
+
                 }
                 break;
         }
 
     }
+    
     void NextQuest()
     {
         questId += 10;
