@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
   m_Name: Armor_Acc(A)
   m_EditorClassIdentifier: 
-  itemDesc: "\uCCB4\uB825 +1000\n\uB9C8\uB098 +500\n\uD30C\uC6CC +30\n\uBC29\uC5B4\uB825
-    +30"
+  itemDesc: "\uCCB4\uB825 +500\n\uB9C8\uB098 +250\n\uD30C\uC6CC +50\n\uBC29\uC5B4\uB825
+    +25"
   itemIntro: 
   itemRank: "\uC0C1\uAE09"
   itemName: "\uB300\uB9C8\uBC95\uC0AC \uCC45"
@@ -24,8 +24,8 @@ MonoBehaviour:
   itemTypeName: "\uC545\uC138\uC11C\uB9AC"
   itemHp: 0
   itemMp: 0
-  startingHp: 1000
-  startingMp: 500
-  itemDp: 30
-  itemPower: 30
+  startingHp: 500
+  startingMp: 250
+  itemPower: 50
+  itemDp: 25
   itemType: 0

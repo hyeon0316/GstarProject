@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
   m_Name: Staff(A)
   m_EditorClassIdentifier: 
-  itemDesc: "\uCCB4\uB825 +1000\n\uB9C8\uB098 +500\n\uD30C\uC6CC +30\n\uBC29\uC5B4\uB825
-    +30"
+  itemDesc: "\uCCB4\uB825 +500\n\uB9C8\uB098 +250\n\uD30C\uC6CC +50\n\uBC29\uC5B4\uB825
+    +25"
   itemIntro: "-\uBAA8\uB4E0 \uAC83 \uC744 \uAE68\uC6B0\uCE58\uACE0 \uB09C \uB4A4..-"
   itemRank: "\uC0C1\uAE09"
   itemName: "\uB300\uB9C8\uBC95\uC0AC \uC9C0\uD321\uC774"
@@ -24,8 +24,8 @@ MonoBehaviour:
   itemTypeName: "\uBB34\uAE30"
   itemHp: 0
   itemMp: 0
-  startingHp: 1000
-  startingMp: 500
-  itemDp: 30
-  itemPower: 30
+  startingHp: 500
+  startingMp: 250
+  itemPower: 50
+  itemDp: 25
   itemType: 0

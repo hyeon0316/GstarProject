@@ -24,8 +24,8 @@ MonoBehaviour:
   itemTypeName: "\uD558\uC758"
   itemHp: 0
   itemMp: 0
-  startingHp: 700
-  startingMp: 300
-  itemDp: 20
+  startingHp: 200
+  startingMp: 100
   itemPower: 20
+  itemDp: 10
   itemType: 0
