@@ -271,7 +271,7 @@ MonoBehaviour:
   _item:
   - {fileID: 9176625609703804342, guid: 99c490665906ab941bc7b883c5b5abeb, type: 3}
   _dropP:
-  - 50
+  - 40
   hpBarPrefab: {fileID: 8623151006859436585, guid: 98ed97a909658324fa4cb2b91b68fa93,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
@@ -292,6 +292,7 @@ MonoBehaviour:
   attackDelay: 2.5
   tr: {fileID: 1154468173717233341}
   LookatSpeed: 1
+  enemyExp: 20
 --- !u!195 &1601102573383369
 NavMeshAgent:
   m_ObjectHideFlags: 0

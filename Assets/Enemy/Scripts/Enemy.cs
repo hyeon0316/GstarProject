@@ -50,6 +50,8 @@ public class Enemy : LivingEntity
 
     public float LookatSpeed = 1f; //0~1
 
+    public int enemyExp;
+
     //추적 대상이 존재하는지 알려주는 프로퍼티
     private bool hasTarget
     {
@@ -277,6 +279,7 @@ public class Enemy : LivingEntity
     //사망 처리
     public override void Die()
     {
+        Player.inst.ExpPlus(enemyExp);
         enemyHpBarSlider.gameObject.SetActive(false);
         nameObject.gameObject.SetActive(false);
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화

@@ -95,7 +95,7 @@ public class Player : LivingEntity
 
     public Text levelText;
     int level;
-    public float exp = 0;
+    public float exp;
     public float startingEx;
     public Slider exSlider; //경험치 슬라이더
     public Text exText;//경험치 표시
@@ -111,6 +111,9 @@ public class Player : LivingEntity
     public bool chest700;
 
     public GameObject h;
+
+    public GameObject levelUpEffect;
+    int subExp;//받은 경험치 값이 정해진 경험치 통 값 보다 넘어갈때 그 넘어간 값을 다음 레벨때 더해줌
     private void Awake()
     {
         if (inst == null) // 싱글톤
@@ -124,7 +127,6 @@ public class Player : LivingEntity
         attack = false;
         dP = startingDP;
         power = startingPower;
-        exp = startingEx;
 
         time_Q = 3f;
         time_W = 10f;
@@ -144,6 +146,8 @@ public class Player : LivingEntity
         eMana = 150;
         rMana = 400;
         isSkill = false;
+        exp = 0;
+        startingEx = 100;
         mousePoint.SetActive(false);
 
         chest400 = false;
@@ -155,6 +159,7 @@ public class Player : LivingEntity
     void Start()
     {
         QuestManager.inst.CheckQuest();
+        SetLevel();
     }
     // Update is called once per frame
     void Update()
@@ -180,8 +185,8 @@ public class Player : LivingEntity
                 }
             }
         }
-       SetHpMp();
-        //SetLevel();
+        SetHpMp();      
+
     }
     void NpcS()
     {
@@ -264,9 +269,29 @@ public class Player : LivingEntity
             }
         }
     }
-
+    IEnumerator levelUp()
+    {
+        levelUpEffect.SetActive(true);
+        ++level;
+        startingEx += 100;
+        exp = 0;
+        startingHealth += 100;
+        startingMana += 50;
+        power += 10;
+        dP += 5;
+        yield return new WaitForSeconds(1.5f);
+        levelUpEffect.SetActive(false);
+    }
     void SetLevel()
     {
+        if (startingEx <= exp) //경험치를 다채울때 레벨업(사운드)
+        {
+            StartCoroutine(levelUp());
+        }
+        else if (level ==10)
+        {
+            exp = startingEx;
+        }
         levelText.text = string.Format("LV. {0}", level);
         exText.text = string.Format("{0}/{1}", exp, startingEx);
         exSlider.maxValue = startingEx;
@@ -769,6 +794,14 @@ public class Player : LivingEntity
 
     public void ExpPlus(float exp2)
     {
+        if(exp2 >= startingEx)
+        {
+            subExp = exp2 - startingEx;
+        }
+        else if(level >=10)
+        {
+            return;
+        }
         exp += exp2;
         SetLevel();
         Debug.Log(exp);

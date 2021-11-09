@@ -6740,6 +6740,7 @@ MonoBehaviour:
   tr: {fileID: 3562640163971136029}
   attackRange: 2.3
   LookatSpeed: 1
+  enemyExp: 50
 --- !u!1 &3559866366654280979
 GameObject:
   m_ObjectHideFlags: 0

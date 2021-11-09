@@ -52,7 +52,7 @@ public class LoadingSceneManager : MonoBehaviour
         while(!op.isDone)
         {
             yield return null;
-            delay = 10;
+            delay = 5;
             timer += Time.deltaTime / delay;
             loadingValue = loadingBar.fillAmount;
             if (op.progress <0.9f)

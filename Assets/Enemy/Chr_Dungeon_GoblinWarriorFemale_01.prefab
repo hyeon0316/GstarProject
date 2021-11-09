@@ -6270,6 +6270,7 @@ MonoBehaviour:
   attackDelay: 2.5
   tr: {fileID: 3758097031214362755}
   LookatSpeed: 1
+  enemyExp: 70
 --- !u!54 &606258282702039181
 Rigidbody:
   m_ObjectHideFlags: 0
