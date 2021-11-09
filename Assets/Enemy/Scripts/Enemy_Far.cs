@@ -7,6 +7,9 @@ using TMPro;
 
 public class Enemy_Far : LivingEntity
 {
+
+
+    public AudioClip beAttackSound;
     public Vector3 nameOffset = new Vector3(0f, 5f, 0);
     public GameObject nameText;
     public TextMeshProUGUI nameObject;
@@ -238,18 +241,10 @@ public class Enemy_Far : LivingEntity
     //데미지를 입었을 때 실행할 처리
     public override void OnDamage(float damage)
     {
-        /*사망하지 않을 상태에서만 피격 효과 재생
         if (!dead)
         {
-            //공격 받은 지점과 방향으로 피격 효과 재생
-            hitEffect.transform.position = hitPoint;
-            hitEffect.transform.rotation = Quaternion.LookRotation(hitNormal);
-            hitEffect.Play();
-
-            //피격 효과음 재생
-            enemyAudioPlayer.PlayOnShot(hitSound);
+            SoundManager.inst.SFXPlay("beAttack", beAttackSound);
         }
-        */
 
 
         //피격 애니메이션 재생

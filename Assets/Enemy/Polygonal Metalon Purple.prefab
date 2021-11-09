@@ -1026,6 +1026,7 @@ MonoBehaviour:
   startingHealth: 150
   startingMana: 0
   attackSound: {fileID: 8300000, guid: 3cd702b366fe1f044bd788368267e52b, type: 3}
+  beAttackSound: {fileID: 8300000, guid: 9a889339afe0778498b779c7154fcd6b, type: 3}
   nameOffset: {x: -0.3, y: 3.3, z: 0}
   nameText: {fileID: 8597663803167320284, guid: 8b97fd7d7d36ca94c99cbc7b67ba5018,
     type: 3}

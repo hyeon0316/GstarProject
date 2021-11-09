@@ -8,6 +8,7 @@ using TMPro;
 public class Enemy : LivingEntity
 {
     public AudioClip attackSound;
+    public AudioClip beAttackSound;
     public Vector3 nameOffset = new Vector3(0f, 5f, 0);
     public GameObject nameText;
     public TextMeshProUGUI nameObject;
@@ -224,14 +225,11 @@ public class Enemy : LivingEntity
     {
         //공격 대상을 지정할 추적 대상의 LivingEntity 컴포넌트 가져오기
         LivingEntity attackTarget = targetEntity.GetComponent<LivingEntity>();
-
         //공격 처리(플레이어에게)
         attackTarget.OnDamage(damage);
-
         //최근 공격 시간 갱신
         lastAttackTime = Time.time;
-
-        SoundManager.inst.SFXPlay("SpiderAttack", attackSound);
+        SoundManager.inst.SFXPlay("EnemyAttack", attackSound);
     }
 
 
@@ -239,18 +237,11 @@ public class Enemy : LivingEntity
     public override void OnDamage(float damage)
     {
         StartCoroutine(HitStop());
-        /*사망하지 않을 상태에서만 피격 효과 재생
         if (!dead)
         {
-            //공격 받은 지점과 방향으로 피격 효과 재생
-            hitEffect.transform.position = hitPoint;
-            hitEffect.transform.rotation = Quaternion.LookRotation(hitNormal);
-            hitEffect.Play();
-
-            //피격 효과음 재생
-            enemyAudioPlayer.PlayOnShot(hitSound);
+            SoundManager.inst.SFXPlay("EnemyBeAttack", beAttackSound);
         }
-        */
+        
         GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
         var _hubText = hubText.GetComponent<DamageText>();
 

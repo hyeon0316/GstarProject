@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
             if (arg0.name == bgList[i].name)
             {
                 BgSoundPlay(bgList[i]);
-                Debug.Log(bgList[i].name);
+                Debug.Log("dd"+bgList[i].name);
             }
         }
     }

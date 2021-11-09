@@ -6237,6 +6237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 150
   startingMana: 0
+  beAttackSound: {fileID: 8300000, guid: 15819e2c4f603f24f9f14062c435a8cb, type: 3}
   nameOffset: {x: -0.3, y: 3.3, z: 0}
   nameText: {fileID: 8597663803167320284, guid: 414355eaee078dd44953bb485cee334a,
     type: 3}
