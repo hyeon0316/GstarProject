@@ -52,6 +52,14 @@ public class UseSlotBase : MonoBehaviour
                     Debug.Log(3);
                 }
             }
+            else if (i == 3)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    uSlots[3].UseItem();
+                    Debug.Log(4);
+                }
+            }
         }
     }
 }
