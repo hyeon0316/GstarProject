@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
                 yield return new WaitForSeconds(spawnTime);
 
                 
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < points.Length; i++)
                 {
                     float rand1 = Random.Range(points[i].position.x - 4, points[i].position.x + 4);
                     float rand2 = Random.Range(points[i].position.z - 4, points[i].position.z + 4);
