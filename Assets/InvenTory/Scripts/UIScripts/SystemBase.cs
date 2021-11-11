@@ -25,7 +25,7 @@ public class SystemBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Information.informationActivated && !Inventory.inventoryActivated && !ControlToolTip.cToolTipOn)//인벤창과 장비창이 다꺼져있을때만
+        if (!Inventory.inventoryActivated)//인벤창과 장비창이 다꺼져있을때만
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

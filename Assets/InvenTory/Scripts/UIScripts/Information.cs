@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Information : MonoBehaviour
 {
+    
     public static bool informationActivated = false;
     public static bool slotClear = false;
     [SerializeField]

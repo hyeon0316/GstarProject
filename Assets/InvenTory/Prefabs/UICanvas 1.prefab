@@ -3541,8 +3541,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 6270346545513611829}
-  - {fileID: 4152851697687222036}
   - {fileID: 4152851698282184474}
+  - {fileID: 4152851697687222036}
   - {fileID: 4142653179350116105}
   - {fileID: 3581629144042779476}
   - {fileID: 873763647}
@@ -4037,7 +4037,7 @@ RectTransform:
   m_Children:
   - {fileID: 4152851697417105402}
   m_Father: {fileID: 4152851696729007442}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4685,7 +4685,7 @@ RectTransform:
   - {fileID: 4152851698135227285}
   - {fileID: 5258818293530886955}
   m_Father: {fileID: 4152851696729007442}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8378,7 +8378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1895950357360441112
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13265,7 +13265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 433.6, y: 433.25}
+  m_AnchoredPosition: {x: 430.8, y: 433.25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7510543400278299818
@@ -13347,7 +13347,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 431046666931335760}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1011337525}
+        m_MethodName: CToolTip_Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7673917193725560383
 GameObject:
   m_ObjectHideFlags: 0
