@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
     public void SFXPlay(string sfxName,AudioClip clip)
     {
 
-        Debug.Log(clip.name);
+        //Debug.Log(clip.name);
         GameObject go = new GameObject(sfxName + "Sound");
         AudioSource audioSource = go.AddComponent<AudioSource>();
         audioSource.clip = clip;

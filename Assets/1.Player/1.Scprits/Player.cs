@@ -383,6 +383,7 @@ public class Player : LivingEntity
     {
         if (Input.GetMouseButton(1))
         {
+            
             if (Inventory.inventoryActivated && RectCheck(Input.mousePosition, 1230, 821, 1645, 251))
             {
                 Debug.Log("inventory" + Input.mousePosition);
@@ -393,7 +394,15 @@ public class Player : LivingEntity
                 Debug.Log("Information" + Input.mousePosition);
                 return;
             }
-           // Debug.Log("userSlot" + Input.mousePosition); //좌표값 체크
+            if(RectCheck(Input.mousePosition, 8, 1065, 129, 980))//조작법 버튼 누를 때
+            {
+                return;
+            }
+            if(ControlToolTip.cToolTipOn && RectCheck(Input.mousePosition, 1344, 1026, 1436, 923))//조작툴팁 x버튼 누를 때
+            {
+                return;
+            }
+            
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
@@ -407,6 +416,7 @@ public class Player : LivingEntity
     {
         if ((Input.GetKey(KeyCode.A) || Input.GetMouseButton(0)) && Time.time >= SpawnProjectilesScript.inst.timeToFire)
         {
+            Debug.Log("userSlot" + Input.mousePosition); //좌표값 체크
             if (Inventory.inventoryActivated && RectCheck(Input.mousePosition, 1230, 821, 1645, 251))
             {
                 Debug.Log("inventory" + Input.mousePosition);
@@ -415,6 +425,14 @@ public class Player : LivingEntity
             if (Information.informationActivated && RectCheck(Input.mousePosition, 215, 823, 629, 250))
             {
                 Debug.Log("Information" + Input.mousePosition);
+                return;
+            }
+            if (RectCheck(Input.mousePosition, 8, 1065, 129, 980))//조작법 버튼 누를 때
+            {
+                return;
+            }
+            if (ControlToolTip.cToolTipOn && RectCheck(Input.mousePosition, 1344, 1026, 1436, 923))
+            {
                 return;
             }
 

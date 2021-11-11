@@ -41,16 +41,18 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 inventoryActivated = false;
-
             }
         }
     }
 
     private void TryInventory()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if (!SystemBase.gamePaused)
         {
-            inventoryActivated = !inventoryActivated;         
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                inventoryActivated = !inventoryActivated;
+            }
         }
         if (inventoryActivated)
             OpenInventory();

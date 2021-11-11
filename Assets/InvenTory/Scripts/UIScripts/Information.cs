@@ -27,7 +27,6 @@ public class Information : MonoBehaviour
     void Update()
     {
         TryInformation();
-
         if (!InputNumber.activated)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -39,9 +38,12 @@ public class Information : MonoBehaviour
 
     private void TryInformation()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (!SystemBase.gamePaused)
         {
-            informationActivated = !informationActivated;           
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                informationActivated = !informationActivated;
+            }
         }
         if (informationActivated)
             OpenInformation();

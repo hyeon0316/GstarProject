@@ -50,7 +50,7 @@ public class NpcMove : MonoBehaviour
 			if (Vector3.Distance(transform.position, targetPos) < 2f)
 			{
 				animator.SetBool("isMove", false);
-				Debug.Log(Vector3.Distance(transform.position, targetPos));
+				//Debug.Log(Vector3.Distance(transform.position, targetPos));
 				state = 0;
 			}
 		}
@@ -72,8 +72,8 @@ public class NpcMove : MonoBehaviour
 			targetPos.z = Random.Range(maxPos.z, minPos.z);
 			targetPos.y = this.transform.position.y;
 		}
-		Debug.Log("thisPos :" + this.transform.position);
-		Debug.Log("TargetPos :" + targetPos);
+		//Debug.Log("thisPos :" + this.transform.position);
+		//Debug.Log("TargetPos :" + targetPos);
 		StartCoroutine(SetState());
 	}
 
