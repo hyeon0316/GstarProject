@@ -19,7 +19,7 @@ MonoBehaviour:
   qusetComplte: 2
   collectObjectives:
   - item: {fileID: 11400000, guid: 52f97a60fb360c7409a548679885569e, type: 2}
-    amount: 15
+    amount: 10
   rewards:
   - ItemReward: {fileID: 11400000, guid: 13894ed2496e1c3469df93e8bdec839c, type: 2}
     ItemRewardCount: 50

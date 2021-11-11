@@ -31,5 +31,14 @@ public class FindNpc : MonoBehaviour
         {
             this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _sprite[1];
         }
+        /*
+        if(_target == 광산2)
+                 temp = 광산1
+             if(scene == 타운)
+                    lookat(temp)
+              if(씬== 광1)
+                    lookatr(광2)
+        */
+                     
     }
 }

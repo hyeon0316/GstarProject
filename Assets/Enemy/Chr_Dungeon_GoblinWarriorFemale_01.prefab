@@ -6251,7 +6251,7 @@ MonoBehaviour:
   - {fileID: 9176625609703804342, guid: ec6fbb217a260674b8f2f332fa1c93e3, type: 3}
   _dropP:
   - 70
-  - 5
+  - 10
   hpBarPrefab: {fileID: 8623151006859436585, guid: d3f286776562b6d49baf473f147afc32,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}

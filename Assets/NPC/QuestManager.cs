@@ -100,6 +100,7 @@ public class QuestManager : MonoBehaviour
                         NpcManager.inst.wizardNpc = false;
                         NpcManager.inst.NpcCheck();
                     */
+                   // findnpc.tartget= 광산1>광산2포탈>
                 }
                 if (questActionIndex == 3)
                 {

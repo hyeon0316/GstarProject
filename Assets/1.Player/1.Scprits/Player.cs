@@ -316,6 +316,7 @@ public class Player : LivingEntity
         dP += 5;
         yield return new WaitForSeconds(1.5f);
         levelUpEffect.SetActive(false);
+        
     }
     void SetLevel()
     {
