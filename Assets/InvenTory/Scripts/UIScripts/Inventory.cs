@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                inventoryActivated = false;
+                Invoke("Exit", 0.01f);//시스템창 키입력과 분리 시켜주기 위함
             }
         }
     }

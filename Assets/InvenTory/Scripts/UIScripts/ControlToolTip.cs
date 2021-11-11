@@ -15,7 +15,7 @@ public class ControlToolTip : MonoBehaviour
     {
        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            CToolTip_Exit();
+            Invoke("CToolTip_Exit", 0.01f);
         }
     }
 

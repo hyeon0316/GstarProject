@@ -32,7 +32,7 @@ public class Information : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                informationActivated = false;
+                Invoke("Exit", 0.01f);
             }
         }
     }
