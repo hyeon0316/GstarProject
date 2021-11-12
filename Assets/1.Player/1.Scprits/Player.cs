@@ -333,9 +333,18 @@ public class Player : LivingEntity
             StartCoroutine(levelUp());
         }
         levelText.text = string.Format("LV. {0}", level);
-        exText.text = string.Format("{0}/{1}", exp, startingEx);
-        exSlider.maxValue = startingEx;
-        exSlider.value = exp;
+        if (level < 10)
+        {
+            exText.text = string.Format("{0}/{1}", exp, startingEx);
+            exSlider.maxValue = startingEx;
+            exSlider.value = exp;
+        }
+        else if (level == 10)
+        {
+            exText.text = string.Format("MAX");
+            exSlider.value = startingEx;
+        }
+        
     }
     void SetHpMp()
     {
