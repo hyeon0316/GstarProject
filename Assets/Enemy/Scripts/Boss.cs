@@ -43,7 +43,6 @@ public class Boss : LivingEntity
     public GameObject skill_Second;
 
     public GameObject skill_Trap;
-    public GameObject skill_TrapPrefab;
 
     private bool NextPageOn;
     private bool _IsInFirstSkill = false; //스킬 모션 재생할때 이동 제한
@@ -265,9 +264,11 @@ public class Boss : LivingEntity
     {
         TrapOnTime = true;
         for(int i =0; i<8;i++)
-        {
-            SoundManager.inst.SFXPlay("EKrEKr",SoundManager.inst.bossList[2]);
+        {          
+            skill_Trap.SetActive(false);
+            yield return new WaitForSeconds(1.2f);
             skill_Trap.SetActive(true);
+            SoundManager.inst.SFXPlay("EKrEKr", SoundManager.inst.bossList[2]);
             yield return new WaitForSeconds(1.2f);
             skill_Trap.SetActive(false);
         }

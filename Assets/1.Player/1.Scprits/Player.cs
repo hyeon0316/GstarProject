@@ -310,6 +310,7 @@ public class Player : LivingEntity
     }
     IEnumerator levelUp()
     {
+        SoundManager.inst.SFXPlay("levelup2", SoundManager.inst.uiList[3]);
         levelUpEffect.SetActive(true);
         ++level;
         startingEx += 100;

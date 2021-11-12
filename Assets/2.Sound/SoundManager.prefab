@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d8ea04a1247df664a8b043f08cfd6ee2, type: 3}
   - {fileID: 8300000, guid: 35d319ce3282b2e43b5eb256a93a8845, type: 3}
   - {fileID: 8300000, guid: 8711a1b4dc2f48f41851f6ddda7cd818, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f65296db7ab81ff49a6429cb6ca956ba, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   skList:
@@ -87,6 +87,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   bgSound: {fileID: 6030621996411481185}
+  a: 0
 --- !u!82 &6030621996411481185
 AudioSource:
   m_ObjectHideFlags: 0
