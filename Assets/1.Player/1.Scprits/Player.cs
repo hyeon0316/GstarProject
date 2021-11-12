@@ -682,6 +682,7 @@ public class Player : LivingEntity
         {
             QQ = Instantiate(skill_R, transform.position, Quaternion.identity);
         }
+        SoundManager.inst.SFXPlay("R", SoundManager.inst.skList[3]);
         yield return new WaitForSeconds(5f);
         Destroy(QQ.gameObject);
         yield return new WaitForSeconds(dealy - 2.5f);
