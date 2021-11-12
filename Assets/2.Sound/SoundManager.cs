@@ -50,15 +50,15 @@ public class SoundManager : MonoBehaviour
     }
     public void SFXPlay(string sfxName,AudioClip clip,float vol=1f)
     {
+       
         if(sfxName == "EnemyBeAttack")
         {
             a++;
-            if(a>1)
+            if(a>2)
             {
                 return;
             }
         }
-        Debug.Log(a);
         //Debug.Log(clip.name);
         GameObject go = new GameObject(sfxName + "Sound");
         AudioSource audioSource = go.AddComponent<AudioSource>();
@@ -67,10 +67,12 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
        
         Destroy(go, clip.length+1f);
+        
         if (sfxName == "EnemyBeAttack")
         {
             a--;
         }
+        
     }
     // Update is called once per frame
     void Update()

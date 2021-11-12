@@ -2498,6 +2498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 1000
   startingMana: 0
+  audioVol: 0
   attackSound: {fileID: 8300000, guid: 0db446bfef9e3e44e96592a32329ce69, type: 3}
   beAttackSound: {fileID: 8300000, guid: f48b0aad881bc574cb5bc1c38c353282, type: 3}
   nameOffset: {x: -0.3, y: 3.5, z: 0}

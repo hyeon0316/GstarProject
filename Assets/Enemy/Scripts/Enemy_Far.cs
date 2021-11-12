@@ -8,7 +8,7 @@ using TMPro;
 public class Enemy_Far : LivingEntity
 {
 
-
+    public float audioVol;
     public AudioClip beAttackSound;
     public Vector3 nameOffset = new Vector3(0f, 5f, 0);
     public GameObject nameText;
@@ -243,7 +243,7 @@ public class Enemy_Far : LivingEntity
     {
         if (!dead)
         {
-            SoundManager.inst.SFXPlay("beAttack", beAttackSound);
+            SoundManager.inst.SFXPlay("beAttack", beAttackSound, audioVol);
         }
 
 

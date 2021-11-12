@@ -7,6 +7,7 @@ using TMPro;
 
 public class Enemy : LivingEntity
 {
+    public float audioVol;
     public AudioClip attackSound;
     public AudioClip beAttackSound;
     public Vector3 nameOffset = new Vector3(0f, 5f, 0);
@@ -239,7 +240,7 @@ public class Enemy : LivingEntity
         StartCoroutine(HitStop());
         if (!dead)
         {
-            SoundManager.inst.SFXPlay("EnemyBeAttack", beAttackSound, 0.3f);
+            SoundManager.inst.SFXPlay("EnemyBeAttack", beAttackSound, audioVol);
         }
         
         GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
