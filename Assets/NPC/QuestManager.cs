@@ -57,16 +57,29 @@ public class QuestManager : MonoBehaviour
             NextQuest();
         Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
         Player.inst.questTitleText.text = questList[questId].questName;
+        if (Player.inst.questIng != null)
+            Player.inst.questconText.text = Player.inst.questIng.content;
+        else
+        {
+            Player.inst.questconText.text = "";
+        }
         return questList[questId].questName;
     }
 
     public string CheckQuest()
     {
         Player.inst.questTitleText.text = questList[questId].questName;
+        if(Player.inst.questIng != null)
+            Player.inst.questconText.text = Player.inst.questIng.content;
+        else
+        {
+            Player.inst.questconText.text = "";
+        }
         return questList[questId].questName;
     }
     public void InitPanl()
     {
+        Player.inst.questconText.text = Player.inst.questIng.content;
         string questText;
         questText = "";
         foreach (var obj in Player.inst.questIng.collectObjectives)

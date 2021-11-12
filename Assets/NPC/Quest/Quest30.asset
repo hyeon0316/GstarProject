@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   title: 
-  content: 
+  content: "\uAE30\uC0AC\uB2E8\uC7A5\uD55C\uD14C \uB9D0\uAC78\uAE30"
   completeDialog: 
+  qusetComplte: 0
   collectObjectives: []
   rewards:
   - ItemReward: {fileID: 11400000, guid: f747b4599c69c4d45bc122c54a3cd6bb, type: 2}

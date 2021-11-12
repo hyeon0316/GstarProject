@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   title: 
-  content: "\uBCF4\uC2A4 \uC5F4\uC1E0\uAD6C\uD558\uAE30"
+  content: "\"\uBCF4\uBB3C\uBC29\"\uC5D0\uC11C \"\uB9C8\uB825 \uC81C\uC5B4 \uBAA9\uAC78\uC774\"
+    \uAD6C\uD558\uAE30"
   completeDialog: 
   qusetComplte: 3
   collectObjectives:

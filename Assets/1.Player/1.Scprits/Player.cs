@@ -102,6 +102,7 @@ public class Player : LivingEntity
 
     public Text questTitleText;
     public Text questProText;
+    public Text questconText;
     public Rigidbody rigidbody;
 
     public GameObject mousePoint;
@@ -277,6 +278,9 @@ public class Player : LivingEntity
                         {
                             if (QuestManager.inst.questActionIndex != questIng.qusetComplte)
                                 SoundManager.inst.SFXPlay("QuestFi", SoundManager.inst.etcList[0]);
+
+                            FindNpc.inst.npcorMap = true;
+                            NpcManager.inst.Setmap();
                             QuestManager.inst.questActionIndex = questIng.qusetComplte;
                         }
                     }
