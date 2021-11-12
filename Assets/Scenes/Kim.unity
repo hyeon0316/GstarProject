@@ -326,6 +326,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chr_Dungeon_SkeletonKnight_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6013759099604825932, guid: a859393c593882740a67eda7c7b22d96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a859393c593882740a67eda7c7b22d96, type: 3}
 --- !u!1001 &431522344
@@ -1022,6 +1027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Polygonal Metalon Purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452879453363789572, guid: ab6eebd3d9d3ab34190d2bac7feea5c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8456353972450749242, guid: ab6eebd3d9d3ab34190d2bac7feea5c5,
         type: 3}
@@ -2000,6 +2010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chr_Dungeon_GoblinWarriorFemale_01
       objectReference: {fileID: 0}
+    - target: {fileID: 3760262726705290143, guid: 4402490902b6c9c488787dac87d7b70a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6078346724219076607, guid: 4402490902b6c9c488787dac87d7b70a,
         type: 3}
       propertyPath: enemyHpBarCanvas
@@ -2026,6 +2041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chr_Dungeon_GoblinMale_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559852785570682731, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562640163971136029, guid: 89500c5cd9d9d64499d8eb2c312c22c1,
         type: 3}
@@ -2150,6 +2170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chr_Dungeon_GoblinShaman_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560826564152284586, guid: 338f34a4fd3a34f438b9515e05dfc977,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4898897232771412426, guid: 338f34a4fd3a34f438b9515e05dfc977,
         type: 3}
