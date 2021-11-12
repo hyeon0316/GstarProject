@@ -78,7 +78,7 @@ SpriteRenderer:
   m_Size: {x: 9.6, y: 6.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &259681687
@@ -208,6 +208,7 @@ MonoBehaviour:
   _sprite:
   - {fileID: 21300000, guid: 74fdf06a8b287b0489d8c404731147f6, type: 3}
   - {fileID: 21300000, guid: 612fa1dd183ac8245abae9ef7e65e7e4, type: 3}
+  npcorMap: 0
 --- !u!54 &400125830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -433,6 +434,12 @@ MonoBehaviour:
   townRoom: 0
   dunTea: 0
   roomBoss: 0
+  minor: 0
+  minor1: 0
+  room: 0
+  dungeon: 0
+  boss: 0
+  tea: 0
 --- !u!1 &1773361838
 GameObject:
   m_ObjectHideFlags: 0
@@ -32675,6 +32682,7 @@ MonoBehaviour:
   playerMpText: {fileID: 0}
   townS: 0
   npcCam: {fileID: 686237378}
+  nowMap: {fileID: 6747863089831143697}
   isMove: 0
   isSkill: 0
   animator: {fileID: 1637904282306624828}

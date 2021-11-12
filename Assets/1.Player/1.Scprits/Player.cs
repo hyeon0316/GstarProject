@@ -24,7 +24,7 @@ public class Player : LivingEntity
     public GameObject npcCam;
     public static bool slotCountClear = false;
 
-
+    public Text nowMap;
     public bool isMove;
     public bool isSkill;
     private Vector3 destination;
