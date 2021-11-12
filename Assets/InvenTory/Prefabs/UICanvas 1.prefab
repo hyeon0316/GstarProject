@@ -5459,8 +5459,8 @@ MonoBehaviour:
   m_Text: "\uC774\uB3D9: \uB9C8\uC6B0\uC2A4 \uC6B0 \uD074\uB9AD\n\n\uAE30\uBCF8\uACF5\uACA9:
     \uB9C8\uC6B0\uC2A4 \uC88C \uD074\uB9AD or A\n\n\uC778\uBCA4\uD1A0\uB9AC\uCC3D:
     I\n\n\uC7A5\uBE44\uCC3D: U\n\n\uC2A4\uD0AC: Q, W, E, R, F\n\n\uC544\uC774\uD15C
-    \uD035 \uC2AC\uB86F \uC0AC\uC6A9: 1, 2, 3, 4\n\n\uC2DC\uC2A4\uD15C \uBA54\uB274\uCC3D
-    or \uCC3D \uB2EB\uAE30 : ESC\n"
+    \uD035 \uC2AC\uB86F \uC0AC\uC6A9: 1, 2, 3, 4\n\n\uD654\uBA74 \uD655\uB300/\uCD95\uC18C:
+    Z/X\n\n\uC2DC\uC2A4\uD15C \uBA54\uB274\uCC3D or \uCC3D \uB2EB\uAE30 : ESC\n"
 --- !u!1 &4396540567843328097
 GameObject:
   m_ObjectHideFlags: 0
