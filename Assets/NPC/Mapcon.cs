@@ -8,6 +8,7 @@ public class Mapcon : MonoBehaviour
     void Start()
     {
         NpcManager.inst.NpcCheck();
+        NpcManager.inst.MapCheck();
         NpcManager.inst.PotalCheck();
     }
 }

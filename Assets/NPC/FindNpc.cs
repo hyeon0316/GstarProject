@@ -8,30 +8,49 @@ public class FindNpc : MonoBehaviour
     public static FindNpc inst = null;
     public GameObject _target;
     public Sprite[] _sprite;
+    public bool npcorMap;
     // Start is called before the first frame update
     void Awake()
     {
         if (inst == null)
             inst = this;
+        npcorMap = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("PowerIconRandomv2"))
+        if (npcorMap)
         {
-            this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _sprite[0];
-            _target = GameObject.Find("PowerIconRandomv2");
-            Vector3 targetPosition;
-            targetPosition = new Vector3(_target.transform.position.x, transform.position.y, _target.transform.position.z);
-            
-            transform.LookAt(targetPosition);
+            if (GameObject.Find("PowerIconRandomv2"))
+            {
+                this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _sprite[0];
+                GameObject _target1 = GameObject.Find("PowerIconRandomv2");
+                Vector3 targetPosition;
+                targetPosition = new Vector3(_target1.transform.position.x, transform.position.y, _target1.transform.position.z);
+                transform.LookAt(targetPosition);
+            }
+            else
+            {
+                this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _sprite[1];
+            }
         }
         else
         {
-            this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _sprite[1];
+            if (_target != null)
+            {
+                this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _sprite[0];
+                Vector3 targetPosition;
+                targetPosition = new Vector3(_target.transform.position.x, transform.position.y, _target.transform.position.z);
+                transform.LookAt(targetPosition);
+            }
+            else
+            {
+                this.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _sprite[1];
+            }
         }
         /*
+         * 
         if(_target == 광산2)
                  temp = 광산1
              if(scene == 타운)

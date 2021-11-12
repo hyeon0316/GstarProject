@@ -30,11 +30,13 @@ public class ObjectPoolManager : MonoBehaviour
         enemyObjectPool = new Dictionary<string, Queue<GameObject>>();
 
         // Inspector창에서 받아온 정보를 풀에 대입시켜주는 작업
+        
         foreach (ObjectPool pool in ObjectPoolList)
         {
             //  각 개체 풀에 대해 빈 부모 개체를 만듭니다. DontDestroyOnLad에 생성             
             GameObject poolParentObj = new GameObject();
             poolParentObj.name = pool.Name + "Pool";
+
             DontDestroyOnLoad(poolParentObj);
             // 개체 풀을 만들고 여기에 개체 저장
             Queue<GameObject> poolQueue = new Queue<GameObject>();

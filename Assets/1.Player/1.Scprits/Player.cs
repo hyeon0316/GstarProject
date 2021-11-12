@@ -270,7 +270,9 @@ public class Player : LivingEntity
                         {
                             obj.UpdateItemCount();
                             questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
+                            Debug.Log(questText);
                         }
+                        questProText.text = questText;
                         if (questIng.IsCompleteObjectives)
                         {
                             if (QuestManager.inst.questActionIndex != questIng.qusetComplte)
@@ -365,6 +367,8 @@ public class Player : LivingEntity
                 {
                     if(QuestManager.inst.questActionIndex != questIng.qusetComplte)
                         SoundManager.inst.SFXPlay("QuestFi", SoundManager.inst.etcList[0]);
+                    FindNpc.inst.npcorMap = true;
+                    NpcManager.inst.Setmap();
                     QuestManager.inst.questActionIndex = questIng.qusetComplte;
                 }
             }

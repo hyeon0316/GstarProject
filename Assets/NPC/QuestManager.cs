@@ -96,11 +96,15 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+                    NpcManager.inst.minor = true;
+                    FindNpc.inst.npcorMap = false;
+                    NpcManager.inst.MapCheck();
+                    NpcManager.inst.NpcCheck();
                     /*
                         NpcManager.inst.wizardNpc = false;
                         NpcManager.inst.NpcCheck();
                     */
-                   // findnpc.tartget= 광산1>광산2포탈>
+                    // findnpc.tartget= 광산1>광산2포탈>
                 }
                 if (questActionIndex == 3)
                 {
@@ -115,7 +119,6 @@ public class QuestManager : MonoBehaviour
                     foreach (var qu in Player.inst.questIng.rewards)
                     {
                         qu.Reward();
-
                     }
                     Player.inst.questProText.text = "";
                     Player.inst.isSkillQ = true;
@@ -133,6 +136,9 @@ public class QuestManager : MonoBehaviour
                     Player.inst.questIng = quest[2];
                     InitPanl();
                     Player.inst.questIng.state = QuestState.Progressing;
+                    NpcManager.inst.minor1 = true;
+                    FindNpc.inst.npcorMap = false;
+                    NpcManager.inst.MapCheck();
                 }
                 if (questActionIndex == 3)
                 {
@@ -168,6 +174,9 @@ public class QuestManager : MonoBehaviour
                     NpcManager.inst.knightNpc = false;
                     NpcManager.inst.ghostNpc = true;
                     NpcManager.inst.townRoom = true;
+                    NpcManager.inst.room = true;
+                    FindNpc.inst.npcorMap = false;
+                    NpcManager.inst.MapCheck();
                     NpcManager.inst.NpcCheck();
                     NpcManager.inst.PotalCheck();
                 }
@@ -177,6 +186,10 @@ public class QuestManager : MonoBehaviour
                 {
                     Player.inst.questIng = quest[4];
                     InitPanl();
+                    NpcManager.inst.dungeon = true;
+                    FindNpc.inst.npcorMap = false;
+                    NpcManager.inst.MapCheck();
+
                 }
                 if (questActionIndex == 2)
                 {
@@ -195,6 +208,9 @@ public class QuestManager : MonoBehaviour
                 {
                     Player.inst.questIng = quest[5];
                     InitPanl();
+                    NpcManager.inst.dungeon = true;
+                    FindNpc.inst.npcorMap = false;
+                    NpcManager.inst.MapCheck();
                 }
                 if (questActionIndex == 2)
                 {
@@ -214,6 +230,9 @@ public class QuestManager : MonoBehaviour
                 {
                     Player.inst.questIng = quest[6];
                     InitPanl();
+                    NpcManager.inst.tea = true;
+                    FindNpc.inst.npcorMap = false;
+                    NpcManager.inst.MapCheck();
                 }
                 if (questActionIndex == 2)
                 {
@@ -228,6 +247,9 @@ public class QuestManager : MonoBehaviour
                     NpcManager.inst.roomBoss = true;
                     Player.inst.questIng = quest[8];
                     NpcManager.inst.PotalCheck();
+                    NpcManager.inst.boss = true;
+                    FindNpc.inst.npcorMap = false;
+                    NpcManager.inst.MapCheck();
                     InitPanl();
                 }
                 break;

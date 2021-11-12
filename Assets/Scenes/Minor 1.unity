@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 381494381}
   - component: {fileID: 381494380}
   m_Layer: 0
-  m_Name: Minor
+  m_Name: Minor1Minor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

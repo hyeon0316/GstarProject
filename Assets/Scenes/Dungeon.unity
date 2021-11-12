@@ -396,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 143710179}
   m_Layer: 0
-  m_Name: dunTea
+  m_Name: DungeonTea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2139,7 +2139,7 @@ GameObject:
   - component: {fileID: 1034644058}
   - component: {fileID: 1034644062}
   m_Layer: 0
-  m_Name: Room
+  m_Name: DungeonRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -65,15 +65,12 @@ public class NpcMove : MonoBehaviour
 		float a = Random.Range(10, 7);
 		yield return new WaitForSeconds(a);
 		state = 1;
-		Debug.Log(state);
 		if (state == 1)
 		{
 			targetPos.x = Random.Range(maxPos.x, minPos.x);
 			targetPos.z = Random.Range(maxPos.z, minPos.z);
 			targetPos.y = this.transform.position.y;
 		}
-		//Debug.Log("thisPos :" + this.transform.position);
-		//Debug.Log("TargetPos :" + targetPos);
 		StartCoroutine(SetState());
 	}
 
