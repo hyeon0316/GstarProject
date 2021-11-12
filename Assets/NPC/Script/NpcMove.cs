@@ -54,6 +54,10 @@ public class NpcMove : MonoBehaviour
 				state = 0;
 			}
 		}
+		else
+        {
+			animator.SetBool("isMove", false);
+		}
 	}
     private void OnTriggerEnter(Collider other)
     {
