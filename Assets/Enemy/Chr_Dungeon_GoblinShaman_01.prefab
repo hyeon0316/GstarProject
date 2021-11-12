@@ -2906,7 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f9bdd77f47a7043bf3193113200d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 350
+  startingHealth: 700
   startingMana: 0
   beAttackSound: {fileID: 8300000, guid: 15819e2c4f603f24f9f14062c435a8cb, type: 3}
   nameOffset: {x: -0.3, y: 3.3, z: 0}
