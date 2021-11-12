@@ -119,7 +119,7 @@ public class Boss : LivingEntity
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
         }
 
-        if (health <= 8000) //2페이즈 돌입(체력 조정)
+        if (health <= 15000) //2페이즈 돌입(체력 조정)
         {
             NextPageOn = true;
             if (_StunOn)
@@ -372,7 +372,8 @@ public class Boss : LivingEntity
         canMove = false;
         canAttack = false;
         NextPageOn = false;
-
+        NpcManager.inst.roomBoss = false;
+        NpcManager.inst.PotalCheck();
         //사망 애니메이션 재생
         bossAnimator.SetTrigger("doDie");
 

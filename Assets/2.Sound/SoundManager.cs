@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] etcList;
     public AudioClip[] bossList;
     public AudioSource bgSound;
+    public int a=0;
     private void Awake()
     {
         if (inst == null)
@@ -47,16 +48,29 @@ public class SoundManager : MonoBehaviour
         bgSound.volume = 2f;
         bgSound.Play();
     }
-    public void SFXPlay(string sfxName,AudioClip clip)
+    public void SFXPlay(string sfxName,AudioClip clip,float vol=1f)
     {
-
+        if(sfxName == "EnemyBeAttack")
+        {
+            a++;
+            if(a>1)
+            {
+                return;
+            }
+        }
+        Debug.Log(a);
         //Debug.Log(clip.name);
         GameObject go = new GameObject(sfxName + "Sound");
         AudioSource audioSource = go.AddComponent<AudioSource>();
         audioSource.clip = clip;
-        audioSource.volume = 1f;
+        audioSource.volume = vol;
         audioSource.Play();
-        Destroy(go, clip.length);
+       
+        Destroy(go, clip.length+1f);
+        if (sfxName == "EnemyBeAttack")
+        {
+            a--;
+        }
     }
     // Update is called once per frame
     void Update()

@@ -6,10 +6,10 @@ public class SkillE : AttackState
 {
 
     float dmg;
-    float startingDmg = 40f;
+    float startingDmg = 20f;
     void Awake()
     {
-        dmg = Player.inst.power + startingDmg;
+        dmg = (Player.inst.power/2) + startingDmg;
         SetDmg(dmg);
     }
 

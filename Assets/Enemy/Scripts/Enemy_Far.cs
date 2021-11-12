@@ -286,7 +286,14 @@ public class Enemy_Far : LivingEntity
         /*//사망 효과음 재생
         enemyAudioPlayer.PlayOnShot(deathSound);
         */
-
+        GameObject[] newItem;
+        newItem = new GameObject[_item.Length];
+        for (int i = 0; i < _item.Length; i++)
+        {
+            float k = Random.Range(0, 100);
+            if (_dropP[i] > k)
+                newItem[i] = Instantiate(_item[i], transform.position + transform.up , Quaternion.identity);
+        }
         //LivingEntity의 DIe()를 실행하여 기본 사망 처리 실행
         base.Die();
 
@@ -310,14 +317,7 @@ public class Enemy_Far : LivingEntity
 
     private void DestroyEnemy()
     {
-        GameObject[] newItem;
-        newItem = new GameObject[_item.Length];
-        for (int i = 0; i < _item.Length; i++)
-        {
-            float k = Random.Range(0, 100);
-            if (_dropP[i] > k)
-                newItem[i] = Instantiate(_item[i], transform.position + transform.up * 2, Quaternion.identity);
-        }
+        
         GameObject.Destroy(gameObject);
     }
 }

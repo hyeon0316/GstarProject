@@ -239,7 +239,7 @@ public class Enemy : LivingEntity
         StartCoroutine(HitStop());
         if (!dead)
         {
-            SoundManager.inst.SFXPlay("EnemyBeAttack", beAttackSound);
+            SoundManager.inst.SFXPlay("EnemyBeAttack", beAttackSound, 0.3f);
         }
         
         GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
@@ -297,8 +297,16 @@ public class Enemy : LivingEntity
         /*//사망 효과음 재생
         enemyAudioPlayer.PlayOnShot(deathSound);
         */
+        GameObject[] newItem;
+        newItem = new GameObject[_item.Length];
 
         //LivingEntity의 Die()를 실행하여 기본 사망 처리 실행
+        for (int i = 0; i < _item.Length; i++)
+        {
+            float k = Random.Range(0, 100);
+            if (_dropP[i] > k)
+                newItem[i] = Instantiate(_item[i], transform.position + transform.up , Quaternion.identity);
+        }
         base.Die();
 
         Invoke("DestroyEnemy", 2f);
@@ -324,14 +332,7 @@ public class Enemy : LivingEntity
 
     private void DestroyEnemy()
     {
-        GameObject[] newItem;
-        newItem = new GameObject[_item.Length];
-        for (int i=0;i<_item.Length;i++)
-        {
-            float k = Random.Range(0, 100);
-            if(_dropP[i]>k)
-                newItem[i] = Instantiate(_item[i], transform.position+transform.up*2, Quaternion.identity);
-        }
+        
         GameObject.Destroy(gameObject);
     }
 }

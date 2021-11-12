@@ -293,10 +293,6 @@ public class QuestManager : MonoBehaviour
                     Destroy(player);
                     Destroy(uiCanvas);
                     Destroy(soundMG);
-
-
-
-
                 }
                 break;
         }

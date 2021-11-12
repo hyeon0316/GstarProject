@@ -422,7 +422,7 @@ public class Player : LivingEntity
     }
     void Attack()
     {
-        if ((Input.GetKey(KeyCode.A) || Input.GetMouseButton(0)) && Time.time >= SpawnProjectilesScript.inst.timeToFire)
+        if ((Input.GetKey(KeyCode.A) || Input.GetMouseButtonDown(0)) && Time.time >= SpawnProjectilesScript.inst.timeToFire)
         {
             Debug.Log("userSlot" + Input.mousePosition); //좌표값 체크
             if (Inventory.inventoryActivated && RectCheck(Input.mousePosition, 1230, 821, 1645, 251))
