@@ -808,8 +808,8 @@ public class Player : LivingEntity
         animator.SetBool("isMove", false);
         this.transform.position = new Vector3(-1.7f, 1f, 26);
         LoadingSceneManager.LoadScene("Town");
-        health = 50; //수정해야함
-       
+        health = startingHealth/3; //수정해야함
+        mana = startingMana;
     }
     public override void OnDamage(float damage)
     {
