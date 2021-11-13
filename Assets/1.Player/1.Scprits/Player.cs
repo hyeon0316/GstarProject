@@ -111,6 +111,7 @@ public class Player : LivingEntity
     public bool chest600;
     public bool chest700;
 
+    public GameObject bloodScreen;
     public GameObject h;
     public GameObject healing;
 
@@ -370,7 +371,10 @@ public class Player : LivingEntity
         playerMpBarSlider.value = mana;
         playerHpText.text = string.Format("{0}/{1}", health, startingHealth);
         playerMpText.text = string.Format("{0}/{1}", mana, startingMana);
-
+        if(health<startingHealth/2)
+            bloodScreen.SetActive(true);
+        else
+            bloodScreen.SetActive(false);
         if (health < 0)
             health = 0;
         else if (mana < 0)      
@@ -819,9 +823,12 @@ public class Player : LivingEntity
             damage -= dP;
             if(dP >damage)
             {
-
+                damage = 10;
             }
+            if (health < startingHealth / 2)
+                bloodScreen.SetActive(true);
             base.OnDamage(damage);
+            
         }
     }
 
@@ -853,6 +860,9 @@ public class Player : LivingEntity
         Healing();
         if (health > startingHealth)
             health = startingHealth;
+
+        if (health > startingHealth / 2)
+            bloodScreen.SetActive(false);
     }
 
     public void HealMp(Item _item)//마나포션 사용
