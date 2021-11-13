@@ -109,6 +109,8 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+                    Inventory.inventoryActivated = true;
+                    Information.informationActivated = true;
                     NpcManager.inst.minor = true;
                     FindNpc.inst.npcorMap = false;
                     NpcManager.inst.MapCheck();
@@ -133,6 +135,7 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+
                     Player.inst.questProText.text = "";
                     Player.inst.isSkillQ = true;
                     Player.inst.isSkillW = true;
@@ -184,6 +187,8 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+                    Inventory.inventoryActivated = true;
+                    Information.informationActivated = true;
                     NpcManager.inst.knightNpc = false;
                     NpcManager.inst.ghostNpc = true;
                     NpcManager.inst.townRoom = true;

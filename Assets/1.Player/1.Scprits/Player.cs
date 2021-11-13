@@ -213,7 +213,6 @@ public class Player : LivingEntity
             {
                 if (hit.collider.tag == "NPC")
                 {
-                    
                     mousePoint.SetActive(false);
                     if (hit.collider.gameObject.GetComponent<ObjData>().isNpc ==
                         true && Vector3.Distance(transform.position,
@@ -239,7 +238,23 @@ public class Player : LivingEntity
                         isMove = false;
                         animator.SetBool("isMove", false);
                         npcCam.SetActive(true);
-                        
+                        if (questIng != null)
+                        {
+                            questProText.text = "";
+                            string questText;
+                            questText = "";
+                            foreach (var obj in questIng.collectObjectives)
+                            {
+                                obj.UpdateItemCount();
+                                questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
+                            }
+                            questProText.text = questText;
+                            if (questIng.IsCompleteObjectives&& QuestManager.inst.questActionIndex < questIng.qusetComplte)
+                            {
+                                if (QuestManager.inst.questActionIndex != questIng.qusetComplte)
+                                QuestManager.inst.questActionIndex = questIng.qusetComplte;
+                            }
+                        }
                         gameManager.Action(hit.collider.gameObject);
                     }
                     else if (Vector3.Distance(transform.position,
@@ -251,6 +266,7 @@ public class Player : LivingEntity
                         gameManager.Action(hit.collider.gameObject);
                     }
                 }
+
                 else if(hit.collider.tag == "Chest" && Vector3.Distance(transform.position,
                         hit.collider.transform.position) < 7f)
                 {
