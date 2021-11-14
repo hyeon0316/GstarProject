@@ -50,6 +50,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         color.a = _alpha;
         itemImage.color = color;
     }
+
     public void AddItem(Item _item, int _count = 1)//아이템 획득
     {
         item = _item;
