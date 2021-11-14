@@ -22976,4 +22976,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillSound: {fileID: 8300000, guid: b0c428b0b3ab99b4098dcc582d2ad179, type: 3}
   dmg1: 0
-  startingDmg: 500
+  startingDmg: 1000
