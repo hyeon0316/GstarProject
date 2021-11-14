@@ -8,7 +8,7 @@ public class SkillR : AttackState
     float startingDmg = 200f;
     void Awake()
     {
-        dmg = (Player.inst.power*2) + startingDmg;
+        dmg = (Player.inst.power*5) + startingDmg;
         SetDmg(dmg);
     }
 

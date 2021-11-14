@@ -558,7 +558,7 @@ public class Player : LivingEntity
         QQ.transform.forward = skillQFP.transform.forward;
         yield return new WaitForSeconds(2.5f);
         Destroy(QQ.gameObject);
-        yield return new WaitForSeconds(dealy - 4.5f);
+        yield return new WaitForSeconds(dealy - 3.3f);
 
         isSkillQ = true;
         coolTimeQ.GetComponent<CoolTime>().End_CoolTime();
@@ -603,7 +603,7 @@ public class Player : LivingEntity
         yield return new WaitForSeconds(3f);
         skill_W.SetActive(false);
         isGotM = false;
-        yield return new WaitForSeconds(dealy);
+        yield return new WaitForSeconds(dealy-3f);
 
         isSkillW = true;
         coolTimeW.GetComponent<CoolTime>().End_CoolTime();
@@ -661,7 +661,7 @@ public class Player : LivingEntity
 
         yield return new WaitForSeconds(3f);
         Destroy(QQ.gameObject);
-        yield return new WaitForSeconds(dealy - 9f);
+        yield return new WaitForSeconds(dealy - 6f);
 
         isSkillE = true;
         coolTimeE.GetComponent<CoolTime>().End_CoolTime();
@@ -715,7 +715,7 @@ public class Player : LivingEntity
         SoundManager.inst.SFXPlay("R", SoundManager.inst.skList[3]);
         yield return new WaitForSeconds(5f);
         Destroy(QQ.gameObject);
-        yield return new WaitForSeconds(dealy - 2.5f);
+        yield return new WaitForSeconds(dealy - 5f);
 
         isSkillR = true;
         coolTimeR.GetComponent<CoolTime>().End_CoolTime();
