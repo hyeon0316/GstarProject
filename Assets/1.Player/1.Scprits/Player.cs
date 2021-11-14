@@ -720,11 +720,13 @@ public class Player : LivingEntity
         isSkillR = true;
         coolTimeR.GetComponent<CoolTime>().End_CoolTime();
     }
+    /*
     void Tp()
     {
         if (Input.GetKey(KeyCode.F) && isSkillTP)
         {
             RaycastHit hit;
+            
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
             {
                 tempSkill1 = ObjectPoolManager.inst.GetObjectFromPool("TP", transform.position, Quaternion.Euler(-90, 0, 0));
@@ -748,6 +750,7 @@ public class Player : LivingEntity
                 StartCoroutine(SkillTPCount());
                 coolTimeF.GetComponent<CoolTime>().Reset_CoolTime(1.5f);
             }
+
         }
     }
     IEnumerator SkillTPCount()
@@ -761,7 +764,51 @@ public class Player : LivingEntity
         ObjectPoolManager.inst.ReturnObjectToPool("TP", tempSkill1);
         ObjectPoolManager.inst.ReturnObjectToPool("TP", tempSkill2);
     }
+            */
 
+    void Tp()
+    {
+        if (Input.GetKey(KeyCode.F) && isSkillTP)
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit))
+            {
+                tempSkill1 = Instantiate(skill_TP, transform.position, Quaternion.Euler(-90, 0, 0));
+                var dir = hit.point - animator.transform.position;
+                dir.y = 0;
+                animator.transform.forward = dir;
+                layerMask = 1 << 10;
+                Vector3 anipo = animator.transform.position;
+                anipo.y += 1f;
+                if (Physics.Raycast(anipo, animator.transform.forward, out hit1, tpDis, layerMask))
+                {
+                    transform.position += dir.normalized * hit1.distance;
+                }
+                else
+                {
+                    transform.position += dir.normalized * tpDis;
+                }
+                tempSkill2 = Instantiate(skill_TP, transform.position, Quaternion.Euler(-90, 0, 0));
+                isMove = false;
+                animator.SetBool("isMove", false);
+                StartCoroutine(SkillTPCount());
+                coolTimeF.GetComponent<CoolTime>().Reset_CoolTime(1.5f);
+            }
+
+        }
+    }
+    IEnumerator SkillTPCount()
+    {
+
+        SoundManager.inst.SFXPlay("TP", SoundManager.inst.skList[4]);
+        isSkillTP = false;
+        yield return new WaitForSeconds(1.5f);
+        isSkillTP = true;
+        coolTimeF.GetComponent<CoolTime>().End_CoolTime();
+        Destroy(tempSkill1);
+        Destroy(tempSkill2);
+    }
     private void Move()
     {
         attack = animator.GetBool("attack");

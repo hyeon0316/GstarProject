@@ -37,7 +37,7 @@ public class ObjectPoolManager : MonoBehaviour
             GameObject poolParentObj = new GameObject();
             poolParentObj.name = pool.Name + "Pool";
 
-            DontDestroyOnLoad(poolParentObj);
+            //DontDestroyOnLoad(poolParentObj);
             // 개체 풀을 만들고 여기에 개체 저장
             Queue<GameObject> poolQueue = new Queue<GameObject>();
             for (int i = 0; i < pool.Size; i++)
