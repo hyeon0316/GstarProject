@@ -201,7 +201,9 @@ public class Player : LivingEntity
             isSkill = true;
             rigidbody.useGravity = false;
             animator.SetBool("isMove", false);
+            rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
             transform.position = new Vector3(-1.7f, 2f, 26);
+            rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
             LoadingSceneManager.LoadScene("Town");
         }
     }
