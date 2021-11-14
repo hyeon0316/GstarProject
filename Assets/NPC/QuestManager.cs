@@ -172,6 +172,9 @@ public class QuestManager : MonoBehaviour
                     Player.inst.coolTimeE.transform.GetChild(0).gameObject.SetActive(false);
                     Player.inst.coolTimeR.transform.GetChild(0).gameObject.SetActive(false);
                     Player.inst.questIng = null;
+
+                    FindNpc.inst.npcorMap = true;
+                    NpcManager.inst.NpcCheck();
                 }
                 break;
             case 30:
@@ -219,6 +222,9 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+                    Player.inst.questProText.text = "";
+                    Player.inst.questconText.text = "1";
+                    Player.inst.questIng = null;
                 }
                 break;
             case 50:
@@ -240,6 +246,9 @@ public class QuestManager : MonoBehaviour
                     {
                         qu.Reward();
                     }
+                    Player.inst.questProText.text = "";
+                    Player.inst.questconText.text = "1";
+                    Player.inst.questIng = null;
                     NpcManager.inst.dunTea = true;
                 }
                 break;
@@ -264,11 +273,11 @@ public class QuestManager : MonoBehaviour
                     }
                     NpcManager.inst.roomBoss = true;
                     Player.inst.questIng = quest[8];
+                    InitPanl();
                     NpcManager.inst.PotalCheck();
                     NpcManager.inst.boss = true;
                     FindNpc.inst.npcorMap = false;
                     NpcManager.inst.MapCheck();
-                    InitPanl();
                 }
                 break;
             case 70:

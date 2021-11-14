@@ -250,10 +250,11 @@ public class Player : LivingEntity
                                 questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
                             }
                             questProText.text = questText;
-                            if (questIng.IsCompleteObjectives&& QuestManager.inst.questActionIndex < questIng.qusetComplte)
+
+                            if (questIng.IsCompleteObjectives && QuestManager.inst.questActionIndex < questIng.qusetComplte)
                             {
                                 if (QuestManager.inst.questActionIndex != questIng.qusetComplte)
-                                QuestManager.inst.questActionIndex = questIng.qusetComplte;
+                                    QuestManager.inst.questActionIndex = questIng.qusetComplte;
                             }
                         }
                         gameManager.Action(hit.collider.gameObject);

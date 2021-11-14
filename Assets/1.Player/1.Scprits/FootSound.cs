@@ -37,7 +37,6 @@ public class FootSound : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
         if (Player.inst.isMove)
         {
-            audioSource.loop = true;
             if(!audioSource.isPlaying)
                 audioSource.Play();
         }

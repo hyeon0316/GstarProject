@@ -131,6 +131,13 @@ public class NpcManager : MonoBehaviour
                 _target = GameObject.Find("DungeonTea");
             }
         }
+        if (room)
+        {
+            if (sceneName == "Town")
+            {
+                _target = GameObject.Find("TownRoom");
+            }
+        }
 
         FindNpc.inst._target = _target;
     }
