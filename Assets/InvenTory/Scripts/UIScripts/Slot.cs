@@ -44,6 +44,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         invenBaseRect = transform.parent.parent.GetComponent<RectTransform>().rect;
     }
 
+    private void Update()
+    {
+        RectTransform rect = (RectTransform)go_CountImage.transform;
+        if(itemCount>=1 && itemCount<9)
+            rect.sizeDelta = new Vector2(13, 13);
+        else if(itemCount >= 10 && itemCount < 99)
+            rect.sizeDelta = new Vector2(17, 13);
+        else if(itemCount >=100 && itemCount<999)
+            rect.sizeDelta = new Vector2(21, 13);
+    }
     private void SetColor(float _alpha) //이미지 투명도 조절
     {
         Color color = itemImage.color;
