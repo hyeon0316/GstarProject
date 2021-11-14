@@ -655,7 +655,7 @@ public class Player : LivingEntity
         isSkill = true;
         yield return new WaitForSeconds(2f);
         
-        QQ = Instantiate(skill_E, hit.point, Quaternion.identity);
+        QQ = Instantiate(skill_E, new Vector3(hit.point.x,this.transform.position.y+1,hit.point.z), Quaternion.identity);
         yield return new WaitForSeconds(1f);
         isSkill = false;
 
@@ -813,7 +813,7 @@ public class Player : LivingEntity
         animator.SetBool("isMove", false);
         this.transform.position = new Vector3(-1.7f, 1f, 26);
         LoadingSceneManager.LoadScene("Town");
-        health = startingHealth/3; //수정해야함
+        health = startingHealth; //수정해야함
         mana = startingMana;
     }
     public override void OnDamage(float damage)
