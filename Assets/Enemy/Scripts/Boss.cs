@@ -9,7 +9,10 @@ public class Boss : LivingEntity
 {
     
     public static Boss inst = null;
-   
+
+    public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
+    public GameObject damageText;
+
     private Text bossHpText;
     public GameObject bossHpBarPrefab;
     public Canvas enemyHpBarCanvas;
@@ -345,7 +348,14 @@ public class Boss : LivingEntity
 
     //데미지를 입었을 때 실행할 처리(재정의)
     public override void OnDamage(float damage)
-    { 
+    {
+        GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
+        var _hubText = hubText.GetComponent<DamageText>();
+
+        _hubText.enemyTr = this.gameObject.transform;
+        _hubText.offset = DamageOffset;
+        _hubText.damage = damage;
+
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage); //base, 부모클래스에 접근하는 기능   
 

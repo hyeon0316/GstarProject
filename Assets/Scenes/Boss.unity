@@ -815,9 +815,20 @@ PrefabInstance:
       objectReference: {fileID: 1955456853}
     - target: {fileID: 9102727707068821078, guid: 01287946b7cb3db43b337ceed952bd4a,
         type: 3}
+      propertyPath: damageText
+      value: 
+      objectReference: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
+        type: 3}
+    - target: {fileID: 9102727707068821078, guid: 01287946b7cb3db43b337ceed952bd4a,
+        type: 3}
       propertyPath: skill_Trap
       value: 
       objectReference: {fileID: 2126512952}
+    - target: {fileID: 9102727707068821078, guid: 01287946b7cb3db43b337ceed952bd4a,
+        type: 3}
+      propertyPath: DamageOffset.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9102727707068821078, guid: 01287946b7cb3db43b337ceed952bd4a,
         type: 3}
       propertyPath: startingHealth
