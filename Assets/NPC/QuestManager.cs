@@ -36,7 +36,10 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(60, new QuestData("보스방 열쇠얻기", new int[] { 4000, 4000, 4000, 4000 }));
 
-        questList.Add(70, new QuestData("리치를 잡고 집에!", new int[] { 4000, 4000, 7000, 7000 }));
+        questList.Add(70, new QuestData("리치를 잡고 대화하기", new int[] { 4000, 4000}));
+
+        questList.Add(80, new QuestData("촌장이랑 대화하기", new int[] {7000, 7000 }));
+
     }
 
     public int GetQuestTalkIndex(int id)
@@ -293,9 +296,13 @@ public class QuestManager : MonoBehaviour
                 {
                     NpcManager.inst.ghostNpc = false;
                     NpcManager.inst.wizardNpc = true;
+                    Player.inst.questIng = quest[9];
+                    InitPanl();
                     NpcManager.inst.NpcCheck();
                 }
-                if (questActionIndex == 4)
+                break;
+            case 80:
+                if (questActionIndex == 2)
                 {
                     LoadingSceneManager.LoadScene("Outro");
                     GameObject player;

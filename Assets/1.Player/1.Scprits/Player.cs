@@ -194,7 +194,7 @@ public class Player : LivingEntity
     }
     void Help()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKey(KeyCode.H)&& Input.GetKey(KeyCode.LeftControl))
         {
             TrapTarget.SetActive(false);
             isMove = false;
@@ -810,8 +810,9 @@ public class Player : LivingEntity
         TrapTarget.SetActive(false);
         rigidbody.useGravity = false;
         isSkill = true;
+        isMove = false;
         animator.SetBool("isMove", false);
-        this.transform.position = new Vector3(-1.7f, 1f, 26);
+        this.transform.position = new Vector3(-1.7f, 2f, 26);
         LoadingSceneManager.LoadScene("Town");
         health = startingHealth; //수정해야함
         mana = startingMana;

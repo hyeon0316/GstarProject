@@ -81,8 +81,10 @@ public class TalkManager : MonoBehaviour
 
         talkData.Add(4000 + 70 + 0, new string[] { "물약이 부족하면 나한테 말해줘!." });
         talkData.Add(4000 + 70 + 1, new string[] { "리치를 쓰러뜨렸다고?... 맙소사..","고생했어 \"강력한 마력이 깃든 물약\"을 마을 촌장한테 전해 주면 촌장이 마력을 전부 회복할꺼야." });
-        talkData.Add(7000 + 70 + 2, new string[] { "고생했네 소피아양","재료를 다 모았네, 잠시만 기다려주게.." });
-        talkData.Add(7000 + 70 + 3, new string[] { "수고했네 소피아양","곧 텔레포트를 가동 시킬테니 준비하게." });
+
+
+        talkData.Add(7000 + 80 + 0, new string[] { "고생했네 소피아양","재료를 다 모았네, 잠시만 기다려주게.." });
+        talkData.Add(7000 + 80 + 1, new string[] { "수고했네 소피아양","곧 텔레포트를 가동 시킬테니 준비하게." });
 
     }
 
