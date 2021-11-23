@@ -46,7 +46,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 
     private void Update()
     {
-        RectTransform rect = (RectTransform)go_CountImage.transform;
+        RectTransform rect = (RectTransform)go_CountImage.transform;//아이템 갯수당 이미지 표시
         if(itemCount>=1 && itemCount<9)
             rect.sizeDelta = new Vector2(13, 13);
         else if(itemCount >= 10 && itemCount < 99)
@@ -54,6 +54,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         else if(itemCount >=100 && itemCount<999)
             rect.sizeDelta = new Vector2(21, 13);
     }
+
     private void SetColor(float _alpha) //이미지 투명도 조절
     {
         Color color = itemImage.color;

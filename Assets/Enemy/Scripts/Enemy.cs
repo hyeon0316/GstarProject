@@ -19,6 +19,7 @@ public class Enemy : LivingEntity
 
     public GameObject[] _item;
     public float[] _dropP;
+
     //HpBarUi 추가 변수
     public GameObject hpBarPrefab;
     public Vector3 hpBarOffset = new Vector3(0f, 2.4f, 0);
@@ -33,14 +34,8 @@ public class Enemy : LivingEntity
     private NavMeshAgent pathFinder; //경로 계산 AI 에이전트
 
     private bool isFreeze = false; //피격당했을때 잠깐 멈추기
-
-    /*public ParticleSystem hitEffect; //피격 이펙트
-    public AudioClip deathSound;//사망 사운드
-    public AudioClip hitSound; //피격 사운드
-    */
-
     private Animator enemyAnimator;
-    //private AudioSource enemyAudioPlayer; //오디오 소스 컴포넌트
+    
 
     public float damage = 20f; //공격력
     public float attackDelay = 1f; //공격 딜레이
@@ -295,9 +290,7 @@ public class Enemy : LivingEntity
         enemyAnimator.ResetTrigger("Hit");
         enemyAnimator.SetTrigger("doDie");
 
-        /*//사망 효과음 재생
-        enemyAudioPlayer.PlayOnShot(deathSound);
-        */
+       
         GameObject[] newItem;
         newItem = new GameObject[_item.Length];
 
@@ -317,7 +310,6 @@ public class Enemy : LivingEntity
     //enemyHpBarSlider 활성화
     protected override void OnEnable()
     {
-
         //LivingEntity의 OnEnable() 실행(상태초기화)
 
         base.OnEnable();
@@ -333,7 +325,6 @@ public class Enemy : LivingEntity
 
     private void DestroyEnemy()
     {
-        
         GameObject.Destroy(gameObject);
     }
 }

@@ -32,10 +32,7 @@ public class Enemy_Far : LivingEntity
     private NavMeshAgent pathFinder; //경로 계산 AI 에이전트
     private float dist; //적과 추적대상과의 거리
 
-    /*public ParticleSystem hitEffect; //피격 이펙트
-    public AudioClip deathSound;//사망 사운드
-    public AudioClip hitSound; //피격 사운드
-    */
+    
 
     //스태프
     public GameObject firePoint; //매직미사일이 발사될 위치
@@ -44,7 +41,7 @@ public class Enemy_Far : LivingEntity
 
 
     private Animator enemyAnimator;
-    //private AudioSource enemyAudioPlayer; //오디오 소스 컴포넌트
+    
 
     public float damage = 30f; //공격력
     public float attackSpeed = 10f; //공격력
@@ -283,9 +280,7 @@ public class Enemy_Far : LivingEntity
         //사망 애니메이션 재생
         enemyAnimator.ResetTrigger("Hit");
         enemyAnimator.SetTrigger("doDie");
-        /*//사망 효과음 재생
-        enemyAudioPlayer.PlayOnShot(deathSound);
-        */
+       
         GameObject[] newItem;
         newItem = new GameObject[_item.Length];
         for (int i = 0; i < _item.Length; i++)
@@ -317,7 +312,6 @@ public class Enemy_Far : LivingEntity
 
     private void DestroyEnemy()
     {
-        
         GameObject.Destroy(gameObject);
     }
 }
