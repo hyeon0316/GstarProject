@@ -6,10 +6,7 @@ using UnityEngine.UI;
 
 
 public class Boss : LivingEntity
-{
-    
-    public static Boss inst = null;
-
+{ 
     public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
     public GameObject damageText;
 
@@ -79,18 +76,12 @@ public class Boss : LivingEntity
 
     private void Awake()
     {
-        if (inst == null) // 싱글톤
-        {
-            inst = this;
-        }
-
         //게임 오브젝트에서 사용할 컴포넌트 가져오기
         pathFinder = GetComponent<NavMeshAgent>();
         bossAnimator = GetComponent<Animator>();
-
     }
 
-    void Start()
+    private void Start()
     {
         SetHpBar();
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작

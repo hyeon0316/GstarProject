@@ -23,7 +23,7 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField]
     private ToolTipDataBase theToolTipDatabase;
 
-    public void UseItem()
+    public void UseItem() //소모품 사용
     {
         if (item.itemType == Item.ItemType.Used)
         {

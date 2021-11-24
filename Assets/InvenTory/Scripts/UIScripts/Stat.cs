@@ -9,11 +9,6 @@ public class Stat : MonoBehaviour
     public Text mp;
     public Text power;
     public Text dp;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

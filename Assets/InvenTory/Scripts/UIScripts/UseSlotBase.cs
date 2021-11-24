@@ -24,7 +24,7 @@ public class UseSlotBase : MonoBehaviour
         }
     }
 
-    private void CommendNumber()
+    private void CommendNumber()//넘버(1,2,3,4) 키 입력 부여
     {
         for (int i = 0; i < uSlots.Length; i++)
         {

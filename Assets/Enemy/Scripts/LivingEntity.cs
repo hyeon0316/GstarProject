@@ -42,12 +42,7 @@ public class LivingEntity : MonoBehaviour
 
     //사망 처리
     public virtual void Die()
-    {
-        ////onDeath 이벤트에 등록된 메서드가 있다면 실행
-        //if (onDeath != null)
-        //{
-        //    onDeath();
-        //}
+    {       
         dead = true;     
     }   
 }
