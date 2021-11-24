@@ -105,56 +105,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         go_CountImage.SetActive(false);
     }
 
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right) //우클릭하여 아이템 사용
         {
-            if (item != null)
-            {
-                if (item.itemType == Item.ItemType.Equipment)
-                {
-                    pMemory = true;
-                    for (int i = 0; i < transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
-                    {
-                        if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)
-                        {
-                            if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item.Equals(item))
-                            {
-                                pNumber = i;
-                                break;
-                            }
-                        }
-                    }
-                    //장착
-                    information.EquipItem(item);
-                    if (Information.slotClear)//장비를 장착할때 해당 장비창이 비어있을 때(교체할 필요가 없을 때)
-                    {
-                        ClearSlot();
-                        Information.slotClear = false;
-                    }
-                }
-                else
-                {
-                    if (item.itemType == Item.ItemType.Used)
-                    {
-                        if (item.itemName == "체력포션(대)" || item.itemName == "체력포션(중)" || item.itemName == "체력포션(소)"
-                            || item.itemName == "파워엘릭서" || item.itemName == "엘릭서")
-                        {
-                            Player.inst.HealHp(item);
-                        }
-                        else if (item.itemName == "마나포션(대)" || item.itemName == "마나포션(중)" || item.itemName == "마나포션(소)")
-                        {
-                            Player.inst.HealMp(item);
-                        }
-
-                        if (Player.slotCountClear)
-                        {
-                            SetSlotCount(-1);
-                            Player.slotCountClear = false;
-                        }
-                    }
-                }
-            }
+            UseItem();
         }
 
         else if (eventData.button == PointerEventData.InputButton.Left) //더블클릭
@@ -176,54 +132,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
             }
 
             if (isDoubleClick)
-            {       
-                if (item != null)
-                {
-                    if (item.itemType == Item.ItemType.Equipment)
-                    {
-                        pMemory = true;
-                        for (int i = 0; i < transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
-                        {
-                            if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)
-                            {
-                                if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item.Equals(item))
-                                {
-                                    pNumber = i;
-                                    break;
-                                }
-                            }
-                        }
-
-                        //장착
-                        information.EquipItem(item);
-                        if (Information.slotClear)
-                        {
-                            ClearSlot();
-                            Information.slotClear = false;
-                        }
-                    }
-                    else
-                    {
-                        if (item.itemType == Item.ItemType.Used)
-                        {
-                            if (item.itemName == "체력포션(대)" || item.itemName == "체력포션(중)" || item.itemName == "체력포션(소)"
-                                || item.itemName == "파워엘릭서" || item.itemName == "엘릭서")
-                            {
-                                Player.inst.HealHp(item);
-                            }
-                            else if (item.itemName == "마나포션(대)" || item.itemName == "마나포션(중)" || item.itemName == "마나포션(소)")
-                            {
-                                Player.inst.HealMp(item);
-                            }
-
-                            if (Player.slotCountClear)
-                            {
-                                SetSlotCount(-1);
-                                Player.slotCountClear = false;
-                            }
-                        }
-                    }
-                }
+            {
+                UseItem();
                 isDoubleClick = false;
             }
         }
@@ -347,6 +257,56 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     public void OnPointerExit(PointerEventData eventData)
     {
         theToolTipDatabase.HideToolTip();
+    }
+
+    private void UseItem()//장비 or 소모품 사용
+    {
+        if (item != null)
+        {
+            if (item.itemType == Item.ItemType.Equipment)
+            {
+                pMemory = true;
+                for (int i = 0; i < transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
+                {
+                    if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)
+                    {
+                        if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item.Equals(item))
+                        {
+                            pNumber = i;
+                            break;
+                        }
+                    }
+                }
+                //장착
+                information.EquipItem(item);
+                if (Information.slotClear)//장비를 장착할때 해당 장비창이 비어있을 때(교체할 필요가 없을 때)
+                {
+                    ClearSlot();
+                    Information.slotClear = false;
+                }
+            }
+            else
+            {
+                if (item.itemType == Item.ItemType.Used)
+                {
+                    if (item.itemName == "체력포션(대)" || item.itemName == "체력포션(중)" || item.itemName == "체력포션(소)"
+                        || item.itemName == "파워엘릭서" || item.itemName == "엘릭서")
+                    {
+                        Player.inst.HealHp(item);
+                    }
+                    else if (item.itemName == "마나포션(대)" || item.itemName == "마나포션(중)" || item.itemName == "마나포션(소)")
+                    {
+                        Player.inst.HealMp(item);
+                    }
+
+                    if (Player.slotCountClear)
+                    {
+                        SetSlotCount(-1);
+                        Player.slotCountClear = false;
+                    }
+                }
+            }
+        }
     }
 
     private void ChangeSlot()//a와 b의 자리를 바꿀 때,
