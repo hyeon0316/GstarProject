@@ -826,7 +826,7 @@ public class Player : LivingEntity
             firePoint.transform.forward = dir;
         }
 
-        if (GetDistance(transform.position.x, transform.position.z, destination.x, destination.z) < 0.1f)
+        if (GetDistance(transform.position.x, transform.position.z, destination.x, destination.z) < 0.5f)
         {
             isMove = false;
             animator.SetBool("isMove", false);
