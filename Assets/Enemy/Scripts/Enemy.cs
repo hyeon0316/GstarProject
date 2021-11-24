@@ -245,13 +245,9 @@ public class Enemy : LivingEntity
         _hubText.offset = DamageOffset;
         _hubText.damage = damage;
 
-
-
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage); //base, 부모클래스에 접근하는 기능
-
-        
-
+       
         enemyHpBarSlider.value = health;
     }
 

@@ -44,11 +44,11 @@ public class Boss : LivingEntity
 
     public GameObject skill_Trap;
 
-    private bool NextPageOn;
+    private bool NextPageOn;//보스 2페이지 시작
     private bool _IsInFirstSkill = false; //스킬 모션 재생할때 이동 제한
     private bool _StunOn = true;
-    private bool AllStop;
-    private bool TrapOnTime;
+    private bool AllStop; //스턴일때 행동제한 시키기 위한 변수
+    private bool TrapOnTime;//트랩이 활성화 될 동안 플레이어를 추적
 
     public GameObject StunEffect;
     private float followTrap = 1;    
@@ -154,7 +154,7 @@ public class Boss : LivingEntity
         {
             if (hasTarget)
             {
-                if (!AllStop) //스턴일때는 행동제한
+                if (!AllStop) 
                 {
                     LookAt();
                     Attack();
@@ -222,7 +222,6 @@ public class Boss : LivingEntity
                 canAttack = false;
             }
         }
-
         //공격 반경 밖에 있을 경우 추적하기
         else
         {
@@ -265,9 +264,7 @@ public class Boss : LivingEntity
             SoundManager.inst.SFXPlay("EKrEKr", SoundManager.inst.bossList[2]);
             yield return new WaitForSeconds(1.2f);
             skill_Trap.SetActive(false);
-        }
-        
-        
+        }     
         TrapOnTime = false;        
     }
 
