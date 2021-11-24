@@ -6,9 +6,9 @@ using UnityEngine;
 public class Item : ScriptableObject //굳이 게임오브젝트에 붙일 필요가 없어짐(따로관리가능)
 {
     [TextArea]
-    public string itemDesc;
+    public string itemDesc;//아이템 효과 설명
     [TextArea]
-    public string itemIntro;
+    public string itemIntro;//아이템 스토리 설명
     public string itemRank; //아이템의 등급
     public string itemName; //아이템의 이름
     public Sprite itemImage; //아이템의 이미지
@@ -28,8 +28,8 @@ public class Item : ScriptableObject //굳이 게임오브젝트에 붙일 필�
     public float itemMp;//포션회복량
     public float startingHp;//총 체력량
     public float startingMp;//총 마나량
-    public float itemPower;
-    public float itemDp;
+    public float itemPower;//파워
+    public float itemDp;//방어력
     public ItemType itemType;
 
 }

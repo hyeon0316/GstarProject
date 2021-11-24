@@ -31,12 +31,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     private InputNumber theInputNumber;
     private E_Slot e_Slot;
 
-    public static bool pMemory = false;
-    public static int pNumber;
+    public static bool pMemory = false;//장착된 장비와 착용할 장비가 서로 교체 될때 사용되는 변수
+    public static int pNumber;//배열로 선언된 슬롯들중 해당 슬롯의 인덱스를 기억하기 위한 변수
 
     public GameObject inforPage;
-
-
     private void Start()
     {
         e_Slot = FindObjectOfType<E_Slot>();
@@ -46,12 +44,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 
     private void Update()
     {
-        RectTransform rect = (RectTransform)go_CountImage.transform;//아이템 갯수당 이미지 표시
-        if(itemCount>=1 && itemCount<9)
+        SetCountImage(); 
+    }
+
+    private void SetCountImage()//아이템 갯수당 이미지 표시
+    {
+        RectTransform rect = (RectTransform)go_CountImage.transform;
+        if (itemCount >= 1 && itemCount < 9)
             rect.sizeDelta = new Vector2(13, 13);
-        else if(itemCount >= 10 && itemCount < 99)
+        else if (itemCount >= 10 && itemCount < 99)
             rect.sizeDelta = new Vector2(17, 13);
-        else if(itemCount >=100 && itemCount<999)
+        else if (itemCount >= 100 && itemCount < 999)
             rect.sizeDelta = new Vector2(21, 13);
     }
 
@@ -106,11 +109,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     {
         if (eventData.button == PointerEventData.InputButton.Right) //우클릭하여 아이템 사용
         {
-            pMemory = true;
             if (item != null)
             {
                 if (item.itemType == Item.ItemType.Equipment)
                 {
+                    pMemory = true;
                     for (int i = 0; i < transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
                     {
                         if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)
@@ -124,7 +127,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
                     }
                     //장착
                     information.EquipItem(item);
-                    if (Information.slotClear)
+                    if (Information.slotClear)//장비를 장착할때 해당 장비창이 비어있을 때(교체할 필요가 없을 때)
                     {
                         ClearSlot();
                         Information.slotClear = false;
@@ -173,12 +176,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
             }
 
             if (isDoubleClick)
-            {
-                pMemory = true;
+            {       
                 if (item != null)
                 {
                     if (item.itemType == Item.ItemType.Equipment)
                     {
+                        pMemory = true;
                         for (int i = 0; i < transform.parent.parent.parent.GetComponent<Inventory>().slots.Length; i++) //슬롯 자리 검사
                         {
                             if (transform.parent.parent.parent.GetComponent<Inventory>().slots[i].item != null)

@@ -37,7 +37,7 @@ public class Information : MonoBehaviour
         }
     }
 
-    private void TryInformation()
+    private void TryInformation()//장비창 On/Off
     {
         if (!SystemBase.gamePaused)
         {
@@ -67,18 +67,18 @@ public class Information : MonoBehaviour
         SoundManager.inst.SFXPlay("EquipItem", SoundManager.inst.uiList[0]);
         for (int i = 0; i < e_Slots.Length; i++)
         {
-            if (e_Slots[i].CompareTag(_item.EquipType))
+            if (e_Slots[i].CompareTag(_item.EquipType))//부위별 방어구가 정해진 자리에 장착되기 위함
             {
                 Item _tempItem = e_Slots[i].e_item;
                 e_Slots[i].AddEquipItem(_item);
 
-                if (_tempItem != null)
+                if (_tempItem != null)//장비를 장착할때 장비슬롯에 이미 같은 부위의 장비가 있을 때 
                 {
-                    theInventory.AcquireItem(_tempItem);
-                    Player.inst.TakeOffEffect(_tempItem);
+                    theInventory.AcquireItem(_tempItem);//이미 장착된 장비는 인벤토리로 이동(교체)
+                    Player.inst.TakeOffEffect(_tempItem);//장착되어 있었던 장비의 효과를 해제
                 }
                 else
-                    slotClear = true;
+                    slotClear = true;//인벤슬롯에서 장착후 장비슬롯으로 넘어가기에 인벤슬롯을 초기화
 
                 return;
             }        

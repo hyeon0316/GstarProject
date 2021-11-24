@@ -26,8 +26,8 @@ public class Inventory : MonoBehaviour
         }
     }
 
-        // Start is called before the first frame update
-        void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         slots = go_SlotParent.GetComponentsInChildren<Slot>(); //자식 객체들 제어
     }
@@ -45,7 +45,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void TryInventory()
+    private void TryInventory()//인벤토리 On/Off
     {
         if (!SystemBase.gamePaused)
         {
@@ -117,8 +117,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        return 0;
-        
+        return 0;        
     }
     public void Exit()
     {
