@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class UseSlotBase : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject go_UseSlotParent; //슬롯의 부모객체
 

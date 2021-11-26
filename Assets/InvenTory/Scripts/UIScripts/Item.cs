@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "New Item/item")]
-public class Item : ScriptableObject //굳이 게임오브젝트에 붙일 필요가 없어짐(따로관리가능)
+public class Item : ScriptableObject 
 {
     [TextArea]
     public string itemDesc;//아이템 효과 설명

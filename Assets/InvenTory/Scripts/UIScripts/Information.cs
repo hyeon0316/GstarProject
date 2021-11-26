@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Information : MonoBehaviour
-{
-    
+{   
     public static bool informationActivated = false;
     public static bool slotClear = false;
     [SerializeField]
@@ -14,14 +13,12 @@ public class Information : MonoBehaviour
 
     public E_Slot[] e_Slots;
     private Inventory theInventory;
-
-    
+  
     // Start is called before the first frame update
     void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
-        e_Slots = go_EslotParent.GetComponentsInChildren<E_Slot>();
-        
+        e_Slots = go_EslotParent.GetComponentsInChildren<E_Slot>();       
     }
 
     // Update is called once per frame

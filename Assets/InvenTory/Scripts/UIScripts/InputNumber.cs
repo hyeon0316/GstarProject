@@ -13,11 +13,9 @@ public class InputNumber : MonoBehaviour
     private Text text_Input;
     [SerializeField]
     private InputField if_text;
-
     [SerializeField]
     private GameObject go_Base;
    
-
     void Update()
     {
         if (activated)
@@ -69,7 +67,7 @@ public class InputNumber : MonoBehaviour
         StartCoroutine(DropItemCorountine(num));
     }
 
-    IEnumerator DropItemCorountine(int _num)
+    IEnumerator DropItemCorountine(int _num)//플레이어 앞에 (_num)수 만큼 아이템 생성
     {           
         for (int i = 0; i < _num; i++)
         {
@@ -84,14 +82,14 @@ public class InputNumber : MonoBehaviour
         activated = false;
     }
 
-    private bool CheckNumber(string _argString)
+    private bool CheckNumber(string _argString)//텍스트에 문자가 섞여있는지 검사
     {
         char[] _tempCharArray = _argString.ToCharArray();
         bool isNumber = true;
 
         for (int i = 0; i < _tempCharArray.Length; i++)
         {
-            if (_tempCharArray[i] >= 48 && _tempCharArray[i] <= 57)
+            if (_tempCharArray[i] >= 48 && _tempCharArray[i] <= 57)//아스키 코드 47~57 -> 숫자라는 의미
                 continue;
             isNumber = false;
         }

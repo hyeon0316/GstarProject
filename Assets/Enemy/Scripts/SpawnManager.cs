@@ -5,25 +5,15 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public Transform[] points;
-
     public GameObject monsterPrefab;
-
     public int maxMonster = 10;
-
     public float spawnTime;
 
     // Start is called before the first frame update
     void Start()
     {
         points = GameObject.Find("SpawnPoints").GetComponentsInChildren<Transform>();
-
         StartCoroutine("SpawnMonster");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator SpawnMonster()
@@ -35,8 +25,7 @@ public class SpawnManager : MonoBehaviour
             if(monsterCount < maxMonster)
             {
                 yield return new WaitForSeconds(spawnTime);
-
-                
+            
                 for (int i = 0; i < points.Length; i++)
                 {
                     float rand1 = Random.Range(points[i].position.x - 4, points[i].position.x + 4);

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-
 public class Boss : LivingEntity
 { 
     public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
@@ -140,14 +139,13 @@ public class Boss : LivingEntity
         }
     }
 
-
     void StopPathFinder(bool val)
     {
         //Debug.LogFormat("StopPathFinder : {0}", val);
         pathFinder.isStopped = val;
     }
-    //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
-    private IEnumerator UpdatePath()
+  
+    private IEnumerator UpdatePath()  //추적할 대상의 위치를 주기적으로 찾아 경로 갱신
     {
         //살아 있는 동안 무한 루프
         while (!dead)
@@ -168,18 +166,17 @@ public class Boss : LivingEntity
                 canMove = false;
                 //반지름 20f의 콜라이더로 whatIsTarget 레이어를 가진 콜라이더 검출하기
                 Collider[] colliders = Physics.OverlapSphere(transform.position, 35f, whatIsTarget);
-
-                //모든 콜라이더를 순회하면서 살아 있는 LivingEntity 찾기
-                for (int i = 0; i < colliders.Length; i++)
+              
+                for (int i = 0; i < colliders.Length; i++) //모든 콜라이더를 순회하면서 살아 있는 LivingEntity 찾기
                 {
-                    //콜라이더로부터 LivingEntity 컴포넌트 가져오기
-                    LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();
+                    
+                    LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();//콜라이더로부터 LivingEntity 컴포넌트 가져오기
 
-                    //LivingEntity 컴포넌트가 존재하며, 해당 LivingEntity가 살아 있다면
-                    if (livingEntity != null && !livingEntity.dead)
+                    
+                    if (livingEntity != null && !livingEntity.dead)//LivingEntity 컴포넌트가 존재하며, 해당 LivingEntity가 살아 있다면
                     {
-                        //추적 대상을 해당 LivingEntity로 설정
-                        targetEntity = livingEntity;
+                        
+                        targetEntity = livingEntity;//추적 대상을 해당 LivingEntity로 설정
 
                         //for문 루프 즉시 정지
                         break;
@@ -376,7 +373,6 @@ public class Boss : LivingEntity
         //사망 애니메이션 재생
         bossAnimator.SetTrigger("doDie");
 
- 
         //LivingEntity의 DIe()를 실행하여 기본 사망 처리 실행
         base.Die();
     }

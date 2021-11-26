@@ -5,19 +5,19 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
-
     public Item item; //획득한 아이템
     public int itemCount; //획득한 아이템의 개수
     public Image itemImage; //아이템의 이미지
 
-    private float doubleClickTime = 0.25f; //더블클릭 관련 변수들
+    //더블클릭 관련 변수들
+    private float doubleClickTime = 0.25f; 
     private bool isOneClick = false;
     private bool isDoubleClick = false;
     private double c_Timer = 0;
 
     //필요 컴포넌트
     [SerializeField]
-    private Text text_Count;
+    private Text text_Count;//아이템 갯수 표시
     [SerializeField]
     private GameObject go_CountImage; //빈슬롯일땐 카운트배경이미지를 띄우지 않기 위함
     [SerializeField]
@@ -158,8 +158,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         }
     }
 
-
-
     public void OnEndDrag(PointerEventData eventData) //드래그가 끝날때 호출
     {
         //정보창 Off
@@ -277,8 +275,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
                         }
                     }
                 }
-                //장착
-                information.EquipItem(item);
+                information.EquipItem(item);//장착
                 if (Information.slotClear)//장비를 장착할때 해당 장비창이 비어있을 때(교체할 필요가 없을 때)
                 {
                     ClearSlot();
@@ -347,8 +344,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
             DragSlot_Equip.instance.dragSlot_Equip.ClearSlot();
     }
 
-    private void Inter_Change_uSlot()
-    //아이템 사용창에서 인벤창으로 드래그(아이템 사용창에는 이미 소모품 상태임)
+    private void Inter_Change_uSlot()//아이템 사용창에서 인벤창으로 드래그(아이템 사용창에는 이미 소모품 상태임)
     {
         if (item ==null || item.itemType == Item.ItemType.Used)//item 이 null인지 먼저 검사해야함
         {

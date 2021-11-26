@@ -14,7 +14,6 @@ public class EnemyHpBar : MonoBehaviour
     public Vector3 offset = Vector3.zero; //HpBar 위치 조절용, offset은 어디에 HpBar를 위치 출력할지
     public Transform enemyTr; //적 캐릭터의 위치
 
-
     void Start()
     {
         canvas = GetComponentInParent<Canvas>(); //부모가 가지고있는 canvas 가져오기, Enemy HpBar canvas임
@@ -22,7 +21,6 @@ public class EnemyHpBar : MonoBehaviour
         rectParent = canvas.GetComponent<RectTransform>();
         rectHp = this.gameObject.GetComponent<RectTransform>();
     }
-
     //LateUpdate는 update 이후 실행함, 적의 움직임은 Update에서 실행되니 움직임 이후에 HpBar를 출력함
     private void LateUpdate()
     {
@@ -31,10 +29,9 @@ public class EnemyHpBar : MonoBehaviour
             var screenPos = Camera.main.WorldToScreenPoint(enemyTr.position + offset); //월드좌표(3D)를 스크린좌표(2D)로 변경, offset은 오브젝트 머리 위치
             
             var localPos = Vector2.zero;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, uiCamera, out localPos); //스크린좌표에서 캔버스에서 사용할 수 있는 좌표로 변경?
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent, screenPos, uiCamera, out localPos); //스크린좌표에서 캔버스에서 사용할 수 있는 좌표로 변경
 
             rectHp.localPosition = localPos; //그 좌표를 localPos에 저장, 거기에 hpbar를 출력
         }
     }
-
 }
