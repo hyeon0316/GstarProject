@@ -171,11 +171,9 @@ public class Boss : LivingEntity
                 {
                     
                     LivingEntity livingEntity = colliders[i].GetComponent<LivingEntity>();//콜라이더로부터 LivingEntity 컴포넌트 가져오기
-
-                    
+             
                     if (livingEntity != null && !livingEntity.dead)//LivingEntity 컴포넌트가 존재하며, 해당 LivingEntity가 살아 있다면
-                    {
-                        
+                    {                  
                         targetEntity = livingEntity;//추적 대상을 해당 LivingEntity로 설정
 
                         //for문 루프 즉시 정지
@@ -204,25 +202,21 @@ public class Boss : LivingEntity
         if (!dead && dist < attackRange)
         {
             StopPathFinder(true);
+          
+            canMove = false; //공격 반경 안에 있으면 움직임을 멈춘다.
 
-            //공격 반경 안에 있으면 움직임을 멈춘다.
-            canMove = false;
-            //최근 공격 시점에서 attackDelay 이상 시간이 지나면 공격 가능
-            if (lastAttackTime + attackDelay <= Time.time)
+            if (lastAttackTime + attackDelay <= Time.time) //최근 공격 시점에서 attackDelay 이상 시간이 지나면 공격 가능
             {
                 canAttack = true;
             }
-
-            //공격 반경 안에 있지만, 딜레이가 남아있을 경우
-            else
+            else//공격 반경 안에 있지만, 딜레이가 남아있을 경우
             {
                 canAttack = false;
             }
         }
-        //공격 반경 밖에 있을 경우 추적하기
-        else
+        else//공격 반경 밖에 있을 경우 추적하기
         {
-            int ranAction = Random.Range(0, 30); //나중에 스위치문으로 돌리기
+            int ranAction = Random.Range(0, 30);
             if (ranAction == 3)
             {
                 StartCoroutine(FisrtSkill());
