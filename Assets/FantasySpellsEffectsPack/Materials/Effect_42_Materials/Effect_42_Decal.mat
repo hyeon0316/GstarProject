@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Effect_42_Decal
   m_Shader: {fileID: 4800000, guid: e63b0715cc2bc8242838908bf7c4cb23, type: 3}
   m_ShaderKeywords: 
@@ -100,4 +101,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _NoiseValue: {r: 0.5, g: 2, b: 0.5, a: 0.75}
     - _RimColor: {r: 0.03137254, g: 0.28373224, b: 0.882353, a: 1}
-    - _TintColor: {r: 0.6176471, g: 3, b: 1.3241379, a: 1}
+    - _TintColor: {r: 3.8163095, g: 0.5861734, b: 0.30602485, a: 1}

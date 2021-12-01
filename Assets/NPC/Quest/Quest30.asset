@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e55f7fefea36b64d8ec590fb8309311, type: 3}
+  m_Name: Quest30
+  m_EditorClassIdentifier: 
+  state: 0
+  title: 
+  content: "\uAE30\uC0AC\uB2E8\uC7A5\uD55C\uD14C \uB9D0\uAC78\uAE30"
+  completeDialog: 
+  qusetComplte: 0
+  collectObjectives: []
+  rewards:
+  - ItemReward: {fileID: 11400000, guid: f747b4599c69c4d45bc122c54a3cd6bb, type: 2}
+    ItemRewardCount: 0
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 202090d96a6deff41837ff515d8586b0, type: 2}
+    ItemRewardCount: 0
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 6ebb11a495e9a4c47a9c14e43c185ea9, type: 2}
+    ItemRewardCount: 0
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 06f4760d66770f34fa707dbe14018805, type: 2}
+    ItemRewardCount: 0
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 4d7314a067a58084399b4e5af146b23b, type: 2}
+    ItemRewardCount: 0
+    EXPReward: 0
+  - ItemReward: {fileID: 11400000, guid: 941ae73e41a3e8a40bf1159def77058a, type: 2}
+    ItemRewardCount: 0
+    EXPReward: 0

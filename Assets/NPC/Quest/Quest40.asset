@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e55f7fefea36b64d8ec590fb8309311, type: 3}
+  m_Name: Quest40
+  m_EditorClassIdentifier: 
+  state: 0
+  title: 
+  content: "\"\uB358\uC804 1\"\uC5D0\uC11C \uACE0\uBE14\uB9B0\uC744 \uC7A1\uACE0
+    \"\uAD11\uAE30 \uAC00\uB2A5\uD55C \uB208\" \uAD6C\uD558\uAE30"
+  completeDialog: 
+  qusetComplte: 2
+  collectObjectives:
+  - item: {fileID: 11400000, guid: 52f97a60fb360c7409a548679885569e, type: 2}
+    amount: 10
+  rewards:
+  - ItemReward: {fileID: 11400000, guid: 13894ed2496e1c3469df93e8bdec839c, type: 2}
+    ItemRewardCount: 50
+    EXPReward: 150
+  - ItemReward: {fileID: 11400000, guid: 73317fa941e6f9547a4d84709a46ea57, type: 2}
+    ItemRewardCount: 10
+    EXPReward: 0

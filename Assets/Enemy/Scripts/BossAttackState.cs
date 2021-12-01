@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class BossAttackState : MonoBehaviour
 {
+    public AudioClip skillSound;
     public float dmg1;
     public void TagCheck(Collider other, float dmg)
     {
         SetDmg(dmg);
         if (other.tag == "Player")
         {
+            if(skillSound!=null)
+                SoundManager.inst.SFXPlay(skillSound.name, skillSound);
             Debug.Log("[Player] , 데미지 :" + dmg);
             OnDamageEvent(other.gameObject);
             Destroy(this.gameObject); //이펙트가 사라져도 계속 데미지 받는 것 방지

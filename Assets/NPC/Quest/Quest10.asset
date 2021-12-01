@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e55f7fefea36b64d8ec590fb8309311, type: 3}
+  m_Name: Quest10
+  m_EditorClassIdentifier: 
+  state: 1
+  title: 
+  content: "\"\uAD11\uC0B0 1\"\uC5D0\uC11C \uB3D9\uAD74\uAC70\uBBF8\uB97C \uC7A1\uACE0
+    \"\uAC70\uBBF8\uC758 \uC2EC\uC7A5\" \uAD6C\uD558\uAE30"
+  completeDialog: tx
+  qusetComplte: 3
+  collectObjectives:
+  - item: {fileID: 11400000, guid: 7fe1ac4c180f58a4aa3b0ee610bd8101, type: 2}
+    amount: 5
+  rewards:
+  - ItemReward: {fileID: 11400000, guid: 1d0943641168cb040989e7cef097d26d, type: 2}
+    ItemRewardCount: 30
+    EXPReward: 100
+  - ItemReward: {fileID: 11400000, guid: cf522139b95a52349b17f0944e12a09e, type: 2}
+    ItemRewardCount: 30
+    EXPReward: 0

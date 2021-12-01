@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "New Item/item")]
-public class Item : ScriptableObject //굳이 게임오브젝트에 붙일 필요가 없어짐(따로관리가능)
+public class Item : ScriptableObject 
 {
+    [TextArea]
+    public string itemDesc;//아이템 효과 설명
+    [TextArea]
+    public string itemIntro;//아이템 스토리 설명
+    public string itemRank; //아이템의 등급
     public string itemName; //아이템의 이름
     public Sprite itemImage; //아이템의 이미지
     public GameObject itemPrefab; //아이템의 프리팹
 
     public string EquipType; //무기 유형
+    public string itemTypeName;//한글로 표기할 아이템 타입
 
     public enum ItemType
     {
@@ -18,11 +24,12 @@ public class Item : ScriptableObject //굳이 게임오브젝트에 붙일 필�
         Ingredient, //재료
     }
 
-    public float itemHp;
-    public float itemMp;
-    public float itemDp;
-    public float itemPower;
-    public ItemType itemType; 
-
+    public float itemHp;//포션회복량
+    public float itemMp;//포션회복량
+    public float startingHp;//총 체력량
+    public float startingMp;//총 마나량
+    public float itemPower;//파워
+    public float itemDp;//방어력
+    public ItemType itemType;
 
 }

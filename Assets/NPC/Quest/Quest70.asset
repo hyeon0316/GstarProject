@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e55f7fefea36b64d8ec590fb8309311, type: 3}
+  m_Name: Quest70
+  m_EditorClassIdentifier: 
+  state: 0
+  title: 
+  content: 
+  completeDialog: 
+  qusetComplte: 0
+  collectObjectives: []
+  rewards:
+  - ItemReward: {fileID: 11400000, guid: 73317fa941e6f9547a4d84709a46ea57, type: 2}
+    ItemRewardCount: 30
+    EXPReward: 500

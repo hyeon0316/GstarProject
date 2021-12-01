@@ -3,13 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class Enemy_Far : LivingEntity
 {
+
+    public float audioVol;
+    public AudioClip beAttackSound;
+    public Vector3 nameOffset = new Vector3(0f, 5f, 0);
+    public GameObject nameText;
+    public TextMeshProUGUI nameObject;
+
+    public Vector3 DamageOffset = new Vector3(-0.5f, 5f, 0);
+    public GameObject damageText;
+
+    public GameObject[] _item;
+    public float[] _dropP;
     public GameObject hpBarPrefab;
     public Vector3 hpBarOffset = new Vector3(-0.5f, 2.4f, 0);
 
     public Canvas enemyHpBarCanvas;
+    public Canvas nameCanvas;
     public Slider enemyHpBarSlider;
 
     public LayerMask whatIsTarget; //추적대상 레이어
@@ -18,28 +32,28 @@ public class Enemy_Far : LivingEntity
     private NavMeshAgent pathFinder; //경로 계산 AI 에이전트
     private float dist; //적과 추적대상과의 거리
 
-    /*public ParticleSystem hitEffect; //피격 이펙트
-    public AudioClip deathSound;//사망 사운드
-    public AudioClip hitSound; //피격 사운드
-    */
+    
 
     //스태프
     public GameObject firePoint; //매직미사일이 발사될 위치
     public GameObject magicMissilePrefab; //사용할 매직미사일 할당
-    public GameObject magicMissile; //Instantiate()메서드로 생성하는 매직미사일을 담는 게임오브젝트
+    GameObject magicMissile; //Instantiate()메서드로 생성하는 매직미사일을 담는 게임오브젝트
 
 
     private Animator enemyAnimator;
-    //private AudioSource enemyAudioPlayer; //오디오 소스 컴포넌트
+    
 
     public float damage = 30f; //공격력
+    public float attackSpeed = 10f; //공격력
     public float attackDelay = 2.5f; //공격 딜레이
     private float lastAttackTime; //마지막 공격 시점
 
     public Transform tr;
-    private float attackRange = 10f;
+    private float attackRange = 15f;
 
     public float LookatSpeed = 1f; //0~1
+
+    public int enemyExp;
 
     //추적 대상이 존재하는지 알려주는 프로퍼티
     private bool hasTarget
@@ -60,6 +74,11 @@ public class Enemy_Far : LivingEntity
     private bool canMove;
     private bool canAttack;
 
+    void SetNaviStop(bool val)
+    {
+        pathFinder.isStopped = val;
+    }
+
     private void Awake()
     {
         //게임 오브젝트에서 사용할 컴포넌트 가져오기
@@ -70,6 +89,8 @@ public class Enemy_Far : LivingEntity
 
     void Start()
     {
+        SetHpBar();
+        SetName();
         //게임 오브젝트 활성화와 동시에 AI의 탐지 루틴 시작
         StartCoroutine(UpdatePath());
         tr = GetComponent<Transform>();
@@ -90,12 +111,21 @@ public class Enemy_Far : LivingEntity
             //추적 대상이 존재할 경우 거리 계산은 실시간으로 해야하니 Update()
             dist = Vector3.Distance(tr.position, targetEntity.transform.position);
         }
+
+        if (!dead && hasTarget)
+        {
+            //추적 대상 바라보기
+            Vector3 dir = targetEntity.transform.position - this.transform.position;
+
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
+                Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
+        }
     }
 
     void SetHpBar()
     {
         enemyHpBarCanvas = GameObject.Find("EnemyHpBarCanvas").GetComponent<Canvas>();
-        GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, enemyHpBarCanvas.transform);
+        GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
 
         var _hpbar = hpBar.GetComponent<EnemyHpBar>();
 
@@ -104,6 +134,17 @@ public class Enemy_Far : LivingEntity
         enemyHpBarSlider = _hpbar.GetComponent<Slider>(); //체력감소시키기위해 getcomponent(게임 실행 시 연결이 안되었던 문제 해결)
     }
 
+    void SetName()
+    {
+        nameCanvas = GameObject.Find("NameCanvas").GetComponent<Canvas>();
+        GameObject namePrefab = Instantiate<GameObject>(nameText, transform.position, Quaternion.identity, nameCanvas.transform);
+        var _namePrefab = namePrefab.GetComponent<EnemyHpBar>();
+
+        _namePrefab.enemyTr = this.gameObject.transform;
+        _namePrefab.offset = nameOffset;
+
+        nameObject = _namePrefab.GetComponent<TextMeshProUGUI>();
+    }
     //추적할 대상의 위치를 주기적으로 찾아 경로 갱신, 대상이 있으면 공격한다.
     private IEnumerator UpdatePath()
     {
@@ -117,7 +158,7 @@ public class Enemy_Far : LivingEntity
             else
             {
                 //추적 대상이 없을 경우, AI 이동 정지
-                pathFinder.isStopped = true;
+                SetNaviStop(true);
                 canAttack = false;
                 canMove = false;
 
@@ -152,14 +193,11 @@ public class Enemy_Far : LivingEntity
         //자신이 사망X, 최근 공격 시점에서 attackDelay 이상 시간이 지났고, 플레이어와의 거리가 공격 사거리안에 있다면 공격 가능
         if (!dead && dist <= attackRange)
         {
+            SetNaviStop(true);
             //공격 반경 안에 있으면 움직임을 멈춘다.
             canMove = false;
 
-            //추적 대상 바라보기
-            Vector3 dir = targetEntity.transform.position - this.transform.position;
-
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
-                Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
+            
 
             //공격 딜레이가 지났다면 공격 애니 실행
             if (lastAttackTime + attackDelay <= Time.time)
@@ -181,36 +219,40 @@ public class Enemy_Far : LivingEntity
             //추적 대상이 존재 && 추적 대상이 공격 반경 밖에 있을 경우, 경로를 갱신하고 AI 이동을 계속 진행
             canMove = true;
             canAttack = false;
-            pathFinder.isStopped = false; //계속 이동
+            SetNaviStop(false); //계속 이동
             pathFinder.SetDestination(targetEntity.transform.position);
         }
     }
 
-    //유니티 애니메이션 이벤트로 지팡이를 앞으로 휘두를 떄 메서드 실행
+    //유니티 애니메이션 이벤트로 지팡이를 앞으로 휘두를 떄 메서드 실행(미사일 발사)
     public void ShamanFire()
     {
-        magicMissile = Instantiate(magicMissilePrefab, firePoint.transform.position, firePoint.transform.rotation); //Instatiate()로 매직 미사일 프리팹을 복제 생성한다.
+        magicMissile = Instantiate(magicMissilePrefab, firePoint.transform.position, firePoint.transform.rotation);
+        magicMissile.GetComponent<EnemyAttack>().dmg = damage;
+        magicMissile.GetComponent<EnemyAttack>().speed = attackSpeed;
+
+        Destroy(magicMissile, 2f);
+
     }  
 
     //데미지를 입었을 때 실행할 처리
     public override void OnDamage(float damage)
     {
-        /*사망하지 않을 상태에서만 피격 효과 재생
         if (!dead)
         {
-            //공격 받은 지점과 방향으로 피격 효과 재생
-            hitEffect.transform.position = hitPoint;
-            hitEffect.transform.rotation = Quaternion.LookRotation(hitNormal);
-            hitEffect.Play();
-
-            //피격 효과음 재생
-            enemyAudioPlayer.PlayOnShot(hitSound);
+            SoundManager.inst.SFXPlay("beAttack", beAttackSound, audioVol);
         }
-        */
+
 
         //피격 애니메이션 재생
         enemyAnimator.SetTrigger("Hit");
 
+        GameObject hubText = Instantiate(damageText, transform.position, Quaternion.identity, enemyHpBarCanvas.transform);
+        var _hubText = hubText.GetComponent<DamageText>();
+
+        _hubText.enemyTr = this.gameObject.transform;
+        _hubText.offset = DamageOffset;
+        _hubText.damage = damage;
 
         //LivingEntity의 OnDamage()를 실행하여 데미지 적용
         base.OnDamage(damage);
@@ -221,9 +263,9 @@ public class Enemy_Far : LivingEntity
     //사망 처리
     public override void Die()
     {
+        Player.inst.ExpPlus(enemyExp);
         enemyHpBarSlider.gameObject.SetActive(false);
-       
-
+        nameObject.gameObject.SetActive(false);
         //다른 AI를 방해하지 않도록 자신의 모든 콜라이더를 비활성화
         Collider[] enemyColliders = GetComponents<Collider>();
         for (int i = 0; i < enemyColliders.Length; i++)
@@ -232,15 +274,21 @@ public class Enemy_Far : LivingEntity
         }
 
         //AI추적을 중지하고 네비메쉬 컴포넌트를 비활성화
-        pathFinder.isStopped = true;
+        SetNaviStop(true);
         pathFinder.enabled = false;
 
         //사망 애니메이션 재생
-        enemyAnimator.SetTrigger("Die");
-        /*//사망 효과음 재생
-        enemyAudioPlayer.PlayOnShot(deathSound);
-        */
-
+        enemyAnimator.ResetTrigger("Hit");
+        enemyAnimator.SetTrigger("doDie");
+       
+        GameObject[] newItem;
+        newItem = new GameObject[_item.Length];
+        for (int i = 0; i < _item.Length; i++)
+        {
+            float k = Random.Range(0, 100);
+            if (_dropP[i] > k)
+                newItem[i] = Instantiate(_item[i], transform.position + transform.up , Quaternion.identity);
+        }
         //LivingEntity의 DIe()를 실행하여 기본 사망 처리 실행
         base.Die();
 
@@ -255,6 +303,7 @@ public class Enemy_Far : LivingEntity
 
         //체력 슬라이더 활성화
         enemyHpBarSlider.gameObject.SetActive(true);
+        nameObject.gameObject.SetActive(true);
         //체력 슬라이더의 최댓값을 기본 체력값으로 변경
         enemyHpBarSlider.maxValue = startingHealth;
         //체력 슬라이더의 값을 현재 체력값으로 변경

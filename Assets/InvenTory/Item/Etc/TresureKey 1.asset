@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74eee2caa57c644e8b0de16214fbd48, type: 3}
+  m_Name: TresureKey 1
+  m_EditorClassIdentifier: 
+  itemDesc: 
+  itemIntro: 
+  itemRank: 
+  itemName: "\uBCF4\uBB3C\uBC29 \uC5F4\uC1E0 \uD30C\uD3B8 1"
+  itemImage: {fileID: 21300000, guid: d5a7fef20a303ca4ab5cdca547d2a4e0, type: 3}
+  itemPrefab: {fileID: 9176625609703804342, guid: 07f474e060acabb4a8706e191a3ef676,
+    type: 3}
+  EquipType: 
+  itemTypeName: "\uC7AC\uB8CC"
+  itemHp: 0
+  itemMp: 0
+  startingHp: 0
+  startingMp: 0
+  itemDp: 0
+  itemPower: 0
+  itemType: 2

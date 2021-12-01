@@ -20,18 +20,23 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField]
     private GameObject go_CountImage;
 
-    public void UseItem()
+    [SerializeField]
+    private ToolTipDataBase theToolTipDatabase;
+
+    public void UseItem() //소모품 사용
     {
         if (item.itemType == Item.ItemType.Used)
         {
-            if (item.itemName == "Potion_Hp")
+            if (item.itemName == "체력포션(대)" || item.itemName == "체력포션(중)" || item.itemName == "체력포션(소)"
+                || item.itemName == "파워엘릭서" || item.itemName == "엘릭서")
             {
                 Player.inst.HealHp(item);
             }
-            else if (item.itemName == "Potion_Mp")
+            else if (item.itemName == "마나포션(대)" || item.itemName == "마나포션(중)" || item.itemName == "마나포션(소)")
             {
                 Player.inst.HealMp(item);
             }
+
             if (Player.slotCountClear)
             {
                 SetSlotCount(-1);
@@ -119,8 +124,15 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         int _tempItemCount = itemCount;
 
         AddItem(DragSlot_Used.instance.dragSlot_Used.item, DragSlot_Used.instance.dragSlot_Used.itemCount);//b 자리에 a가 들감
-
-        if (_tempItem != null)//a자리에 b가 들어갈 때   
+        if (_tempItem != null && DragSlot_Used.instance.dragSlot_Used.item.itemName == _tempItem.itemName)
+        {
+            if (DragSlot_Used.instance.dragSlot_Used.item.itemType == Item.ItemType.Used)
+            {
+                SetSlotCount(DragSlot_Used.instance.dragSlot_Used.itemCount);
+                DragSlot_Used.instance.dragSlot_Used.ClearSlot();
+            }
+        }
+        else if (_tempItem != null)//a자리에 b가 들어갈 때   
             DragSlot_Used.instance.dragSlot_Used.AddItem(_tempItem, _tempItemCount);//a와 b가 교환할 때       
         else
             DragSlot_Used.instance.dragSlot_Used.ClearSlot();//빈자리로 이동할 때
@@ -131,12 +143,18 @@ public class Use_Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         Item _tempItem = item;
         int _tempItemCount = itemCount;
 
-        if(item == null)
-            AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
-        else if (DragSlot.instance.dragSlot.item.itemName == item.itemName)
-            SetSlotCount(DragSlot.instance.dragSlot.itemCount);
+        
+        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
+        if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName == _tempItem.itemName)
+        {
+            if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName == item.itemName)
+            {
+                SetSlotCount(DragSlot.instance.dragSlot.itemCount);
+                DragSlot.instance.dragSlot.ClearSlot();
+            }
+        }
 
-        if (_tempItem != null && DragSlot.instance.dragSlot.item.itemName != item.itemName)
+        else if (_tempItem != null)
             DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
         else
             DragSlot.instance.dragSlot.ClearSlot();

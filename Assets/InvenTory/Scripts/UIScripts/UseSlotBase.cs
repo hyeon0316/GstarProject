@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class UseSlotBase : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject go_UseSlotParent; //슬롯의 부모객체
 
@@ -17,11 +16,14 @@ public class UseSlotBase : MonoBehaviour
     }
     void Update()
     {
-        if (InputNumber.activated == false)
-            CommendNumber();
+        if (!SystemBase.gamePaused)
+        {
+            if (!InputNumber.activated)
+                CommendNumber();
+        }
     }
 
-    private void CommendNumber()
+    private void CommendNumber()//넘버(1,2,3,4) 키 입력 부여
     {
         for (int i = 0; i < uSlots.Length; i++)
         {
@@ -47,6 +49,14 @@ public class UseSlotBase : MonoBehaviour
                 {
                     uSlots[2].UseItem();
                     Debug.Log(3);
+                }
+            }
+            else if (i == 3)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    uSlots[3].UseItem();
+                    Debug.Log(4);
                 }
             }
         }

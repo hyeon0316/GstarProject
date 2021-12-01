@@ -7,13 +7,11 @@ public class TypeEffect : MonoBehaviour
     public int CharPerSeconds;
     public GameObject nextText;
     public bool isAnim;
-
     string targetMsg;
     Text msgText;
     int index;
-    
-
     float interval;
+
     private void Awake()
     {
         msgText = GetComponent<Text>();
@@ -22,18 +20,16 @@ public class TypeEffect : MonoBehaviour
     {
         if (isAnim)
         {
-            msgText.text = targetMsg;
-            CancelInvoke();
-
+            CancelInvoke();//실행중이던 Invoke함수 캔슬
             EffectEnd();
         }
         else
-        {
+        { 
             targetMsg = msg;
             EffectStart();
         }
     }
-    void EffectStart()
+    void EffectStart()//대화창의 텍스트가 한글자씩 출력
     {
         isAnim = true;
         msgText = GetComponent<Text>();
@@ -41,9 +37,9 @@ public class TypeEffect : MonoBehaviour
         index = 0;
         nextText.SetActive(false);
         interval = 1 / CharPerSeconds;
-        Invoke("Effecting", interval);
+        Invoke("Effecting", 0.1f);
     }
-    void Effecting()
+    void Effecting()//텍스트 출력 진행 중
     {
         if(msgText.text == targetMsg)
         {
@@ -52,18 +48,12 @@ public class TypeEffect : MonoBehaviour
         }
         msgText.text += targetMsg[index];
         index++;
-        Invoke("Effecting", interval);
-
+        Invoke("Effecting", 0.1f);//재귀함수
     }
-    void EffectEnd()
+    void EffectEnd()//텍스트 모두 출력
     {
+        msgText.text = targetMsg;
         isAnim = false;
         nextText.SetActive(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

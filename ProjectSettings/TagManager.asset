@@ -16,6 +16,8 @@ TagManager:
   - Accessory
   - accessory
   - weapon
+  - Chest
+  - Plane
   layers:
   - Default
   - TransparentFX
@@ -29,9 +31,9 @@ TagManager:
   - NPCLayer
   - Map
   - PlayerCube
-  - 
-  - 
-  - 
+  - Over UI
+  - Postprocessing
+  - QuestObject
   - 
   - 
   - 

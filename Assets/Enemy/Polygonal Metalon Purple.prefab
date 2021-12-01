@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 8452019850263486950}
   - component: {fileID: 8452019850263486954}
   - component: {fileID: 1740318272}
+  - component: {fileID: 7278082603354769055}
   m_Layer: 0
   m_Name: Polygonal Metalon Purple
   m_TagString: Enemy
@@ -1005,7 +1006,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8452879453363789572}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4, y: 3.6213162, z: 4}
@@ -1022,21 +1023,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1ec41423f079749a4387639c5c2fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 300
   startingMana: 0
-  hpBarPrefab: {fileID: 8623151006859436585, guid: 7cba76812ea025c4d8c36401807d207a,
+  audioVol: 1
+  attackSound: {fileID: 8300000, guid: 3cd702b366fe1f044bd788368267e52b, type: 3}
+  beAttackSound: {fileID: 8300000, guid: 9a889339afe0778498b779c7154fcd6b, type: 3}
+  nameOffset: {x: -0.3, y: 3.3, z: 0}
+  nameText: {fileID: 8597663803167320284, guid: 8b97fd7d7d36ca94c99cbc7b67ba5018,
+    type: 3}
+  nameObject: {fileID: 7520521355036155184, guid: 8b97fd7d7d36ca94c99cbc7b67ba5018,
+    type: 3}
+  DamageOffset: {x: -0.5, y: 5, z: 0}
+  damageText: {fileID: 4159248534066521095, guid: 822f3e0f5a781454ca78b97498d80965,
+    type: 3}
+  _item:
+  - {fileID: 9176625609703804342, guid: fa84c9eb984a4174bbd4d45b528cccae, type: 3}
+  _dropP:
+  - 60
+  hpBarPrefab: {fileID: 8623151006859436585, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   hpBarOffset: {x: -0.5, y: 2.4, z: 0}
   enemyHpBarCanvas: {fileID: 7770384954947578960, guid: a8822f48b7eaaa24f9b725c8cb2bf801,
     type: 3}
-  enemyHpBarSlider: {fileID: 8623151006859436591, guid: 7cba76812ea025c4d8c36401807d207a,
+  nameCanvas: {fileID: 3722500032732411186, guid: 230d5b7badc3f414189b119ea8a4b2b6,
+    type: 3}
+  enemyHpBarSlider: {fileID: 8623151006859436591, guid: 1e2b44de74c407141a485cdbca5d78a0,
     type: 3}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  damage: 20
+  damage: 150
   attackDelay: 1
   tr: {fileID: 8456353972450749242}
+  attackRange: 3.5
+  LookatSpeed: 1
+  enemyExp: 20
 --- !u!195 &1740318272
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1059,6 +1080,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &7278082603354769055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452879453363789572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8452887693619456426
 GameObject:
   m_ObjectHideFlags: 0

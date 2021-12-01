@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory inst= null;
     public static bool inventoryActivated = false; //인벤창을 열땐 캐릭터의 기본공격 등 제한
 
     //필요 컴포넌트
@@ -12,8 +13,18 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject go_SlotParent; //슬롯의 부모객체
 
+    [SerializeField]
+    private ToolTipDataBase theToolTipDatabase;
+
     public Slot[] slots; //슬롯들
 
+    void Awake()
+    {
+        if (inst == null) // 싱글톤
+        {
+            inst = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,16 +40,19 @@ public class Inventory : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                inventoryActivated = false;
+                Invoke("Exit", 0.01f);//시스템창 키입력과 분리 시켜주기 위함
             }
         }
     }
 
-    private void TryInventory()
+    private void TryInventory()//인벤토리 On/Off
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if (!SystemBase.gamePaused)
         {
-            inventoryActivated = !inventoryActivated;         
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                inventoryActivated = !inventoryActivated;
+            }
         }
         if (inventoryActivated)
             OpenInventory();
@@ -54,6 +68,7 @@ public class Inventory : MonoBehaviour
     private void CloseInventory()
     {
         go_InventoryBase.SetActive(false);
+        theToolTipDatabase.HideToolTip();
     }
 
     public void AcquireItem(Item _item, int _count = 1) //기본값 1개
@@ -90,7 +105,20 @@ public class Inventory : MonoBehaviour
             return;
         }
     }
-
+    public int GetItemCount(Item _item)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item != null)
+            {
+                if (slots[i].item.itemName == _item.itemName)//이미 아이템이 있을 시 개수만 증가
+                {
+                    return slots[i].itemCount;
+                }
+            }
+        }
+        return 0;        
+    }
     public void Exit()
     {
         inventoryActivated = false;
