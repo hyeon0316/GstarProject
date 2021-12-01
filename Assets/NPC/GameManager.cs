@@ -10,14 +10,13 @@ public class GameManager : MonoBehaviour
     public GameObject talkPanel;
     public GameObject skillBG;
     public TypeEffect talk;
-    public GameObject scanObject;
+    public GameObject scanObject;//ObjData를 담는 변수
     public bool isAction;
     public int talkIndex;
 
     public void Awake()
     {
         scanObject = null;
-        //Debug.Log(questManager.CheckQuest());
     }
     private void Update()
     {
@@ -34,7 +33,7 @@ public class GameManager : MonoBehaviour
         ObjData objData = scanObject.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc);
         talkPanel.SetActive(isAction);
-        skillBG.SetActive(false);
+        skillBG.SetActive(false);//대화창 활성화일때 UI끄기
     }
 
     void Talk(int id, bool isNpc)
@@ -52,7 +51,7 @@ public class GameManager : MonoBehaviour
             questTalkIndex = questManager.GetQuestTalkIndex(id);
             talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
         }
-        
+
         if (talkData == null)
         {
             isAction = false;
@@ -60,18 +59,10 @@ public class GameManager : MonoBehaviour
             Player.inst.npcCam.SetActive(false);
             skillBG.SetActive(true);
             if (Player.inst.h != null)
-                Player.inst.h.SetActive(true);
-            Debug.Log("Talkdata == null  id:"+id+","+questManager.CheckQuest(id));
+                Player.inst.h.SetActive(true);//대화중에 꺼주었던 머리위에 표시되는 nameCanVas를 다시 켜줌           
             return;
         }
-        if(isNpc)
-        {
-            talk.SetMsg(talkData);
-        }
-        else
-        {
-            talk.SetMsg(talkData);
-        }
+        talk.SetMsg(talkData);
         talkIndex++;
         isAction = true;
     }

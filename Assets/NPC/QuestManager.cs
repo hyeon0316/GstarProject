@@ -25,21 +25,13 @@ public class QuestManager : MonoBehaviour
     void GenerateData()
     {
         questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000, 7000, 7000, 7000 }));
-
         questList.Add(20, new QuestData("반지 찾아주기.", new int[] { 7000, 7000, 7000, 7000, 7000 }));
-
         questList.Add(30, new QuestData("기사 단장한테 말걸기.", new int[] { 7000, 9000 }));
-
         questList.Add(40, new QuestData("리치정보 얻기", new int[] { 4000, 4000, 4000, 4000 }));
-
         questList.Add(50, new QuestData("보물방 열쇠얻기", new int[] { 4000, 4000, 4000, 4000 }));
-
         questList.Add(60, new QuestData("보스방 열쇠얻기", new int[] { 4000, 4000, 4000, 4000 }));
-
         questList.Add(70, new QuestData("리치를 잡고 대화하기", new int[] { 4000, 4000}));
-
         questList.Add(80, new QuestData("촌장이랑 대화하기", new int[] {7000, 7000 }));
-
     }
 
     public int GetQuestTalkIndex(int id)

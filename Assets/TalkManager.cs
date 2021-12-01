@@ -22,8 +22,6 @@ public class TalkManager : MonoBehaviour
         talkData.Add(700, new string[] { "\"대마법사의 로브\"를 얻었다.\n\"대마법사의 부츠\"를 얻었다." });
         talkData.Add(800, new string[] { "빈 상자다." });
 
-
-
         talkData.Add(1000, new string[] { "안녕", "이 곳에 처음 왔구나?." });
         talkData.Add(2000, new string[] { "안녕?", "타지 사람은 오랜만이네~." });
         talkData.Add(3000, new string[] { "반갑네." });
@@ -93,7 +91,7 @@ public class TalkManager : MonoBehaviour
         Debug.Log(id + "," + talkIndex);
         if(!talkData.ContainsKey(id))
         {
-            //해당 퀘스트 진행중 대시가 없을때 진행순서
+            //해당 퀘스트 진행중 대사가 없을때 진행순서
             //퀘스트 맨처음 대사 가지고옴
             if (talkData.ContainsKey(id - id % 10))
             {
@@ -109,10 +107,5 @@ public class TalkManager : MonoBehaviour
             return null;
         else
             return talkData[id][talkIndex];
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

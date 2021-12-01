@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Mapcon : MonoBehaviour
+public class Mapcon : MonoBehaviour//미니맵(캐릭터 위치표시, 퀘스트 길잡이)
 {
     // Start is called before the first frame update
     void Start()

@@ -57,7 +57,6 @@ public class NpcManager : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "Town")
         {
-
             _target = GameObject.Find("Wizard");
             _target.GetComponent<ObjData>().questQ.SetActive(wizardNpc);
             _target = GameObject.Find("Witch");

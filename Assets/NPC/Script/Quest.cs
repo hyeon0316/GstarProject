@@ -17,7 +17,7 @@ public class Quest : ScriptableObject
     public string title;
 
     [TextArea(2, 6)]
-    public string content, completeDialog;
+    public string content;
     public int qusetComplte;
     public CollectObjective[] collectObjectives;
     public Rewards[] rewards;
@@ -43,7 +43,7 @@ public abstract class Objective
     public int amount;
     public int currentAmount { get; set; }
 
-    public bool IsComplete { get { return currentAmount >= amount; } }
+    public bool IsComplete { get { return currentAmount >= amount; } }//재료를 다 모을 시
 }
 
 [Serializable]
