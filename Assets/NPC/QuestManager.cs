@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.SceneManagement;
+
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager inst = null;
@@ -22,7 +22,7 @@ public class QuestManager : MonoBehaviour
         GenerateData();
         firstQuset = true;
     }
-    void GenerateData()
+    void GenerateData()//퀘스트 종류
     {
         questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000, 7000, 7000, 7000 }));
         questList.Add(20, new QuestData("반지 찾아주기.", new int[] { 7000, 7000, 7000, 7000, 7000 }));
@@ -34,7 +34,7 @@ public class QuestManager : MonoBehaviour
         questList.Add(80, new QuestData("촌장이랑 대화하기", new int[] {7000, 7000 }));
     }
 
-    public int GetQuestTalkIndex(int id)
+    public int GetQuestTalkIndex()
     {
         return questId + questActionIndex;
     }
@@ -109,12 +109,7 @@ public class QuestManager : MonoBehaviour
                     NpcManager.inst.minor = true;
                     FindNpc.inst.npcorMap = false;
                     NpcManager.inst.MapCheck();
-                    NpcManager.inst.NpcCheck();
-                    /*
-                        NpcManager.inst.wizardNpc = false;
-                        NpcManager.inst.NpcCheck();
-                    */
-                    // findnpc.tartget= 광산1>광산2포탈>
+                    NpcManager.inst.NpcCheck();                  
                 }
                 if (questActionIndex == 3)
                 {
@@ -205,7 +200,6 @@ public class QuestManager : MonoBehaviour
                     NpcManager.inst.dungeon = true;
                     FindNpc.inst.npcorMap = false;
                     NpcManager.inst.MapCheck();
-
                 }
                 if (questActionIndex == 2)
                 {

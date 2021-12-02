@@ -6,7 +6,6 @@ using TMPro;
 public class NpcName : MonoBehaviour
 {
     public Canvas nameCanvas;
-
     public Vector3 nameOffset = new Vector3(0f, 5f, 0);
     public GameObject nameText;
     public TextMeshProUGUI nameObject;

@@ -193,10 +193,8 @@ public class Boss : LivingEntity
         this.transform.rotation = Quaternion.Lerp(this.transform.rotation,
             Quaternion.LookRotation(dir), Time.deltaTime * LookatSpeed);
     }
-
-
-    //추적 대상과의 거리에 따라 공격 실행
-    public virtual void Attack()
+  
+    public virtual void Attack()//추적 대상과의 거리에 따라 공격 실행
     {
         //자신이 사망X, 추적 대상과의 거리이 공격 사거리 안에 있다면(기본공격)
         if (!dead && dist < attackRange)

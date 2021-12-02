@@ -13,7 +13,6 @@ public enum QuestState
 public class Quest : ScriptableObject
 {
     public QuestState state = QuestState.Startable;
-
     public string title;
 
     [TextArea(2, 6)]
@@ -22,7 +21,7 @@ public class Quest : ScriptableObject
     public CollectObjective[] collectObjectives;
     public Rewards[] rewards;
     
-    public bool IsCompleteObjectives
+    public bool IsCompleteObjectives//재료 퀘스트 완료 상태 확인
     {
         get
         {
@@ -49,7 +48,6 @@ public abstract class Objective
 [Serializable]
 public class CollectObjective : Objective
 {
-
     public void UpdateItemCount()
     {
         currentAmount = Inventory.inst.GetItemCount(item);
