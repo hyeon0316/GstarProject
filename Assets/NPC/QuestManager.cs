@@ -22,7 +22,7 @@ public class QuestManager : MonoBehaviour
         GenerateData();
         firstQuset = true;
     }
-    void GenerateData()//퀘스트 종류
+    void GenerateData()//퀘스트 설정
     {
         questList.Add(10, new QuestData("촌장이랑 대화하기.", new int[] { 8000, 7000, 7000, 7000, 7000 }));
         questList.Add(20, new QuestData("반지 찾아주기.", new int[] { 7000, 7000, 7000, 7000, 7000 }));
@@ -41,16 +41,13 @@ public class QuestManager : MonoBehaviour
 
     public string CheckQuest(int id)
     {
-        Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
         if (id == questList[questId].npcId[questActionIndex])
             questActionIndex++;
 
-        Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
         ControlObject();
 
         if (questActionIndex == questList[questId].npcId.Length)
             NextQuest();
-        Debug.Log("qusetActionindex:" + questActionIndex + "\n id:" + id);
         Player.inst.questTitleText.text = questList[questId].questName;
         if (Player.inst.questIng != null)
             Player.inst.questconText.text = Player.inst.questIng.content;
@@ -72,6 +69,7 @@ public class QuestManager : MonoBehaviour
         }
         return questList[questId].questName;
     }
+
     public void InitPanl()
     {
         Player.inst.questconText.text = Player.inst.questIng.content;
@@ -82,7 +80,6 @@ public class QuestManager : MonoBehaviour
             obj.UpdateItemCount();
             questText += obj.item.itemName + "\n" + obj.currentAmount + " / " + obj.amount + "\n";
         }
-
         Player.inst.questProText.text = questText;
     }
     void ControlObject()
@@ -303,7 +300,6 @@ public class QuestManager : MonoBehaviour
                 }
                 break;
         }
-
     }
     
     void NextQuest()

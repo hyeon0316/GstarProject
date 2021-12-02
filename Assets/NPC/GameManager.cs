@@ -33,10 +33,10 @@ public class GameManager : MonoBehaviour
         ObjData objData = scanObject.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc);
         talkPanel.SetActive(isAction);
-        skillBG.SetActive(false);//대화창 활성화일때 UI끄기
+        skillBG.SetActive(false);
     }
 
-    void Talk(int id, bool isNpc)
+    void Talk(int id, bool isNpc)//대화
     {
         int questTalkIndex;
         string talkData;

@@ -21,7 +21,7 @@ public class Quest : ScriptableObject
     public CollectObjective[] collectObjectives;
     public Rewards[] rewards;
     
-    public bool IsCompleteObjectives//재료 퀘스트 완료 상태 확인
+    public bool IsCompleteObjectives//퀘스트 완료 조건 확인
     {
         get
         {
